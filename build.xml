@@ -30,7 +30,7 @@
           username="${developer.username}"
           password="${developer.password}" 
           serverurl="${developer.serverurl}" 
-          deployroot="/Users/Ward/Code/..../src">
+          deployroot="/Users/Ward/Code/crowdexchange/src">
         </sf:deploy>
       </target>
 
