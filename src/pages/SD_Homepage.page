@@ -1,0 +1,8 @@
+<apex:page sidebar="false" showHeader="false">
+
+    <!-- Include Header -->
+    <apex:include pageName="SD_Header"/>
+    
+    <!-- Include Footer -->
+    <apex:include pageName="SD_Footer"/>
+</apex:page>
