@@ -16,6 +16,14 @@
                 <behavior>Required</behavior>
                 <field>Milestone__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Scheduled_Date__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Completed_Date__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns/>
         <style>TwoColumnsTopToBottom</style>
@@ -46,6 +54,6 @@
     </layoutSections>
     <relatedLists>
         <fields>NAME</fields>
-        <relatedList>MemberActivityMilestone__c.ActivityMilestones__c</relatedList>
+        <relatedList>UserActivityMilestone__c.ActivityMilestones__c</relatedList>
     </relatedLists>
 </Layout>

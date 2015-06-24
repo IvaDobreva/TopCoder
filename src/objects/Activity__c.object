@@ -24,6 +24,13 @@
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>Assigned_Member__c</fullName>
+        <label>Assigned Member</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Activities_User_Assigned_To</relationshipName>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>Budget_Authorized__c</fullName>
         <defaultValue>false</defaultValue>
         <label>Budget Authorized</label>
@@ -35,6 +42,11 @@
         <precision>18</precision>
         <scale>2</scale>
         <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Date_Member_Assigned__c</fullName>
+        <label>Date Member Assigned</label>
+        <type>DateTime</type>
     </fields>
     <fields>
         <fullName>Description__c</fullName>
@@ -49,6 +61,13 @@
         <precision>18</precision>
         <scale>2</scale>
         <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>NumberOfRequirements__c</fullName>
+        <label>Number of Requirements</label>
+        <summaryForeignKey>Requirement__c.Activity__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <type>Summary</type>
     </fields>
     <fields>
         <fullName>Possible_Score__c</fullName>
@@ -87,11 +106,31 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Open</fullName>
+                <fullName>Public</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>In Progress</fullName>
+                <fullName>In Registration</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>In Assignment</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>In Submission</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>In Review</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Review Complete</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Accepted</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>

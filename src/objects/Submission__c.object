@@ -36,11 +36,7 @@
         <label>Status</label>
         <picklist>
             <picklistValues>
-                <fullName>Submitted</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>In Review</fullName>
+                <fullName>Ready to Review</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>

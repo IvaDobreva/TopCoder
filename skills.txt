@@ -1,0 +1,31 @@
+Skills__c java = new Skills__c(Name = 'Java');
+Skills__c c = new Skills__c(Name = 'C');
+Skills__c perl = new Skills__c(Name = 'Perl');
+Skills__c ruby = new Skills__c(Name = 'Ruby');
+Skills__c html = new Skills__c(Name = 'HTML');
+Skills__c xml = new Skills__c(Name = 'XML');
+Skills__c css = new Skills__c(Name = 'CSS');
+Skills__c javascript = new Skills__c(Name = 'Javascript');
+Skills__c mysql = new Skills__c(Name = 'MySQL');
+Skills__c oracle = new Skills__c(Name = 'Oracle');
+Skills__c visualforce = new Skills__c(Name = 'Visualforce');
+
+
+
+List<Skills__c> skillList =  new List<Skills__c> { java,
+									                                c,
+									                                perl,
+									                                ruby,
+									                                html,
+									                                xml,
+									                                css,
+									                                javascript,
+									                                mysql,
+									                                oracle,
+									                                visualforce
+									                                      };
+															                                    
+insert skillList;
+
+
+

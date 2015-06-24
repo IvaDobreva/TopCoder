@@ -56,6 +56,18 @@
                 <behavior>Edit</behavior>
                 <field>Reviews_Completed__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>NumberOfRequirements__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Assigned_Member__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Date_Member_Assigned__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns/>
         <style>TwoColumnsTopToBottom</style>
@@ -98,7 +110,7 @@
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
-        <relatedList>MemberActivityMilestone__c.Activity__c</relatedList>
+        <relatedList>UserActivityMilestone__c.Activity__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
@@ -111,5 +123,9 @@
     <relatedLists>
         <fields>NAME</fields>
         <relatedList>ActivitySkills__c.Activity__c</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>NAME</fields>
+        <relatedList>Registration__c.Activity__c</relatedList>
     </relatedLists>
 </Layout>

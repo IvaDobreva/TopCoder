@@ -11,12 +11,22 @@
         <type>MasterDetail</type>
     </fields>
     <fields>
+        <fullName>Completed_Date__c</fullName>
+        <label>Completed Date</label>
+        <type>DateTime</type>
+    </fields>
+    <fields>
         <fullName>Milestone__c</fullName>
         <label>Milestone</label>
         <referenceTo>Milestone__c</referenceTo>
         <relationshipName>ActivityMilestones</relationshipName>
         <relationshipOrder>1</relationshipOrder>
         <type>MasterDetail</type>
+    </fields>
+    <fields>
+        <fullName>Scheduled_Date__c</fullName>
+        <label>Scheduled Date</label>
+        <type>DateTime</type>
     </fields>
     <label>Activity Milestone</label>
     <nameField>

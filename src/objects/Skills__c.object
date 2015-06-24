@@ -1275,9 +1275,8 @@
         <label>All</label>
     </listViews>
     <nameField>
-        <displayFormat>S-{000000000}</displayFormat>
         <label>Skills Name</label>
-        <type>AutoNumber</type>
+        <type>Text</type>
     </nameField>
     <pluralLabel>Skills</pluralLabel>
     <searchLayouts/>

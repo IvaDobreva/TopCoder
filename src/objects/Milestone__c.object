@@ -4,10 +4,39 @@
     <enableHistory>true</enableHistory>
     <enableReports>true</enableReports>
     <fields>
-        <fullName>Due_Date__c</fullName>
-        <label>Due Date</label>
+        <fullName>Default_Time_Period__c</fullName>
+        <description>The default duration in days for a particular activity phase.</description>
+        <label>Default Time Period</label>
+        <precision>3</precision>
+        <scale>0</scale>
+        <type>Number</type>
+    </fields>
+    <fields>
+        <fullName>Display_In_Initial_Setup__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Whether milestone dates will be populated by publishers during initial setup.</description>
+        <label>Display In Initial Setup</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Step_Number__c</fullName>
+        <label>Step Number</label>
+        <precision>2</precision>
         <required>true</required>
-        <type>DateTime</type>
+        <scale>0</scale>
+        <type>Number</type>
+    </fields>
+    <fields>
+        <fullName>Type__c</fullName>
+        <label>Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Software Development</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <type>Picklist</type>
     </fields>
     <label>Milestone</label>
     <listViews>

@@ -4,7 +4,6 @@
         <members>*</members>
         <name>ApexClass</name>
     </types>
-    <!--
     <types>
         <members>*</members>
         <name>ApexComponent</name>
@@ -43,9 +42,6 @@
         <name>CustomTab</name>
     </types>
     <types>
-        <name>EmailTemplate</name>
-    </types>
-    <types>
         <members>*</members>
         <name>Layout</name>
     </types>
@@ -77,6 +73,5 @@
         <members>*</members>
         <name>Workflow</name>
     </types>
-    -->
     <version>15.0</version>
 </Package>
