@@ -4,8 +4,21 @@
     <enableHistory>true</enableHistory>
     <enableReports>true</enableReports>
     <fields>
-        <fullName>Activity_Type__c</fullName>
-        <label>Activity Type</label>
+        <fullName>Assigned_Member__c</fullName>
+        <label>Assigned Member</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Activities_User_Assigned_To</relationshipName>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Budget_Authorized__c</fullName>
+        <defaultValue>false</defaultValue>
+        <label>Budget Authorized</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Challenge_Type__c</fullName>
+        <label>Challenge Type</label>
         <picklist>
             <picklistValues>
                 <fullName>Assignment</fullName>
@@ -22,19 +35,6 @@
             <sorted>false</sorted>
         </picklist>
         <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>Assigned_Member__c</fullName>
-        <label>Assigned Member</label>
-        <referenceTo>User</referenceTo>
-        <relationshipName>Activities_User_Assigned_To</relationshipName>
-        <type>Lookup</type>
-    </fields>
-    <fields>
-        <fullName>Budget_Authorized__c</fullName>
-        <defaultValue>false</defaultValue>
-        <label>Budget Authorized</label>
-        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>Cost__c</fullName>
@@ -158,9 +158,17 @@
         <summaryOperation>sum</summaryOperation>
         <type>Summary</type>
     </fields>
+    <fields>
+        <fullName>hasAwards__c</fullName>
+        <defaultValue>false</defaultValue>
+        <label>hasAwards</label>
+        <type>Checkbox</type>
+    </fields>
     <label>Activity</label>
     <listViews>
         <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Assigned_Member__c</columns>
         <filterScope>Everything</filterScope>
         <label>All</label>
     </listViews>

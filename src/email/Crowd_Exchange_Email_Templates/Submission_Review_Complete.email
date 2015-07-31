@@ -1,0 +1,7 @@
+Hello {!User.Name},
+
+The review of your submission for the activity {!Activity__c.Name} is complete. Please log in to view.
+
+Sincerely,
+
+The CrowdExchange Platform Team

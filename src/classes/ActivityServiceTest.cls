@@ -3,7 +3,7 @@ private class ActivityServiceTest {
     static IActivityService mService = null;
     static IActivityService getService() {
         if (mService == null)
-            mService = new ActivityService();
+            mService = new ActivityService(); 
         return mService;
     }
 
@@ -29,6 +29,23 @@ private class ActivityServiceTest {
         System.assertEquals(1, result.size(), 'Size of the returned collection must be 1');
         System.assertNotEquals(null, result[0].Id, 'Activity was returned with no Id. Guess insertion failed');
     }
+    
+     /**
+     * Just simple insert single activity test.
+     */
+    @isTest static void createActivity_positive() {
+        Story__c story = TestFactory.createStory();
+        insert story;
+        Activity__c activity = TestFactory.createActivity(story);
+        
+        Test.startTest();
+
+        Activity__c result = getService().createActivity(activity);
+
+        Test.stopTest();
+        System.assertNotEquals(null, result.Id, 'Activity was returned with no Id. Guess insertion failed');
+    }
+    
     /**
      * Creation fails because Activity has no story reference
      */
@@ -64,6 +81,50 @@ private class ActivityServiceTest {
         System.assertEquals(activity.Description__c, updatedActivity.Description__c, 'Activity\'s field was not updated');
 
     }
+    
+    /**
+     * Just simple single activity update test.
+     */
+    @isTest static void updateActivity_positive() {
+    	User user = TestFactory.createUser();
+        insert user;
+        
+        Activity__c activity = createActivity();
+        activity.Description__c = 'NewTestDescription';
+		activity.Assigned_Member__c = user.Id;
+		activity.Date_Member_Assigned__c = DateTime.now();
+		
+        Test.startTest();
+
+        Activity__c result = getService().updateActivity(activity);
+
+        Test.stopTest();
+        
+        Activity__c updatedActivity = [SELECT Description__c, Assigned_Member__c, Date_Member_Assigned__c FROM Activity__c WHERE Id = :activity.Id LIMIT 1];
+        System.assertEquals(activity.Description__c, updatedActivity.Description__c, 'Activity\'s field was not updated');
+        System.assertEquals(activity.Assigned_Member__c, user.Id, 'Activity\'s field Assigned Member was not updated');
+    }
+    
+    /**
+     * Just assign Member To Activity test.
+     */
+    @isTest static void assignMemberToActivity_positive() {
+    	User user = TestFactory.createUser();
+        insert user;
+        
+        Activity__c activity = createActivity();
+        activity.Description__c = 'NewTestDescription';
+		
+        Test.startTest();
+
+        getService().assignMemberToActivity(user, activity);
+
+        Test.stopTest();
+        
+        Activity__c updatedActivity = [SELECT Description__c, Assigned_Member__c, Date_Member_Assigned__c FROM Activity__c WHERE Id = :activity.Id LIMIT 1];
+        System.assertEquals(activity.Description__c, updatedActivity.Description__c, 'Activity\'s field was not updated');
+        System.assertEquals(activity.Assigned_Member__c, user.Id, 'Activity\'s field Assigned Member was not updated');
+    }
 
     /**
      * Just simple delete test
@@ -97,13 +158,12 @@ private class ActivityServiceTest {
         insert milestones;
         List<ActivityMilestones__c> activityMilestones = new List<ActivityMilestones__c>();
         for (Milestone__c milestone : milestones)
-            activityMilestones.add(TestFactory.createActivityMilestone(activity, milestone));
+            activityMilestones.add(TestFactory.createActivityMilestone(activity, milestone, Date.today()));
         insert activityMilestones;
-        //Take Submission Date milestone and create MemberActivityMilestone
-        insert TestFactory.createMemberActivityMilestone(UserInfo.getUserId(), activity, activityMilestones[3]);
+        
         Test.startTest();
 
-        List<Activity__c> result = getService().getActivitiesForUser(new User(Id = UserInfo.getUserId()));
+        List<Activity__c> result = getService().getActivitiesForUser(new User(Id = user.Id));
 
         Test.stopTest();
         System.assertEquals(1, result.size(), 'Activity was not found');
@@ -125,7 +185,7 @@ private class ActivityServiceTest {
         insert milestones;
         List<ActivityMilestones__c> activityMilestones = new List<ActivityMilestones__c>();
         for (Milestone__c milestone : milestones)
-            activityMilestones.add(TestFactory.createActivityMilestone(activity, milestone));
+            activityMilestones.add(TestFactory.createActivityMilestone(activity, milestone, Date.today()));
         insert activityMilestones;
 
         Test.startTest();
@@ -213,6 +273,26 @@ private class ActivityServiceTest {
         System.assertEquals(0, result.size(), 'Search must return no activities for the Android skill.');
 
     }
+    
+    /*
+    	Test getActivity with activity assigned to as user
+    */
+    @isTest static void getActivitiesByActivityId() {
+    	User user = TestFactory.createUser();
+        insert user;
+        
+        Activity__c activity = createActivity();
+		activity.Assigned_Member__c = user.Id;
+		update activity;
+		
+        Test.startTest();
+
+        Activity__c result = getService().getActivity(activity.Id);
+
+        Test.stopTest();
+        System.assertEquals(user.Id, result.Assigned_Member__c);
+    }
+    
     /**
      * Just simple create test.
      */
@@ -310,7 +390,7 @@ private class ActivityServiceTest {
         insert milestones;
         List<ActivityMilestones__c> activityMilestones = new List<ActivityMilestones__c>();
         for (Milestone__c milestone : milestones)
-            activityMilestones.add(TestFactory.createActivityMilestone(activity, milestone));
+            activityMilestones.add(TestFactory.createActivityMilestone(activity, milestone, Date.today()));
         insert activityMilestones;
 
         Test.startTest();
@@ -428,8 +508,9 @@ private class ActivityServiceTest {
         List<Milestone__c> milestones = TestFactory.createDefaultMilestones();
         insert milestones;
         List<ActivityMilestones__c> activityMilestones = new List<ActivityMilestones__c>();
+        Integer dayIndex = 0;
         for (Milestone__c milestone : milestones)
-            activityMilestones.add(TestFactory.createActivityMilestone(activity, milestone));
+            activityMilestones.add(TestFactory.createActivityMilestone(activity, milestone, Date.today().addDays(dayIndex++)));
         insert activityMilestones;
         //Creating default requirements
         for (Default_Requirement__c defaultRequirement : defaultRequirements)
@@ -460,7 +541,7 @@ private class ActivityServiceTest {
 
         List<ActivityMilestones__c> activityMilestones = new List<ActivityMilestones__c>();
         for (Milestone__c milestone : milestones)
-            activityMilestones.add(TestFactory.createActivityMilestone(activity, milestone));
+            activityMilestones.add(TestFactory.createActivityMilestone(activity, milestone, Date.today()));
         insert activityMilestones;
         //Creating default requirements
         for (Default_Requirement__c defaultRequirement : defaultRequirements)
@@ -472,6 +553,7 @@ private class ActivityServiceTest {
             List<Requirement__c> result = getService().addRequirements(requirements);
         } catch (Exception ex) {
             operationFailed = true;
+            
         }
 
         Test.stopTest();
@@ -490,8 +572,9 @@ private class ActivityServiceTest {
         List<Milestone__c> milestones = TestFactory.createDefaultMilestones();
         insert milestones;
         List<ActivityMilestones__c> activityMilestones = new List<ActivityMilestones__c>();
+        Integer dayIndex = 0;
         for (Milestone__c milestone : milestones)
-            activityMilestones.add(TestFactory.createActivityMilestone(activity, milestone));
+            activityMilestones.add(TestFactory.createActivityMilestone(activity, milestone, Date.today().addDays(dayIndex++)));
         insert activityMilestones;
         //Creating default requirements
         for (Default_Requirement__c defaultRequirement : defaultRequirements)
@@ -522,8 +605,9 @@ private class ActivityServiceTest {
         List<Milestone__c> milestones = TestFactory.createDefaultMilestones();
         insert milestones;
         List<ActivityMilestones__c> activityMilestones = new List<ActivityMilestones__c>();
+        Integer dayIndex = 0;
         for (Milestone__c milestone : milestones)
-            activityMilestones.add(TestFactory.createActivityMilestone(activity, milestone));
+            activityMilestones.add(TestFactory.createActivityMilestone(activity, milestone, Date.today().addDays(dayIndex++)));
         insert activityMilestones;
         //Creating default requirements
         for (Default_Requirement__c defaultRequirement : defaultRequirements)
@@ -569,8 +653,9 @@ private class ActivityServiceTest {
         List<Milestone__c> milestones = TestFactory.createDefaultMilestones();
         insert milestones;
         List<ActivityMilestones__c> activityMilestones = new List<ActivityMilestones__c>();
+        Integer dayIndex = 0;
         for (Milestone__c milestone : milestones)
-            activityMilestones.add(TestFactory.createActivityMilestone(activity, milestone));
+            activityMilestones.add(TestFactory.createActivityMilestone(activity, milestone, Date.today().addDays(dayIndex++)));
         insert activityMilestones;
         Test.startTest();
 
@@ -592,7 +677,7 @@ private class ActivityServiceTest {
         insert milestones;
         List<ActivityMilestones__c> activityMilestones = new List<ActivityMilestones__c>();
         for (Milestone__c milestone : milestones)
-            activityMilestones.add(TestFactory.createActivityMilestone(activity, milestone));
+            activityMilestones.add(TestFactory.createActivityMilestone(activity, milestone, Date.today()));
         insert activityMilestones;
         Test.startTest();
 
@@ -637,7 +722,7 @@ private class ActivityServiceTest {
         insert milestones;
         List<ActivityMilestones__c> activityMilestones = new List<ActivityMilestones__c>();
         for (Milestone__c milestone : milestones)
-            activityMilestones.add(TestFactory.createActivityMilestone(activity, milestone));
+            activityMilestones.add(TestFactory.createActivityMilestone(activity, milestone, Date.today()));
         insert activityMilestones;
         Award__c award = TestFactory.createAward(activity);
         insert award;
@@ -654,5 +739,69 @@ private class ActivityServiceTest {
         System.assertEquals(newActivityRequirements.size(), newActivityRequirements.size(), 'Seems like not all Activity Requirements were cloned');
         List<Award__c> newActivityAwards = [SELECT Id FROM Award__c WHERE Activity__c = :newActivity.Id];
         System.assertEquals(newActivityAwards.size(), newActivityAwards.size(), 'Seems like not all Activity Awards were cloned');
+    }
+    
+    /**
+     * Test registering a member to an activity.
+     * Added against TC30050600 
+     */
+    @isTest static void registerMember_positive() {
+        Activity__c activity = createActivity();
+        User user = TestFactory.createUser();
+        insert user;
+        Test.startTest();
+
+        getService().registerMember(user.Id, activity);
+    
+        Test.stopTest();
+
+        List<Registration__c> results = [SELECT  Name, Activity__c, Registration_Date__c, User__c FROM Registration__c WHERE Activity__c = :activity.Id];
+        
+        System.assertEquals(1, results.size(), 'There one Registration corresponding to given activity');
+		System.assertEquals(user.Id, results[0].User__c);
+    }
+    
+    /**
+     * Test getRegistrations method.
+     * Added against TC30050600 
+     */
+    @isTest static void getRegistrations_positive() {
+        Activity__c activity = createActivity();
+        User user = TestFactory.createUser();
+        insert user;
+        
+        // Creating a register member record 
+        Registration__c registration = TestFactory.createRegisterMember(user.Id, activity);
+        insert registration;
+        
+        Test.startTest();
+
+        List<Registration__c> results = getService().getRegistrations(activity);
+    
+        Test.stopTest();
+        System.assertEquals(1, results.size(), 'There one Registration corresponding to given activity');
+    }
+    
+    /**
+     * Test deregisterMember method.
+     * Added against TC30050600 
+     */
+    @isTest static void deregisterMemberTest() {
+        Activity__c activity = createActivity();
+        User user = TestFactory.createUser();
+        insert user;
+        
+        // Creating a register member record 
+        Registration__c registration = TestFactory.createRegisterMember(user.Id, activity);
+        insert registration;
+        
+        Test.startTest();
+		
+        getService().deregisterMember(registration.Id);
+    
+        Test.stopTest();
+        List<Registration__c> results = [SELECT  Name FROM Registration__c WHERE Activity__c = :activity.Id];
+        System.assertEquals(0, results.size(), 'There should be no Registrations corresponding to given activity');
+        
     }
 }

@@ -92,6 +92,11 @@
         <type>Number</type>
     </fields>
     <label>Summary Data</label>
+    <listViews>
+        <fullName>All</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
     <nameField>
         <label>Dashboard Information Name</label>
         <type>Text</type>

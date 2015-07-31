@@ -1,0 +1,7 @@
+Hello {!User.Name},
+
+The new story {!Story__c.Name} has been published. Please log in to view.
+
+Sincerely,
+
+The CrowdExchange Platform Team

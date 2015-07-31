@@ -10,7 +10,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Activity_Type__c</field>
+                <field>Challenge_Type__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -68,6 +68,10 @@
                 <behavior>Edit</behavior>
                 <field>Date_Member_Assigned__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>hasAwards__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns/>
         <style>TwoColumnsTopToBottom</style>
@@ -107,14 +111,6 @@
     <relatedLists>
         <fields>NAME</fields>
         <relatedList>Submission__c.Activity__c</relatedList>
-    </relatedLists>
-    <relatedLists>
-        <fields>NAME</fields>
-        <relatedList>UserActivityMilestone__c.Activity__c</relatedList>
-    </relatedLists>
-    <relatedLists>
-        <fields>NAME</fields>
-        <relatedList>Skills__c.Activity__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>

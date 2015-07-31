@@ -52,8 +52,4 @@
         <layoutColumns/>
         <style>CustomLinks</style>
     </layoutSections>
-    <relatedLists>
-        <fields>NAME</fields>
-        <relatedList>UserActivityMilestone__c.ActivityMilestones__c</relatedList>
-    </relatedLists>
 </Layout>

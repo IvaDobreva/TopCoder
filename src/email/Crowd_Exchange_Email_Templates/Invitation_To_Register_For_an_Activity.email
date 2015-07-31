@@ -1,0 +1,7 @@
+Hello {!User.Name},
+
+You have received an invitation to register for the activity {!Activity__c.Name}. Please log in to view.
+
+Sincerely,
+
+The CrowdExchange Platform Team

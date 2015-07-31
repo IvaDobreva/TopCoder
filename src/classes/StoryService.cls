@@ -58,7 +58,7 @@ public with sharing class StoryService implements IStoryService {
 		String storyId = story.Id;
 		return [SELECT  Id,
 						Name,
-						Activity_Type__c,
+						Challenge_Type__c,
 						Budget_Authorized__c,
 						Cost__c,
 						Description__c,
@@ -68,7 +68,8 @@ public with sharing class StoryService implements IStoryService {
 						Resource_Commitment__c,
 						Status__c,
 						Total_Awards__c,
-						Story__c
+						Story__c,
+						hasAwards__c
 				FROM Activity__c WHERE Story__c = :storyId];
 	}
 	/**
@@ -101,8 +102,9 @@ public with sharing class StoryService implements IStoryService {
 	 * @return      List<Story__c>
 	 */
 	public List<Story__c> getStoriesForUser(User user){
+		// //Updated against TC30050600 
 		//Collect Stories' IDs for member. NOTE: we can skip submissions, because if User has Submission for an activity he definetly has MemberActivityMilestone
-		List<Activity__c> activities = [SELECT Story__c FROM Activity__c WHERE Id IN (SELECT Activity__c FROM UserActivityMilestone__c WHERE User__c = :user.Id)];
+		List<Activity__c> activities = [SELECT Story__c FROM Activity__c WHERE Assigned_Member__c = :user.Id OR Publisher__c = :user.Id];
 		Set<Id> storiesIds = new Set<Id>();
 		for(Activity__c activity : activities)
 			storiesIds.add(activity.Story__c);

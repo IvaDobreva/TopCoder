@@ -157,14 +157,14 @@ private class StoryServiceTest {
 		insert milestones;
 		List<ActivityMilestones__c> activityMilestones = new List<ActivityMilestones__c>();
 		for (Milestone__c milestone : milestones)
-			activityMilestones.add(TestFactory.createActivityMilestone(activity, milestone));
+			activityMilestones.add(TestFactory.createActivityMilestone(activity, milestone, Date.today().addDays(1)));
 		insert activityMilestones;
 		//Take Submission Date milestone and create MemberActivityMilestone
-		insert TestFactory.createMemberActivityMilestone(UserInfo.getUserId(), activity, activityMilestones[3]);
+		//insert TestFactory.createMemberActivityMilestone(UserInfo.getUserId(), activity, activityMilestones[3]);
 		//Start testing
 		Test.startTest();
 
-		List<Story__c> result = getService().getStoriesForUser(new User(Id = UserInfo.getUserId()));
+		List<Story__c> result = getService().getStoriesForUser(new User(Id = user.Id));
 
 		Test.stopTest();
 		//Start assertion
@@ -188,7 +188,7 @@ private class StoryServiceTest {
 		insert milestones;
 		List<ActivityMilestones__c> activityMilestones = new List<ActivityMilestones__c>();
 		for (Milestone__c milestone : milestones)
-			activityMilestones.add(TestFactory.createActivityMilestone(activity, milestone));
+			activityMilestones.add(TestFactory.createActivityMilestone(activity, milestone, Date.today()));
 		insert activityMilestones;
 		//Start testing
 		Test.startTest();
@@ -198,8 +198,8 @@ private class StoryServiceTest {
 		Test.stopTest();
 		//Start assertion
 		System.assertEquals(0, result.size(), 'Search must return no stories');
-
 	}
+	
 	/**
 	 * Searches for Stories for the publisher user
 	 */

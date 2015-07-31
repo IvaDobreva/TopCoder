@@ -13,7 +13,7 @@
     <fields>
         <fullName>Completed_Date__c</fullName>
         <label>Completed Date</label>
-        <type>DateTime</type>
+        <type>Date</type>
     </fields>
     <fields>
         <fullName>Milestone__c</fullName>
@@ -26,7 +26,7 @@
     <fields>
         <fullName>Scheduled_Date__c</fullName>
         <label>Scheduled Date</label>
-        <type>DateTime</type>
+        <type>Date</type>
     </fields>
     <label>Activity Milestone</label>
     <nameField>

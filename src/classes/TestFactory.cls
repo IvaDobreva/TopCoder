@@ -14,7 +14,7 @@ public class TestFactory {
     public static Activity__c createActivity(Story__c story) {
         return new Activity__c(
                    Name = 'TestActivity',
-                   Activity_Type__c = 'Competition',
+                   Challenge_Type__c = 'Competition',
                    Budget_Authorized__c = true,
                    Cost__c = 1000,
                    Description__c = 'Description',
@@ -27,8 +27,7 @@ public class TestFactory {
     }
     public static Skills__c createSkill(String skill) {
         return new Skills__c(
-                   Skill__c = skill,
-                   Experience_Level__c = 'Specialist'
+                   Name = skill
                );
     }
     public static ActivitySkills__c createActivitySkill(Activity__c activity, Skills__c skill) {
@@ -37,34 +36,38 @@ public class TestFactory {
                    Skill__c = skill.Id
                );
     }
-
+    
+    /*
+        Updated below method as per TC30050600
+    */
     public static List<Milestone__c> createDefaultMilestones() {
-        Milestone__c publishDateMilestone = new Milestone__c(Name = Constants.PUBLISH_DATE_MILESTONE_NAME);
-        Milestone__c startDateMilestone = new Milestone__c(Name = Constants.START_DATE_MILESTONE_NAME);
-        Milestone__c registrationDateMilestone = new Milestone__c(Name = Constants.REGISTRATION_DATE_MILESTONE_NAME);
-        Milestone__c submissionDateMilestone = new Milestone__c(Name = Constants.SUBMISSION_DATE_MILESTONE_NAME);
-        Milestone__c reviewDateMilestone = new Milestone__c(Name = Constants.REVIEW_DATE_MILESTONE_NAME);
-        Milestone__c endDateMilestone = new Milestone__c(Name = Constants.END_DATE_MILESTONE_NAME);
+        Milestone__c publishDateMilestone = new Milestone__c(Name = Constants.PUBLISH_DATE_MILESTONE_NAME, Display_In_Initial_Setup__c = true, Default_Time_Period__c = 1, Type__c = 'Software Development', Step_Number__c = 1);
+        Milestone__c startDateMilestone = new Milestone__c(Name = Constants.START_DATE_MILESTONE_NAME, Display_In_Initial_Setup__c = true, Default_Time_Period__c = 2, Type__c = 'Software Development', Step_Number__c = 2);
+        Milestone__c registrationDateMilestone = new Milestone__c(Name = Constants.REGISTRATION_DATE_MILESTONE_NAME, Display_In_Initial_Setup__c = true, Default_Time_Period__c = 2, Type__c = 'Software Development', Step_Number__c = 3);
+        Milestone__c assignmentDateMilestone = new Milestone__c(Name = Constants.ASSIGNMENT_DATE_MILESTONE_NAME, Display_In_Initial_Setup__c = true, Default_Time_Period__c = 1, Type__c = 'Software Development', Step_Number__c = 4);
+        Milestone__c submissionDateMilestone = new Milestone__c(Name = Constants.SUBMISSION_DATE_MILESTONE_NAME, Display_In_Initial_Setup__c = true, Default_Time_Period__c = 7, Type__c = 'Software Development', Step_Number__c = 5);
+        Milestone__c reviewDateMilestone = new Milestone__c(Name = Constants.REVIEW_DATE_MILESTONE_NAME, Display_In_Initial_Setup__c = true, Default_Time_Period__c = 2, Type__c = 'Software Development', Step_Number__c = 6);
+        Milestone__c acceptanceDateMilestone = new Milestone__c(Name = Constants.ACCEPTANCE_DATE_MILESTONE_NAME, Display_In_Initial_Setup__c = false, Type__c = 'Software Development', Step_Number__c = 7);
+        Milestone__c endDateMilestone = new Milestone__c(Name = Constants.END_DATE_MILESTONE_NAME, Display_In_Initial_Setup__c = false, Type__c = 'Software Development', Step_Number__c = 8);
 
-        return new List<Milestone__c> { publishDateMilestone,
-                                        startDateMilestone,
-                                        registrationDateMilestone,
-                                        submissionDateMilestone,
-                                        reviewDateMilestone,
-                                        endDateMilestone
-                                      };
+        return new List<Milestone__c> { 
+                    publishDateMilestone,
+                    startDateMilestone,
+                    registrationDateMilestone,
+                    assignmentDateMilestone,
+                    submissionDateMilestone,
+                    reviewDateMilestone,
+                    acceptanceDateMilestone,
+                    endDateMilestone
+                };
     }
-
-    public static ActivityMilestones__c createActivityMilestone(Activity__c activity, Milestone__c milestone) {
-        return new ActivityMilestones__c(Activity__c = activity.Id, Milestone__c = milestone.Id);
-    }
-
-    public static UserActivityMilestone__c createMemberActivityMilestone(Id userId, Activity__c activity, ActivityMilestones__c milestone) {
-        return new UserActivityMilestone__c(
-                   Activity__c = activity.Id,
-                   ActivityMilestones__c = milestone.Id,
-                   Activity_Milestone_Timestamp__c = DateTime.now(),
-                   User__c = UserInfo.getUserId());
+    
+    // Updated against TC30050600 
+    public static ActivityMilestones__c createActivityMilestone(Activity__c activity, Milestone__c milestone, Date scheduleDate) {
+        return new ActivityMilestones__c(Activity__c = activity.Id, 
+                                        Milestone__c = milestone.Id, 
+                                        Scheduled_Date__c = scheduleDate
+                                        );
     }
 
     public static List<Default_Requirement__c> createDefaultRequirements() {
@@ -102,12 +105,12 @@ public class TestFactory {
 
     public static Requirement__c createRequirement(Activity__c activity, Default_Requirement__c requirement) {
         return new Requirement__c(
-                   Name = 'TestRequirement',
                    Activity__c = activity.Id,
                    Description__c = 'Description',
                    Requirement_Evaluation__c = 'Meets requirement',
                    Requirement_Weight__c = 'Medium',
-                   Type__c = requirement.Type__c
+                   Type__c = requirement.Type__c,
+                   Requirement_Number__c = '1'
                );
     }
 
@@ -152,5 +155,14 @@ public class TestFactory {
     
     public static Submission_Requirement__c createSubmissionRequirement(Submission__c submission, Requirement__c requirement){
         return new Submission_Requirement__c(Submission__c = submission.Id, Requirement__c = requirement.Id, Evaluation_Score__c = 0);
+    }
+    
+    
+    // Added against TC30050600 
+    public static Registration__c createRegisterMember(Id userId, Activity__c activity) {
+        return new Registration__c(
+                Activity__c = activity.Id, 
+                User__c = userId, 
+                Registration_Date__c = DateTime.now());
     }
 }

@@ -20,6 +20,29 @@ public with sharing class ActivityService implements IActivityService {
         update activities;
         return activities;
     }
+    
+    /**
+     * create single activity
+     * Updated against TC30050600
+     * @param  activity     activity record to insert
+     * @return            created activity record with id
+     */
+    public Activity__c createActivity(Activity__c activity) {
+        insert activity;
+        return activity;
+    }
+    
+    /**
+     * update single activity
+     * Updated against TC30050600
+     * @param  activity activity record to update
+     * @return      updated activity
+     */
+    public Activity__c updateActivity(Activity__c activity) {
+        update activity;
+        return activity; 
+    }
+    
     /**
      * deletes activities
      * @param activities list of activities to delete
@@ -35,7 +58,7 @@ public with sharing class ActivityService implements IActivityService {
     public List<Activity__c> search(List<Skills__c> skills) {
         Set<Id> skillsIds = new Map<Id,Skills__c>(skills).keySet();
         return [SELECT Name,
-                        Activity_Type__c,
+                        Challenge_Type__c,
                         Budget_Authorized__c,
                         Cost__c,
                         Description__c,
@@ -49,17 +72,31 @@ public with sharing class ActivityService implements IActivityService {
                 FROM Activity__c 
                 WHERE Id IN (SELECT Activity__c FROM ActivitySkills__c WHERE Skill__c IN :skillsIds)];
     }
+    
+     /**
+     * method to assign member to activity  
+     * Updated against TC30050600
+     * @param user User to be assigned to activity
+     * @param activity   Activity to which member will be assigned.
+     */
+    public void assignMemberToActivity(User user, Activity__c activity) {
+        activity.Assigned_Member__c = user.Id;
+        activity.Date_Member_Assigned__c = DateTime.now();
+        update activity;
+    }
+    
     /**
      * gets a collections of activities associated with a particular user.  The user might be a publisher or a member.
      * @param  user User record(member or publisher)
      * @return      List<Activity__c>
      */
     public List<Activity__c> getActivitiesForUser(User user) {
-
         Map<Id, Activity__c> activitiesMap = new Map<Id, Activity__c>();
-        //Getting ACtivities where user is Member
+       
+        //Getting activities where user be a Member or publisher
+        //Updated against TC30050600
         activitiesMap.putAll([SELECT Name,
-                                    Activity_Type__c,
+                                    Challenge_Type__c,
                                     Budget_Authorized__c,
                                     Cost__c,
                                     Description__c,
@@ -69,26 +106,39 @@ public with sharing class ActivityService implements IActivityService {
                                     Resource_Commitment__c,
                                     Status__c,
                                     Total_Awards__c,
+                                    Assigned_Member__c,
+                                    Date_Member_Assigned__c,
                                     Story__c
                             FROM Activity__c 
-                            WHERE Id IN (SELECT Activity__c FROM UserActivityMilestone__c WHERE User__c = :user.Id)]);
-        //Getting ACtivities where user is Publisher
-        activitiesMap.putAll([SELECT Name,
-                                    Activity_Type__c,
-                                    Budget_Authorized__c,
-                                    Cost__c,
-                                    Description__c,
-                                    Minimum_Viable_Score__c,
-                                    Possible_Score__c,
-                                    Publisher__c,
-                                    Resource_Commitment__c,
-                                    Status__c,
-                                    Total_Awards__c,
-                                    Story__c
-                            FROM Activity__c 
-                            WHERE Publisher__c = :user.Id]);
+                            WHERE Assigned_Member__c = :user.Id OR Publisher__c = :user.Id ]);
+        
         return activitiesMap.values();
-
+    }
+    
+    /**
+     * get activity associated with assigned member and Date Member Assigned.
+     * Updated against TC30050600   #7
+     * @param  activityId Activity Id
+     * @return      Activity__c
+     */
+    public Activity__c getActivity(Id activityId) {
+        return [SELECT  Name,
+                        Challenge_Type__c,
+                        Budget_Authorized__c,
+                        Cost__c,
+                        Description__c,
+                        Minimum_Viable_Score__c,
+                        Possible_Score__c,
+                        Publisher__c,
+                        Resource_Commitment__c,
+                        Status__c,
+                        Total_Awards__c,
+                        Assigned_Member__c,
+                        Date_Member_Assigned__c,
+                        Story__c
+                FROM Activity__c 
+                WHERE Id =: activityId];
+        
     }
     ////////////////////////////////////////// END Activity \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
@@ -132,9 +182,12 @@ public with sharing class ActivityService implements IActivityService {
      */
     public void addSkills(List<Skills__c> skills, Activity__c activity) {
         List<ActivitySkills__c> activitySkills = new List<ActivitySkills__c>();
-        for (Skills__c skill : skills)
-            activitySkills.add(new ActivitySkills__c(Skill__c = skill.Id, Activity__c = activity.Id));
-        insert activitySkills;
+        for (Skills__c skill : skills) {
+            // Updated against TC30050600 
+            String activitySkillId = activity.Id + '' + skill.Id;
+            activitySkills.add(new ActivitySkills__c(Skill__c = skill.Id, Activity__c = activity.Id, Activity_Skill__c = activitySkillId));
+        }
+        upsert activitySkills;
     }
     /**
      * deletes skills from an activity
@@ -153,11 +206,7 @@ public with sharing class ActivityService implements IActivityService {
     public List<Skills__c> getSkills(Activity__c activity) {
         
         return [SELECT Id,
-                       Name,
-                       Experience_Level__c,
-                       Internal_Project__c,
-                       User__c,
-                       Skill__c
+                       Name 
                 FROM Skills__c WHERE Id IN (SELECT Skill__c FROM ActivitySkills__c WHERE Activity__c = :activity.Id)];
     }
     ////////////////////////////////////////// END ActivitySkill \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
@@ -245,26 +294,27 @@ public with sharing class ActivityService implements IActivityService {
     public List<Default_Requirement__c> getDefaultRequirements() {
         return [SELECT Name, Description__c, Requirement_Weight__c, Type__c FROM Default_Requirement__c];
     }
+    
+    
     /**
      * after submission due date we should prevent publishers from adding requirements and members from making submissions.
+     * Updated against TC30050600 
      * @param  activity Activity to check of lock
      * @return          TRUE if Activity is locked
      */
-     
-     
     public Boolean isLocked(Activity__c activity) {
     
-        /*
-        List<ActivityMilestones__c> milestones = [SELECT Milestone__r.Step_Number__c
-                FROM ActivityMilestones__c
-                WHERE Activity__c = :activity.Id AND Milestone__r.Name LIKE :Constants.SUBMISSION_DATE_MILESTONE_NAME];
+        
+        List<ActivityMilestones__c> milestones = [SELECT Milestone__r.Step_Number__c, Scheduled_Date__c
+               FROM ActivityMilestones__c
+               WHERE Activity__c = :activity.Id AND Milestone__r.Name LIKE :Constants.SUBMISSION_DATE_MILESTONE_NAME];
         if (milestones.size() == 0)
             throw new ActivityServiceException('Cannot find Submission Date milestone for the provided activity.');
-        return milestones[0].Milestone__r.Step_Number__c < Datetime.now();
-        */
         
-        return false;
+        return milestones[0].Scheduled_Date__c < Datetime.now();
+        
     }
+    
     /**
      * deep copy of an Activity along with Awards, Requirements, Skills. After insert all object into database
      * @param  activity Activity to clone
@@ -277,7 +327,7 @@ public with sharing class ActivityService implements IActivityService {
         try{
             //Querying old activity with all needed related collections
             Activity__c oldActivity = [SELECT   Name,
-                                                Activity_Type__c,
+                                                Challenge_Type__c,
                                                 Budget_Authorized__c,
                                                 Cost__c,
                                                 Description__c,
@@ -288,8 +338,9 @@ public with sharing class ActivityService implements IActivityService {
                                                 Status__c,
                                                 Total_Awards__c,
                                                 Story__c,
+                                                hasAwards__c,
                                                 (SELECT Activity__c, Milestone__c FROM ActivityMilestones__r),
-                                                (SELECT Name, Activity__c, Description__c, Requirement_Evaluation__c, Requirement_Weight__c, Type__c FROM Requirements__r),
+                                                (SELECT Name, Activity__c, Description__c, Requirement_Evaluation__c, Requirement_Weight__c, Type__c, Requirement_Number__c, Parent_Requirement__c FROM Requirements__r),
                                                 (SELECT Activity__c, Payment__c FROM Awards__r)
                                         FROM Activity__c 
                                         WHERE Id = :activity.Id];
@@ -322,6 +373,46 @@ public with sharing class ActivityService implements IActivityService {
         }
         return newActivity;
     }
+    
+    /*
+    * Method for registering a member to an activity.
+    * Added against TC30050600 
+    * @param  userId User Id
+    * @param  activity Activity for which Registration will be inserted
+    * @return          List<Registration__c>
+    */
+    public void registerMember(Id userId, Activity__c activity) {
+        Registration__c registerMember = new Registration__c(
+                Activity__c = activity.Id, 
+                User__c = userId, 
+                Registration_Date__c = DateTime.now());
+        insert registerMember;              
+    }
+    
+    /*
+    *   Get list of the members that are registered to a particular activity.
+    *   Added against TC30050600 
+    * @param  activity Activity for which Registration will be returned
+    * @return          List<Registration__c>
+    */
+    public List<Registration__c> getRegistrations(Activity__c activity) {
+        return [SELECT  Name,
+                        Activity__c,
+                        Registration_Date__c,
+                        User__c,
+                        User__r.Name
+                FROM Registration__c WHERE Activity__c = :activity.Id];
+    }
+    
+    /*
+    * Deregistering a member by deleting the related registration record.
+    * Added against TC30050600
+    * @Param  registrationId    registeration record id
+    */
+    public void deregisterMember(Id registrationId) {
+        delete [SELECT Id FROM Registration__c WHERE Id =: registrationId];
+    }
+    
     /**
      * Custom Activity Service exception
      */

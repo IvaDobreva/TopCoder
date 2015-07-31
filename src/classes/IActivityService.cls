@@ -13,6 +13,21 @@ public interface IActivityService {
 	 * @return            updated list of activies
 	 */
 	List<Activity__c> updateActivities(List<Activity__c> activities);
+	
+	/**
+     * create single activity
+     * @param  activity 	activity record to insert
+     * @return            created activity record with id
+     */
+    Activity__c createActivity(Activity__c activity);
+    
+    /**
+     * update single activity
+     * @param  activity activity record to update
+     * @return      updated activity
+     */
+    Activity__c updateActivity(Activity__c activity);
+    
 	/**
 	 * deletes activities
 	 * @param activities list of activities to delete
@@ -24,12 +39,28 @@ public interface IActivityService {
 	 * @return        List<Activity__c> 
 	 */
 	List<Activity__c> search(List<Skills__c> skills);
+	
+	/**
+     * method to assign member to activity  
+     * @param user User to be assigned to activity
+     * @param activity   Activity to which member will be assigned.
+     */
+    void assignMemberToActivity(User user, Activity__c activity);
+    
 	/**
 	 * gets a collections of activities associated with a particular user.  The user might be a publisher or a member.
 	 * @param  user User record(member or publisher)
 	 * @return      List<Activity__c>
 	 */
 	List<Activity__c> getActivitiesForUser(User user);
+	
+	/**
+     * get activity associated with assigned member and Date Member Assigned.
+     * Updated against TC30050600	#7
+     * @param  activityId Activity Id
+     * @return      Activity__c
+     */
+    Activity__c getActivity(Id activityId);
 	////////////////////////////////////////// END Activity \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
 	////////////////////////////////////////// Milestone \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
@@ -131,4 +162,28 @@ public interface IActivityService {
 	 * @return          New cloned activity
 	 */
 	Activity__c cloneActivity(Activity__c activity);
+	
+	/*
+    * Method for regesting a member to an activity.
+    * Added against TC30050600 
+    * @param  userId User Id
+    * @param  activity Activity for which Registration will be inserted
+    * @return          List<Registration__c>
+    */
+    void registerMember(Id userId, Activity__c activity);
+    
+    /*
+    *	Get list of the members that are registered to a particular activity.
+    *	Added against TC30050600 
+    * @param  activity Activity for which Registration will be returned
+    * @return          List<Registration__c>
+    */
+    List<Registration__c> getRegistrations(Activity__c activity);
+    
+    /*
+    * Deregistering a member by deleting the related registration record.
+    * Added against TC30050600
+    * @Param  registrationId	registeration record id
+    */
+    void deregisterMember(Id registrationId);
 }

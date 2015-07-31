@@ -22,21 +22,24 @@ public with sharing class SubmissionService implements ISubmissionService {
     }
     /**
      * only allow users to create submission before submission due date or review date.
+     * Updated against TC30050600 
      * @param  submission submission record to create
      * @param  activity   submission's parent activity
      * @param  attachment submission's attachment
      * @return            Submission__c
-     * TODO:  remove Due_Date__c
      */
     public Submission__c createSubmission(Submission__c submission, Activity__c activity, Attachment attachment) {
         List<sObject> objectsToInsert = new List<sObject>();
-        List<ActivityMilestones__c> milestones = [SELECT Milestone__c
+        
+         List<ActivityMilestones__c> milestones = [SELECT Milestone__c, Scheduled_Date__c
                 FROM ActivityMilestones__c
                 WHERE Activity__c = :activity.Id AND Milestone__r.Name LIKE :Constants.SUBMISSION_DATE_MILESTONE_NAME];
         if (milestones.size() == 0)
             throw new SubmissionServiceException('Cannot find Submission Date milestone for the provided activity.');
-        // if (milestones[0].Milestone__r.Due_Date__c < Datetime.now())
-        //    throw new SubmissionServiceException('Cannot create submission after due date.');
+        
+        if (milestones[0].Scheduled_Date__c < Datetime.now())
+             throw new SubmissionServiceException('Cannot create submission after due date.');
+        
         // Create a savepoint
         Savepoint sp = Database.setSavepoint();
         try {
@@ -44,30 +47,22 @@ public with sharing class SubmissionService implements ISubmissionService {
             insert submission;
             attachment.ParentId = submission.Id;
             insert attachment;
-            insert new UserActivityMilestone__c(
-                Activity__c = activity.Id,
-                ActivityMilestones__c = milestones[0].Id,
-                Attachment_ID__c = attachment.Id,
-                User__c = submission.Submitting_Member__c,
-                Activity_Milestone_Timestamp__c = DateTime.now());
         } catch (Exception ex) {
             Database.rollback(sp);
             throw ex;
         }
         return submission;
     }
+    
     /**
      * Gets the list of submissions is the last submitted (most recent) submission for each user submitted before the review date
      * @param  activity activity for which we need to return submissions
      * @return          List<Submission__c>
      */
-     
-    /**
-    *  @TODO needs to be fixed to use Activity Milestone timestamps
-    * 
-    */  
     public List<Submission__c> getValidSubmissions(Activity__c activity) {
-        ActivityMilestones__c submitMilestone = [SELECT Id FROM ActivityMilestones__c WHERE Activity__c = :activity.Id AND Milestone__r.Name = :Constants.SUBMISSION_DATE_MILESTONE_NAME LIMIT 1];
+       
+        ActivityMilestones__c submitMilestone = [SELECT Id, Scheduled_Date__c FROM ActivityMilestones__c WHERE Activity__c = :activity.Id AND Milestone__r.Name = :Constants.SUBMISSION_DATE_MILESTONE_NAME LIMIT 1];
+        
         //Querying all submissions for the activity. Filtering all broken submissions without timestamp and Submitting member reference
         List<Submission__c> submissions = [SELECT   Name,
                                                     Activity__c,
@@ -80,15 +75,22 @@ public with sharing class SubmissionService implements ISubmissionService {
                                             ORDER BY Submission_Timestamp__c ASC];
         //Creating Subbmiting_Member -> Submission map to ensure that for each user there's will be only one submission
         Map<Id, Submission__c> submissionMap = new Map<Id, Submission__c>();
-        /*
-        for(Submission__c submission : submissions){
-            if(submission.Submission_Timestamp__c <= submitMilestone.Milestone__r.Due_Date__c){
+        
+        // Updated against TC30050600 
+        // Added check for submission Timestamp to be less then or equal to Activity Milestones Schedule Date
+        
+        for(Submission__c submission : submissions) {
+        	System.debug('++++Submit Milestone: ScheduledDate: ' + submitMilestone.Scheduled_Date__c);
+		    System.debug('++++SubmissionTimestamp: ' + submission.Submission_Timestamp__c);
+            if(submission.Submission_Timestamp__c.date() <= submitMilestone.Scheduled_Date__c){
+            	System.debug('++++Valid Submission Found');
                 submissionMap.put(submission.Submitting_Member__c, submission);
             }
         }
-        */
+        
         return submissionMap.values();
     }
+    
     /**
      * update score for a lists of requirements
      * @param submissionRequirements [description]
@@ -96,23 +98,38 @@ public with sharing class SubmissionService implements ISubmissionService {
     public void evaluateRequirement(List<Submission_Requirement__c> submissionRequirements) {
         update submissionRequirements;
     }
+    
     /**
      * updates scoring in parent Submission object
+     * Updated against TC30050600 
      * @param  submission submission for which we need to calculate score
      * @return            Integer - Summary score
      */
     public Integer calculateSubmissionScore(Submission__c submission) {
-        List<Submission_Requirement__c> submissionRequirements = [SELECT Evaluation_Score__c FROM Submission_Requirement__c WHERE Submission__c = :submission.Id];
+        
+        List<Submission_Requirement__c> submissionRequirements = [SELECT Evaluation_Score__c, Requirement__r.Requirement_Weight__c 
+                        FROM Submission_Requirement__c WHERE Submission__c = :submission.Id];
 
-        Decimal scoreSum = 0;
-        for (Submission_Requirement__c submissionRequirement : submissionRequirements)
-            if (submissionRequirement.Evaluation_Score__c != null)
-                scoreSum += submissionRequirement.Evaluation_Score__c;
-            else scoreSum += MIN_SCORE_PER_REQUIREMENT; //We think that if Evaluation_Score__c is null then Requirement didn't met
-        submission.Submission_Score__c = scoreSum;
-        submission.Evaluation_Percentage__c = scoreSum / (submissionRequirements.size() * MAX_SCORE_PER_REQUIREMENT) * 100; //Calculate percentage of current total score
+        Decimal evaluationScoreSum = 0;
+        Decimal maximumScore = 0;
+        for (Submission_Requirement__c submissionRequirement : submissionRequirements) {
+            maximumScore += (4 * Constants.REQUIRMENT_SCORE_BY_WEIGHT.get(submissionRequirement.Requirement__r.Requirement_Weight__c));
+            
+            Integer weightScore = 0;
+            if(String.isNotBlank(submissionRequirement.Requirement__r.Requirement_Weight__c)) {
+                weightScore = Constants.REQUIRMENT_SCORE_BY_WEIGHT.get(submissionRequirement.Requirement__r.Requirement_Weight__c);
+            }
+            
+            if (submissionRequirement.Evaluation_Score__c != null) {
+                evaluationScoreSum += (weightScore * submissionRequirement.Evaluation_Score__c);
+            } else {
+                evaluationScoreSum += (weightScore * MIN_SCORE_PER_REQUIREMENT); //We think that if Evaluation_Score__c is null then Requirement didn't met
+            }
+        }
+        submission.Submission_Score__c = evaluationScoreSum;
+        submission.Evaluation_Percentage__c = (evaluationScoreSum / maximumScore) * 100; //Calculate percentage of current total score
         update submission;
-        return (Integer)scoreSum;
+        return (Integer)evaluationScoreSum;
     }
     /**
      * change status of Activity and Submissions to Ready to Review, Review Complete
@@ -146,21 +163,14 @@ public with sharing class SubmissionService implements ISubmissionService {
     }
     /**
      * handles file upload process to SFDC
+     * Updated against TC30050600 
      * @param  attachment new attachment for submission
      * @param  submission Attachment's parent submission
      * @return            Attachment - inserted attachment
      */
     public Attachment uploadFile(Attachment attachment, Submission__c submission) {
         attachment.ParentId = submission.Id;
-        //Also updating attacment ID on UserActivityMilestone object
-        UserActivityMilestone__c milestone = [SELECT Attachment_ID__c
-                FROM UserActivityMilestone__c
-                WHERE ActivityMilestones__c IN (SELECT Id FROM ActivityMilestones__c WHERE Activity__c = :submission.Activity__c AND Milestone__r.Name LIKE :Constants.SUBMISSION_DATE_MILESTONE_NAME)
-                  AND User__c = :submission.Submitting_Member__c LIMIT 1];
-
         insert attachment;
-        milestone.Attachment_ID__c = attachment.Id;
-        update milestone;
         return attachment;
     }
 

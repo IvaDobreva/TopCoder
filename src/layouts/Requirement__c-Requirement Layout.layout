@@ -5,7 +5,7 @@
         <label>Information</label>
         <layoutColumns>
             <layoutItems>
-                <behavior>Required</behavior>
+                <behavior>Readonly</behavior>
                 <field>Name</field>
             </layoutItems>
             <layoutItems>
@@ -27,6 +27,14 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Requirement_Evaluation__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Parent_Requirement__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Required</behavior>
+                <field>Requirement_Number__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns/>
@@ -59,5 +67,9 @@
     <relatedLists>
         <fields>NAME</fields>
         <relatedList>Submission_Requirement__c.Requirement__c</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>NAME</fields>
+        <relatedList>Requirement__c.Parent_Requirement__c</relatedList>
     </relatedLists>
 </Layout>

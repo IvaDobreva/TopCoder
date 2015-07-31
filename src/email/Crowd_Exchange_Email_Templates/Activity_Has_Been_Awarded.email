@@ -1,0 +1,7 @@
+Hello {!User.Name},
+
+The activity {!Activity__c.Name} has been closed and prizes awarded. Please log in to view.
+
+Sincerely,
+
+The CrowdExchange Platform Team

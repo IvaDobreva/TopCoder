@@ -1,0 +1,32 @@
+Default_Requirement__c r1 = new Default_Requirement__c(Name = 'Code uses platform features', Description__c = 'Does the solution effectively use platform features and does not reinvent the wheel?', Requirement_Weight__c = 'Normal', Type__c = 'Code Standard');
+Default_Requirement__c r2 = new Default_Requirement__c(Name = 'Code uses object-oriented principles', Description__c = 'Is the code organized effectively, abstracted correctly for readability and reuse and makes use of object-oriented best practices when possible?', Requirement_Weight__c = 'Normal', Type__c = 'Code Standard');
+Default_Requirement__c r3 = new Default_Requirement__c(Name = 'Code clear and well documented', Description__c = 'Is the code is clear, well written and documented?', Requirement_Weight__c = 'Normal', Type__c = 'Code Standard');
+Default_Requirement__c r4 = new Default_Requirement__c(Name = 'Deployment Guide', Description__c = 'Is the included deployment guide is well written and clearly articulates the steps necessary to deploy the system?', Requirement_Weight__c = 'Normal', Type__c = 'Documentation');
+Default_Requirement__c r5 = new Default_Requirement__c(Name = 'Video included?', Description__c = 'Does the submission include a video demonstrating functionality as required?', Requirement_Weight__c = 'Low', Type__c = 'Documentation');
+Default_Requirement__c r6 = new Default_Requirement__c(Name = 'Additional features?', Description__c = 'Does the submission add any additional functionality or features that were not requested but beneficial?', Requirement_Weight__c = 'Low', Type__c = 'Application Functionality');
+Default_Requirement__c r7 = new Default_Requirement__c(Name = 'Does solution match requirements', Description__c = 'Does the submission fits the activity requirements and objectives?', Requirement_Weight__c = 'High', Type__c = 'Application Functionality');
+Default_Requirement__c r8 = new Default_Requirement__c(Name = 'Is the solution complete?', Description__c = 'Does the solution implement all of the functionality stated in the requirements?', Requirement_Weight__c = 'High', Type__c = 'Application Functionality');
+Default_Requirement__c r9 = new Default_Requirement__c(Name = 'Overall look and feel of user interface', Description__c = 'What is the overall look and feel of the UI? ', Requirement_Weight__c = 'Normal', Type__c = 'Application Functionality');
+Default_Requirement__c r10 = new Default_Requirement__c(Name = 'Overall quality of submission', Description__c = 'What is the overall quality of the submission?', Requirement_Weight__c = 'Normal', Type__c = 'Application Functionality');
+
+
+List<Default_Requirement__c> requirementsList =  new List<Default_Requirement__c> { 
+                                                 r1,
+                                                 r2,
+                                                 r3,
+                                                 r4,
+                                                 r5,
+                                                 r6,
+                                                 r7,
+                                                 r8,
+                                                 r9,
+                                                 r10};
+															                                    
+insert requirementsList;
+
+
+
+
+
+
+

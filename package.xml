@@ -17,7 +17,7 @@
         <name>ApexTrigger</name>
     </types>
     <types>
-        <members>*</members>
+        <members>CrowdExchange</members>
         <name>CustomApplication</name>
     </types>
     <types>
@@ -25,7 +25,25 @@
         <name>CustomLabels</name>
     </types>
     <types>
-        <members>*</members>
+        <members>Activity__c</members>
+        <members>Activity_Monitoring_Batch_Error__c</members>
+        <members>ActivityMilestones__c</members>
+        <members>ActivitySkills__c</members>
+        <members>Award__c</members>
+        <members>Internal_Project__c</members>
+        <members>InternalProjectSkill__c</members>
+        <members>Member_Skill_Snapshot__c</members>
+        <members>Milestone__c</members>
+        <members>Notification__c</members>
+        <members>Registration__c</members>
+        <members>Requirement__c</members>
+        <members>Skills__c</members>
+        <members>Story__c</members>
+        <members>Submission__c</members>
+        <members>Submission_Requirement__c</members>
+        <members>Summary_Data__c</members>
+        <members>User_Notification__c</members>
+        <members>UserSkill__c</members>      
         <members>User</members>
         <name>CustomObject</name>
     </types>
@@ -34,32 +52,59 @@
         <name>CustomPageWebLink</name>
     </types>
     <types>
-        <members>*</members>
+        <members>CrowdExchange</members>
         <name>CustomSite</name>
     </types>
     <types>
         <members>*</members>
         <name>CustomTab</name>
     </types>
-    <types>
+    <types>  	
+        <members>Crowd_Exchange_Email_Templates</members>
+        <members>Crowd_Exchange_Email_Templates/Activity_Assigned</members>
+        <members>Crowd_Exchange_Email_Templates/Activity_Cancelled</members>
+        <members>Crowd_Exchange_Email_Templates/Activity_Has_Been_Awarded</members>
+        <members>Crowd_Exchange_Email_Templates/Activity_Registration_Complete</members>
+        <members>Crowd_Exchange_Email_Templates/Invitation_To_Register_For_an_Activity</members>
+        <members>Crowd_Exchange_Email_Templates/New_Story_Published</members>
+        <members>Crowd_Exchange_Email_Templates/No_Registered_Users</members>
+        <members>Crowd_Exchange_Email_Templates/No_Reviews_Received</members>
+        <members>Crowd_Exchange_Email_Templates/No_Submissions</members>
+        <members>Crowd_Exchange_Email_Templates/Story_Cancelled</members>
+        <members>Crowd_Exchange_Email_Templates/Submission_Review_Complete</members>
         <name>EmailTemplate</name>
     </types>
     <types>
-        <members>*</members>
+        <members>Activity__c-Activity Layout</members>
+        <members>Activity_Monitoring_Batch_Error__c-Activity Monitoring Batch Error Layout</members>
+        <members>ActivityMilestones__c-ActivityMilestone Layout</members>
+        <members>ActivitySkills__c-Activity Skill Layout</members>
+        <members>Award__c-Award Layout</members>
+        <members>Internal_Project__c-Internal Project Layout</members>
+        <members>InternalProjectSkill__c-Internal Project Skill Layout</members>       
+        <members>Milestone__c-Milestone Layout</members>
+        <members>Notification__c-Notification Layout</members>
+        <members>User_Notification__c-User Notification Layout</members>
+        <members>Registration__c-Registration Layout</members>
+        <members>Requirement__c-Requirement Layout</members>
+        <members>Story__c-User Story Layout</members>
+        <members>Submission__c-Submission Layout</members>
+        <members>Summary_Data__c-Summary Data Layout</members>
+        <members>User-User Layout</members>
+        <members>UserSkill__c-UserSkill Layout</members>
         <name>Layout</name>
     </types>
     <types>
         <members>*</members>
         <name>Portal</name>
     </types>
+    
     <types>
-        <members>*</members>
+        <members>Crowd Exchange Platform User</members>
         <name>Profile</name>
     </types>
-    <types>
-        <members>*</members>
-        <name>Queue</name>
-    </types>
+   
+    <!-- 
     <types>
         <members>unfiled$public</members>
         <name>Report</name>
@@ -68,12 +113,16 @@
         <members>*</members>
         <name>ReportType</name>
     </types>
+    -->
     <types>
         <members>*</members>
         <name>StaticResource</name>
     </types>
     <types>
-        <members>*</members>
+    	  <members>ActivitySkills__c</members>
+    	  <members>InternalProjectSkill__c</members>
+        <members>Skills__c</members>
+        <members>UserSkill__c</members>
         <name>Workflow</name>
     </types>
     <version>15.0</version>
