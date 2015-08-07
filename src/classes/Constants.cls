@@ -14,7 +14,10 @@ public class Constants {
 	public static final String READY_TO_REVIEW_STATUS = 'Ready to Review';
 	public static final String REVIEW_COMPLETE_STATUS = 'Review Complete';
 	////////////////////////////////////////// END Submission Constants \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-	
+	//////////////////////////////////////////// Submission Constants \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+	public static final String STORY_PLANNING_STATUS = 'Planning';
+	public static final String STORY_COMPLETED_STATUS = 'Completed';
+	////////////////////////////////////////// END Submission Constants \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 	// Activity Status Constants
 	public static final String STATUS_DRAFT = 'Draft';
 	public static final String STATUS_PUBLIC = 'Public';
@@ -24,6 +27,9 @@ public class Constants {
 	public static final String STATUS_IN_REVIEW = 'In Review';
 	public static final String STATUS_ACCEPTED = 'Accepted';
 	public static final String STATUS_COMPLETE = 'Complete';
-	
+	public static final String STATUS_CANCELED = 'Canceled';
+
 	public static final Map<String, Integer> REQUIRMENT_SCORE_BY_WEIGHT = new Map<String, Integer>{'High' => 3, 'Medium' => 2, 'Low' => 1};
+
+	public static final String PUBLISHER = 'Publisher';
 }

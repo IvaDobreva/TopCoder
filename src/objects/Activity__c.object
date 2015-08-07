@@ -137,6 +137,10 @@
                 <fullName>Completed</fullName>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>Canceled</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <type>Picklist</type>

@@ -30,6 +30,7 @@
         <members>ActivityMilestones__c</members>
         <members>ActivitySkills__c</members>
         <members>Award__c</members>
+        <members>Default_Requirement__c</members>
         <members>Internal_Project__c</members>
         <members>InternalProjectSkill__c</members>
         <members>Member_Skill_Snapshot__c</members>
@@ -80,6 +81,7 @@
         <members>ActivityMilestones__c-ActivityMilestone Layout</members>
         <members>ActivitySkills__c-Activity Skill Layout</members>
         <members>Award__c-Award Layout</members>
+        <members>Default_Requirement__c-Default Requirement Layout</members>
         <members>Internal_Project__c-Internal Project Layout</members>
         <members>InternalProjectSkill__c-Internal Project Skill Layout</members>       
         <members>Milestone__c-Milestone Layout</members>
@@ -91,6 +93,7 @@
         <members>Submission__c-Submission Layout</members>
         <members>Summary_Data__c-Summary Data Layout</members>
         <members>User-User Layout</members>
+        <members>User_Notification__c-User Notification Layout</members>
         <members>UserSkill__c-UserSkill Layout</members>
         <name>Layout</name>
     </types>

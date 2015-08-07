@@ -23,7 +23,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Is_Archived__c</field>
+                <field>isArchived__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns/>

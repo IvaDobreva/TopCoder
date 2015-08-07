@@ -117,7 +117,8 @@ public class TestFactory {
     public static Award__c createAward(Activity__c activity) {
         return new Award__c(
                    Activity__c = activity.Id,
-                   Payment__c = 500
+                   Payment__c = 500,
+                   Place__c = 1
                );
     }
 
@@ -164,5 +165,59 @@ public class TestFactory {
                 Activity__c = activity.Id, 
                 User__c = userId, 
                 Registration_Date__c = DateTime.now());
+    }
+
+    /**
+     * Creates full story with all child objects
+     * @return story object with all related fields and collections
+     */
+    public static Story__c createFullStory(){
+        
+
+        String userId = UserInfo.getUserId();
+        User usr = [SELECT FirstName,LastName,SmallPhotoUrl,Crowd_Exchange_User_Type__c,Crowd_Exchange_Organization__c FROM User WHERE Id = :userId];
+        Story__c story = TestFactory.createStory();
+        story.Publisher__c = userId;
+        insert story;
+        createFullActivity(story);
+
+        return story;
+    }
+
+    public static Activity__c createFullActivity(Story__c story){
+      Skills__c skill = TestFactory.createSkill('Test Awesome Skill');
+      List<Milestone__c> milestones = TestFactory.createDefaultMilestones();
+      List<sObject> toInsert = new List<sObject>((List<sObject>)milestones);
+      toInsert.add(skill);
+      insert toInsert;
+      toInsert.clear();
+
+
+      String userId = UserInfo.getUserId();
+      Activity__c activity = TestFactory.createActivity(story);
+      activity.Publisher__c = userId;
+      insert activity;
+      Date dt = Date.today();
+      for(Milestone__c milestone : milestones){
+        toInsert.add(
+          TestFactory.createActivityMilestone(activity, milestone, dt ));
+        if(milestone.Default_Time_Period__c!=null)
+          dt = dt.addDays(milestone.Default_Time_Period__c.intValue());
+      }
+      toInsert.addAll((List<sObject>)activity.ActivityMilestones__r);
+      List<Default_Requirement__c> defRequirements = TestFactory.createDefaultRequirements();
+      Integer reqNumber = 1;
+      for(Default_Requirement__c defReq : defRequirements){
+        Requirement__c req = TestFactory.createRequirement(activity, defReq);
+        req.Requirement_Number__c = reqNumber+'';
+        reqNumber++;
+        toInsert.add(req);
+      }
+      ActivitySkills__c actSkill = TestFactory.createActivitySkill(activity,skill);
+      toInsert.add(actSkill);
+      toInsert.add(TestFactory.createAward(activity));
+      insert toInsert;
+      toInsert.clear();
+      return activity;
     }
 }

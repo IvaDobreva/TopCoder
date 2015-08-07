@@ -2,7 +2,7 @@
 * Dashboard Data Collector
 * -------------------------------------------------
 * Created By: Daniel Eagle (daniel.eagle@hp.com)
-* Last Modified: 7/17/2015
+* Last Modified: 7/9/2015
 * -------------------------------------------------
 * Collects summary data for the dashboard.
 **************************************************/
@@ -12,18 +12,6 @@ public with sharing class DashboardDataCollector {
 	
 	// custom exceptions
 	public class NullArgumentException extends Exception {}
-	
-	/**************************************************
-	* Get Active User Total Method
-	* -------------------------------------------------
-	* Gets the total active users.
-	* -------------------------------------------------
-	* @return Integer - total active users
-	* @throws DMLException
-	**************************************************/
-	public Integer getActiveUserTotal() { 
-		return [SELECT count() FROM User WHERE IsActive = true];
-	}
 	
 	/**************************************************
 	* Get Activity Total Method
@@ -62,19 +50,6 @@ public with sharing class DashboardDataCollector {
 	**************************************************/
 	public Integer getCompletedActivityTotal() {
 		return [SELECT count() FROM Activity__c WHERE Status__c = 'Completed' AND IsDeleted = false];
-	}
-	
-	/**************************************************
-	* Get Story Total Method
-	* -------------------------------------------------
-	* Gets the total stories which aren't deleted,
-	* regardless of status.
-	* -------------------------------------------------
-	* @return Integer - total stories
-	* @throws DMLException
-	**************************************************/
-	public Integer getStoryTotal() {
-		return [SELECT count() FROM Story__c WHERE IsDeleted = false];
 	}
 	
 	/**************************************************
@@ -164,28 +139,34 @@ public with sharing class DashboardDataCollector {
 	}
 	
 	/**************************************************
-	* Get Top User Skills Method
+	* Get All Active User Activities Method
 	* -------------------------------------------------
-	* Gets the top 20 user skills.
+	* Gets the total active activities assigned to each 
+	* user.
 	* -------------------------------------------------
-	* @return Map<String, Integer> - map of skills by name
-	*                                and total users for 
-	*                                each skill
-	* @throws DMLException
+	* @param userIds - list of user IDs
+	* @return Map<Id, Integer> - map of user IDs and
+	*                            active activity totals
+	* @throws DMLException, NullArgumentException
 	**************************************************/
-	public Map<String, Integer> getTopUserSkills() {
-		// query database for top 20 skills based on number of users for each skill
-		AggregateResult[] topSkillResults = [SELECT Skill__r.Name, count(Id) memberTotal FROM UserSkill__c GROUP BY Skill__r.Name LIMIT 20];
+	/*public Map<Id, Integer> getAllActiveUsrActivities(List<Id> userIds) {
+		if (userIds == null) {
+			throw new NullArgumentException('Get All Active User Acitivites: Unable to get total activities because null list argument was used.');
+		}
+
+		// query database for activity counts for each user
+		AggregateResult[] activityResults = [SELECT Assigned_Member__c, count(Id) NumActivities FROM Activity__c 
+											WHERE Assigned_Member__c IN :userIds AND IsDeleted = false AND  GROUP BY Assigned_Member__c];
 		
-		// map to store skill ID and user count for each
-		Map<String, Integer> topSkills = new Map<String, Integer>();
+		// map to store activity counts for each user
+		Map<Id, Integer> activityMap = new Map<Id, Integer>();
 		
 		// loop through query results and add to map
-		for (AggregateResult ar : topSkillResults) 
+		for (AggregateResult ar : activityResults) 
 		{	
-			topSkills.put((String)ar.get('Name'), (Integer)ar.get('memberTotal'));
+			activityMap.put((Id)ar.get('Assigned_Member__c'), (Integer)ar.get('NumActivities'));
 		}
 		
-		return topSkills;
-	}
+		return activityMap;
+	}*/
 }

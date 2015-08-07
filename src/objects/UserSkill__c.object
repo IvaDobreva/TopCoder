@@ -23,7 +23,6 @@
         <referenceTo>Skills__c</referenceTo>
         <relationshipLabel>User Skills</relationshipLabel>
         <relationshipName>User_Skills</relationshipName>
-        <required>true</required>
         <type>Lookup</type>
     </fields>
     <label>User Skill</label>

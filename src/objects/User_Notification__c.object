@@ -3,12 +3,6 @@
     <deploymentStatus>Deployed</deploymentStatus>
     <enableReports>true</enableReports>
     <fields>
-        <fullName>Is_Archived__c</fullName>
-        <defaultValue>false</defaultValue>
-        <label>Is Archived</label>
-        <type>Checkbox</type>
-    </fields>
-    <fields>
         <fullName>Notification__c</fullName>
         <label>Notification</label>
         <referenceTo>Notification__c</referenceTo>
@@ -38,6 +32,12 @@
             <sorted>false</sorted>
         </picklist>
         <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>isArchived__c</fullName>
+        <defaultValue>false</defaultValue>
+        <label>isArchived</label>
+        <type>Checkbox</type>
     </fields>
     <label>User Notification</label>
     <nameField>

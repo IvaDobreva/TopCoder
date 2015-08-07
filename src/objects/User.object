@@ -10,7 +10,7 @@
     <fields>
         <fullName>Crowd_Exchange_Organization__c</fullName>
         <label>Crowd Exchange Organization</label>
-        <length>120</length>
+        <length>255</length>
         <type>Text</type>
     </fields>
     <fields>

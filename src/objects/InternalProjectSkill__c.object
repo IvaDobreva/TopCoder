@@ -25,7 +25,6 @@
         <referenceTo>Skills__c</referenceTo>
         <relationshipLabel>Internal Project Skills</relationshipLabel>
         <relationshipName>Internal_Project_Skills</relationshipName>
-        <required>true</required>
         <type>Lookup</type>
     </fields>
     <label>Internal Project Skill</label>

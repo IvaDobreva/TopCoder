@@ -30,6 +30,7 @@
         <members>Activity_Monitoring_Batch_Error__c</members>
         <members>Activity__c</members>
         <members>Award__c</members>
+        <members>Default_Requirement__c</members>
         <members>InternalProjectSkill__c</members>
         <members>Internal_Project__c</members>
         <members>Member_Skill_Snapshot__c</members>
@@ -80,6 +81,7 @@
         <members>Activity_Monitoring_Batch_Error__c-Activity Monitoring Batch Error Layout</members>
         <members>Activity__c-Activity Layout</members>
         <members>Award__c-Award Layout</members>
+        <members>Default_Requirement__c-Default Requirement Layout</members>
         <members>InternalProjectSkill__c-Internal Project Skill Layout</members>
         <members>Internal_Project__c-Internal Project Layout</members>
         <members>Milestone__c-Milestone Layout</members>
@@ -92,6 +94,7 @@
         <members>User-User Layout</members>
         <members>UserSkill__c-UserSkill Layout</members>
         <members>User_Notification__c-User Notification Layout</members>
+        <members>User_Notification__c-User Notification Layout</members>
         <name>Layout</name>
     </types>
     <types>
@@ -101,10 +104,6 @@
     <types>
         <members>Crowd Exchange Platform User</members>
         <name>Profile</name>
-    </types>
-    <types>
-        <members>*</members>
-        <name>Queue</name>
     </types>
     <types>
         <members>*</members>

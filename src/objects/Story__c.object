@@ -49,11 +49,31 @@
         <label>Service Offering</label>
         <picklist>
             <picklistValues>
-                <fullName>Business Unit 1</fullName>
+                <fullName>Analytics and Data Management Services</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Business Unit 2</fullName>
+                <fullName>Applications Services</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Business Process Services</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Data Center, Workload and Cloud Services</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Enterprise Security Services</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Industry Solutions</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mobility and Workplace Services</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>

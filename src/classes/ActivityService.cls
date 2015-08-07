@@ -400,7 +400,10 @@ public with sharing class ActivityService implements IActivityService {
                         Activity__c,
                         Registration_Date__c,
                         User__c,
-                        User__r.Name
+                        User__r.Name,
+                        User__r.FirstName,
+                        User__r.LastName,
+                        User__r.SmallPhotoUrl
                 FROM Registration__c WHERE Activity__c = :activity.Id];
     }
     

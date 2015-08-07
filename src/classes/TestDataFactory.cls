@@ -3,7 +3,7 @@
 * -------------------------------------------------
 * Created By: Daniel Eagle (daniel.eagle@hp.com)
 *             and Sandip Dhara (sdhara@salesforce.com)
-* Last Modified: 7/17/2015
+* Last Modified: 7/10/2015
 * -------------------------------------------------
 * An apex class which provides functionality for 
 * easily creating mock data to be used only with 
@@ -32,7 +32,7 @@ public with sharing class TestDataFactory {
             testUser.UserPreferencesDisableAutoSubForFeeds = false;
             
             // get profile Id from database and assign to test user
-            Profile p = [SELECT Id FROM Profile WHERE Name='Crowd Exchange Platform User']; 
+            Profile p = [SELECT Id FROM Profile WHERE Name='System Administrator']; 
             testUser.ProfileId = p.Id;
         
         // return list
@@ -59,7 +59,7 @@ public with sharing class TestDataFactory {
             testUser.UserPreferencesDisableAutoSubForFeeds = false;
             
             // get profile Id from database and assign to test user
-            Profile p = [SELECT Id FROM Profile WHERE Name='Crowd Exchange Platform User']; 
+            Profile p = [SELECT Id FROM Profile WHERE Name='System Administrator']; 
             testUser.ProfileId = p.Id;
             insert testUser;
         
@@ -90,7 +90,7 @@ public with sharing class TestDataFactory {
             testUser.UserPreferencesDisableAutoSubForFeeds = false;
             
             // get profile Id from database and assign to test user
-            Profile p = [SELECT Id FROM Profile WHERE Name='Crowd Exchange Platform User']; 
+            Profile p = [SELECT Id FROM Profile WHERE Name='System Administrator']; 
             testUser.ProfileId = p.Id;
             
             // add to list
@@ -133,6 +133,8 @@ public with sharing class TestDataFactory {
             UserSkill__c testUserSkill = new UserSkill__c();
             
             // set test user skill variables
+            // skill.User__c = userId;
+            // skill.Name = skillList[i].Name;
             testUserSkill.Skill__c = skillList[i].ID;
             testUserSkill.Member__c = userId;
             

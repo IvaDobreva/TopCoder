@@ -20,6 +20,14 @@
         <scale>2</scale>
         <type>Currency</type>
     </fields>
+    <fields>
+        <fullName>Place__c</fullName>
+        <label>Place</label>
+        <precision>2</precision>
+        <required>true</required>
+        <scale>0</scale>
+        <type>Number</type>
+    </fields>
     <label>Award</label>
     <nameField>
         <displayFormat>Award-{000000000}</displayFormat>

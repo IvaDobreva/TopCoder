@@ -41,6 +41,10 @@
     <label>Milestone</label>
     <listViews>
         <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Step_Number__c</columns>
+        <columns>Default_Time_Period__c</columns>
+        <columns>Display_In_Initial_Setup__c</columns>
         <filterScope>Everything</filterScope>
         <label>All</label>
     </listViews>

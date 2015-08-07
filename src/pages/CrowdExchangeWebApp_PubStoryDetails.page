@@ -1,0 +1,935 @@
+<apex:page showheader="false" sidebar="false" standardstylesheets="false" 
+            cache="false" expires="600" applyBodyTag="false" applyHtmlTag="false" 
+            docType="html-5.0" >
+    <div class="contents publisher-story-activity-contents" ng-element-ready="vm.setStartOffsets()" ng-show="isInitialized&&vm&&vm.isInitialized">
+        <div class="bg-border3" />
+        <div class="crumbs">
+            <div class="boxs">
+                <div class="lefts">
+                    <a href="#/publisherDashboard" class="blue-link pull-left">Dashboard</a>
+                    <span class="icon-blue-arrow pull-left" />
+                    <span class="current-text black-text pull-left">{{vm.title}}</span>
+                    <span class="clearfix" />
+                </div>
+            </div>
+        </div>
+        <!-- end .crumbs -->
+        <div class="default-story-contents">
+            <div class="tabs-bar boxs">
+                <nav class="pull-left">
+                    <ul>
+                        <li class="{{vm.isActive?'current':''}}">
+                            <span />
+                            <a href="javascript:;" ng-click="vm.setActiveTab(0)">
+                                <i />Story
+                            </a>
+                        </li>
+                        <li ng-repeat="activity in vm.activities track by $index" class="{{activity.isActive?'current':''}}">
+                            <span />
+                            <a href="javascript:;" ng-click="vm.setActiveTab( $index + 1 )">
+                                <i />{{activity.title}}
+                            </a>
+                        </li>
+                        <li class="icon-add-btn open-modal-window" data-modal-class="modal-confirm-create-new-activity">
+                            <span />
+                            <a href="#/publisherAddActivity/{{vm.id}}" >
+                                <i />
+                                <em />
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="clearfix" /></div>
+            <!-- end .tabs-bar -->
+            <div class="story-contents tab-content" ng-show="!vm.isEditMode && vm.isActive">
+                <div class="boxs">
+                    <div class="type">
+                        <div class="activity-type pull-left">
+                            <span>Publisher
+                                <em />
+                            </span>
+                            <p class="activity-txt">
+                                <a href="javascript:;" class="blue-link">{{vm.publisher.fullName}}</a>
+                            </p>
+                        </div>
+                        <div class="process-type pull-left">
+                            <span>Organization
+                                <em />
+                            </span>
+                            <p class="activity-txt">
+                                <a href="javascript:;" class="blue-link">{{vm.publisher.organization}}</a>
+                            </p>
+                        </div>
+                        <div class="btn-right pull-right" ng-if="vm.phase!='Canceled'">
+                            <a href="javascript:;" class="clost-story-button blue-border-btn icon-ok-btn pull-right open-modal-window" ng-click="vm.closeStory()">
+                                <i />CLOSE STORY
+                            </a>
+                            <a href="javascript:;" class="blue-border-btn edit-story-btn pull-right" ng-click="vm.editStory()">EDIT STORY</a>
+                        </div>
+                        <div class="clearfix" /></div>
+                    <!-- .type -->
+                    <div class="review-data">
+                        <div class="review-data-top">
+                            <ul>
+                                <li class="days">
+                                    <span class="num-color">{{vm.storyDuration | number:0}}</span>
+                                    <i>Days</i>
+                                </li>
+                                <li class="star-date">
+                                    <span class="note-color">{{ vm.storyStart | date : 'MM/dd/yyyy' }}</span>
+                                    <i>Start Date</i>
+                                </li>
+                                <li class="end-date">
+                                    <span class="note-color">{{ vm.storyEnd | date : 'MM/dd/yyyy' }}</span>
+                                    <i>End Date</i>
+                                </li>
+                                <li class="activities">
+                                    <span class="num-color">{{vm.activities.length}}</span>
+                                    <i>Activities</i>
+                                </li>
+                                <li class="registrants">
+                                    <span class="green-num-color">{{vm.registrationsCount}}</span>
+                                    <i>Registrants</i>
+                                </li>
+                                <li class="submissions">
+                                    <span class="green-num-color">{{vm.submissionsCount}}</span>
+                                    <i>Submissions</i>
+                                </li>
+                                <li class="status width135">
+                                    <span class="note-color">{{vm.phase}}</span>
+                                    <i>Phase</i>
+                                </li>
+                                <li class="total-budget width180">
+                                    <span class="total-budget-note">$ {{vm.totalBudget | number:0}}</span>
+                                    <i>Total Cost</i>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- end.review-data-top -->
+                        <div class="review-data-line" ng-style="{ 'height': (40 * vm.activities.length + 50) + 'px' }">
+                            <div class="review-main-line line-vertical position" ng-if="vm.daysPassed >= 0 && vm.daysPassed <= vm.storyDuration" ng-style="{ 'left': Math.floor(954 * (vm.daysPassed / vm.storyDuration))+'px', 'height': (40 * vm.activities.length + 20) + 'px' }">
+                                <span class="gray-text">Today: {{ today | date : 'MM/dd/yyyy' }}</span>
+                                <span class="review-line-con gray-bg">
+                                    <i ng-style="{ 'height': (40 * vm.activities.length + 20) + 'px' }" />
+                                </span>
+                            </div>
+                            <!-- end.review-main-line -->
+                            <div class="review-main-line position" ng-style="{ 'min-width': {{Math.floor(954 * (activity.activityDuration / $parent.vm.storyDuration))}}+'px', 'top': '{{$index*40}}px', 'left': {{Math.floor(954 * (activity.startOffset / $parent.vm.storyDuration))}}+'px' }" ng-repeat="activity in vm.activities track by $index">
+                                <a href="javascript:;">{{$index + 1}}. {{activity.title?activity.title:'Activity '+($index+1)}}</a>
+                                <span class="review-line-con {{( activity.endMilestone.completedDate && today > activity.endMilestone.completedDate ? 'green-bg': 'blue-bg')}}">
+                                    <i />
+                                </span>
+                            </div>
+                            <!-- end.review-main-line -->
+                        </div>
+                        <!-- end.review-data-line -->
+                    </div>
+                    <!-- end.review-data -->
+                    <div class="review-description">
+                        <h3 class="title-h3">Story Description
+                            <i />
+                        </h3>
+                        <div class="review-desc-con">
+                            <div ng-bind-html="vm.description | sanitize" /></div>
+                    </div>
+                    <!-- end.review-description -->
+                </div>
+            </div>
+            <!-- end .story-contents -->
+            <div class="activity-contents tab-content" ng-show="activity.isActive" ng-repeat="activity in vm.activities track by activity.id">
+                <div class="title boxs">
+                    <h2 class="pull-left">{{activity.title?activity.title:'Activity '+($index+1)}}</h2>
+                    <div class="activity-btn pull-right">
+                        <div class="remove-activity pull-left" ng-if="activity.phase =='Review Complete' || activity.phase =='Draft'">
+                            <a class="cancel-activity-button open-modal-window" data-modal-class="modal-cancel-activity" href="javascript:;"
+                                ng-click="activity.cancelActivity()">
+                                <i />
+                                <span>Cancel Activity</span>
+                            </a>
+                        </div>
+                        <div class="edit-activity pull-left">
+                            <span>
+                                <a href="#/publisherEditActivity/{{activity.id}}">Edit Activity</a>
+                            </span>
+                        </div>
+                        <div class="complete-activity pull-left" ng-if="activity.phase =='Accepted'">
+                            <span>
+                                <a href="javascript:;" ng-click="activity.completeActivity()">Complete Activity</a>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="clearfix" />
+                    <!-- end .activity-btn-->
+                </div>
+                <!-- end .title -->
+                <div class="chart-container boxs">
+                    <div class="chart chart-date blue-border pull-left">
+                        <ul>
+                            <li>
+                                <span class="blue-txt big-txt">{{activity.activityDuration  | number:0}}</span>
+                                <span>Days</span>
+                            </li>
+                            <li>
+                                <span class="date">{{ activity.milestones[0].scheduledDate | date : 'MM/dd/yyyy' }}</span>
+                                <span class="grey-txt">Start Date</span>
+                            </li>
+                            <li>
+                                <span class="date">{{ activity.milestones[activity.milestones.length-1].scheduledDate | date : 'MM/dd/yyyy' }}</span>
+                                <span class="grey-txt">End Date</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- end .chart-date -->
+                    <div class="chart chart-registrants green-border pull-left">
+                        <ul>
+                            <li>
+                                <em class="green-txt big-txt">{{activity.registrationsCount}}</em>
+                                <span>Registrants</span>
+                            </li>
+                            <li class="spacing-left">
+                                <em class="green-txt big-txt">{{activity.submissionsCount}}</em>
+                                <span>Submissions</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- end .chart-registrants -->
+                    <div class="chart chart-stage orenge-border pull-left">
+                        <em>{{activity.phase}}</em>
+                        <span class="grey-txt">Stage</span>
+                    </div>
+                    <!-- end .chart-stage -->
+                    <div class="clearfix" /></div>
+                <!-- end .chart-container -->
+                <nav class="sub-tabs-bar boxs">
+                    <ul>
+                        <li class="{{ (!activity.activeTab)?'current':''}}">
+                            <i />
+                            <a href="javascript:;" ng-click="activity.selectTab(0)">Activity Detail</a>
+                        </li>
+                        <li class="{{activity.activeTab==1?'current':''}}">
+                            <i />
+                            <a href="javascript:;" ng-click="activity.selectTab(1)">Registrants</a>
+                        </li>
+                        <li class="{{activity.activeTab==2?'current':''}}">
+                            <i />
+                            <a href="javascript:;" ng-click="activity.selectTab(2)">Recommended Members</a>
+                        </li>
+                        <li class="{{activity.activeTab==3?'current':''}}">
+                            <i />
+                            <a href="javascript:;" ng-click="activity.selectTab(3)">Chatter</a>
+                        </li>
+                        <li class="{{activity.activeTab==4?'current':''}}">
+                            <i />
+                            <a href="javascript:;" ng-click="activity.selectTab(4)">Submissions</a>
+                        </li>
+                        <li class="review-score-tab hide {{activity.activeTab==5?'current':''}}">
+                            <i />
+                            <a href="javascript:;" ng-click="activity.selectTab(5)">Review</a>
+                        </li>
+                    </ul>
+                </nav>
+                <!-- end .sub-tabs-bar -->
+                <div class="clearfix tabs-clearfix" />
+                <div class="activity-detail-contents sub-tab-content boxs" ng-hide="activity.activeTab">
+                    <div class="activity-detail-main">
+                        <div class="left-boxs">
+                            <div class="type">
+                                <div class="activity-type pull-left">
+                                    <span>Service Offering</span>
+                                    <p class="activity-txt">{{$parent.vm.serviceOffering}}</p>
+                                </div>
+                                <div class="process-type pull-left">
+                                    <span>Challenge Type</span>
+                                    <p class="activity-txt">{{activity.challengeType}}</p>
+                                </div>
+                                <div class="clearfix" /></div>
+                            <!-- .type -->
+                            <div class="title-box">
+                                <h3 class="pull-left">
+                                    <i />Activity Requirements
+                                </h3>
+                                <div class="pull-right">
+                                    <a href="javascript:;" class="ex-low-label">Low</a>
+                                    <a href="javascript:;" class="ex-normal-label">Normal</a>
+                                    <a href="javascript:;" class="ex-high-label">High</a>
+                                    <a href="javascript:;" class="ex-critical-label">Critical</a>
+                                </div>
+                                <div class="clearfix" /></div>
+                            <!-- .title-box -->
+                            <div class="active-requite-con">
+                                <div class="requite-partbig {{requirement.importance?requirement.importance.toLowerCase():'black'}}" ng-repeat="requirement in activity.requirements | orderBy:'requirementNumber' track by $index ">
+                                    <div class="num-line">{{requirement.requirementNumber}}</div>
+                                    <div class="requite-part-main">
+                                        <div class="requite-part-data">
+                                            <div ng-bind-html="requirement.description | sanitize"></div>
+                                        </div>
+                                        <div class="requite-partsmall {{$first?'first-small':''}} {{childRequirement.importance?childRequirement.importance.toLowerCase():'black'}}" ng-repeat="childRequirement in requirement.childRequirements | orderBy:'requirementNumber' track by $index  ">
+                                            <div class="num-line">{{childRequirement.requirementNumber}}</div>
+                                            <div class="requite-part-main">
+                                                <div class="requite-part-data">
+                                                    <div ng-bind-html="childRequirement.description | sanitize"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- end .requite-partbig -->
+                            </div>
+                            <div class="code-types">
+                                <span>Skills Requested</span>
+                                <div class="clearfix" />
+                                <div class="btn-boxs">
+                                    <a href="javascript:;" class="light-blue-btn" ng-repeat="codeType in activity.codeTypes track by $index">{{codeType.name}}</a>
+                                </div>
+                                <div class="clearfix" />
+                            </div>
+                            <!-- end .code-types -->
+                            <div class="support-doc">
+                                <div class="code-title">
+                                    <span>Support Doc</span>
+                                </div>
+                                <ul class="support-doc-con">
+                                    <li ng-repeat="document in activity.documents track by document.id">
+                                        <span class="support-name">
+                                            <a href="/servlet/servlet.FileDownload?file={{document.id}}" target="_blank" class="blue-link">{{document.name}}</a>
+                                            <span>{{document.description}}</span>
+                                        </span>
+                                        <span class="time">{{document.createdDate | date : 'MM/dd/yyyy, HH:mm' }}</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- end .left-boxs -->
+                        <aside class="right-boxs overflow-auto">
+                            <div class="place-money top20">
+                              <div class="place-money-item" ng-repeat="prize in activity.prizes | orderBy:'place'">
+                                  <span>Place {{prize.place}}</span>
+                                  <i>${{prize.amount | number:0}}</i>
+                              </div>
+                            </div>
+                            <div class="timeline-aside">
+                                <div class="code-types">
+                                    <span>Timeline</span>
+                                </div>
+                                <div class="timeline-aside-line" ng-style="{ height: (activity.milestones.length*60)+'px' }">
+                                    <div class="aside-midline" ng-style="{ height: (activity.milestones.length*55)+'px' }">
+                                        <span class="{{(milestone.completedDate && milestone.completedDate <= $parent.$parent.today)?'blue-bg':''}}" 
+                                              ng-repeat="milestone in activity.milestones track by milestone.name" ng-if="!$first"/>
+                                        <span />
+                                    </div>
+                                    <div class="aside-lump" >
+                                        <a href="javascript:;" ng-repeat="milestone in activity.milestones track by milestone.name" ng-style="{ top: $index*60+'px' }"
+                                            class="{{(milestone.completedDate && milestone.completedDate <= $parent.$parent.today)?'current':''}}"/>
+                                    </div>
+                                    <div class="aside-linenote">
+                                        <span ng-repeat="milestone in activity.milestones track by milestone.name" ng-style="{ top: ($index*60 + 30)+'px' }" ng-if="!$last">
+                                          {{$parent.activity.milestoneDuration($index,milestone.scheduledDate)}}d
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="timeline-aside-word">
+                                    <a href="javascript:;" class="timeline-aside-word-item" ng-repeat="milestone in activity.milestones track by milestone.name"
+                                        ng-style="{ top: $index*60+'px' }" > 
+                                        <span>{{milestone.name.split(' ')[0]}}</span>
+                                        <i>{{ milestone.scheduledDate | date : 'MM/dd/yyyy' }}</i>
+                                    </a>
+                                </div>
+                            </div>
+                        </aside>
+                        <!-- end .right-boxs -->
+                        <div class="clearfix" /></div>
+                    <!-- end .activity-detail -->
+                </div>
+                <!-- end .activity-detail-contents -->
+                <div class="registrants-contents boxs sub-tab-content" ng-show="activity.activeTab==1">
+                    <div class="table-data assigned-table" data-total-row-number="1" data-total-page-number="1"  ng-show="activity.assignedMember">
+                        <div class="row-title gray-row-title spacing-bottom5">
+                            <h2 class="pull-left">Assigned</h2>
+                            <span class="clearfix" />
+                        </div>
+                        <!-- end .row-title -->
+                        <div class="row row-th">
+                            <div class="col-td width28 sorting-dwon-btn sort-name">
+                                <span class="spacing-left16">Name</span>
+                            </div>
+                            <div class="col-td width11 sorting-dwon-btn sort-date">Date Registered</div>
+                            <div class="col-td width11 text-center sorting-dwon-btn sort-number">Activities Done</div>
+                            <div class="col-td width37 sorting-dwon-btn sort-string">Skills</div>
+                            <div class="col-td width13" /></div>
+                        <!-- end .row -->
+                        <div class="row row-td">
+                            <div class="col-td width28">
+                                <div class="col-user">
+                                    <a href="publisher-member-profile.html" class="portrait-img">
+                                        <img src="{{activity.assignedMemberRegistration.user.photoUrl}}" alt="Portrait" />
+                                    </a>
+                                    <span class="user-texts">
+                                        <a href="publisher-member-profile.html" class="blue-link">{{activity.assignedMemberRegistration.user.firstName+' '+activity.assignedMemberRegistration.user.lastName}}</a>
+                                        <span class="texts green">Available</span> <!-- If user is assigned -> user is registered -> he/she is available -->
+                                    </span>
+                                </div>
+                                <!-- .col-user-->
+                            </div>
+                            <div class="col-td width11">{{activity.assignedMemberRegistration.registrationDate | date:'MM/dd/yyyy'}}</div>
+                            <div class="col-td width11 text-center">{{activity.assignedMemberRegistration.user.activitiesDone}}</div> <!-- Doesn't clear from requirements how we should count Activities done -->
+                            <div class="col-td width37">
+                                <p class="font14">
+                                  <span ng-repeat="skill in activity.assignedMemberRegistration.user.skills">{{skill.name}}{{$last?'':', '}}</span>
+                                </p>
+                            </div>
+                            <div class="col-td width13">
+                                <a href="javascript:;" class="blue-link width65 text-right spacing-left7 pull-right unassign-button" ng-click="activity.unassignMember()">Unassign</a>
+                                <a href="javascript:;" class="blue-border-btn small-blue-border-btn width55 pull-right" ng-click="activity.registrants.emailMember(activity.assignedMember.id)" >Email</a>
+                            </div>
+                        </div>
+                        <!-- end .row -->
+                    </div>
+                    <div class="table-data unassigned-table">
+                        <div class="row-title gray-row-title spacing-top25">
+                            <h2 class="pull-left">All Registrants</h2>
+                            <span class="clearfix" />
+                        </div>
+                        <!-- end .row-title -->
+                        <div class="row row-th">
+                            <div class="col-td width28 sorting-dwon-btn sort-name">
+                                <span class="spacing-left16">Name</span>
+                            </div>
+                            <div class="col-td width11 sorting-dwon-btn sort-date">Date Registered</div>
+                            <div class="col-td width11 text-center sorting-dwon-btn sort-number">Activities Done</div>
+                            <div class="col-td width37 sorting-dwon-btn sort-string">Skills</div>
+                            <div class="col-td width13" /></div>
+                        <!-- end .row -->
+                        <div class="row row-td" ng-repeat="registration in activity.registrants.registrants" >
+                            <div class="col-td width28">
+                                <div class="col-user">
+                                    <a href="publisher-member-profile.html" class="portrait-img">
+                                        <img src="{{registration.user.photoUrl}}" alt="Portrait" />
+                                    </a>
+                                    <span class="user-texts">
+                                        <a href="publisher-registration-profile.html" class="blue-link">{{registration.user.firstName+' '+registration.user.lastName}}</a>
+                                        <span class="texts green">Available</span>
+                                    </span>
+                                </div>
+                                <!-- .col-user-->
+                            </div>
+                            <div class="col-td width11">{{registration.registrationDate | date:'MM/dd/yyyy'}}</div>
+                            <div class="col-td width11 text-center">{{registration.user.activitiesDone}}</div><!-- Doesn't clear from requirements how we should count Activities done -->
+                            <div class="col-td width37">
+                                <p class="font14">
+                                  <span ng-repeat="skill in registration.user.skills">{{skill.name}}{{$last?'':', '}}</span>
+                                </p>
+                            </div>
+                            <div class="col-td width13">
+                                <a href="javascript:;" class="blue-btn radius6 width65 small-blue-btn spacing-left7 pull-right assign-button open-modal-window" data-modal-class="modal-assign-member" ng-click="$parent.activity.assignMember(registration)" ng-if="registration.user.id!=$parent.activity.assignedMember.id">
+                                    <span>
+                                        <span>Assign</span>
+                                    </span>
+                                </a>
+                                <a href="javascript:;" class="blue-link width65 text-right spacing-left7 pull-right unassign-button" ng-if="registration.user.id==$parent.activity.assignedMember.id">Assigned</a>
+                                <a href="javascript:;" class="blue-border-btn small-blue-border-btn width55 pull-right" ng-click="$parent.activity.registrants.emailMember(registration.user.id)">Email</a>
+                            </div>
+                        </div>
+                        <!-- end .row -->
+                    </div>
+                    <!-- end .table-data -->
+                    <div class="page-bar page-auto-bar boxs">
+                            <div class="hide"><br dir-paginate="reg in activity.registrants.registrants | itemsPerPage: activity.registrants.pageSize" total-items="activity.registrants.totalRegistrants||1" current-page="activity.registrants.page" pagination-id="'actReg' + activity.id"/></div>
+                            <span>
+                              <dir-pagination-controls auto-hide="false" pagination-id="'actReg' + activity.id" on-page-change="activity.registrants.pageChanged(newPageNumber)"> </dir-pagination-controls>
+                            </span>
+                            <!-- end .pages --> 
+                    </div>
+                    <!-- end .page-bar -->
+                </div>
+                <!-- end .registrants-contents -->
+                <div class="recommended-members-contents boxs sub-tab-content" ng-show="activity.activeTab==2">
+                    <div class="table-data">
+                        <div class="row row-th">
+                            <div class="col-td width4">
+                                <a href="javascript:;"  ng-model="activity.recomendations.selectAll" checkbox="a" class="checkbox-img check-all" />
+                            </div>
+                            <div class="col-td width20 sorting-dwon-btn sort-name">
+                                <span class="spacing-left16">Name</span>
+                            </div>
+                            <div class="col-td width30 text-center sorting-dwon-btn sort-number">Activities Done</div>
+                            <div class="col-td width33 sorting-dwon-btn sort-string">Skills</div>
+                            <div class="col-td width16">
+                                <a href="javascript:;" class="blue-border-btn small-blue-border-btn width120 pull-right" ng-click="activity.recomendations.emailSelected()">Email to Selected</a>
+                            </div>
+                        </div>
+                        <!-- end .row -->
+                        <div class="row row-td" ng-repeat="member in activity.recomendations.recomendedUsers">
+                            <div class="col-td width4">
+                                <a href="javascript:;"  class="checkbox-img" checkbox="a" ng-model="member.selected" />
+                            </div>
+                            <div class="col-td width20">
+                                <div class="col-user">
+                                    <a href="publisher-member-profile.html" class="portrait-img">
+                                        <img src="{{member.photoUrl}}" alt="Portrait" />
+                                    </a>
+                                    <span class="user-texts">
+                                        <a href="publisher-member-profile.html" class="blue-link">{{member.firstName+' '+member.lastName}}</a>
+                                        <span class="texts green">Available</span>
+                                    </span>
+                                </div>
+                                <!-- .col-user-->
+                            </div>
+                            <div class="col-td width30 text-center">{{registration.user.activitiesDone}}</div><!-- Doesn't clear from requirements how we should count Activities done -->
+                            <div class="col-td width33">
+                                <p class="font14">
+                                  <span ng-repeat="skill in member.skills">{{skill.name}}{{$last?'':', '}}</span>
+                                </p>
+                            </div>
+                            <div class="col-td width16">
+                                <a href="javascript:;" class="blue-border-btn small-blue-border-btn width55 pull-right" ng-click="$parent.activity.recomendations.emailMember(member.id)">Email</a>
+                            </div>
+                        </div>
+                        <!-- end .row -->
+                    </div>
+                    <!-- end .table-data -->
+                </div>
+                <!-- end .recommended-members-contents -->
+                <div class="chatter-contents boxs sub-tab-content" ng-show="activity.activeTab==3">
+                    <div class="container-fluid">
+                        <iframe ng-src="{{activity.chatterUrl}}" width="100%" id="chatter{{activity.id}}" onLoad="autoResize(this)" marginheight="0" frameborder="0"></iframe>
+                    </div>
+                </div>
+                <!-- end .chatter-contents -->
+                <div class="submissions-contents boxs sub-tab-content" ng-show="activity.activeTab==4">
+                    <div class="table-data">
+                        <div class="row row-th">
+                            <div class="col-td width20 sorting-dwon-btn sort-member-name">Member Name</div>
+                            <div class="col-td width20 sorting-dwon-btn sort-submission-date">Submission Date</div>
+                            <div class="col-td width18">Submission file Name</div>
+                            <div class="col-td width16 text-center sorting-dwon-btn sort-submission-score">Submission Score</div>
+                            <div class="col-td width12 text-center">Score Card</div>
+                            <div class="col-td width14 text-right">
+                                <span class="download-right">Download</span>
+                            </div>
+                        </div>
+                        <!-- end .row -->
+                        <div class="row row-td hide">
+                            <div class="col-td width20">
+                                <div class="name-box">
+                                    <a href="publisher-member-profile.html" class="chatter-img">
+                                        <img src="i/chatter-41x41-1.jpg" alt="Portrait" />
+                                    </a>
+                                    <a href="publisher-member-profile.html" class="blue-link">Mark C.</a>
+                                </div>
+                                <!-- .name-box-->
+                            </div>
+                            <div class="col-td width20">
+                                <span class="left10">13/05/2013
+                                    <em class="spacing12" />12:32
+                                </span>
+                            </div>
+                            <div class="col-td width18">File Name 1</div>
+                            <div class="col-td width16 text-center">80%</div>
+                            <div class="col-td width12 text-center">
+                                <a href="javascript:;" class="blue-link edit-view-scoreboard-link">Edit</a>
+                            </div>
+                            <div class="col-td width14 text-center">
+                                <a href="javascript:;" class="blue-btn radius6 pull-right">
+                                    <span>
+                                        <span>Download</span>
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                        <!-- end .row -->
+                        <div class="row row-td">
+                            <div class="col-td width20">
+                                <div class="name-box">
+                                    <a href="publisher-member-profile.html" class="chatter-img">
+                                        <img src="i/chatter-41x41-1.jpg" alt="Portrait" />
+                                    </a>
+                                    <a href="publisher-member-profile.html" class="blue-link">Mark C.</a>
+                                </div>
+                                <!-- .name-box-->
+                            </div>
+                            <div class="col-td width20">
+                                <span class="left10">13/05/2013
+                                    <em class="spacing12" />12:32
+                                </span>
+                            </div>
+                            <div class="col-td width18">File Name 1</div>
+                            <div class="col-td width16 text-center">80%</div>
+                            <div class="col-td width12 text-center">
+                                <a href="javascript:;" class="blue-link edit-view-scoreboard-link">Edit</a>
+                            </div>
+                            <div class="col-td width14 text-center">
+                                <a href="javascript:;" class="blue-btn radius6 pull-right">
+                                    <span>
+                                        <span>Download</span>
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                        <!-- end .row -->
+                        <div class="row row-td">
+                            <div class="col-td width20">
+                                <div class="name-box">
+                                    <a href="publisher-member-profile.html" class="chatter-img">
+                                        <img src="i/chatter-41x41-1.jpg" alt="Portrait" />
+                                    </a>
+                                    <a href="publisher-member-profile.html" class="blue-link">Mark A.</a>
+                                </div>
+                                <!-- .name-box-->
+                            </div>
+                            <div class="col-td width20">
+                                <span class="left10">26/02/2015
+                                    <em class="spacing12" />11:32
+                                </span>
+                            </div>
+                            <div class="col-td width18">File Name 1</div>
+                            <div class="col-td width16 text-center">97%</div>
+                            <div class="col-td width12 text-center">
+                                <a href="javascript:;" class="blue-link edit-view-scoreboard-link">Review</a>
+                            </div>
+                            <div class="col-td width14 text-center">
+                                <a href="javascript:;" class="blue-btn radius6 pull-right">
+                                    <span>
+                                        <span>Download</span>
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                        <!-- end .row -->
+                        <div class="row row-td">
+                            <div class="col-td width20">
+                                <div class="name-box">
+                                    <a href="publisher-member-profile.html" class="chatter-img">
+                                        <img src="i/chatter-41x41-1.jpg" alt="Portrait" />
+                                    </a>
+                                    <a href="publisher-member-profile.html" class="blue-link">Mark E.</a>
+                                </div>
+                                <!-- .name-box-->
+                            </div>
+                            <div class="col-td width20">
+                                <span class="left10">23/05/2015
+                                    <em class="spacing12" />15:32
+                                </span>
+                            </div>
+                            <div class="col-td width18">File Name 1</div>
+                            <div class="col-td width16 text-center">90%</div>
+                            <div class="col-td width12 text-center">
+                                <a href="javascript:;" class="blue-link edit-view-scoreboard-link">Edit</a>
+                            </div>
+                            <div class="col-td width14 text-center">
+                                <a href="javascript:;" class="blue-btn radius6 pull-right">
+                                    <span>
+                                        <span>Download</span>
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                        <!-- end .row -->
+                        <div class="row row-td">
+                            <div class="col-td width20">
+                                <div class="name-box">
+                                    <a href="publisher-member-profile.html" class="chatter-img">
+                                        <img src="i/chatter-41x41-1.jpg" alt="Portrait" />
+                                    </a>
+                                    <a href="publisher-member-profile.html" class="blue-link">Mark D.</a>
+                                </div>
+                                <!-- .name-box-->
+                            </div>
+                            <div class="col-td width20">
+                                <span class="left10">23/01/2015
+                                    <em class="spacing12" />12:32
+                                </span>
+                            </div>
+                            <div class="col-td width18">File Name 1</div>
+                            <div class="col-td width16 text-center">90%</div>
+                            <div class="col-td width12 text-center">
+                                <a href="javascript:;" class="blue-link edit-view-scoreboard-link">Edit</a>
+                            </div>
+                            <div class="col-td width14 text-center">
+                                <a href="javascript:;" class="blue-btn radius6 pull-right">
+                                    <span>
+                                        <span>Download</span>
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                        <!-- end .row -->
+                    </div>
+                    <!-- end .table-data -->
+                </div>
+                <!-- end .submissions-contents -->
+                <div class="review-contents boxs sub-tab-content" ng-show="activity.activeTab==5">
+                    <div class="review-info">
+                        <div class="pull-left">
+                            <h2 class="title-h2">REVIEW</h2>
+                            <div class="col-user">
+                                <a href="publisher-member-profile.html" class="portrait-img">
+                                    <img src="i/portrait-54x54-1.jpg" alt="Portrait" />
+                                </a>
+                                <span class="user-texts">
+                                    <span class="texts gray">Member Name</span>
+                                    <a href="publisher-member-profile.html" class="blue-link">Mark C.</a>
+                                </span>
+                            </div>
+                            <!-- .col-user-->
+                        </div>
+                        <div class="pull-right">
+                            <ul>
+                                <li>
+                                    <div class="col-row width185">
+                                        <span class="text gray">Submission file Name</span>
+                                        <span class="value">
+                                            <a href="javascript:;" class="gray-link">FileName1.zip</a>
+                                        </span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="col-row width205">
+                                        <span class="text gray">Submission Date</span>
+                                        <span class="value">23/05/2015, 12:32</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="col-row width145">
+                                        <span class="text gray">Submission Score</span>
+                                        <span class="value">90%</span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="clearfix" /></div>
+                    <!-- end .review-info -->
+                    <div class="table-data">
+                        <div class="row row-th">
+                            <div class="col-td width65">REQUIREMENT</div>
+                            <div class="col-td width28">IS REQUIREMENT MET? / COMMENT</div>
+                            <div class="col-td width7 text-right">WEIGHT</div>
+                        </div>
+                        <!-- end .row-th -->
+                        <div class="row row-title">
+                            <div class="col-td width65 ex-high">
+                                <span class="tit-con pull-left">Requirement 1.0</span>
+                                <div class="importance pull-left">
+                                    <span class="pull-left">Importance:</span>
+                                    <span class="value pull-left orange">High</span>
+                                </div>
+                            </div>
+                            <div class="col-td width28">
+                                <span class="form-container z-index1110">
+                                    <span class="selects-container">
+                                        <select>
+                                            <option selected="selected">Meets and Exceeds Requirements</option>
+                                            <option>Meets Requirements</option>
+                                            <option>Somewhat Meets Requirements</option>
+                                            <option>Doesn't Meet Requirements</option>
+                                        </select>
+                                    </span>
+                                </span>
+                            </div>
+                            <div class="col-td width7 text-right">
+                                <span class="weight-text pull-right">30</span>
+                            </div>
+                        </div>
+                        <!-- end .row-title -->
+                        <div class="row row-td">
+                            <div class="col-td width65 visible-top">
+                                <div class="txt-main">
+                                    <p class="txt-p">
+                                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida 
+                                      dolor sit amet lacus accumsan et viverra justo commodo. 
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-td width35 visible-top">
+                                <span class="requite-con-box">
+                                    <textarea class="requite-con-m" placeholder="Type Your Comments"></textarea>
+                                </span>
+                            </div>
+                        </div>
+                        <!-- end .row-td -->
+                        <div class="row row-title">
+                            <div class="col-td width65 ex-low">
+                                <span class="tit-con pull-left">Requirement 1.1</span>
+                                <div class="importance pull-left">
+                                    <span class="pull-left">Importance:</span>
+                                    <span class="value pull-left yellow">Low</span>
+                                </div>
+                            </div>
+                            <div class="col-td width28">
+                                <span class="form-container z-index1100">
+                                    <span class="selects-container">
+                                        <select>
+                                            <option>Meets and Exceeds Requirements</option>
+                                            <option selected="selected">Meets Requirements</option>
+                                            <option>Somewhat Meets Requirements</option>
+                                            <option>Doesn't Meet Requirements</option>
+                                        </select>
+                                    </span>
+                                </span>
+                            </div>
+                            <div class="col-td width7 text-right">
+                                <span class="weight-text pull-right">20</span>
+                            </div>
+                        </div>
+                        <!-- end .row-title -->
+                        <div class="row row-td">
+                            <div class="col-td width65 visible-top">
+                                <div class="txt-main">
+                                    <p class="txt-p">
+                                      Dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet 
+                                      lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et 
+                                      magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, 
+                                      felis tellus mollis orci, sed rhoncus sapien nunc eget odio.
+                                    </p>
+                                                      <p class="txt-p">
+                                      Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo 
+                                      commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, 
+                                      nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed 
+                                      rhoncus sapien nunc eget odio.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-td width35 visible-top">
+                                <span class="requite-con-box">
+                                    <textarea class="requite-con-m" placeholder="Type Your Comments"></textarea>
+                                </span>
+                            </div>
+                        </div>
+                        <!-- end .row-td -->
+                        <div class="row row-title">
+                            <div class="col-td width65 ex-high">
+                                <span class="tit-con pull-left">Requirement 1.2</span>
+                                <div class="importance pull-left">
+                                    <span class="pull-left">Importance:</span>
+                                    <span class="value pull-left orange">High</span>
+                                </div>
+                            </div>
+                            <div class="col-td width28">
+                                <span class="form-container">
+                                    <span class="selects-container">
+                                        <select>
+                                            <option selected="selected">Meets and Exceeds Requirements</option>
+                                            <option>Meets Requirements</option>
+                                            <option>Somewhat Meets Requirements</option>
+                                            <option>Doesn't Meet Requirements</option>
+                                        </select>
+                                    </span>
+                                </span>
+                            </div>
+                            <div class="col-td width7 text-right">
+                                <span class="weight-text pull-right">30</span>
+                            </div>
+                        </div>
+                        <!-- end .row-title -->
+                        <div class="row row-td">
+                            <div class="col-td width65 visible-top">
+                                <div class="txt-main">
+                                    <p class="txt-p">
+                                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida 
+                                      dolor sit amet lacus accumsan et viverra justo commodo. 
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-td width35 visible-top">
+                                <span class="requite-con-box">
+                                    <textarea class="requite-con-m" placeholder="Type Your Comments"></textarea>
+                                </span>
+                            </div>
+                        </div>
+                        <!-- end .row-td -->
+                    </div>
+                    <!-- end .table-data -->
+                    <div class="overall-score-bar">
+                        <span class="right-text">70 / 80</span>
+                          OVERALL SCORE: 
+                        <span class="value">90%</span>
+                    </div>
+                    <!-- end .overall-score-bar -->
+                    <div class="overall-comment-bar">
+                        <h2>OVERALL COMMENT</h2>
+                        <span class="requite-con-box">
+                            <textarea class="requite-con-m" placeholder="Type Your Comments"></textarea>
+                        </span>
+                        <div class="btn-bar">
+                            <a href="javascript:;" class="blue-btn radius6 pull-right save-review-button">
+                                <span>
+                                    <span>Save Review</span>
+                                </span>
+                            </a>
+                            <div class="hide">
+                                <a href="javascript:;" class="saving-review-btn open-modal-window" data-modal-class="modal-saving-review">Saving Review</a>
+                                <a href="javascript:;" class="saving-error-btn open-modal-window" data-modal-class="modal-saving-error">Please fill all comments</a>
+                            </div>
+                            <a href="javascript:;" class="blue-border-btn width135 pull-right cancel-review-button open-modal-window" data-modal-class="modal-cancel-review">CANCEL</a>
+                            <span class="clearfix" />
+                        </div>
+                    </div>
+                    <!-- end .overall-comment-bar -->
+                </div>
+                <!-- end .review-contents -->
+            </div>
+            <!-- end .activity-contents -->
+        </div>
+        <!-- end .default-story-contents -->
+        <div class="edit-story-contents tab-content" ng-show="vm.isEditMode && vm.isActive">
+            <div class="create-contents">
+                <div class="create-form create-main boxs">
+                    <div class="review-story-tit">Edit Story</div>
+                    <form>
+                        <dl>
+                            <dt class="data-tit">
+                              Story Title
+                
+                                <span class="tip-box">
+                                    <a href="javascript:;" class="icon-blue-tip" tooltip="" />
+                                    <span class="tip-content hide">
+                                        <i />
+                                        Dolor sit amet, consectetur adipiscing elit.
+                                        Aenean euismod bibendum laoreet. 
+                    
+                                    </span>
+                                </span>
+                            </dt>
+                            <dd class="data-in">
+                                <input class="data-tit-in" type="text" ng-model="vm.title" placeholder="Title" />
+                            </dd>
+                            <dt class="data-tit">
+                                    Story Description
+              
+                                <span class="tip-box">
+                                    <a href="javascript:;" class="icon-blue-tip" tooltip="" />
+                                    <span class="tip-content hide">
+                                        <i />
+                                        Dolor sit amet, consectetur adipiscing elit.
+                                        Aenean euismod bibendum laoreet. 
+              
+                                    </span>
+                                </span>
+                            </dt>
+                            <dd class="data-in">
+                                <textarea class="data-dec-in" placeholder="Description" ng-model="vm.description"></textarea>
+                            </dd>
+                        </dl>
+                        <span class="clearfix" />
+                    </form>
+                </div>
+                <!-- end.create-form -->
+                <div class="btn-bar gray-bg">
+                    <div class="boxs">
+                        <span class="pull-right">
+                            <a href="javascript:;" class="blue-link cancel-link" ng-click="vm.cancelEditMode()">Cancel</a>
+                            <a href="javascript:;" class="blue-btn save-btn radius6" ng-click="vm.updateStory()">
+                                <span>
+                                    <span>Update</span>
+                                </span>
+                            </a>
+                        </span>
+                        <span class="clearfix" />
+                    </div>
+                </div>
+                <!-- end .btn-bar -->
+            </div>
+        </div>
+        <!-- end .edit-story-contents -->
+    </div>
+    <!-- end .contents -->
+</apex:page>

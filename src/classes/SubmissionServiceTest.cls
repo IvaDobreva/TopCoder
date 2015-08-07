@@ -59,9 +59,8 @@ private class SubmissionServiceTest {
         List<Milestone__c> milestones = TestFactory.createDefaultMilestones();
         insert milestones;
         List<ActivityMilestones__c> activityMilestones = new List<ActivityMilestones__c>();
-        Integer dayIndex = 0;
         for (Milestone__c milestone : milestones)
-            activityMilestones.add(TestFactory.createActivityMilestone(activity, milestone, Date.today().addDays(dayIndex++)));
+            activityMilestones.add(TestFactory.createActivityMilestone(activity, milestone, Date.today().addDays(1)));
         insert activityMilestones;
         //Creating default requirements
         for (Default_Requirement__c defaultRequirement : defaultRequirements)
@@ -390,10 +389,9 @@ private class SubmissionServiceTest {
         //Creating milestones
         List<Milestone__c> milestones = TestFactory.createDefaultMilestones();
         insert milestones;
-        Integer dayIndex = 0;
         List<ActivityMilestones__c> activityMilestones = new List<ActivityMilestones__c>();
         for (Milestone__c milestone : milestones)
-            activityMilestones.add(TestFactory.createActivityMilestone(activity, milestone, Date.today().addDays(dayIndex++)));
+            activityMilestones.add(TestFactory.createActivityMilestone(activity, milestone, Date.today()));
         insert activityMilestones;
        
         //Creating default requirements

@@ -3,7 +3,7 @@
 * -------------------------------------------------
 * Created By: Daniel Eagle (daniel.eagle@hp.com)
 *             and Sandip Dhara (sdhara@salesforce.com)
-* Last Modified: 7/17/2015
+* Last Modified: 7/10/2015
 * -------------------------------------------------
 * Provides user specific functionality adding,
 * updating, & deactivating users. It also allows
@@ -165,13 +165,21 @@ public with sharing class UserService implements IUserService {
 	* Assigns skills to a user or users.
 	* -------------------------------------------------
 	* @param userSkills - list of user skills
-	* @throws DMLException, NullArgumentException
+	* @throws DMLException, NullArgumentException,
+	*         NullObjectFieldException
 	**************************************************/
 	public void addUserSkills(List<UserSkill__c> userSkills) {
 		if (userSkills == null) {
 			throw new NullArgumentException('Add User Skills: Unable to add skills because null skills list argument was used.');
 		}
 		else if (!userSkills.isEmpty()) {				
+			// loop through skills and perform error checking
+			for (UserSkill__c userSkill : userSkills) {
+				if (userSkill.Id == null) {
+					//throw new NullObjectFieldException('Add User Skills: Unable to update skills because null skill reference field exists in list object.');
+				}
+			}
+			
 			insert userSkills;
 		}
 	}
@@ -182,7 +190,8 @@ public with sharing class UserService implements IUserService {
 	* Updates a user or set of users' skills.
 	* -------------------------------------------------
 	* @param userSkills - list of user skills
-	* @throws DMLException, NullArgumentException
+	* @throws DMLException, NullArgumentException,
+	*         NullObjectFieldException
 	**************************************************/
 	public void updateUserSkills(List<UserSkill__c> userSkills) {
 		if (userSkills == null) {
@@ -190,6 +199,13 @@ public with sharing class UserService implements IUserService {
 		}
 		else if (!userSkills.isEmpty())
 		{		
+			// loop through skills and perform error checking
+			for (UserSkill__c userSkill : userSkills) {
+				if (userSkill.Id == null) {
+					//throw new NullObjectFieldException('Update User Skills: Unable to update skills because null skill reference field exists in list object.');
+				}
+			}
+			
 			upsert userSkills;
 		}
 	}
@@ -207,6 +223,13 @@ public with sharing class UserService implements IUserService {
 			throw new NullArgumentException('Remove User Skills: Unable to remove skills because null skills list argument was used.');
 		}
 		else if (!userSkills.isEmpty()) {	
+			// loop through skills and perform error checking
+			for (UserSkill__c userSkill : userSkills) {
+				if (userSkill.Id == null) {
+					//throw new NullObjectFieldException('Remove User Skills: Unable to remove skills because null skill reference field exists in list object.');
+				}
+			}
+				
 			delete userSkills;
 		}
 	}
@@ -244,13 +267,21 @@ public with sharing class UserService implements IUserService {
 	* -------------------------------------------------
 	* @param intProjSkills - list of internal project
 	*                        skills 
-	* @throws DMLException, NullArgumentException
+	* @throws DMLException, NullArgumentException,
+	*         NullObjectFieldException
 	**************************************************/
 	public void addIntProjSkills(List<InternalProjectSkill__c> intProjSkills) { 
 		if (intProjSkills == null) {
 			throw new NullArgumentException('Add Internal Project Skills: Unable to add skills because null skills list argument was used.');
 		}
 		else if (!intProjSkills.isEmpty()) {	
+			// loop through list of internal project skills and check for errors
+			for (InternalProjectSkill__c intProjSkill : intProjSkills) {
+				if (intProjSkill.Id == null) {
+					//throw new NullObjectFieldException('Add Internal Project Skills: Unable to add skills because null Id reference field exists in list object.');
+				} 
+			}
+			
 			insert intProjSkills;
 		}
 	}
@@ -262,13 +293,21 @@ public with sharing class UserService implements IUserService {
 	* -------------------------------------------------
 	* @param intProjSkills - list of internal project
 	*                        skills 
-	* @throws DMLException, NullArgumentException
+	* @throws DMLException, NullArgumentException,
+	*         NullObjectFieldException
 	**************************************************/
 	public void updateIntProjSkills(List<InternalProjectSkill__c> intProjSkills) { 
 		if (intProjSkills == null) {
 			throw new NullArgumentException('Update Internal Project Skills: Unable to update skills because null skills list argument was used.');
 		}
 		else if (!intProjSkills.isEmpty()) {							
+			// loop through list of internal project skills and check for errors
+			for (InternalProjectSkill__c intProjSkill : intProjSkills) {
+				if (intProjSkill.Id == null) {
+					//throw new NullObjectFieldException('Update Internal Project Skills: Unable to update skills because null Id reference field exists in list object.');
+				} 
+			}
+			
 			upsert intProjSkills;
 		}
 	}
@@ -280,13 +319,21 @@ public with sharing class UserService implements IUserService {
 	* -------------------------------------------------
 	* @param intProjSkills - list of internal project
 	*                        skills 
-	* @throws DMLException, NullArgumentException
+	* @throws DMLException, NullArgumentException,
+	*         NullObjectFieldException
 	**************************************************/
 	public void removeIntProjSkills(List<InternalProjectSkill__c> intProjSkills) {
 		if (intProjSkills == null) {
 			throw new NullArgumentException('Remove Internal Project Skills: Unable to remove skills because null skills list argument was used.');
 		}
 		else if (!intProjSkills.isEmpty()) {	
+			// loop through list of internal project skills and check for errors
+			for (InternalProjectSkill__c intProjSkill : intProjSkills) {
+				if (intProjSkill.Id == null) {
+					//throw new NullObjectFieldException('Remove Internal Project Skills: Unable to remove skills because null Id reference field exists in list object.');
+				} 
+			}
+			
 			delete intProjSkills; 
 		}
 	}
@@ -353,13 +400,21 @@ public with sharing class UserService implements IUserService {
 	* -------------------------------------------------
 	* @param internalProjects - list of internal projects
 	*                           to assign
-	* @throws DMLException, NullArgumentException
+	* @throws DMLException, NullArgumentException,
+	*         NullObjectFieldException
 	**************************************************/
 	public void addUsrIntProjects(List<Internal_Project__c> internalProjects) {
 		if (internalProjects == null) {
 			throw new NullArgumentException('Add Internal Projects: Unable to add internal projects because null internal projects list argument was used.');
 		}
 		else if (!internalProjects.isEmpty()) {			
+			// loop through the list and do error checking
+			for (Internal_Project__c iProject : internalProjects) {
+				if (iProject.Id == null) {
+					//throw new NullObjectFieldException('Add User Internal Projects: Unable to add internal projects because null Id reference field exists in list object.');
+				} 
+			}	
+			
 			insert internalProjects;
 		} 	
 	}
@@ -378,6 +433,13 @@ public with sharing class UserService implements IUserService {
 			throw new NullArgumentException('Update Internal Projects: Unable to update internal projects because null internal projects list argument was used.');
 		}
 		else if (!internalProjects.isEmpty()) {
+			// loop through the list and do error checking
+			for (Internal_Project__c iProject : internalProjects) {
+				if (iProject.Id == null) {
+					//throw new NullObjectFieldException('Update User Internal Projects: Unable to update internal projects because null Id reference field exists in list object.');
+				}
+			} 
+
 			update internalProjects;
 		}
 	}
@@ -396,6 +458,13 @@ public with sharing class UserService implements IUserService {
 			throw new NullArgumentException('Remove Internal Projects: Unable to remove internal projects because null internal projects list argument was used.');
 		}
 		else if (!internalProjects.isEmpty()) {	
+			// loop through the list and do error checking
+			for (Internal_Project__c iProject : internalProjects) {
+				if (iProject.Id == null) {
+					//throw new NullObjectFieldException('Remove User Internal Projects: Unable to remove internal projects because null Id reference field exists in list object.');
+				}
+			}	 
+
 			delete internalProjects;
 		}
 	}

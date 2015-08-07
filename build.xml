@@ -11,17 +11,15 @@
  <!-- dumps -->
 
     <target name="getCode">
-	   
-
-	 <sf:retrieve 
-		 username="${developer.username}"
-     password="${developer.password}" 
-     serverurl="${developer.serverurl}" 
-		 retrieveTarget="/Users/Ward/Code/crowd-exchange/src"  
-		 unpackaged="package.xml" 
-		 pollWaitMillis="10000" 
-		 maxPoll="20"/>
-    </target>
+		 <sf:retrieve 
+			 username="${developer.username}"
+	     password="${developer.password}" 
+	     serverurl="${developer.serverurl}" 
+			 retrieveTarget="/Users/Ward/Code/crowd-exchange/src"  
+			 unpackaged="package.xml" 
+			 pollWaitMillis="10000" 
+			 maxPoll="20"/>
+	    </target>
 
 <!--  deploys -->
 
