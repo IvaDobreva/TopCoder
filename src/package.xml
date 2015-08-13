@@ -1,8 +1,70 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <types>
+        <members>ActivityMonitoringBatch</members>
+        <members>ActivityService</members>
+        <members>ActivityServiceTest</members>
+        <members>CalculateSummaryDataBatch</members>
+        <members>Constants</members>
+        <members>CrowdExchangeRemoteController</members>
+        <members>CrowdExchangeRemoteControllerTest</members>
+        <members>CrowdExchangeWebApp_ConfigController</members>
+        <members>CrowdExchangeWebApp_ConfigControllerTest</members>
+        <members>CrowdExchangeWebApp_PageController</members>
+        <members>CrowdExchange_MemberSearchEmailCntr</members>
+        <members>CrowdExchange_MemberSearchEmailCntrTest</members>
+        <members>CrowdExchange_Utils</members>
+        <members>CrowdExchange_UtilsTest</members>
+        <members>DashboardDataCollector</members>
+        <members>DashboardUpdater</members>
+        <members>DashboardUpdaterScheduler</members>
+        <members>DashboardUpdaterSchedulerTest</members>
+        <members>DashboardUpdaterTest</members>
+        <members>EmailHelper</members>
+        <members>EmailHelperTest</members>
+        <members>IActivityService</members>
+        <members>IStoryService</members>
+        <members>ISubmissionService</members>
+        <members>IUserService</members>
+        <members>ServiceException</members>
+        <members>StoryService</members>
+        <members>StoryServiceTest</members>
+        <members>SubmissionService</members>
+        <members>SubmissionServiceTest</members>
+        <members>TestDataFactory</members>
+        <members>TestFactory</members>
+        <members>UserService</members>
+        <members>UserServiceTest</members>
+        <members>WebAppModels</members>
+        <members>WebAppModelsTest</members>
+        <members>WorkflowManager</members>
+        <members>WorkflowManagerTest</members>
+        <name>ApexClass</name>
+    </types>
+    <types>
         <members>CrowdExchangeWebApp_Config</members>
         <name>ApexComponent</name>
+    </types>
+    <types>
+        <members>BandwidthExceeded</members>
+        <members>CrowdExchangeWebApp</members>
+        <members>CrowdExchangeWebApp_MemActivityAssigned</members>
+        <members>CrowdExchangeWebApp_MemberStoryDetails</members>
+        <members>CrowdExchangeWebApp_PubActivityAssign</members>
+        <members>CrowdExchangeWebApp_PubActivityReview</members>
+        <members>CrowdExchangeWebApp_PubAddActivity</members>
+        <members>CrowdExchangeWebApp_PubCreateStory</members>
+        <members>CrowdExchangeWebApp_PubStoryDetails</members>
+        <members>CrowdExchangeWebApp_Stories</members>
+        <members>CrowdExchange_ActivityFeed</members>
+        <members>Exception</members>
+        <members>FileNotFound</members>
+        <members>ForgotPassword</members>
+        <members>ForgotPasswordConfirm</members>
+        <members>InMaintenance</members>
+        <members>Unauthorized</members>
+        <members>UnderConstruction</members>
+        <name>ApexPage</name>
     </types>
     <types>
         <members>ActivityHandler</members>

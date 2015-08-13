@@ -1,0 +1,522 @@
+<apex:page showheader="false" sidebar="false" standardstylesheets="false" 
+            cache="false" expires="600" applyBodyTag="false" applyHtmlTag="false" 
+            docType="html-5.0" >
+<div class="contents create-contents animate-switch-container" ng-show="isInitialized">
+    <div class="gray-bg">
+        <div class="bg-border3" />
+        <div class="crumbs">
+            <div class="boxs">
+                <div class="lefts">
+                    <a href="#/publisherDashboard" class="blue-link pull-left">Dashboard</a>
+                    <span class="icon-blue-arrow pull-left" />
+                    <span class="current-text black-text pull-left">Create</span>
+                    <span class="clearfix" />
+                </div>
+            </div>
+        </div>
+        <!-- end .crumbs -->
+        <div class="create-bar boxs {{vm.step==(vm.stepsCount)?'over':''}} ">
+            <div class="create-step  {{vm.step==1?'current-step bg-blue':(vm.step==(vm.stepsCount)?'already-step':'process-step')+' bg-green'}}">
+                <span class="step-arrow" />
+                <i>1</i>
+                <a href="javascript:;" ng-click="vm.goToStep(1)">Create Story</a>
+            </div>
+            <div class="create-step  {{(vm.step>=2 && vm.step<vm.stepsCount)?'bg-blue current-step':(vm.step<2?'bg-grey':'bg-green process-step')}}">
+                <span class="step-arrow" />
+                <i>2</i>
+                <a href="javascript:;" ng-click="vm.goToStep(2)">Create Activity</a>
+            </div>
+            <div class="create-step {{vm.step==(vm.stepsCount)?'bg-blue':'bg-grey'}} last {{vm.stepsCount==3?'':'create-step-step-tab'}}">
+                <span class="carete-step-small">
+                    <a href="javascript:;" ng-repeat="activity in vm.story.activities track by $index" class="{{$parent.vm.step==(2+$index)?'on':''}}" ng-click="vm.goToStep(2+$index)">{{$index+1}}</a>
+                    <a class="hide" href="javascript:;" />
+                </span>
+                <span class="review">
+                    <span class="step-arrow hide" />
+                    <i>3</i>
+                    <a href="javascript:;">Review</a>
+                </span>
+            </div>
+        </div>
+        <!-- end.create-bar -->
+        <div class="clearfix" /></div>
+    <!-- end .gray-bg -->
+    <div class="wizard-step create-story-step1" ng-if="vm.step == 1">
+        <div class="create-form create-main boxs">
+            <form>
+                <dl>
+                    <dt class="data-tit">
+          Story Title
+          
+                        <span class="tip-box">
+                            <a href="javascript:;" class="icon-blue-tip" cust-tooltip="a" />
+                            <span class="tip-content hide">
+                                <i />
+              Dolor sit amet, consectetur adipiscing elit.
+              Aenean euismod bibendum laoreet. 
+              
+                            </span>
+                        </span>
+                    </dt>
+                    <dd class="data-in">
+                        <input class="data-tit-in" type="text" placeholder="Title" ng-model="vm.story.title" />
+                    </dd>
+                    <dt class="data-tit">
+        Service Offerings
+        </dt>
+                    <dd class="data-in">
+                        <span class="activity-type">
+                            <span class="form-container width335" ng-jqtransform="a">
+                                <span class="selects-container">
+                                    <select ng-model="vm.story.serviceOffering" >
+                                        <option  ng-selected="true" value="">Choose Service Offering</option>
+                                        <option value="Analytics and Data Management Services">Analytics and Data Management Services</option>
+                                        <option value="Applications Services">Applications Services</option>
+                                        <option value="Business Process Services">Business Process Services</option>
+                                        <option value="Data Center,Workload and Cloud Services">Data Center,Workload and Cloud Services</option>
+                                        <option value="Enterprise Security Services">Enterprise Security Services</option>
+                                        <option value="Industry Solutions">Industry Solutions</option>
+                                        <option value="Mobility and Workplace Services">Mobility and Workplace Services</option>
+                                    </select>
+                                </span>
+                            </span>
+                        </span>
+                    </dd>
+                    <dt class="data-tit">
+        Story Description
+        
+                        <span class="tip-box">
+                            <a href="javascript:;" class="icon-blue-tip" cust-tooltip="a" />
+                            <span class="tip-content hide">
+                                <i />
+        Dolor sit amet, consectetur adipiscing elit.
+        Aenean euismod bibendum laoreet. 
+        
+                            </span>
+                        </span>
+                    </dt>
+                    <dd class="data-in">
+                        <textarea class="data-dec-in" placeholder="Description" ng-model="vm.story.description"></textarea>
+                    </dd>
+                </dl>
+                <span class="clearfix" />
+            </form>
+        </div>
+        <!-- end.create-form -->
+    </div>
+    <!-- end .contents step 1-->
+    <div class="wizard-step create-story-step2" ng-if="vm.step == 2 + $index" ng-repeat="activity in vm.story.activities track by $index">
+        <div class="create-activity-form create-main boxs">
+            <div class="creat-activity">
+                <div class="active-data-tit">
+                    <span class="activity-title">Activity Title</span>
+                    <span class="process-type">Challenge Type</span>
+                </div>
+                <div class="active-data-con">
+                    <span class="activity-title">
+                        <input type="text" placeholder="Title" ng-model="activity.title" />
+                    </span>
+                    <span class="process-type">
+                        <span class="form-container width120" ng-jqtransform="a">
+                            <span class="selects-container">
+                                <select ng-model="activity.challengeType">
+                                    <option value="Assignment">Assignment</option>
+                                    <option value="Team">Team</option>
+                                    <option value="Competition">Competition</option>
+                                </select>
+                            </span>
+                        </span>
+                    </span>
+                </div>
+                <div class="clearfix" /></div>
+            <!-- end.creat-activity -->
+            <div>
+                <div class="tit">Activity Description</div>
+                <div>
+                    <textarea class="data-dec-in" placeholder="Description" ng-model="activity.description"></textarea>
+                </div>
+            </div>
+            <div ng-show="activity.id">
+            <div class="active-require">
+                <div class="tit">Activity Requirement</div>
+                <span class="clearfix" />
+                <div class="require-box require-box-parent {{$first?'top-2':''}}" ng-repeat="requirement in activity.requirements track by $index">
+                    <div class="require-tit ex-{{requirement.importance?requirement.importance.toLowerCase():'select'}}">
+                        <span class="tit-con pull-left">Requirement {{requirement.requirementNumber}}</span>
+                        <div class="importance pull-left">
+                            <span class="pull-left">Importance:</span>
+                            <span class="form-container width85 pull-left" ng-jqtransform="a">
+                                <span class="selects-container">
+                                    <select ng-model="requirement.importance">
+                                        <option ng-selected="true" value="">Select</option>
+                                        <option value="Critical">Critical</option>
+                                        <option value="High">High</option>
+                                        <option value="Normal">Normal</option>
+                                        <option value="Low">Low</option>
+                                    </select>
+                                </span>
+                                <span class="clearfix" /></span>
+                        </div>
+                        <a href="javascript:;" class="close open-modal-window" data-modal-class="modal-delete-requirement-box" ng-click="$parent.activity.removeRequirement($index)"/>
+                    </div>
+                    <div class="requite-con">
+                        <div class="requite-con-box">
+                            <textarea class="requite-con-m" placeholder="Requirements" ng-model="requirement.description"></textarea>
+                        </div>
+                    </div>
+                    <div ng-repeat="childRequirement in requirement.childRequirements track by $index" class="require-box-son {{$last?'end-son':'another-son'}}">
+                        <div class="require-box">
+                            <div class="require-tit ex-{{childRequirement.importance?childRequirement.importance.toLowerCase():'select'}}">
+                                <span class="tit-con pull-left">Requirement {{childRequirement.requirementNumber}}</span>
+                                <div class="importance pull-left">
+                                    <span class="pull-left">Importance:</span>
+                                    <span class="form-container width85 pull-left" ng-jqtransform="a">
+                                        <span class="selects-container">
+                                            <select ng-model="childRequirement.importance">
+                                                <option ng-selected="true" value="">Select</option>
+                                                <option value="Critical">Critical</option>
+                                                <option value="High">High</option>
+                                                <option value="Normal">Normal</option>
+                                                <option value="Low">Low</option>
+                                            </select>
+                                        </span>
+                                        <span class="clearfix" /></span>
+                                </div>
+                                <a href="javascript:;" class="close open-modal-window" data-modal-class="modal-delete-requirement-box"  ng-click="$parent.requirement.removeRequirement($index)"/>
+                            </div>
+                            <div class="requite-con">
+                                <div class="requite-con-box">
+                                    <textarea class="requite-con-m" placeholder="Requirements" ng-model="childRequirement.description"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clearfix" /></div>
+                    <div class="btn-box">
+                        <a href="javascript:;" class="blue-border-btn add-more-btn add-child-requirement-btn left50" ng-click="requirement.addRequirement()">ADD CHILD</a>
+                    </div>
+                </div>
+                <div class="clearfix" />
+                <div class="btn-box">
+                    <a href="javascript:;" class="blue-border-btn add-more-btn add-more-requirement-btn" ng-click="activity.addRequirement()">ADD PARENT</a>
+                </div>
+            </div>
+            <!-- end.active-require -->
+            <div class="code-type">
+                <div class="tit">Skills Requested(Tags)</div>
+                <ui-select multiple="multiple" sortable="true" close-on-select="true" ng-model="activity.codeTypes" theme="bootstrap" ng-disabled="disabled" title="Choose a type">
+                    <ui-select-match placeholder="Select types...">{{$item.name}}</ui-select-match>
+                    <ui-select-choices repeat="codyType in $parent.defaultSkills | filter: {name: $select.search}">
+                        {{codyType.name}}
+                    </ui-select-choices>
+                </ui-select>
+            </div>
+            <!-- end.code-type -->
+            <div class="timeline">
+                <div class="tit">Timeline</div>
+                <div class="timeline-con">
+                    <div class="timeline-item" ng-repeat="milestone in activity.milestones track by milestone.name" >
+                        <span><span class="color-lump-label line-items-{{$index}}"><a href="javascript:;">{{$index+1}}</a></span> - {{milestone.name.split(' ')[0]}}</span>
+                        <div class="time-in calendar" ng-if="$parent.global.milestones[$index].display">
+                            <input type="text" ng-model="milestone.scheduledDate" class="from-date" readonly="" ui-date="dateOptions" on-date-changed="$parent.activity.milestoneChanged($index,newValue,oldValue)" min-date="$parent.activity.milestones[$index-1].scheduledDate" min-offset="1" />
+                            <span class="calendar-icon date-icon" />
+                        </div>
+                        <div class="time-in calendar" ng-if="!$parent.global.milestones[$index].display">
+                            {{milestone.scheduledDate | date : 'MM/dd/yyyy'}}
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-axis">
+                    <div class="main-line" />
+                    <div class="line-items">
+                        <div class="color-lump line-items-{{$index}}" ng-repeat="milestone in activity.milestones track by milestone.name">
+                            <a href="javascript:;" ng-style="{ left: Math.floor(milestone.getOffset($parent.activity.milestones[0])/$parent.activity.activityDuration*100)+'%' }">{{$index+1}}</a>
+                            <span ng-if="!$last" ng-style="{ left: Math.floor(milestone.getOffset($parent.activity.milestones[0])/$parent.activity.activityDuration*100)+'%' }">{{$parent.activity.milestoneDuration($index,milestone.scheduledDate)}} Days</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end.timeline -->
+            <div class="prizes">
+                <div class="title-bar">
+                    <div class="tit pull-left">Prizes</div>
+                    <div class="pull-right">
+                        <div class="row-td pull-left">
+                            <a href="javascript:;" checkbox="a" class="checkbox-img rounded-checkbox blue-link" ng-model="activity.noPrizes">
+                                <i />No Prizes
+                            </a>
+                        </div>
+                        <a href="javascript:;" class="blue-border-btn add-more-btn pull-left add-more-prize-btn {{activity.noPrizes?'disable':''}}" ng-click="activity.addPrize()">
+                            <i />ADD PRIZE
+                        </a>
+                    </div>
+                </div>
+                <div class="prizes-item {{$parent.activity.noPrizes?'disable':''}}" ng-repeat="prize in activity.prizes">
+                    <span class="turn">{{prize.placeLabel}}</span>
+                    <span class="turn-box">
+                        <em>$</em>
+                        <input type="number" ng-model="prize.amount" placeholder="Type here" ng-disabled="$parent.activity.noPrizes" />
+                    </span>
+                    <a href="javascript:;" class="close" ng-click="$parent.activity.removePrize($index)" />
+                </div>
+            </div>
+            <!-- end.prizes -->
+            <div class="support-doc support-doc-upload-file">
+                <div class="tit">Support Doc</div>
+                <div class="forms">
+                    <file-picker model="activity">
+                        <span class="input-box width330 pull-left">
+                            <input type="text" class="file-name-input" placeholder="File to upload" readonly="true" ng-model="activity.fileToUpload.fileName" />
+                        </span>
+                        <span class="input-file hide">
+                            <input type="file" fileread="activity.fileToUpload.file" filename="activity.fileToUpload.fileName" />
+                        </span>
+                        <a href="javascript:;" class="blue-link pull-left browse-link">Browse</a>
+                    </file-picker>
+                    <span class="input-box width470 pull-left">
+                        <input type="text" class="file-description-input" ng-model="activity.fileToUpload.description" placeholder="Type Description" />
+                    </span>
+                    <a href="javascript:;" class="blue-btn width105 radius6 text-center blue-upload-btn pull-right" ng-click="activity.uploadFile()">
+                        <span>
+                            <span>UPLOAD</span>
+                        </span>
+                    </a>
+                    <span class="clearfix" />
+                </div>
+                <!-- end.forms -->
+                <ul class="support-doc-con support-doc-data">
+                    <li ng-repeat="document in activity.documents track by document.id">
+                        <span class="support-name">
+                            <a href="/servlet/servlet.FileDownload?file={{document.id}}" target="_blank" class="blue-link">{{document.name}}</a>
+                            <span>{{document.description}}</span>
+                        </span>
+                        <span class="time">{{document.createdDate | date : 'MM/dd/yyyy, HH:mm' }}</span>
+                        <a class="remove" href="javascript:;" ng-click="$parent.activity.deleteDocument($index)">Remove</a>
+                    </li>
+                </ul>
+                <!-- end.support-doc-con -->
+            </div>
+            <!-- end.support-doc -->
+            </div>
+            <!-- Uncomment in future, when we will need clonning/adding activity functionality -->
+            <!-- <div class="mouse-btns"><ul><li class="{{$parent.vm.story.activities.length>1?'':'hide'}}"><a class="cancel-activity-btn delete-btn blue-link" href="javascript:;" ng-click="$parent.vm.story.removeActivity($index)"><i class="close"></i><span>Cancel this Activity</span></a></li><li><a class="copy-activity-btn blue-link" href="javascript:;" ng-click="$parent.vm.story.addActivity($index)"><i></i><span>Add Activity via Copy</span></a></li><li><a class="add-activity-btn blue-link" href="javascript:;" ng-click="$parent.vm.story.addActivity()"><i></i><span>Add Activity</span></a></li></ul></div> -->
+            <!-- end.mouse-btn -->
+        </div>
+    </div>
+    <!-- end .contents step 2 -->
+    <div class="wizard-step create-story-step3" ng-if="vm.step == vm.stepsCount">
+        <nav class="sub-tabs-bar boxs" ng-element-ready="vm.story.setStartOffsets()">
+            <ul>
+                <li class="{{vm.story.isActive?'current':''}}" ng-click="vm.story.setActiveTab(-1)">
+                    <i />
+                    <a href="javascript:;">Story Detail</a>
+                </li>
+                <li class="{{activity.isActive?'current':''}}" ng-repeat="activity in vm.story.activities track by $index" ng-click="$parent.vm.story.setActiveTab($index)">
+                    <i />
+                    <a href="javascript:;">{{activity.title?activity.title:'Activity '+($index+1)}}</a>
+                </li>
+            </ul>
+            <div class="clearfix" />
+        </nav>
+        <!-- end .sub-tabs-bar -->
+        <div class="story-detail-contents activity-detail-contents create-main boxs sub-tab-content {{vm.story.isActive?'':'hide'}}">
+            <div class="review-story-tit">{{vm.story.title}}</div>
+            <div class="type">
+                <div class="activity-type right155 pull-left">
+                    <span>Publisher</span>
+                    <p class="activity-txt">
+                        <a href="javascript:;" class="blue-link">{{global.currentUser.firstName}} {{global.currentUser.LastName}}</a>
+                    </p>
+                </div>
+                <div class="process-type pull-left">
+                    <span>Organization</span>
+                    <p class="activity-txt">
+                        <a href="javascript:;" class="blue-link">{{global.currentUser.organization}}</a>
+                    </p>
+                </div>
+                <div class="clearfix" /></div>
+            <!-- .type -->
+            <div class="review-data">
+                <div class="review-data-top">
+                    <ul>
+                        <li class="days">
+                            <span class="num-color">{{vm.story.storyDuration}}</span>
+                            <i>Days</i>
+                        </li>
+                        <li class="star-date">
+                            <span class="note-color">{{ vm.story.storyStart | date : 'MM/dd/yyyy' }}</span>
+                            <i>Start Date</i>
+                        </li>
+                        <li class="end-date">
+                            <span class="note-color">{{ vm.story.storyEnd | date : 'MM/dd/yyyy' }}</span>
+                            <i>End Date</i>
+                        </li>
+                        <li class="activities">
+                            <span class="num-color">{{vm.story.activities.length}}</span>
+                            <i>Activities</i>
+                        </li>
+                        <li class="status">
+                            <span class="note-color">Planning</span>
+                            <i>Phase</i>
+                        </li>
+                        <li class="total-budget width400">
+                            <span class="total-budget-note">$ {{vm.story.totalBudget | number:0}}</span>
+                            <i>Total Budget</i>
+                        </li>
+                    </ul>
+                </div>
+                <!-- end.review-data-top -->
+                <div class="review-data-line" ng-style="{ 'height': (40 * vm.story.activities.length + 50) + 'px' }">
+                    <div class="review-main-line position" ng-style="{ 'min-width': {{Math.floor(954 * (activity.activityDuration / $parent.vm.story.storyDuration))}}+'px', 'top': '{{$index*40}}px', 'left': {{Math.floor(954 * (activity.startOffset / $parent.vm.story.storyDuration))}}+'px' }" ng-repeat="activity in vm.story.activities track by $index">
+                        <a href="javascript:;">{{$index + 1}}. {{activity.title?activity.title:'Activity '+($index+1)}}</a>
+                        <span class="review-line-con {{( activity.endMilestone.completedDate && today > activity.endMilestone.completedDate ? 'green-bg': 'blue-bg')}}">
+                            <i />
+                        </span>
+                    </div>
+                    <!-- end.review-main-line -->
+                </div>
+                <!-- end.review-data-line -->
+            </div>
+            <!-- end.review-data -->
+            <div class="review-description">
+                <h3 class="title-h3">Story Description</h3>
+                <div class="review-desc-con">
+                    <pre>{{vm.story.description}}</pre>
+                </div>
+            </div>
+            <!-- end.review-description -->
+        </div>
+        <!-- end .story-detail-contents -->
+        <div class="ativity-contents activity-detail-contents create-main boxs sub-tab-content {{activity.isActive?'':'hide'}}" ng-repeat="activity in vm.story.activities track by $index">
+            <div class="activity-detail-main">
+                <div class="left-boxs">
+                    <div class="review-story-tit">{{activity.title?activity.title:'Activity '+($index+1)}}</div>
+                    <div class="type">
+                        <div class="activity-type pull-left">
+                            <span>Service Offering</span>
+                            <p class="activity-txt">{{$parent.vm.story.serviceOffering}}</p>
+                        </div>
+                        <div class="process-type pull-left">
+                            <span>Challenge Type</span>
+                            <p class="activity-txt">{{activity.challengeType}}</p>
+                        </div>
+                        <div class="clearfix" /></div>
+                    <!-- .type -->
+                    <div class="title-box">
+                        <h3 class="pull-left">
+                            <i />Activity Requirements
+                        </h3>
+                        <div class="pull-right">
+                            <a href="javascript:;" class="ex-low-label">Low</a>
+                            <a href="javascript:;" class="ex-normal-label">Normal</a>
+                            <a href="javascript:;" class="ex-high-label">High</a>
+                            <a href="javascript:;" class="ex-critical-label">Critical</a>
+                        </div>
+                        <div class="clearfix" /></div>
+                    <!-- .title-box -->
+                    <div class="active-requite-con">
+                        <div class="requite-partbig {{requirement.importance?requirement.importance.toLowerCase():'black'}}" ng-repeat="requirement in activity.requirements track by $index">
+                            <div class="num-line">{{requirement.requirementNumber}}</div>
+                            <div class="requite-part-main">
+                                <div class="requite-part-data">
+                                    <pre>{{requirement.description}}</pre>
+                                </div>
+                                <div class="requite-partsmall {{$first?'first-small':''}} {{childRequirement.importance?childRequirement.importance.toLowerCase():'black'}}" ng-repeat="childRequirement in requirement.childRequirements track by $index">
+                                    <div class="num-line">{{childRequirement.requirementNumber}}</div>
+                                    <div class="requite-part-main">
+                                        <div class="requite-part-data">
+                                            <pre>{{childRequirement.description}}</pre>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end .requite-partbig -->
+                    </div>
+                    <div class="code-types">
+                        <span>Code Types</span>
+                        <div class="clearfix" />
+                        <div class="btn-boxs">
+                            <a href="javascript:;" class="light-blue-btn" ng-repeat="codeType in activity.codeTypes track by $index">{{codeType.name}}</a>
+                        </div>
+                        <div class="clearfix" /></div>
+                    <!-- end .code-types -->
+                    <div class="support-doc">
+                        <div class="code-title">
+                            <span>Support Doc</span>
+                        </div>
+                        <ul class="support-doc-con">
+                            <li ng-repeat="document in activity.documents track by document.id">
+                                <span class="support-name">
+                                    <a href="/servlet/servlet.FileDownload?file={{document.id}}" target="_blank" class="blue-link">{{document.name}}</a>
+                                    <span>{{document.description}}</span>
+                                </span>
+                                <span class="time">{{document.createdDate | date : 'MM/dd/yyyy, HH:mm' }}</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- end .left-boxs -->
+                <aside class="right-boxs">
+                    <div class="place-money top15">
+                        <div class="place-money-item" ng-repeat="prize in activity.prizes">
+                            <span>Place {{prize.place}}</span>
+                            <i>${{prize.amount | number:0}}</i>
+                        </div>
+                    </div>
+                    <div class="timeline-aside">
+                                <div class="code-types">
+                                    <span>Timeline</span>
+                                </div>
+                                <div class="timeline-aside-line" ng-style="{ height: (activity.milestones.length*60)+'px' }">
+                                    <div class="aside-midline" ng-style="{ height: (activity.milestones.length*55)+'px' }">
+                                        <span class="{{(milestone.completedDate && milestone.completedDate <= $parent.$parent.today)?'blue-bg':''}}" 
+                                              ng-repeat="milestone in activity.milestones track by milestone.name" ng-if="!$first"/>
+                                        <span />
+                                    </div>
+                                    <div class="aside-lump" >
+                                        <a href="javascript:;" ng-repeat="milestone in activity.milestones track by milestone.name" ng-style="{ top: $index*60+'px' }"
+                                            class="{{(milestone.completedDate && milestone.completedDate <= $parent.$parent.today)?'current':''}}"/>
+                                    </div>
+                                    <div class="aside-linenote">
+                                        <span ng-repeat="milestone in activity.milestones track by milestone.name" ng-style="{ top: ($index*60 + 30)+'px' }" ng-if="!$last">
+                                          {{$parent.activity.milestoneDuration($index,milestone.scheduledDate)}}d
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="timeline-aside-word">
+                                    <a href="javascript:;" class="timeline-aside-word-item" ng-repeat="milestone in activity.milestones track by milestone.name"
+                                        ng-style="{ top: $index*60+'px' }" > 
+                                        <span>{{milestone.name.split(' ')[0]}}</span>
+                                        <i>{{ milestone.scheduledDate | date : 'MM/dd/yyyy' }}</i>
+                                    </a>
+                                </div>
+                            </div>
+                </aside>
+                <!-- end .right-boxs -->
+                <div class="clearfix" /></div>
+            <!-- end .activity-detail-main -->
+        </div>
+        <!-- end .ativity-contents -->
+    </div>
+    <!-- end .contents step 3-->
+    <div class="btn-bar gray-bg">
+        <div class="boxs">
+            <span class="pull-left">
+                <a href="javascript:;" class="blue-border-btn back-btn {{vm.step==1?'disable':''}}" ng-click="vm.goToPrev()">BACK</a>
+            </span>
+            <span class="pull-right">
+                <a href="#/" class="blue-link cancel-link open-modal-window" data-modal-class="modal-create-story-steps-cancel">Cancel</a>
+                <a href="javascript:;" class="blue-border-btn save-as-draft-btn open-modal-window" data-modal-class="modal-saving-activity-as-draft" ng-click="vm.saveCurrentStep()">SAVE</a>
+                <a href="javascript:;" class="blue-border-btn next-btn" ng-click="vm.goToNext()" ng-if="vm.step<vm.stepsCount">NEXT</a>
+                <a href="#/publisherStoryDetails/{{vm.story.id}}" class="blue-btn publish-btn radius6" ng-if="vm.step==(vm.story.activities.length + 2)">
+                    <span>
+                        <span>Publish</span>
+                    </span>
+                </a>
+            </span>
+            <span class="clearfix" />
+        </div>
+    </div>
+    <!-- end .btn-bar -->
+</div>
+</apex:page>
