@@ -9,16 +9,11 @@
         <type>DateTime</type>
     </fields>
     <fields>
-        <fullName>From_User__c</fullName>
+        <fullName>FromUser__c</fullName>
         <label>From User</label>
         <referenceTo>User</referenceTo>
         <relationshipName>Notifications</relationshipName>
         <type>Lookup</type>
-    </fields>
-    <fields>
-        <fullName>From__c</fullName>
-        <label>From</label>
-        <type>Email</type>
     </fields>
     <fields>
         <fullName>Notification_Text__c</fullName>
@@ -26,22 +21,6 @@
         <length>5000</length>
         <type>LongTextArea</type>
         <visibleLines>10</visibleLines>
-    </fields>
-    <fields>
-        <fullName>Status__c</fullName>
-        <label>Status</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Read</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Unread</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <type>Picklist</type>
     </fields>
     <fields>
         <fullName>Subject__c</fullName>

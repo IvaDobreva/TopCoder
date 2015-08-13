@@ -1,19 +1,74 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <types>
-        <members>*</members>
+        <member>ActivityMonitoringBatch</member>
+				<member>ActivityService</member>
+				<member>ActivityServiceTest</member>
+				<member>CalculateSummaryDataBatch</member>
+				<member>Constants</member>
+				<member>CrowdExchangeRemoteController</member>
+				<member>CrowdExchangeRemoteControllerTest</member>
+				<member>CrowdExchangeWebApp_ConfigController</member>
+				<member>CrowdExchangeWebApp_ConfigControllerTest</member>
+				<member>CrowdExchangeWebApp_PageController</member>
+				<member>CrowdExchange_MemberSearchEmailCntr</member>
+				<member>CrowdExchange_MemberSearchEmailCntrTest</member>
+				<member>CrowdExchange_Utils</member>
+				<member>CrowdExchange_UtilsTest</member>
+				<member>DashboardDataCollector</member>
+				<member>DashboardUpdater</member>
+				<member>DashboardUpdaterScheduler</member>
+				<member>DashboardUpdaterSchedulerTest</member>
+				<member>DashboardUpdaterTest</member>
+				<member>EmailHelper</member>
+				<member>EmailHelperTest</member>
+				<member>IActivityService</member>
+				<member>IStoryService</member>
+				<member>ISubmissionService</member>
+				<member>IUserService</member>
+				<member>ServiceException</member>
+				<member>StoryService</member>
+				<member>StoryServiceTest</member>
+				<member>SubmissionService</member>
+				<member>SubmissionServiceTest</member>
+				<member>TestDataFactory</member>
+				<member>TestFactory</member>
+				<member>UserService</member>
+				<member>UserServiceTest</member>
+				<member>WebAppModels</member>
+				<member>WebAppModelsTest</member>
+				<member>WorkflowManager</member>
+				<member>WorkflowManagerTest</member>
         <name>ApexClass</name>
     </types>
     <types>
-        <members>*</members>
+        <members>CrowdExchangeWebApp_Config</members>
         <name>ApexComponent</name>
     </types>
     <types>
-        <members>*</members>
+        <member>BandwidthExceeded</member>
+				<member>CrowdExchangeWebApp</member>
+				<member>CrowdExchangeWebApp_MemActivityAssigned</member>
+				<member>CrowdExchangeWebApp_MemberStoryDetails</member>
+				<member>CrowdExchangeWebApp_PubActivityAssign</member>
+				<member>CrowdExchangeWebApp_PubActivityReview</member>
+				<member>CrowdExchangeWebApp_PubAddActivity</member>
+				<member>CrowdExchangeWebApp_PubCreateStory</member>
+				<member>CrowdExchangeWebApp_PubStoryDetails</member>
+				<member>CrowdExchangeWebApp_Stories</member>
+				<member>CrowdExchange_ActivityFeed</member>
+				<member>Exception</member>
+				<member>FileNotFound</member>
+				<member>ForgotPassword</member>
+				<member>ForgotPasswordConfirm</member>
+				<member>InMaintenance</member>
+				<member>Unauthorized</member>
+				<member>UnderConstruction</member>
         <name>ApexPage</name>
     </types>
     <types>
-        <members>*</members>
+        <members>ActivityHandler</members>
+        <members>SubmissionHandler</members>
         <name>ApexTrigger</name>
     </types>
     <types>
@@ -30,10 +85,12 @@
         <members>ActivityMilestones__c</members>
         <members>ActivitySkills__c</members>
         <members>Award__c</members>
+        <members>CrowdExchangeSettings__c</members>
         <members>Default_Requirement__c</members>
         <members>Internal_Project__c</members>
         <members>InternalProjectSkill__c</members>
         <members>Member_Skill_Snapshot__c</members>
+        <members>Member_Summary_Snapshot__c</members>
         <members>Milestone__c</members>
         <members>Notification__c</members>
         <members>Registration__c</members>
@@ -67,6 +124,7 @@
         <members>Crowd_Exchange_Email_Templates/Activity_Has_Been_Awarded</members>
         <members>Crowd_Exchange_Email_Templates/Activity_Registration_Complete</members>
         <members>Crowd_Exchange_Email_Templates/Invitation_To_Register_For_an_Activity</members>
+        <members>Crowd_Exchange_Email_Templates/Member_Search</members>
         <members>Crowd_Exchange_Email_Templates/New_Story_Published</members>
         <members>Crowd_Exchange_Email_Templates/No_Registered_Users</members>
         <members>Crowd_Exchange_Email_Templates/No_Reviews_Received</members>
@@ -118,7 +176,7 @@
     </types>
     -->
     <types>
-        <members>*</members>
+        <members>CrowdExchangeWebApp_Resources</members>
         <name>StaticResource</name>
     </types>
     <types>

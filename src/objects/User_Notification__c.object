@@ -6,7 +6,8 @@
         <fullName>Notification__c</fullName>
         <label>Notification</label>
         <referenceTo>Notification__c</referenceTo>
-        <relationshipName>Notification_Recipients1</relationshipName>
+        <relationshipLabel>User Notifications</relationshipLabel>
+        <relationshipName>NotificationRecipients</relationshipName>
         <relationshipOrder>0</relationshipOrder>
         <type>MasterDetail</type>
     </fields>
@@ -14,7 +15,7 @@
         <fullName>Recipient__c</fullName>
         <label>Recipient</label>
         <referenceTo>User</referenceTo>
-        <relationshipName>Notification_Users</relationshipName>
+        <relationshipName>UserNotifications</relationshipName>
         <type>Lookup</type>
     </fields>
     <fields>

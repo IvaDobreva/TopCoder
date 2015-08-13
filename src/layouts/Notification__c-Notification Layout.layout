@@ -14,10 +14,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Status__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Type__c</field>
             </layoutItems>
             <layoutItems>
@@ -27,10 +23,6 @@
             <layoutItems>
                 <behavior>Required</behavior>
                 <field>Subject__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>From__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>

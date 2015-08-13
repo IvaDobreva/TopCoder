@@ -19,6 +19,13 @@
         <type>MasterDetail</type>
     </fields>
     <fields>
+        <fullName>Review_Comment__c</fullName>
+        <label>Review Comment</label>
+        <length>32768</length>
+        <type>LongTextArea</type>
+        <visibleLines>5</visibleLines>
+    </fields>
+    <fields>
         <fullName>Submission__c</fullName>
         <label>Submission</label>
         <referenceTo>Submission__c</referenceTo>
