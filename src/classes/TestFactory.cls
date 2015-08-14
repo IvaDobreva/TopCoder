@@ -77,28 +77,28 @@ public class TestFactory {
             result.add(new Default_Requirement__c(
                            Name = 'Application Functionality ' + 1,
                            Description__c = 'Application Functionality ' + 1,
-                           Requirement_Weight__c = 'Medium',
+                           Requirement_Weight__c = 'Normal',
                            Type__c = 'Application Functionality'
                        ));
         for (Integer i = 0; i < 3; i++)
             result.add(new Default_Requirement__c(
                            Name = 'Code Standard ' + 1,
                            Description__c = 'Code Standard ' + 1,
-                           Requirement_Weight__c = 'Medium',
+                           Requirement_Weight__c = 'Normal',
                            Type__c = 'Code Standard'
                        ));
         for (Integer i = 0; i < 3; i++)
             result.add(new Default_Requirement__c(
                            Name = 'Deployment ' + 1,
                            Description__c = 'Deployment ' + 1,
-                           Requirement_Weight__c = 'Medium',
+                           Requirement_Weight__c = 'Normal',
                            Type__c = 'Deployment'
                        ));
         for (Integer i = 0; i < 3; i++)
             result.add(new Default_Requirement__c(
                            Name = 'Documentation ' + 1,
                            Description__c = 'Documentation ' + 1,
-                           Requirement_Weight__c = 'Medium',
+                           Requirement_Weight__c = 'Normal',
                            Type__c = 'Documentation'
                        ));
         return result;
@@ -109,7 +109,7 @@ public class TestFactory {
                    Activity__c = activity.Id,
                    Description__c = 'Description',
                    Requirement_Evaluation__c = 'Meets requirement',
-                   Requirement_Weight__c = 'Medium',
+                   Requirement_Weight__c = 'Normal',
                    Type__c = requirement.Type__c,
                    Requirement_Number__c = '1'
                );

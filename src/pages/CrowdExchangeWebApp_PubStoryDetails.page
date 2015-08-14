@@ -222,7 +222,7 @@
                             <i />
                             <a href="javascript:;" ng-click="activity.selectTab(4)">Submissions</a>
                         </li>
-                        <li class="review-score-tab hide {{activity.activeTab==5?'current':''}}">
+                        <li class="review-score-tab {{activity.activeTab==5?'current':''}}" ng-show="activity.submissionRequirements.isInitialized" >
                             <i />
                             <a href="javascript:;" ng-click="activity.selectTab(5)">Review</a>
                         </li>
@@ -508,151 +508,38 @@
                             </div>
                         </div>
                         <!-- end .row -->
-                        <div class="row row-td hide">
-                            <div class="col-td width20">
-                                <div class="name-box">
-                                    <a href="publisher-member-profile.html" class="chatter-img">
-                                        <img src="i/chatter-41x41-1.jpg" alt="Portrait" />
-                                    </a>
-                                    <a href="publisher-member-profile.html" class="blue-link">Mark C.</a>
-                                </div>
-                                <!-- .name-box-->
-                            </div>
-                            <div class="col-td width20">
-                                <span class="left10">13/05/2013
-                                    <em class="spacing12" />12:32
-                                </span>
-                            </div>
-                            <div class="col-td width18">File Name 1</div>
-                            <div class="col-td width16 text-center">80%</div>
-                            <div class="col-td width12 text-center">
-                                <a href="javascript:;" class="blue-link edit-view-scoreboard-link">Edit</a>
-                            </div>
-                            <div class="col-td width14 text-center">
-                                <a href="javascript:;" class="blue-btn radius6 pull-right">
-                                    <span>
-                                        <span>Download</span>
-                                    </span>
-                                </a>
-                            </div>
-                        </div>
-                        <!-- end .row -->
-                        <div class="row row-td">
-                            <div class="col-td width20">
-                                <div class="name-box">
-                                    <a href="publisher-member-profile.html" class="chatter-img">
-                                        <img src="i/chatter-41x41-1.jpg" alt="Portrait" />
-                                    </a>
-                                    <a href="publisher-member-profile.html" class="blue-link">Mark C.</a>
-                                </div>
-                                <!-- .name-box-->
-                            </div>
-                            <div class="col-td width20">
-                                <span class="left10">13/05/2013
-                                    <em class="spacing12" />12:32
-                                </span>
-                            </div>
-                            <div class="col-td width18">File Name 1</div>
-                            <div class="col-td width16 text-center">80%</div>
-                            <div class="col-td width12 text-center">
-                                <a href="javascript:;" class="blue-link edit-view-scoreboard-link">Edit</a>
-                            </div>
-                            <div class="col-td width14 text-center">
-                                <a href="javascript:;" class="blue-btn radius6 pull-right">
-                                    <span>
-                                        <span>Download</span>
-                                    </span>
-                                </a>
-                            </div>
-                        </div>
-                        <!-- end .row -->
-                        <div class="row row-td">
-                            <div class="col-td width20">
-                                <div class="name-box">
-                                    <a href="publisher-member-profile.html" class="chatter-img">
-                                        <img src="i/chatter-41x41-1.jpg" alt="Portrait" />
-                                    </a>
-                                    <a href="publisher-member-profile.html" class="blue-link">Mark A.</a>
-                                </div>
-                                <!-- .name-box-->
-                            </div>
-                            <div class="col-td width20">
-                                <span class="left10">26/02/2015
-                                    <em class="spacing12" />11:32
-                                </span>
-                            </div>
-                            <div class="col-td width18">File Name 1</div>
-                            <div class="col-td width16 text-center">97%</div>
-                            <div class="col-td width12 text-center">
-                                <a href="javascript:;" class="blue-link edit-view-scoreboard-link">Review</a>
-                            </div>
-                            <div class="col-td width14 text-center">
-                                <a href="javascript:;" class="blue-btn radius6 pull-right">
-                                    <span>
-                                        <span>Download</span>
-                                    </span>
-                                </a>
-                            </div>
-                        </div>
-                        <!-- end .row -->
-                        <div class="row row-td">
-                            <div class="col-td width20">
-                                <div class="name-box">
-                                    <a href="publisher-member-profile.html" class="chatter-img">
-                                        <img src="i/chatter-41x41-1.jpg" alt="Portrait" />
-                                    </a>
-                                    <a href="publisher-member-profile.html" class="blue-link">Mark E.</a>
-                                </div>
-                                <!-- .name-box-->
-                            </div>
-                            <div class="col-td width20">
-                                <span class="left10">23/05/2015
-                                    <em class="spacing12" />15:32
-                                </span>
-                            </div>
-                            <div class="col-td width18">File Name 1</div>
-                            <div class="col-td width16 text-center">90%</div>
-                            <div class="col-td width12 text-center">
-                                <a href="javascript:;" class="blue-link edit-view-scoreboard-link">Edit</a>
-                            </div>
-                            <div class="col-td width14 text-center">
-                                <a href="javascript:;" class="blue-btn radius6 pull-right">
-                                    <span>
-                                        <span>Download</span>
-                                    </span>
-                                </a>
-                            </div>
-                        </div>
-                        <!-- end .row -->
-                        <div class="row row-td">
-                            <div class="col-td width20">
-                                <div class="name-box">
-                                    <a href="publisher-member-profile.html" class="chatter-img">
-                                        <img src="i/chatter-41x41-1.jpg" alt="Portrait" />
-                                    </a>
-                                    <a href="publisher-member-profile.html" class="blue-link">Mark D.</a>
-                                </div>
-                                <!-- .name-box-->
-                            </div>
-                            <div class="col-td width20">
-                                <span class="left10">23/01/2015
-                                    <em class="spacing12" />12:32
-                                </span>
-                            </div>
-                            <div class="col-td width18">File Name 1</div>
-                            <div class="col-td width16 text-center">90%</div>
-                            <div class="col-td width12 text-center">
-                                <a href="javascript:;" class="blue-link edit-view-scoreboard-link">Edit</a>
-                            </div>
-                            <div class="col-td width14 text-center">
-                                <a href="javascript:;" class="blue-btn radius6 pull-right">
-                                    <span>
-                                        <span>Download</span>
-                                    </span>
-                                </a>
-                            </div>
-                        </div>
-                        <!-- end .row -->
+                        
+                        <div class="row row-td " ng-repeat="submission in activity.submissions.submissions track by $index" >
+		                    <div class="col-td width20">
+		                        <div class="name-box">
+		                            <a href="publisher-member-profile.html" class="chatter-img">
+		                                <img src="{{submission.user.photoUrl}}" alt="Portrait" />
+		                            </a>
+		                            <a href="member-member-profile.html" class="blue-link">{{submission.user.firstName+' '+submission.user.lastName}}</a>
+		                        </div>
+		                        <!-- .name-box-->
+		                    </div>
+		                    <div class="col-td width20">
+		                        <span class="left10">{{submission.submissionDate | date : 'MM/dd/yyyy' }}
+		                            <em class="spacing12" />{{submission.submissionDate | date : 'HH:mm' }}
+		                        </span>
+		                    </div>
+		                    <div class="col-td width18">{{submission.name}}</div>
+		                    <div class="col-td width12 text-center"  >
+		                    	<span ng-if="submission.evaluationPercentage && $first" >{{submission.evaluationPercentage}}%</span>
+		                    </div>
+		                    <div class="col-td width12 text-center">
+		                        <a href="javascript:;" class="blue-link edit-view-scoreboard-link" ng-if="!submission.evaluationPercentage && $first" ng-click="activity.showReviewTab(5,submission.id)" >Review</a>
+		                        <a href="javascript:;" class="blue-link edit-view-scoreboard-link" ng-if="submission.evaluationPercentage && $first" ng-click="activity.showReviewTab(5,submission.id)" >Edit</a>
+		                    </div>
+		                    <div class="col-td width14 text-center">
+		                        <a href="/servlet/servlet.FileDownload?file={{submission.document.id}}" target="_blank" class="blue-btn radius6 pull-right">
+		                            <span>
+		                                <span>Download</span>
+		                            </span>
+		                        </a>
+		                    </div> 
+		                </div>
                     </div>
                     <!-- end .table-data -->
                 </div>
@@ -663,11 +550,11 @@
                             <h2 class="title-h2">REVIEW</h2>
                             <div class="col-user">
                                 <a href="publisher-member-profile.html" class="portrait-img">
-                                    <img src="i/portrait-54x54-1.jpg" alt="Portrait" />
+                                    <img src="{{activity.submissionRequirements.submission.user.photoUrl}}" alt="Portrait" />
                                 </a>
                                 <span class="user-texts">
                                     <span class="texts gray">Member Name</span>
-                                    <a href="publisher-member-profile.html" class="blue-link">Mark C.</a>
+                                    <a href="publisher-member-profile.html" class="blue-link">{{activity.submissionRequirements.submission.user.firstName+' '+activity.submissionRequirements.submission.user.lastName}}</a>
                                 </span>
                             </div>
                             <!-- .col-user-->
@@ -678,20 +565,20 @@
                                     <div class="col-row width185">
                                         <span class="text gray">Submission file Name</span>
                                         <span class="value">
-                                            <a href="javascript:;" class="gray-link">FileName1.zip</a>
+                                            <a href="javascript:;" class="gray-link">{{activity.submissionRequirements.submission.name}}</a>
                                         </span>
                                     </div>
                                 </li>
                                 <li>
                                     <div class="col-row width205">
                                         <span class="text gray">Submission Date</span>
-                                        <span class="value">23/05/2015, 12:32</span>
+                                        <span class="value">{{activity.submissionRequirements.submission.submissionDate | date : 'MM/dd/yyyy, HH:mm' }}</span>
                                     </div>
                                 </li>
                                 <li>
                                     <div class="col-row width145">
                                         <span class="text gray">Submission Score</span>
-                                        <span class="value">90%</span>
+                                        <span class="value" ng-if="activity.submissionRequirements.submission.evaluationPercentage" >{{activity.submissionRequirements.submission.evaluationPercentage}}%</span>
                                     </div>
                                 </li>
                             </ul>
@@ -705,28 +592,32 @@
                             <div class="col-td width7 text-right">WEIGHT</div>
                         </div>
                         <!-- end .row-th -->
+                        <div ng-repeat="subReq in activity.submissionRequirements.submissionRequirements" >
                         <div class="row row-title">
-                            <div class="col-td width65 ex-high">
-                                <span class="tit-con pull-left">Requirement 1.0</span>
+                            <div class="col-td width65 ex-{{subReq.requirement.importance?subReq.requirement.importance.toLowerCase():'black'}}" >
+                                <span class="tit-con pull-left">Requirement {{subReq.requirement.requirementNumber}}</span>
                                 <div class="importance pull-left">
                                     <span class="pull-left">Importance:</span>
-                                    <span class="value pull-left orange">High</span>
+                                    <span class="value pull-left orange" ng-if="subReq.requirement.importance == 'High' ">{{subReq.requirement.importance}}</span>
+		                            <span class="value pull-left yellow" ng-if="subReq.requirement.importance == 'Low' ">{{subReq.requirement.importance}}</span>
+		                            <span class="value pull-left ex-critical-label" ng-if="subReq.requirement.importance == 'Critical' ">{{subReq.requirement.importance}}</span>
+		                            <span class="value pull-left ex-normal-label" ng-if="subReq.requirement.importance == 'Normal' ">{{subReq.requirement.importance}}</span>
                                 </div>
                             </div>
                             <div class="col-td width28">
                                 <span class="form-container z-index1110">
                                     <span class="selects-container">
-                                        <select>
-                                            <option selected="selected">Meets and Exceeds Requirements</option>
-                                            <option>Meets Requirements</option>
-                                            <option>Somewhat Meets Requirements</option>
-                                            <option>Doesn't Meet Requirements</option>
-                                        </select>
+                                        <select ng-model="subReq.evaluationScore" ng-init="0" >
+		                                    <option value="40.00" >Meets and Exceeds Requirements</option>
+		                                    <option value="30.00" >Meets Requirements</option> 
+		                                    <option value="20.00" >Somewhat Meets Requirements</option>
+		                                    <option value="10.00" >Doesn't Meet Requirements</option>
+		                                </select>
                                     </span>
                                 </span>
                             </div>
                             <div class="col-td width7 text-right">
-                                <span class="weight-text pull-right">30</span>
+                                <span class="weight-text pull-right">{{subReq.requirement.weightScore}}</span>
                             </div>
                         </div>
                         <!-- end .row-title -->
@@ -734,132 +625,52 @@
                             <div class="col-td width65 visible-top">
                                 <div class="txt-main">
                                     <p class="txt-p">
-                                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida 
-                                      dolor sit amet lacus accumsan et viverra justo commodo. 
+                                      {{subReq.requirement.description}}
                                     </p>
                                 </div>
                             </div>
                             <div class="col-td width35 visible-top">
                                 <span class="requite-con-box">
-                                    <textarea class="requite-con-m" placeholder="Type Your Comments"></textarea>
+                                    <textarea class="requite-con-m" placeholder="Type Your Comments" ng-model="subReq.reviewComment" ></textarea>
                                 </span>
                             </div>
                         </div>
                         <!-- end .row-td -->
-                        <div class="row row-title">
-                            <div class="col-td width65 ex-low">
-                                <span class="tit-con pull-left">Requirement 1.1</span>
-                                <div class="importance pull-left">
-                                    <span class="pull-left">Importance:</span>
-                                    <span class="value pull-left yellow">Low</span>
-                                </div>
-                            </div>
-                            <div class="col-td width28">
-                                <span class="form-container z-index1100">
-                                    <span class="selects-container">
-                                        <select>
-                                            <option>Meets and Exceeds Requirements</option>
-                                            <option selected="selected">Meets Requirements</option>
-                                            <option>Somewhat Meets Requirements</option>
-                                            <option>Doesn't Meet Requirements</option>
-                                        </select>
-                                    </span>
-                                </span>
-                            </div>
-                            <div class="col-td width7 text-right">
-                                <span class="weight-text pull-right">20</span>
-                            </div>
                         </div>
-                        <!-- end .row-title -->
-                        <div class="row row-td">
-                            <div class="col-td width65 visible-top">
-                                <div class="txt-main">
-                                    <p class="txt-p">
-                                      Dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet 
-                                      lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et 
-                                      magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, 
-                                      felis tellus mollis orci, sed rhoncus sapien nunc eget odio.
-                                    </p>
-                                                      <p class="txt-p">
-                                      Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo 
-                                      commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, 
-                                      nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed 
-                                      rhoncus sapien nunc eget odio.
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="col-td width35 visible-top">
-                                <span class="requite-con-box">
-                                    <textarea class="requite-con-m" placeholder="Type Your Comments"></textarea>
-                                </span>
-                            </div>
-                        </div>
-                        <!-- end .row-td -->
-                        <div class="row row-title">
-                            <div class="col-td width65 ex-high">
-                                <span class="tit-con pull-left">Requirement 1.2</span>
-                                <div class="importance pull-left">
-                                    <span class="pull-left">Importance:</span>
-                                    <span class="value pull-left orange">High</span>
-                                </div>
-                            </div>
-                            <div class="col-td width28">
-                                <span class="form-container">
-                                    <span class="selects-container">
-                                        <select>
-                                            <option selected="selected">Meets and Exceeds Requirements</option>
-                                            <option>Meets Requirements</option>
-                                            <option>Somewhat Meets Requirements</option>
-                                            <option>Doesn't Meet Requirements</option>
-                                        </select>
-                                    </span>
-                                </span>
-                            </div>
-                            <div class="col-td width7 text-right">
-                                <span class="weight-text pull-right">30</span>
-                            </div>
-                        </div>
-                        <!-- end .row-title -->
-                        <div class="row row-td">
-                            <div class="col-td width65 visible-top">
-                                <div class="txt-main">
-                                    <p class="txt-p">
-                                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida 
-                                      dolor sit amet lacus accumsan et viverra justo commodo. 
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="col-td width35 visible-top">
-                                <span class="requite-con-box">
-                                    <textarea class="requite-con-m" placeholder="Type Your Comments"></textarea>
-                                </span>
-                            </div>
-                        </div>
-                        <!-- end .row-td -->
                     </div>
                     <!-- end .table-data -->
                     <div class="overall-score-bar">
-                        <span class="right-text">70 / 80</span>
+                        <span class="right-text">{{activity.submissionRequirements.submission.submissionScore}}/ {{activity.submissionRequirements.maxReviewScore}}</span>
                           OVERALL SCORE: 
-                        <span class="value">90%</span>
+                        <span class="value" ng-if="activity.submissionRequirements.submission.evaluationPercentage" >{{activity.submissionRequirements.submission.evaluationPercentage}}%</span>
                     </div>
                     <!-- end .overall-score-bar -->
                     <div class="overall-comment-bar">
                         <h2>OVERALL COMMENT</h2>
                         <span class="requite-con-box">
-                            <textarea class="requite-con-m" placeholder="Type Your Comments"></textarea>
+                            <textarea class="requite-con-m" placeholder="Type Your Comments" ng-model="activity.submissionRequirements.submission.overallComment" ></textarea>
                         </span>
                         <div class="btn-bar">
-                            <a href="javascript:;" class="blue-btn radius6 pull-right save-review-button">
-                                <span>
-                                    <span>Save Review</span>
-                                </span>
-                            </a>
+                        	<a href="javascript:;" class="blue-btn radius6 pull-right save-review-button disable" ng-if="!activity.submissionRequirements.showReviewCompleteBtn" >
+		                        <span>
+		                            <span>Complete Review</span>
+		                        </span>
+		                    </a>
+		                    <a href="javascript:;" class="blue-btn radius6 pull-right save-review-button" ng-if="activity.submissionRequirements.showReviewCompleteBtn" ng-click="activity.completeReview()" >
+		                        <span>
+		                            <span>Complete Review</span>
+		                        </span>
+		                    </a>
+		                    <a href="javascript:;" class="blue-btn radius6 pull-right save-review-button" ng-click="activity.validateReview()" >
+		                        <span>
+		                            <span>Save Review</span>
+		                        </span>
+		                    </a>
                             <div class="hide">
-                                <a href="javascript:;" class="saving-review-btn open-modal-window" data-modal-class="modal-saving-review">Saving Review</a>
+                                <a href="javascript:;" class="saving-review-btn open-modal-window" data-modal-class="modal-saving-review" ng-click="activity.validateReview()"  >Saving Review</a>
                                 <a href="javascript:;" class="saving-error-btn open-modal-window" data-modal-class="modal-saving-error">Please fill all comments</a>
                             </div>
-                            <a href="javascript:;" class="blue-border-btn width135 pull-right cancel-review-button open-modal-window" data-modal-class="modal-cancel-review">CANCEL</a>
+                            <a href="javascript:;" class="blue-border-btn width135 pull-right cancel-review-button open-modal-window" data-modal-class="modal-cancel-review" ng-click="activity.selectTab(4)" >CANCEL</a>
                             <span class="clearfix" />
                         </div>
                     </div>

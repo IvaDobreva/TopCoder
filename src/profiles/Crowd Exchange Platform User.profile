@@ -861,6 +861,14 @@
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
+        <tab>Notification__c</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>Requirement__c</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
         <tab>Skills__c</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
@@ -873,7 +881,7 @@
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
-        <tab>Test_VF_Home_Page</tab>
+        <tab>User_Notification__c</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
 </Profile>

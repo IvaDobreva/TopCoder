@@ -34,15 +34,11 @@
         <label>Type</label>
         <picklist>
             <picklistValues>
-                <fullName>Value 1</fullName>
+                <fullName>Alert</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Value 2</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Value 3</fullName>
+                <fullName>Request</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -56,6 +52,11 @@
         <type>Checkbox</type>
     </fields>
     <label>Notification</label>
+    <listViews>
+        <fullName>All</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
     <nameField>
         <displayFormat>N-{000000000}</displayFormat>
         <label>Notification Name</label>

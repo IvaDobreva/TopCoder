@@ -105,6 +105,11 @@
         <type>Picklist</type>
     </fields>
     <label>Requirement</label>
+    <listViews>
+        <fullName>All</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
     <nameField>
         <displayFormat>R-{0000000}</displayFormat>
         <label>Requirement Name</label>

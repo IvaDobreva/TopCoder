@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomTab xmlns="http://soap.sforce.com/2006/04/metadata">
-    <label>Test VF Home Page</label>
+    <customObject>true</customObject>
     <mobileReady>false</mobileReady>
-    <motif>Custom55: Books</motif>
-    <page>VF_Home_Page</page>
+    <motif>Custom18: Form</motif>
 </CustomTab>

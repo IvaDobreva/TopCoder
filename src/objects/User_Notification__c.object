@@ -41,6 +41,11 @@
         <type>Checkbox</type>
     </fields>
     <label>User Notification</label>
+    <listViews>
+        <fullName>All</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
     <nameField>
         <displayFormat>UN-{00000000}</displayFormat>
         <label>User Notification</label>

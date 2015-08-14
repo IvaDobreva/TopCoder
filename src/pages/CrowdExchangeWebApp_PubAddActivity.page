@@ -48,7 +48,7 @@
                     <span class="form-container width120" ng-jqtransform="a">
                         <span class="selects-container">
                             <select ng-model="vm.challengeType">
-                                <option value="Assignment">Assignment</option>
+                                <option value="Assigned">Assigned</option>
                                 <option value="Team">Team</option>
                                 <option value="Competition">Competition</option>
                             </select>
@@ -60,7 +60,14 @@
                 
         </div>
         <div>
-            <div class="tit">Activity Description</div>
+            <span class="tit">Activity Description</span>  
+            <span class="pull-right">
+                 <div class="row-td pull-left">
+                     <a href="javascript:;" checkbox="a" class="checkbox-img rounded-checkbox" ng-model="vm.addDefaultRequirements">
+                         <i></i>&nbsp;Add Default Requirements
+                     </a>
+                 </div>
+             </span>
             <div>
                 <textarea class="data-dec-in" placeholder="Description" ng-model="vm.description"></textarea>
             </div>

@@ -1,0 +1,2741 @@
+diff -rw /Users/Ward/Code/crowd-exchange/src/staticresources/CrowdExchangeWebApp_Resources/css/screen.css /Users/Ward/Code/crowd_exchange_submission/crowdexchange/src/staticresources/CrowdExchangeWebApp_Resources/css/screen.css
+627,632d626
+< 	.contents .width358 {
+< 		width: 358px;
+< 	}
+< 	.contents .width360 {
+< 		width: 360px;
+< 	}
+636,638d629
+< 	.contents .width522 {
+< 		width: 518px;
+< 	}
+642,693c633
+< 	/* .contents min-width */
+< 	.contents .minwidth55 {
+< 		min-width: 55px;
+< 	}
+< 	.contents .minwidth65 {
+< 		min-width: 65px;
+< 	}
+< 	.contents .minwidth85 {
+< 		min-width: 90px;
+< 	}
+< 	.contents .minwidth95 {
+< 		min-width: 95px;
+< 	}
+< 	.contents .minwidth105 {
+< 		min-width: 105px;
+< 	}
+< 	.contents .minwidth115 {
+< 		min-width: 110px;
+< 	}
+< 	.contents .minwidth120 {
+< 		min-width: 120px;
+< 	}
+< 	.contents .minwidth135 {
+< 		min-width: 135px;
+< 	}
+< 	.contents .minwidth145 {
+< 		min-width: 145px;
+< 	}
+< 	.contents .minwidth210 {
+< 		min-width: 210px;
+< 	}
+< 	.contents .minwidth315 {
+< 		min-width: 315px;
+< 	}
+< 	.contents .minwidth335 {
+< 		min-width: 333px;
+< 	}
+< 	.contents .minwidth358 {
+< 		min-width: 358px;
+< 	}
+< 	.contents .minwidth360 {
+< 		min-width: 360px;
+< 	}
+< 	.contents .minwidth410 {
+< 		min-width: 410px;
+< 	}
+< 	.contents .minwidth522 {
+< 		min-width: 518px;
+< 	}
+< 	.contents .minwidth572 {
+< 		min-width: 568px;
+< 	}	
+---
+> 		
+994c934
+< 				margin-right: 40px;
+---
+> 				margin-right: 20px;
+1075,1080d1014
+< 							
+< 		/* .search-result-contents */	
+< 		.search-result-contents .filter-content .form-container {
+< 			display: inline-block;
+< 			vertical-align: middle;
+< 		}
+2216,2236c2150
+< /* icon */
+< .icon-show-hide,
+< .row-content-show .content-info .icon-user i,
+< .row-content-show .content-info .icon-email i,
+< .content-info .tip-text .icon-arrow,
+< .edit-profile-contents .edit-user-img i,
+< .edit-profile-contents .icon-down-arrow i,
+< .icon-join-as-a-publisher i,
+< .icon-join-as-a-member i,
+< .our-activities .round-col .round i,
+< .icon-white-assigned i,
+< .icon-white-competition i,
+< .icon-white-team i,
+< .icon-tensile,
+< .home-top-box .header .icon-search,
+< .play-btn,
+< .modal-login .logo {
+<   background-image: url(../i/i-3/icon-sprites.png);
+<   background-repeat: no-repeat;
+<   display: inline-block;
+< }
+---
+> 
+2247,2254d2160
+< 		font-size: 14px;
+< 		color: #989898;
+< 	}
+< 		.notifications-contents .table-data .col-td {
+< 			font-size: 16px;
+< 			color: #595959;
+< 		}
+< 		.notifications-contents .table-data .row-th .col-td {
+2257,2421c2163,2165
+< 		.notifications-contents .table-data .show-hide-td {
+< 			width: 60px;
+< 		}
+< 		.notifications-contents .table-data .text-date {
+< 			width: 162px;
+< 		}
+< 		.notifications-contents .table-data .operation-td {
+< 			width: 38px;
+< 		}
+< 		.notifications-contents .table-data .width54 {
+< 			width: 54%;
+< 		}
+< 		.notifications-contents .table-data .row-box {
+< 			padding-top: 4px;
+< 			padding-bottom: 5px;
+< 			border-bottom: 1px solid #ececec;
+< 		}
+< 		    .notifications-contents .table-data .click-box {
+< 				display: table-cell;
+< 			}
+< 				.notifications-contents .table-data .click-box .sub-table {
+< 					display: table;
+< 					width: 100%;
+< 				}
+< 			.notifications-contents .table-data .row-box .row-td {
+< 				border-bottom: 0;
+< 				min-height: 46px;
+< 			}
+< 			.notifications-contents .table-data .row-box .row-td .col-td {
+< 				  padding: 9px 0;
+< 			}
+< 			   .notifications-contents .icon-show-hide {
+< 				   width: 24px;
+< 				   height: 24px;
+< 				   margin-top: 3px;
+< 				   margin-left: 6px;
+< 			   }
+< 			   /* .notifications-contents .row-content-hide */
+< 				.notifications-contents .table-data .row-content-hide .click-box:hover {
+< 					background: #e2f0fe;
+< 					cursor: pointer;
+< 				}
+< 				    .notifications-contents .table-data .row-content-hide .click-box .col-td .icon-show-hide {
+< 					    background-position: 0 -16px;
+< 				    }
+< 					.notifications-contents .table-data .row-content-hide .click-box:hover .col-td .icon-show-hide {
+< 						background-position: -24px -16px;
+< 					}
+< 					.notifications-contents .table-data .row-content-hide .click-box:hover .col-td.operation-td {
+< 						background: #fff;
+< 						cursor: default;
+< 					}
+< 				   .notifications-contents .row-content-hide .content-info {
+< 					   display: none;
+< 				   }
+< 			   /* .notifications-contents .row-content-show */
+< 			   .notifications-contents .row-content-show .icon-show-hide {
+< 				   background-position: -48px -16px;
+< 			   }
+< 				   .notifications-contents .row-content-show  .row-td .col-td {
+< 					   font-family: HPSimplifiedBold, Arial, Helvetica;
+< 					   cursor: pointer;
+< 				   }
+< 				   .notifications-contents .row-content-show  .row-td .gray-date {
+< 					   color: #989898;
+< 				   }
+< 				   .notifications-contents .row-content-show  .row-td .width16 {
+< 					   color: #333;
+< 				   }
+< 				   .notifications-contents .row-content-show .content-info {
+< 					   display: block;
+< 					   padding-bottom: 10px;
+< 				   }
+< 				       .notifications-contents .row-content-show .content-info .rows {
+< 						   display:table;
+< 				       }
+< 				       .notifications-contents .row-content-show .content-info .rows .text,
+< 				       .notifications-contents .row-content-show .content-info .rows .value {
+< 						   display: table-cell;
+< 						   min-height: 25px;
+< 						   line-height: 25px;
+< 						   padding: 6px 0;
+< 						   vertical-align: top;
+< 				       }
+< 				       .notifications-contents .row-content-show .content-info .rows .value {
+< 						   color: #595959;
+< 						   padding-right: 175px;
+< 				       }
+< 					       .notifications-contents .row-content-show .content-info .rows .blue-link:hover {
+< 							   text-decoration: none;
+< 					       }
+< 						   .notifications-contents .row-content-show .content-info .rows .text {
+< 							   font-size: 14px;
+< 							   color: #989898;
+< 							   padding-right: 26px;
+< 							   text-align: right;
+< 							   width: 220px;
+< 						   }
+< 				       .notifications-contents .row-content-show .content-info .rows .value li {
+< 						   float: left;
+< 						   line-height: 30px;
+< 						   padding-right: 15px;
+< 						   position: relative;
+< 				       }
+< 					       .notifications-contents .row-content-show .content-info .rows .icon-user {
+< 							   background: none;
+< 							   padding-left: 19px;
+< 							   padding-right: 5px;
+< 					       }
+< 					       .notifications-contents .row-content-show .content-info .rows .icon-user:hover,
+< 					       .notifications-contents .row-content-show .content-info .rows .icon-email:hover {
+< 							   background: #e2f0fe;
+< 					       }
+< 						   .notifications-contents .row-content-show .content-info .rows .icon-email {
+< 							   vertical-align: middle;
+< 							   position: relative;
+< 							   padding-left: 21px;
+< 							   display: inline-block;
+< 							   padding-right: 5px;
+< 					       }
+< 					       .notifications-contents .row-content-show .content-info .rows .icon-user i,
+< 					       .notifications-contents .row-content-show .content-info .rows .icon-email i {
+< 							   width: 16px;
+< 							   height: 16px;
+< 							   margin-top: -5px;
+< 							   vertical-align: middle;
+< 							   position: absolute;
+< 							   left: 3px;
+< 							   z-index: 9;
+< 					       }
+< 							   .notifications-contents .row-content-show .content-info .rows .icon-user i {
+< 								   background-position: 0 0;
+< 								   top: 10px;
+< 							   }
+< 							   .notifications-contents .row-content-show .content-info .rows .icon-email i {
+< 								   background-position: -16px 0;
+< 								   top: 13px;
+< 							   }
+< 							   .notifications-contents .row-content-show .content-info .tip-text {
+< 								   position: absolute;
+< 								   border: 1px solid #999;
+< 								   border-radius: 5px;
+< 								   background: #fff;
+< 								   padding: 14px 25px;
+< 								   line-height: 22px;
+< 								   top: -71px;
+< 								   left: 50%;
+< 								   margin-left: -130px;
+< 								   z-index: 99;
+< 							   }
+< 								   .notifications-contents .row-content-show .content-info .rows .tip-text .icon-email:hover {
+< 									   background: none;
+< 									   text-decoration: underline;
+< 								   }
+< 								   .notifications-contents .row-content-show .content-info .rows .tip-text .icon-email i {
+< 									   top: 9px;
+< 								   }
+< 								   .notifications-contents .row-content-show .content-info .tip-text .icon-arrow {
+< 									   position: absolute;
+< 									   width: 21px;
+< 									   height: 22px;
+< 									   background-position: -74px -24px;
+< 									   bottom: -22px;
+< 									   left: 50%;
+< 									   margin-left: -12px;
+---
+> 		.notifications-contents .table-data .row-th .col-td.width18,
+> 		.notifications-contents .table-data .row-td .col-td.width18 {
+> 			padding-left: 8px;
+6526,6540d6269
+< .notVisible{
+< 	visibility: collapse !important;
+< }
+< .activity-select-list{
+< 	margin: 15px 35px;
+< 
+< }
+< 	.activity-select-list ul{
+< 		max-height: 300px;
+< 		overflow-y: auto; 
+< 	}
+< 		.activity-select-list ul>li{
+< 			margin-bottom: 10px;
+< 			font-size: 16pt;
+< 		}
+\ No newline at end of file
+Only in /Users/Ward/Code/crowd-exchange/src/staticresources/CrowdExchangeWebApp_Resources/i: i-3
+diff -rw /Users/Ward/Code/crowd-exchange/src/staticresources/CrowdExchangeWebApp_Resources/js/app.js /Users/Ward/Code/crowd_exchange_submission/crowdexchange/src/staticresources/CrowdExchangeWebApp_Resources/js/app.js
+5,7d4
+<     CrowdExchangeApp.run(function ($rootScope) {
+<         $rootScope.GLOBAL = GLOBAL_CONFIG;
+<     });
+76,87d72
+<             // route for the notifications page
+<             .when('/Notifications', {
+<                 templateUrl: '/apex/CrowdExchangeWebApp_Notifications',
+<                 controller: 'notifications',
+<                 caseInsensitiveMatch: true
+<             })
+<             //route for the search page
+<             .when('/search', {
+<                 templateUrl: '/apex/CrowdExchangeWebApp_Search',
+<                 controller: 'search',
+<                 caseInsensitiveMatch: true
+<             })
+91d75
+< 
+diff -rw /Users/Ward/Code/crowd-exchange/src/staticresources/CrowdExchangeWebApp_Resources/js/appFull.js /Users/Ward/Code/crowd_exchange_submission/crowdexchange/src/staticresources/CrowdExchangeWebApp_Resources/js/appFull.js
+4c4
+<     //function for wrapping SFDC Remote methods in promise
+---
+>     //funciton for wrapping SFDC Remote methods in promise
+15c15
+<     CrowdExchangeAppServices.factory('dataServices', function ($http, $q, $sce, $compile, $timeout) {
+---
+>     CrowdExchangeAppServices.factory('dataServices', function ($http, $q, $sce) {
+112,161d111
+<             getUnreadNotificationsCount: function () {
+<                 var deferred = $q.defer();
+<                 CrowdExchangeRemoteController.getUnreadNotificationsCount(getStandardCallback(deferred));
+<                 return deferred.promise;
+<             },
+<             getInboxNotifications: function (page, pageSize) {
+<                 var deferred = $q.defer();
+<                 CrowdExchangeRemoteController.getInboxNotifications(page || null, pageSize || null, getStandardCallback(deferred));
+<                 return deferred.promise;
+<             },
+<             getOutboxNotifications: function (page, pageSize) {
+<                 var deferred = $q.defer();
+<                 CrowdExchangeRemoteController.getOutboxNotifications(page || null, pageSize || null, getStandardCallback(deferred));
+<                 return deferred.promise;
+<             },
+<             markNotificationAsRead: function (notificationId) {
+<                 var deferred = $q.defer();
+<                 CrowdExchangeRemoteController.markNotificationAsRead(notificationId || null, getStandardCallback(deferred));
+<                 return deferred.promise;
+<             },
+<             archiveNotification: function (notificationId) {
+<                 var deferred = $q.defer();
+<                 CrowdExchangeRemoteController.archiveNotification(notificationId || null, getStandardCallback(deferred));
+<                 return deferred.promise;
+<             },
+<             searchMembers: function (request) {
+<                 var deferred = $q.defer();
+<                 CrowdExchangeRemoteController.searchMembers(request || null, getStandardCallback(deferred));
+<                 return deferred.promise;
+<             },
+<             searchActivities: function (request) {
+<                 var deferred = $q.defer();
+<                 CrowdExchangeRemoteController.searchActivities(request || null, getStandardCallback(deferred));
+<                 return deferred.promise;
+<             },
+<             searchStories: function (request) {
+<                 var deferred = $q.defer();
+<                 CrowdExchangeRemoteController.searchStories(request || null, getStandardCallback(deferred));
+<                 return deferred.promise;
+<             },
+<             search: function (request) {
+<                 var deferred = $q.defer();
+<                 CrowdExchangeRemoteController.search(request || null, getStandardCallback(deferred));
+<                 return deferred.promise;
+<             },
+<             getPublisherActivities: function () {
+<                 var deferred = $q.defer();
+<                 CrowdExchangeRemoteController.getPublisherActivities(getStandardCallback(deferred));
+<                 return deferred.promise;
+<             },
+192,202d141
+<             },
+<             renderStringTemplate: function (template, scope) {
+<                 var deferred = $q.defer();
+<                 $timeout(function () {
+<                     var linkFn = $compile(template);
+<                     var linkedContent = linkFn(scope);
+<                     scope.$apply();
+<                     deferred.resolve(linkedContent.html());
+<                 }, 0);
+< 
+<                 return deferred.promise;
+209,211d147
+<             showArchiveNotificationConfirm: function () {
+<                 return dialogs.create('archiveNotificationConfirm.html', 'ceConfirmDialogCtrl', {}, 'lg');
+<             },
+213c149
+<                 return dialogs.create('registrationConfirm.html', 'ceConfirmDialogCtrl', {}, 'sm');
+---
+>                 return dialogs.create('registrationConfirm.html', 'ceConfirmDialogCtrl', {}, 'lg');
+216c152
+<                 return dialogs.create('loadingDialog.html', 'ceConfirmDialogCtrl', {}, 'sm');
+---
+>                 return dialogs.create('loadingDialog.html', 'ceConfirmDialogCtrl', {}, 'small');
+219c155
+<                 return dialogs.create('savingActivityAsDraft.html', 'ceConfirmDialogCtrl', {}, 'sm');
+---
+>                 return dialogs.create('savingActivityAsDraft.html', 'ceConfirmDialogCtrl', {}, 'small');
+229,231d164
+<             },
+<             showPublisherSelectActivity: function () {
+<                 return dialogs.create('publisherSelectActivity.html', 'pubSelectActivityCtrl', {}, 'lg');
+235,252d167
+<     CrowdExchangeAppServices.controller('pubSelectActivityCtrl', function ($log, $scope, $modalInstance, data, dataServices) {
+<         if (data) jQuery.extend($scope, data);
+<         $scope.isLoading = true;
+<         $scope.activities = [];
+<         dataServices.getPublisherActivities().then(function (data) {
+<             $scope.activities = data;
+<             $scope.isLoading = false;
+<         }, function (error) {
+<             $modalInstance.close(undefined);
+<         });
+<         $scope.selectActivity = function (activity) {
+<             $modalInstance.close(activity);
+<         }
+<         $scope.cancel = function () {
+<             $modalInstance.close(undefined);
+<         };
+< 
+<     }); // end customDialogCtrl
+375,386d289
+<     CrowdExchangeAppDirectives.directive('tipText', function () {
+<         return function (scope, element, attrs) {
+<             $(element).hover(function () {
+<                 $(".tip-text").addClass("hide");
+<                 $(this).find(".tip-text").removeClass("hide");
+< 
+<                 //event.stopPropagation();
+<             }, function () {
+<                 $(this).find(".tip-text").addClass("hide");
+<             })
+<         };
+<     });
+425,452d327
+<     //dirrective for the search result list item
+<     CrowdExchangeAppDirectives.directive('searchItem', function ($compile, $templateCache) {
+<         //gets appropriate template for the search result
+<         var getTemplate = function (item) {
+<             var template;
+<             if (item instanceof Story) {
+<                 template = $templateCache.get('searchItemStory.html');
+<             } else if (item instanceof Activity) {
+<                 template = $templateCache.get('searchItemActivity.html');
+<             } else if (item instanceof UserViewModel) {
+<                 template = $templateCache.get('searchItemMember.html');
+<             }
+<             return template;
+<         }
+<         var linker = function (scope, element, attrs) {
+<             element.html(getTemplate(scope.content)).show();
+<             scope.user = GLOBAL_CONFIG.currentUser;
+<             $compile(element.contents())(scope);
+<         }
+< 
+<         return {
+<             restrict: "E",
+<             link: linker,
+<             scope: {
+<                 content: '='
+<             }
+<         };
+<     });
+458c333
+<     CrowdExchangeAppControllers.controller('mainController', function ($scope, $location, $interval, dataServices) {
+---
+>     CrowdExchangeAppControllers.controller('mainController', function ($scope, $location) {
+464,477d338
+<         $scope.searchQuery = '';
+<         var updateInterval = 1000 * (GLOBAL_CONFIG.notificationsCounterUpdateInterval || 30); //If iterval wasn't set we set it to 30 seconds
+<         var updateNotificationsCounter = function () {
+<             dataServices.getUnreadNotificationsCount().then(function (count) {
+<                 $scope.notificationsCount = count;
+<             });
+<         };
+<         $scope.search = function () {
+<             $location.path('/search').search({ q: $scope.searchQuery });
+<         }
+<         updateNotificationsCounter();
+<         $interval(function () {
+<             updateNotificationsCounter();
+<         }, updateInterval);
+642,643d502
+<     // Controller for the Notifications page
+<     CrowdExchangeAppControllers.controller('notifications', function ($scope, dataServices, dialogsService, $routeParams) {
+645,668d503
+<         $scope.isInitialized = false;
+<         $scope.user = GLOBAL_CONFIG.currentUser;
+< 
+<         $scope.vm = new NotificationsViewModel({
+<             service: dataServices,
+<             dialogs: dialogsService
+<         });
+<         $scope.isInitialized = true;
+<     });
+<     //Controller for the stories list page
+<     CrowdExchangeAppControllers.controller('search', function ($scope, dataServices, dialogsService, $routeParams) {
+<         $scope.isInitialized = false;
+<         $scope.SearchTabs = SearchTabs;
+<         $scope.Math = window.Math;
+<         $scope.user = GLOBAL_CONFIG.currentUser;
+<         $scope.vm = new SearchViewModel({
+<             service: dataServices,
+<             dialogs: dialogsService
+<         });
+<         $scope.vm.oldQuery = $routeParams.q;
+<         $scope.vm.search();
+<         $scope.isInitialized = true;
+< 
+<     });
+674,676d508
+<     CrowdExchangeApp.run(function ($rootScope) {
+<         $rootScope.GLOBAL = GLOBAL_CONFIG;
+<     });
+745,756d576
+<             // route for the notifications page
+<             .when('/Notifications', {
+<                 templateUrl: '/apex/CrowdExchangeWebApp_Notifications',
+<                 controller: 'notifications',
+<                 caseInsensitiveMatch: true
+<             })
+<             //route for the search page
+<             .when('/search', {
+<                 templateUrl: '/apex/CrowdExchangeWebApp_Search',
+<                 controller: 'search',
+<                 caseInsensitiveMatch: true
+<             })
+760d579
+< 
+diff -rw /Users/Ward/Code/crowd-exchange/src/staticresources/CrowdExchangeWebApp_Resources/js/controllers.js /Users/Ward/Code/crowd_exchange_submission/crowdexchange/src/staticresources/CrowdExchangeWebApp_Resources/js/controllers.js
+5c5
+<     CrowdExchangeAppControllers.controller('mainController', function ($scope, $location, $interval, dataServices) {
+---
+>     CrowdExchangeAppControllers.controller('mainController', function ($scope, $location) {
+11,26d10
+<         $scope.searchQuery = '';
+<         var updateInterval = 1000 * (GLOBAL_CONFIG.notificationsCounterUpdateInterval || 30); //If iterval wasn't set we set it to 30 seconds
+<         var updateNotificationsCounter = function () {
+<             dataServices.getUnreadNotificationsCount().then(function (count) {
+<                 $scope.notificationsCount = count;
+<             });
+<         };
+<         $scope.search = function(){
+<             var query = ($scope.searchQuery+'') || '';
+<             query = query.trim();
+<             if(query) $location.path('/search').search({q: query});
+<         }
+<         updateNotificationsCounter();
+<         $interval(function () {
+<             updateNotificationsCounter();
+<         }, updateInterval);
+191,192d174
+<     // Controller for the Notifications page
+<     CrowdExchangeAppControllers.controller('notifications', function ($scope, dataServices, dialogsService, $routeParams) {
+194,217d175
+<         $scope.isInitialized = false;
+<         $scope.user = GLOBAL_CONFIG.currentUser;
+< 
+<         $scope.vm = new NotificationsViewModel({
+<             service: dataServices,
+<             dialogs: dialogsService
+<         });
+<         $scope.isInitialized = true;
+<     });
+<     //Controller for the stories list page
+<     CrowdExchangeAppControllers.controller('search', function ($scope, dataServices, dialogsService, $routeParams) {
+<         $scope.isInitialized = false;
+<         $scope.SearchTabs = SearchTabs;
+<         $scope.Math = window.Math;
+<         $scope.user = GLOBAL_CONFIG.currentUser;
+<         $scope.vm = new SearchViewModel({
+<             service: dataServices,
+<             dialogs: dialogsService
+<         });
+<         $scope.vm.oldQuery = $routeParams.q;
+<         $scope.vm.search();
+<         $scope.isInitialized = true;
+< 
+<     });
+diff -rw /Users/Ward/Code/crowd-exchange/src/staticresources/CrowdExchangeWebApp_Resources/js/directives.js /Users/Ward/Code/crowd_exchange_submission/crowdexchange/src/staticresources/CrowdExchangeWebApp_Resources/js/directives.js
+20,32d19
+<     CrowdExchangeAppDirectives.directive('ngEnter', function () {
+<         return function (scope, element, attrs) {
+<             element.bind("keydown keypress", function (event) {
+<                 if(event.which === 13) {
+<                     scope.$apply(function (){
+<                         scope.$eval(attrs.ngEnter);
+<                     });
+< 
+<                     event.preventDefault();
+<                 }
+<             });
+<         };
+<     });
+117,128d103
+<     CrowdExchangeAppDirectives.directive('tipText', function () {
+<         return function (scope, element, attrs) {
+<             $(element).hover(function () {
+<                 $(".tip-text").addClass("hide");
+<                 $(this).find(".tip-text").removeClass("hide");
+< 
+<                 //event.stopPropagation();
+<             }, function () {
+<                 $(this).find(".tip-text").addClass("hide");
+<             })
+<         };
+<     });
+167,194d141
+<     //dirrective for the search result list item
+<     CrowdExchangeAppDirectives.directive('searchItem', function ($compile, $templateCache) {
+<         //gets appropriate template for the search result
+<         var getTemplate = function (item) {
+<             var template;
+<             if (item instanceof Story) {
+<                 template = $templateCache.get('searchItemStory.html');
+<             } else if (item instanceof Activity) {
+<                 template = $templateCache.get('searchItemActivity.html');
+<             } else if (item instanceof UserViewModel) {
+<                 template = $templateCache.get('searchItemMember.html');
+<             }
+<             return template;
+<         }
+<         var linker = function (scope, element, attrs) {
+<             element.html(getTemplate(scope.content)).show();
+<             scope.user = GLOBAL_CONFIG.currentUser;
+<             $compile(element.contents())(scope);
+<         }
+< 
+<         return {
+<             restrict: "E",
+<             link: linker,
+<             scope: {
+<                 content: '='
+<             }
+<         };
+<     });
+diff -rw /Users/Ward/Code/crowd-exchange/src/staticresources/CrowdExchangeWebApp_Resources/js/jquery.jqtransform.js /Users/Ward/Code/crowd_exchange_submission/crowdexchange/src/staticresources/CrowdExchangeWebApp_Resources/js/jquery.jqtransform.js
+257,261c257
+< 			$select.find('option').each(function () {
+< 				if(!$(this).html()){
+< 					$(this).remove();
+< 				}
+< 			})
+---
+> 
+272a269,274
+> 			$('option', this).each(function(i){
+> 				if(!$(this).text()) {
+> 					$(this).remove();
+> 					return;
+> 				}
+> 			});
+275,277c277
+< 				var hiddenCls = ''
+< 				
+< 				var oLi = $('<li class="'+hiddenCls+'"><a href="javascript:;" index="'+ i +'">'+ $(this).html() +'</a></li>');
+---
+> 				var oLi = $('<li><a href="javascript:;" index="'+ i +'">'+ $(this).html() +'</a></li>');
+diff -rw /Users/Ward/Code/crowd-exchange/src/staticresources/CrowdExchangeWebApp_Resources/js/models.js /Users/Ward/Code/crowd_exchange_submission/crowdexchange/src/staticresources/CrowdExchangeWebApp_Resources/js/models.js
+1c1
+< copyFields = function (d, b) {
+---
+> ﻿copyFields = function (d, b) {
+6a7,12
+> var __extends = (this && this.__extends) || function (d, b) {
+>     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+>     function __() { this.constructor = d; }
+>     __.prototype = b.prototype;
+>     d.prototype = new __();
+> };
+24a31
+> //# sourceMappingURL=UserViewModel.js.map
+35a43
+> 		this.addDefaultRequirements = false;
+45d52
+<             if (activity.codeTypes)
+47d53
+<             if (activity.milestones)
+50c56
+<             if (activity.requirements)
+---
+> 			this.addDefaultRequirements = activity.addDefaultRequirements;
+52d57
+<             if (activity.prizes)
+60a66
+> 			this.allowSubmission = activity.allowSubmission;
+69,70c75,76
+<                 var addDays = i == 0 ? 0 : GLOBAL_CONFIG.milestones[i - 1]["defaultDuration"];
+<                 milestone.scheduledDate = date.add(addDays, "days").clone().toDate();
+---
+>                 var addDays = i == 0 ? 0 : GLOBAL_CONFIG.milestones[i - 1]['defaultDuration'];
+>                 milestone.scheduledDate = date.add(addDays, 'days').clone().toDate();
+95a102
+> //# sourceMappingURL=Activity.js.map
+131a139,151
+> //# sourceMappingURL=Story.js.map
+> /**
+> * Class with basic info about skill(Activity's, User's and standard)
+> */
+> var CodeType = (function () {
+>     function CodeType(name, id, skillId) {
+>         this.name = name;
+>         this.id = id;
+>         this.skillId = skillId;
+>     }
+>     return CodeType;
+> })();
+> //# sourceMappingURL=CodeType.js.map
+140a161,169
+> * Class with basic info about Submission's document(Attachment)
+> */
+> var SubmissionDocument = (function () {
+>     function SubmissionDocument() {
+>     }
+>     return SubmissionDocument;
+> })();
+> //# sourceMappingURL=ActivityDocument.js.map
+> /**
+170,171c199,200
+<             scheduledDate: this.scheduledDate ? scheduled.subtract(scheduled.zone(), "minutes").toDate().toUTCString() : undefined,
+<             completedDate: this.completedDate ? completed.subtract(completed.zone(), "minutes").toDate().toUTCString() : undefined
+---
+>             scheduledDate: this.scheduledDate ? scheduled.subtract(scheduled.zone(), 'minutes').toDate().toUTCString() : undefined,
+>             completedDate: this.completedDate ? completed.subtract(completed.zone(), 'minutes').toDate().toUTCString() : undefined
+175a205
+> //# sourceMappingURL=ActivityMilestone.js.map
+195c225
+<             var appendix = "";
+---
+>             var appendix = '';
+226a257
+> //# sourceMappingURL=ActivityPrize.js.map
+308a340
+> //# sourceMappingURL=ActivityRecomendedMembersViewModel.js.map
+364a397
+> //# sourceMappingURL=ActivityRegistrantsViewModel.js.map
+378a412
+> //# sourceMappingURL=ActivityRegistration.js.map
+391c425
+<             this.requirementType = requirement["type"];
+---
+>             this.requirementType = requirement['type'];
+413,418c447,448
+< var __extends = (this && this.__extends) || function (d, b) {
+<     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+<     function __() { this.constructor = d; }
+<     __.prototype = b.prototype;
+<     d.prototype = new __();
+< };
+---
+> //# sourceMappingURL=ActivityRequirement.js.map
+> 
+447a478
+> //# sourceMappingURL=ActivityRequirementViewModel.js.map
+451,457c482,588
+< var ActivitySubmission = (function () {
+<     function ActivitySubmission(model) {
+<         this.user = new UserViewModel();
+<         if (model) {
+<             this.id = model.id;
+<             this.submissionnDate = model.submissionnDate;
+<             this.user = new UserViewModel(model.user);
+---
+> var ActivitySubmissionsViewModel = (function () {
+>     function ActivitySubmissionsViewModel(activityId, props) {        
+> 		this.isInitialized = false;
+> 		this.submissions = [];
+>         this.activityId = activityId;		
+> 		if (props) {
+>             this.service = props.service;
+> 		}
+>     }
+> 	
+> 	/**
+>      * initialize collection
+>      * @returns {}
+>      */
+>     ActivitySubmissionsViewModel.prototype.initialize = function () {
+>         if (this.isInitialized)
+>             return;
+>         this.isInitialized = true;
+>         this.fetchSubmissions();
+>     };
+>     /**
+>      * fetches current submissions
+>      * @returns {}
+>      */
+>     ActivitySubmissionsViewModel.prototype.fetchSubmissions = function () {
+>         var _this = this;
+>         this.service.getSubmissions(this.activityId).then(function (data) {
+>             _this.submissions = data;
+>         }, function (data) {
+>         });
+>     };
+> 	
+>     return ActivitySubmissionsViewModel;
+> })();
+> //# sourceMappingURL=ActivitySubmission.js.map
+> 
+> /**
+>  *  Model holds information about Activity's submission
+>  */
+> var SubmissionRequirementsViewModel = (function () {
+>     function SubmissionRequirementsViewModel(props) {        
+> 		this.isInitialized = false;
+> 		this.submissionRequirements = [];	
+> 		this.submission = {};
+> 		this.showReviewCompleteBtn = false;
+> 		this.maxReviewScore = 0;
+> 		if (props) {
+>             this.service = props.service;
+> 			this.dialogs = props.dialogs;
+> 		}
+>     }
+> 	
+> 	/**
+>      * initialize collection
+>      * @returns {}
+>      */
+>     SubmissionRequirementsViewModel.prototype.calculateMaxReviewScore = function () {
+>         if (!this.isInitialized) return;
+>         
+> 		var maxScore = 0;		
+> 		for (var i = 0; i < this.submissionRequirements.length; i++) {	
+> 			var weight = 0;
+> 			if( this.submissionRequirements[i].requirement.importance == 'Critical') weight = 4;
+> 			if( this.submissionRequirements[i].requirement.importance == 'High') weight = 3;
+> 			if( this.submissionRequirements[i].requirement.importance == 'Normal') weight = 2;
+> 			if( this.submissionRequirements[i].requirement.importance == 'Low') weight = 1;
+> 			
+> 			maxScore += (40 * weight);					
+> 		}
+> 		this.maxReviewScore = maxScore;
+>     };
+> 
+> 	/**
+>      * initialize collection
+>      * @returns {}
+>      */
+>     SubmissionRequirementsViewModel.prototype.initialize = function (submissionId) {
+>         if (this.isInitialized)
+>             return;
+>         this.isInitialized = true;
+>         this.fetchSubmissionRequirements(submissionId);		
+>     };
+>     /**
+>      * fetches current submissions
+>      * @returns {}
+>      */
+>     SubmissionRequirementsViewModel.prototype.fetchSubmissionRequirements = function (submissionId) {
+>         var _this = this;
+> 		_this.showReviewCompleteBtn = true;
+>         this.service.loadSubmissionRequirement(submissionId).then(function (data) {
+>             _this.submissionRequirements = data;			
+> 			for (var i = 0; i < _this.submissionRequirements.length; i++) {	
+> 				if( _this.submissionRequirements[i].evaluationScore == '0.00'){
+> 					_this.showReviewCompleteBtn = false;
+> 					break;
+> 				}			
+> 			}
+> 			_this.calculateMaxReviewScore();
+>         }, function (data) {
+>         });		
+>     };
+> 	
+> 	SubmissionRequirementsViewModel.prototype.getSubmissionRequirementModel = function (submissionRequirement) {
+> 		var submissionRequirementModel = {
+> 			id: submissionRequirement.id,
+> 			reviewComment: submissionRequirement.reviewComment,
+> 			evaluationScore: submissionRequirement.evaluationScore			
+458a590
+> 		return submissionRequirementModel; 	
+460c592,593
+<     return ActivitySubmission;
+---
+> 	
+>     return SubmissionRequirementsViewModel;
+461a595
+> 
+474c608,610
+<         if (activity && activity.requirements) {
+---
+> 		this.showNewSubmission = false;
+> 		this.recentSubmission = {};
+>         if (activity) {
+483a620,621
+> 			this.submissions = new ActivitySubmissionsViewModel(this.id, props);
+> 			this.submissionRequirements = new SubmissionRequirementsViewModel(props);
+513c651
+<                 var newDate = moment(this.milestones[i].scheduledDate).add(difference, "days");
+---
+>                 var newDate = moment(this.milestones[i].scheduledDate).add(difference, 'days');
+549a688,690
+> 				this.submissions.isInitialized = false;
+> 				this.submissionRequirements.isInitialized = false;				
+> 				this.submissions.initialize();
+649c790
+<                 body: this.fileToUpload.file.substring(this.fileToUpload.file.indexOf("base64") + 7),
+---
+>                 body: this.fileToUpload.file.substring(this.fileToUpload.file.indexOf('base64') + 7),
+671a813,920
+>      * validate Review before saving to the SFDC
+>      * @returns {}
+>      */
+>     ActivityViewModel.prototype.validateReview = function () {
+> 		var _this = this;	
+> 		var showError = false;
+> 		for (var i = 0; i < this.submissionRequirements.submissionRequirements.length; i++) {	
+> 			var evaluationScore = this.submissionRequirements.submissionRequirements[i].evaluationScore;			
+> 			if( evaluationScore == '0.00' || (evaluationScore != '40.00' && this.submissionRequirements.submissionRequirements[i].reviewComment === undefined)){
+> 				showError = true;
+> 				break;
+> 			}			
+> 		}
+> 		if(showError) {			
+> 			this.dialogs.showReviewError(); 
+> 		} else {	
+> 			_this.submissionRequirements.showReviewCompleteBtn = true;	
+> 			this.dialogs.showReviewSaving(this);
+> 		}			
+> 	}
+> 	
+> 	/**
+>      * update submission review to the SFDC
+>      * @returns {}
+>      */
+>     ActivityViewModel.prototype.updateReview = function (markReviewComplete) {
+>         var _this = this;			
+> 		var submissionObj = {
+> 			overallComment: _this.submissionRequirements.submission.overallComment,
+> 			id: _this.submissionRequirements.submission.id
+> 		}
+> 		var submissionRequirementObjList = [];
+> 		for (var i = 0; i < _this.submissionRequirements.submissionRequirements.length; i++) {
+> 			submissionRequirementObjList.push(_this.submissionRequirements.getSubmissionRequirementModel(_this.submissionRequirements.submissionRequirements[i]));	
+> 		}	
+> 		this.service.upsertSubmissionReview(submissionObj, submissionRequirementObjList, markReviewComplete).then(function (data) {	
+> 			_this.submissionRequirements.isInitialized = false;
+> 			_this.submissionRequirements.showReviewCompleteBtn = false;
+> 			_this.selectTab(4);
+> 		}, function (data) {			
+> 		});        
+> 	}
+> 	
+> 	/**
+>      * update submission review to the SFDC and mark as complete
+>      * @returns {}
+>      */
+>     ActivityViewModel.prototype.completeReview = function () {
+> 		var _this = this;	
+> 		var showError = false;
+> 		for (var i = 0; i < _this.submissionRequirements.submissionRequirements.length; i++) {	
+> 			var evaluationScore = _this.submissionRequirements.submissionRequirements[i].evaluationScore;
+> 			if( evaluationScore == '0.00' || (evaluationScore != '40.00' && this.submissionRequirements.submissionRequirements[i].reviewComment === undefined) ){
+> 				showError = true;
+> 				break;
+> 			}			
+> 		}		
+> 		if(showError) {			
+> 			_this.dialogs.showReviewScoreError(); 
+> 			return;
+> 		}
+> 		// Mark review complete
+> 		this.updateReview(true);
+> 	}
+> 	
+> 	
+> 	/**
+>      * deleteSubmission using submission id
+>      * @returns {}
+>      */
+>     ActivityViewModel.prototype.deleteSubmission = function (submissionId) {    
+> 		var _this = this;		
+> 		
+>         _this.service.deleteSubmission(submissionId).then(function (data) {			
+> 			_this.selectTab(4);
+> 		}, function (data) { });	
+> 	}
+> 	
+> 	/**
+>      * show Submit Model for the current activity
+>      * @returns {}
+>      */
+>     ActivityViewModel.prototype.showSubmitModel = function () {    
+> 		// if submission is not allowed, return from the method.
+> 		if(!this.allowSubmission)
+> 			return;
+>         var dialog = this.dialogs.showActivitySubmitModel(this);
+> 	}
+> 	
+> 	/**
+>      * show Submit Model for the current activity
+>      * @returns {}
+>      */
+>     ActivityViewModel.prototype.showReviewTab = function (tabIndex, submissionId) {			
+> 		var _this = this;
+> 		for (var i = 0; i < _this.submissions.submissions.length; i++) {
+> 			var submission = _this.submissions.submissions[i];
+> 			if (submission.id === submissionId) {
+> 				_this.submissionRequirements.submission = submission;
+> 				break;
+> 			}
+> 		}
+> 		_this.submissionRequirements.isInitialized = false;
+> 		_this.submissionRequirements.initialize(submissionId);			
+> 		_this.selectTab(tabIndex);
+> 	}
+> 	
+>     /**
+703c952
+<         this.dialogs.showAssignMember(this.title, registration.user.firstName + " " + registration.user.lastName).result.then(function (result) {
+---
+>         this.dialogs.showAssignMember(this.title, registration.user.firstName + ' ' + registration.user.lastName).result.then(function (result) {
+737a987
+> 		this.phase = "Public";
+750c1000
+<         var dialog = this.phase === "Draft" ? this.dialogs.showSavingDraftActivity() : this.dialogs.showLoading();
+---
+>         var dialog = this.phase === 'Draft' ? this.dialogs.showSavingDraftActivity() : this.dialogs.showLoading();
+764c1014,1016
+<                 phase: this.phase
+---
+>                 phase: this.phase,
+> 				addDefaultRequirements: this.addDefaultRequirements,
+> 				requirements: []
+766a1019
+> 				_this.requirements = data.requirements.map(function (value) { return new ActivityRequirementViewModel(value); });
+781c1034
+<                     _this.phase = "Canceled";
+---
+>                     _this.phase = 'Canceled';
+797c1050
+<             _this.phase = "Completed";
+---
+>             _this.phase = 'Completed';
+819,829c1072,1073
+< /**
+< * Class with basic info about skill(Activity's, User's and standard)
+< */
+< var CodeType = (function () {
+<     function CodeType(name, id, skillId) {
+<         this.name = name;
+<         this.id = id;
+<         this.skillId = skillId;
+<     }
+<     return CodeType;
+< })();
+---
+> //# sourceMappingURL=ActivityViewModel.js.map
+> 
+989a1234
+> //# sourceMappingURL=StoryViewModel.js.map
+991c1236
+< * Stories page ViewModel
+---
+> * ViewModel for the stories list filter
+993,1004c1238,1246
+< var StoriesViewModel = (function () {
+<     function StoriesViewModel(dataServices) {
+<         this.filter = new StoriesFilterViewModel();
+<         this.activeStories = new StoriesListViewModel(this.filter);
+<         this.activeStories.service = dataServices;
+<         this.activeStories.fetchStories();
+<         this.activeStories.isActive = true;
+<         this.completedStories = new StoriesListViewModel(this.filter, true);
+<         this.completedStories.service = dataServices;
+<         this.filter.showOnlyCompleted = true;
+<         this.completedStories.fetchStories();
+<         this.showTab(1);
+---
+> var StoriesFilterViewModel = (function () {
+>     function StoriesFilterViewModel() {
+>         this.storyTitle = "";
+>         this.activityTitle = "";
+>         this.serviceOffering = "";
+>         this.activityPhase = "";
+>         this.showOnlyCompleted = false;
+>         this.isActive = false;
+>         this.clear();
+1006,1022c1248,1252
+<     /**
+<      * resets filter
+<      * @returns {}
+<      */
+<     StoriesViewModel.prototype.resetFilter = function () {
+<         this.filter.clear();
+<         this.filter.isActive = false;
+<         this.activeStories.fetchStories();
+<         this.completedStories.fetchStories();
+<     };
+<     /**
+<      * fetch filtered stories
+<      * @returns {}
+<      */
+<     StoriesViewModel.prototype.filterStories = function () {
+<         this.activeStories.fetchStories(true);
+<         this.completedStories.fetchStories(true);
+---
+>     StoriesFilterViewModel.prototype.clear = function () {
+>         this.storyTitle = "";
+>         this.activityTitle = "";
+>         this.serviceOffering = "";
+>         this.activityPhase = "";
+1024,1031c1254,1261
+<     /**
+<      * show particular tab
+<      * @param indx tab index. 1 - active stories, 2 - completed stories
+<      * @returns {}
+<      */
+<     StoriesViewModel.prototype.showTab = function (indx) {
+<         this.activeStories.isActive = indx === 1;
+<         this.completedStories.isActive = indx === 2;
+---
+>     StoriesFilterViewModel.prototype.getModel = function () {
+>         var model = jQuery.extend(false, {}, this);
+>         delete model.isActive;
+>         if (model.serviceOffering === "all")
+>             delete model.serviceOffering;
+>         if (model.activityPhase === "all")
+>             delete model.activityPhase;
+>         return model;
+1033c1263
+<     return StoriesViewModel;
+---
+>     return StoriesFilterViewModel;
+1034a1265
+> //# sourceMappingURL=StoriesFilterViewModel.js.map
+1105c1336,1338
+<                     storyId: this.story.id
+---
+>                     storyId: this.story.id,
+> 					addDefaultRequirements: activity.addDefaultRequirements,
+> 					requirements: []
+1107a1341
+> 					activity.requirements = data.requirements.map(function (value) { return new ActivityRequirement(value); });
+1147,1150c1381,1390
+< var NotificationsViewModel = (function () {
+<     function NotificationsViewModel(props) {
+<         this.pageSize = 10;
+<         this.totalItems = 1;
+---
+> //# sourceMappingURL=CreateStoryViewModel.js.map
+> /**
+> * Stories collection viewModel
+> */
+> var StoriesListViewModel = (function () {
+>     function StoriesListViewModel(filter, fetchOnlyCompleted) {
+>         if (filter === void 0) { filter = new StoriesFilterViewModel(); }
+>         if (fetchOnlyCompleted === void 0) { fetchOnlyCompleted = false; }
+>         this.stories = [];
+>         this.pageSize = 5;
+1151a1392,1395
+>         this.totalPages = 1;
+>         this.totalItems = 0;
+>         this.isActive = true;
+>         this.fetchOnlyCompleted = false;
+1153,1158c1397,1398
+<         this._folderType = "inbox";
+<         if (props) {
+<             this.service = props.service;
+<             this.dialogs = props.dialogs;
+<             this.initialize();
+<         }
+---
+>         this.filter = filter;
+>         this.fetchOnlyCompleted = fetchOnlyCompleted;
+1160,1166c1400,1414
+<     Object.defineProperty(NotificationsViewModel.prototype, "folderType", {
+<         get: function () { return this._folderType; },
+<         set: function (value) { this._folderType = value; this.folderChanged(); },
+<         enumerable: true,
+<         configurable: true
+<     });
+<     NotificationsViewModel.prototype.folderChanged = function () {
+---
+>     /**
+>      * fetches stories with filter and pagination
+>      * @param fromStart
+>      * @returns {}
+>      */
+>     StoriesListViewModel.prototype.fetchStories = function (fromStart) {
+>         var _this = this;
+>         if (fromStart === void 0) { fromStart = false; }
+>         if (!this.filter)
+>             this.filter = new StoriesFilterViewModel();
+>         this.filter.showOnlyCompleted = this.fetchOnlyCompleted;
+>         if (this.isLoading)
+>             return;
+>         this.isLoading = true;
+>         if (fromStart) {
+1169,1777c1417,1418
+<         this.fetchNotifications();
+<     };
+<     NotificationsViewModel.prototype.initialize = function () {
+<         this.fetchNotifications();
+<     };
+<     NotificationsViewModel.prototype.pageChanged = function (newPage) {
+<         this.page = newPage;
+<         this.fetchNotifications();
+<     };
+<     NotificationsViewModel.prototype.fetchNotifications = function () {
+<         var _this = this;
+<         var promise = null;
+<         if (this._folderType === "inbox") {
+<             promise = this.service.getInboxNotifications(this.page, this.pageSize);
+<         }
+<         else {
+<             promise = this.service.getOutboxNotifications(this.page, this.pageSize);
+<         }
+<         this.isLoading = true;
+<         promise.then(function (data) {
+<             _this.notifications = data.notifications.map(function (x) { return new NotificationViewModel(x, { service: _this.service, dialogs: _this.dialogs }); });
+<             _this.totalItems = data.totalItems;
+<             _this.isLoading = false;
+<         }, function (error) {
+<             _this.isLoading = false;
+<         });
+<     };
+<     NotificationsViewModel.prototype.archiveNotification = function (indx) {
+<         var _this = this;
+<         if (indx < 0 || indx >= this.notifications.length)
+<             return;
+<         this.dialogs.showArchiveNotificationConfirm().result.then(function (result) {
+<             if (result) {
+<                 _this.isLoading = true;
+<                 _this.service.archiveNotification(_this.notifications[indx].id).then(function (x) {
+<                     _this.fetchNotifications();
+<                 }, function (error) { _this.isLoading = false; });
+<             }
+<         });
+<     };
+<     return NotificationsViewModel;
+< })();
+< var NotificationViewModel = (function () {
+<     function NotificationViewModel(model, props) {
+<         this.isRead = false;
+<         this.isOpen = false;
+<         this.recipients = [];
+<         if (props) {
+<             this.service = props.service;
+<             this.dialogs = props.dialogs;
+<         }
+<         if (model) {
+<             this.id = model.id;
+<             this.dateSent = model.dateSent;
+<             this.text = model.text;
+<             this.subject = model.subject;
+<             this.type = model.type;
+<             this.status = model.status;
+<             this.isRead = model.isRead;
+<             this.sender = new UserViewModel(model.sender);
+<             if (model.recipients)
+<                 this.recipients = model.recipients.map(function (x) { return new UserViewModel(x); });
+<         }
+<     }
+<     NotificationViewModel.prototype.openClose = function () {
+<         var _this = this;
+<         this.isOpen = !this.isOpen;
+<         if (!this.isRead && this.isOpen) {
+<             this.service.markNotificationAsRead(this.id).then(function (x) {
+<                 _this.isRead = true;
+<             }, function (error) { });
+<         }
+<     };
+<     return NotificationViewModel;
+< })();
+< /**
+<  * Base class for the tabs viewmodels on search page
+<  */
+< var PaginatedSearchViewModel = (function () {
+<     function PaginatedSearchViewModel(props) {
+<         this.isLoading = false;
+<         this.pageSize = 10;
+<         this.totalItems = 0;
+<         this.page = 1;
+<         if (props) {
+<             this.service = props.service;
+<             this.dialogs = props.dialogs;
+<         }
+<     }
+<     return PaginatedSearchViewModel;
+< })();
+< /**
+<  * Search page tabs
+<  */
+< var SearchTabs;
+< (function (SearchTabs) {
+<     SearchTabs[SearchTabs["All"] = 0] = "All";
+<     SearchTabs[SearchTabs["Stories"] = 1] = "Stories";
+<     SearchTabs[SearchTabs["Activities"] = 2] = "Activities";
+<     SearchTabs[SearchTabs["Members"] = 3] = "Members";
+< })(SearchTabs || (SearchTabs = {}));
+< /**
+<  *  Search page viewmodel
+<  */
+< var SearchViewModel = (function () {
+<     function SearchViewModel(props) {
+<         this.isLoading = false;
+<         this.oldQuery = "";
+<         this.newQuery = "";
+<         this.currentTab = SearchTabs.All;
+<         this.allResults = new AllResultsSearchViewModel();
+<         this.members = new MembersSearchViewModel();
+<         this.stories = new StoriesSearchViewModel();
+<         this.activities = new ActivitiesSearchViewModel();
+<         if (props) {
+<             this.service = props.service;
+<             this.dialogs = props.dialogs;
+<         }
+<         this.allResults = new AllResultsSearchViewModel(props);
+<         this.members = new MembersSearchViewModel(props);
+<         this.stories = new StoriesSearchViewModel(props);
+<         this.activities = new ActivitiesSearchViewModel(props);
+<     }
+<     /**
+<      * sets current tab
+<      * @param tab new tab
+<      * @returns {void}
+<      */
+<     SearchViewModel.prototype.setCurrentTab = function (tab) {
+<         this.currentTab = tab;
+<     };
+<     /**
+<      * fires search for all tabs
+<      * @returns {void}
+<      */
+<     SearchViewModel.prototype.search = function () {
+<         var _this = this;
+<         if (!this.newQuery)
+<             this.newQuery = this.oldQuery;
+<         else
+<             this.oldQuery = this.newQuery;
+<         this.isLoading = true;
+<         this.allResults.search(this.newQuery, function () { return _this.isLoading = false; });
+<         this.members.search(this.newQuery);
+<         this.stories.search(this.newQuery);
+<         this.activities.search(this.newQuery);
+<     };
+<     /**
+<      * method for the publisher's "invite member" functionality
+<      * @param member member to invite
+<      * @returns {}
+<      */
+<     SearchViewModel.prototype.inviteMember = function (member) {
+<         var subject = MEMBER_SEARCH_TEMPLATE.subject;
+<         var firstName = member ? member.firstName : "<enter member's name>";
+<         this.dialogs.showPublisherSelectActivity().result.then(function (result) {
+<             var activityName = result ? result.title : "<enter Activity's Name>";
+<             var body = MEMBER_SEARCH_TEMPLATE.body.replace("{{userFirstName}}", firstName).replace("{{activityName}}", activityName);
+<             window.location = ("mailto:" + member.email + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body));
+<         });
+<     };
+<     return SearchViewModel;
+< })();
+< /**
+<  * All results tab viewmodel
+<  */
+< var AllResultsSearchViewModel = (function (_super) {
+<     __extends(AllResultsSearchViewModel, _super);
+<     function AllResultsSearchViewModel(props) {
+<         _super.call(this, props);
+<         this.results = [];
+<     }
+<     /**
+<      * searches all results for the provided query
+<      * @param query search term
+<      * @param callback callback function
+<      * @returns {void}
+<      */
+<     AllResultsSearchViewModel.prototype.search = function (query, callback) {
+<         if (query)
+<             this.query = query;
+<         this.fetchRecords(callback);
+<     };
+<     /**
+<      * fetches records from server
+<      * @param callback callback function
+<      * @returns {void}
+<      */
+<     AllResultsSearchViewModel.prototype.fetchRecords = function (callback) {
+<         var _this = this;
+<         if (!this.query) {
+<             if (callback)
+<                 callback();
+<             return;
+<         }
+<         this.isLoading = true;
+<         this.service.search({
+<             query: this.query,
+<             page: this.page,
+<             pageSize: this.pageSize
+<         }).then(function (result) {
+<             _this.totalItems = result.totalItems;
+<             _this.results = result.records.map(function (result) {
+<                 if (result.type === "user")
+<                     return new UserViewModel(result.item);
+<                 else if (result.type === "activity")
+<                     return new ActivityViewModel(result.item);
+<                 else if (result.type === "story")
+<                     return new StoryViewModel(result.item);
+<                 return result.item;
+<             });
+<             _this.isLoading = false;
+<             if (callback)
+<                 callback();
+<         }, function (error) { _this.isLoading = false; if (callback)
+<             callback(); });
+<     };
+<     /**
+<      * Page changed callback
+<      * @param newPage new page number
+<      * @returns {}
+<      */
+<     AllResultsSearchViewModel.prototype.pageChanged = function (newPage) {
+<         this.fetchRecords();
+<     };
+<     return AllResultsSearchViewModel;
+< })(PaginatedSearchViewModel);
+< /**
+<  * Members tab viewmodel
+<  */
+< var MembersSearchViewModel = (function (_super) {
+<     __extends(MembersSearchViewModel, _super);
+<     function MembersSearchViewModel(props) {
+<         _super.call(this, props);
+<         this.results = [];
+<         this.filter = new MembersSeachFilter();
+<     }
+<     /**
+<      * clears search filter
+<      * @returns {}
+<      */
+<     MembersSearchViewModel.prototype.clearFilter = function () {
+<         this.filter.isActive = false;
+<         this.filter.clear();
+<         this.filterResults();
+<     };
+<     /**
+<      * filters the results
+<      * @returns {}
+<      */
+<     MembersSearchViewModel.prototype.filterResults = function () {
+<         this.page = 1;
+<         this.search();
+<     };
+<     /**
+<      * searches members for the provided query
+<      * @param query search term
+<      * @returns {void}
+<      */
+<     MembersSearchViewModel.prototype.search = function (query) {
+<         if (query)
+<             this.query = query;
+<         this.fetchMembers();
+<     };
+<     /**
+<      * fetches records from server
+<      * @returns {void}
+<      */
+<     MembersSearchViewModel.prototype.fetchMembers = function () {
+<         var _this = this;
+<         if (!this.query)
+<             return;
+<         this.isLoading = true;
+<         this.service.searchMembers({
+<             query: this.query,
+<             page: this.page,
+<             pageSize: this.pageSize,
+<             filter: this.filter.getModel()
+<         }).then(function (result) {
+<             _this.totalItems = result.totalItems;
+<             _this.results = result.members.map(function (x) { return new UserViewModel(x); });
+<             _this.isLoading = false;
+<         }, function (error) { _this.isLoading = false; });
+<     };
+<     /**
+<      * Page changed callback
+<      * @param newPage new page number
+<      * @returns {}
+<      */
+<     MembersSearchViewModel.prototype.pageChanged = function (newPage) {
+<         this.fetchMembers();
+<     };
+<     return MembersSearchViewModel;
+< })(PaginatedSearchViewModel);
+< var StoriesSearchViewModel = (function (_super) {
+<     __extends(StoriesSearchViewModel, _super);
+<     function StoriesSearchViewModel(props) {
+<         _super.call(this, props);
+<         this.results = [];
+<         this.filter = new StoriesSeachFilter();
+<     }
+<     /**
+<      * clears search filter
+<      * @returns {}
+<      */
+<     StoriesSearchViewModel.prototype.clearFilter = function () {
+<         this.filter.isActive = false;
+<         this.filter.clear();
+<         this.filterResults();
+<     };
+<     /**
+<      * searches members for the provided query
+<      * @param query search term
+<      * @returns {void}
+<      */
+<     StoriesSearchViewModel.prototype.search = function (query) {
+<         if (query)
+<             this.query = query;
+<         this.fetchStories();
+<     };
+<     /**
+<      * filters the results
+<      * @returns {}
+<      */
+<     StoriesSearchViewModel.prototype.filterResults = function () {
+<         this.page = 1;
+<         this.search();
+<     };
+<     /**
+<      * fetches records from server
+<      * @returns {void}
+<      */
+<     StoriesSearchViewModel.prototype.fetchStories = function () {
+<         var _this = this;
+<         if (!this.query)
+<             return;
+<         this.isLoading = true;
+<         this.service.searchStories({
+<             query: this.query,
+<             page: this.page,
+<             pageSize: this.pageSize,
+<             filter: this.filter.getModel()
+<         }).then(function (result) {
+<             _this.totalItems = result.totalItems;
+<             _this.results = result.stories.map(function (x) { return new StoryViewModel(x); });
+<             _this.isLoading = false;
+<         }, function (error) { _this.isLoading = false; });
+<     };
+<     /**
+<      * Page changed callback
+<      * @param newPage new page number
+<      * @returns {}
+<      */
+<     StoriesSearchViewModel.prototype.pageChanged = function (newPage) {
+<         this.fetchStories();
+<     };
+<     return StoriesSearchViewModel;
+< })(PaginatedSearchViewModel);
+< /**
+<  * Viewmodel for the activities tab on search page
+<  */
+< var ActivitiesSearchViewModel = (function (_super) {
+<     __extends(ActivitiesSearchViewModel, _super);
+<     function ActivitiesSearchViewModel(props) {
+<         _super.call(this, props);
+<         this.results = [];
+<         this.filter = new ActivitiesSeachFilter();
+<     }
+<     /**
+<      * clears search filter
+<      * @returns {}
+<      */
+<     ActivitiesSearchViewModel.prototype.clearFilter = function () {
+<         this.filter.isActive = false;
+<         this.filter.clear();
+<         this.filterResults();
+<     };
+<     /**
+<      * searches members for the provided query
+<      * @param query search term
+<      * @returns {void}
+<      */
+<     ActivitiesSearchViewModel.prototype.search = function (query) {
+<         if (query)
+<             this.query = query;
+<         this.fetchActivities();
+<     };
+<     /**
+<      * filters the results
+<      * @returns {}
+<      */
+<     ActivitiesSearchViewModel.prototype.filterResults = function () {
+<         this.page = 1;
+<         this.search();
+<     };
+<     /**
+<      * fetches records from server
+<      * @returns {void}
+<      */
+<     ActivitiesSearchViewModel.prototype.fetchActivities = function () {
+<         var _this = this;
+<         if (!this.query)
+<             return;
+<         this.isLoading = true;
+<         this.service.searchActivities({
+<             query: this.query,
+<             page: this.page,
+<             pageSize: this.pageSize,
+<             filter: this.filter.getModel()
+<         }).then(function (result) {
+<             _this.totalItems = result.totalItems;
+<             _this.results = result.activities.map(function (x) { return new ActivityViewModel(x, { dialogs: _this.dialogs, service: _this.service }); });
+<             _this.isLoading = false;
+<         }, function (error) { _this.isLoading = false; });
+<     };
+<     /**
+<      * Page changed callback
+<      * @param newPage new page number
+<      * @returns {}
+<      */
+<     ActivitiesSearchViewModel.prototype.pageChanged = function (newPage) {
+<         this.fetchActivities();
+<     };
+<     return ActivitiesSearchViewModel;
+< })(PaginatedSearchViewModel);
+< /**
+<  * Stories tab filter viewModel
+<  */
+< var StoriesSeachFilter = (function () {
+<     function StoriesSeachFilter() {
+<         this.serviceOffering = "all";
+<         this.status = "all";
+<         this.isActive = false;
+<     }
+<     /**
+<      * Alter the visibility of the filter
+<      * @returns {}
+<      */
+<     StoriesSeachFilter.prototype.showHide = function () {
+<         this.isActive = !this.isActive;
+<     };
+<     /**
+<      * Clears filter fields
+<      * @returns {}
+<      */
+<     StoriesSeachFilter.prototype.clear = function () {
+<         this.title = "";
+<         this.description = "";
+<         this.serviceOffering = "all";
+<         this.status = "all";
+<     };
+<     /**
+<     * returns model of the current filter for sending to the server
+<     * @returns {}
+<     */
+<     StoriesSeachFilter.prototype.getModel = function () {
+<         var model = jQuery.extend(false, {}, this);
+<         delete model.isActive;
+<         if (model.serviceOffering === "all")
+<             delete model.serviceOffering;
+<         if (model.status === "all")
+<             delete model.status;
+<         return model;
+<     };
+<     return StoriesSeachFilter;
+< })();
+< /**
+<  * Activities tab filter viewModel
+<  */
+< var ActivitiesSeachFilter = (function () {
+<     function ActivitiesSeachFilter() {
+<         this.challengeType = "all";
+<         this.phase = "all";
+<         this.isActive = false;
+<     }
+<     /**
+<      * Alter the visibility of the filter
+<      * @returns {}
+<      */
+<     ActivitiesSeachFilter.prototype.showHide = function () {
+<         this.isActive = !this.isActive;
+<     };
+<     /**
+<      * Clears filter fields
+<      * @returns {}
+<      */
+<     ActivitiesSeachFilter.prototype.clear = function () {
+<         this.title = "";
+<         this.description = "";
+<         this.challengeType = "all";
+<         this.phase = "all";
+<     };
+<     /**
+<     * returns model of the current filter for sending to the server
+<     * @returns {}
+<     */
+<     ActivitiesSeachFilter.prototype.getModel = function () {
+<         var model = jQuery.extend(false, {}, this);
+<         delete model.isActive;
+<         if (model.challengeType === "all")
+<             delete model.challengeType;
+<         if (model.phase === "all")
+<             delete model.phase;
+<         return model;
+<     };
+<     return ActivitiesSeachFilter;
+< })();
+< /**
+<  * Members tab filter viewModel
+<  */
+< var MembersSeachFilter = (function () {
+<     function MembersSeachFilter() {
+<         this.isActive = false;
+<     }
+<     /**
+<      * Alter the visibility of the filter
+<      * @returns {}
+<      */
+<     MembersSeachFilter.prototype.showHide = function () {
+<         this.isActive = !this.isActive;
+<     };
+<     /**
+<      * Clears filter fields
+<      * @returns {}
+<      */
+<     MembersSeachFilter.prototype.clear = function () {
+<         this.firstName = "";
+<         this.lastName = "";
+<         this.organization = "";
+<         this.role = "";
+<     };
+<     /**
+<     * returns model of the current filter for sending to the server
+<     * @returns {}
+<     */
+<     MembersSeachFilter.prototype.getModel = function () {
+<         var model = jQuery.extend(false, {}, this);
+<         delete model.isActive;
+<         return model;
+<     };
+<     return MembersSeachFilter;
+< })();
+< /**
+< * ViewModel for the stories list filter
+< */
+< var StoriesFilterViewModel = (function () {
+<     function StoriesFilterViewModel() {
+<         this.storyTitle = "";
+<         this.activityTitle = "";
+<         this.serviceOffering = "";
+<         this.activityPhase = "";
+<         this.showOnlyCompleted = false;
+<         this.isActive = false;
+<         this.clear();
+<     }
+<     StoriesFilterViewModel.prototype.clear = function () {
+<         this.storyTitle = "";
+<         this.activityTitle = "";
+<         this.serviceOffering = "";
+<         this.activityPhase = "";
+<     };
+<     StoriesFilterViewModel.prototype.getModel = function () {
+<         var model = jQuery.extend(false, {}, this);
+<         delete model.isActive;
+<         if (model.serviceOffering === "all")
+<             delete model.serviceOffering;
+<         if (model.activityPhase === "all")
+<             delete model.activityPhase;
+<         return model;
+<     };
+<     return StoriesFilterViewModel;
+< })();
+< /**
+< * Stories collection viewModel
+< */
+< var StoriesListViewModel = (function () {
+<     function StoriesListViewModel(filter, fetchOnlyCompleted) {
+<         if (filter === void 0) { filter = new StoriesFilterViewModel(); }
+<         if (fetchOnlyCompleted === void 0) { fetchOnlyCompleted = false; }
+<         this.stories = [];
+<         this.pageSize = 5;
+<         this.page = 1;
+<         this.totalPages = 1;
+<         this.totalItems = 0;
+<         this.isActive = true;
+<         this.fetchOnlyCompleted = false;
+<         this.isLoading = false;
+<         this.filter = filter;
+<         this.fetchOnlyCompleted = fetchOnlyCompleted;
+<     }
+<     /**
+<      * fetches stories with filter and pagination
+<      * @param fromStart
+<      * @returns {}
+<      */
+<     StoriesListViewModel.prototype.fetchStories = function (fromStart) {
+<         var _this = this;
+<         if (fromStart === void 0) { fromStart = false; }
+<         if (!this.filter)
+<             this.filter = new StoriesFilterViewModel();
+<         this.filter.showOnlyCompleted = this.fetchOnlyCompleted;
+<         if (this.isLoading)
+<             return;
+<         this.isLoading = true;
+<         if (fromStart) {
+<             this.page = 1;
+<             this.totalItems = 0;
+<             this.totalPages = 1;
+<             this.stories = [];
+---
+>             this.totalPages = 1;
+>             this.stories = [];
+1815a1457,1504
+> //# sourceMappingURL=StoriesListViewModel.js.map
+> /**
+> * Stories page ViewModel
+> */
+> var StoriesViewModel = (function () {
+>     function StoriesViewModel(dataServices) {
+>         this.filter = new StoriesFilterViewModel();
+>         this.activeStories = new StoriesListViewModel(this.filter);
+>         this.activeStories.service = dataServices;
+>         this.activeStories.fetchStories();
+>         this.activeStories.isActive = true;
+>         this.completedStories = new StoriesListViewModel(this.filter, true);
+>         this.completedStories.service = dataServices;
+>         this.filter.showOnlyCompleted = true;
+>         this.completedStories.fetchStories();
+>         this.showTab(1);
+>     }
+>     /**
+>      * resets filter
+>      * @returns {}
+>      */
+>     StoriesViewModel.prototype.resetFilter = function () {
+>         this.filter.clear();
+>         this.filter.isActive = false;
+>         this.activeStories.fetchStories();
+>         this.completedStories.fetchStories();
+>     };
+>     /**
+>      * fetch filtered stories
+>      * @returns {}
+>      */
+>     StoriesViewModel.prototype.filterStories = function () {
+>         this.activeStories.fetchStories(true);
+>         this.completedStories.fetchStories(true);
+>     };
+>     /**
+>      * show particular tab
+>      * @param indx tab index. 1 - active stories, 2 - completed stories
+>      * @returns {}
+>      */
+>     StoriesViewModel.prototype.showTab = function (indx) {
+>         this.activeStories.isActive = indx === 1;
+>         this.completedStories.isActive = indx === 2;
+>     };
+>     return StoriesViewModel;
+> })();
+> //# sourceMappingURL=StoriesViewModel.js.map
+> 
+1862a1552,1553
+> //# sourceMappingURL=StoryDetailsViewModel.js.map
+> 
+1965c1656
+< //# sourceMappingURL=models.js.map
+\ No newline at end of file
+---
+> //# sourceMappingURL=StoryPublisherDetailsViewModel.js.map
+Only in /Users/Ward/Code/crowd-exchange/src/staticresources/CrowdExchangeWebApp_Resources/js: models.js.map
+Only in /Users/Ward/Code/crowd-exchange/src/staticresources/CrowdExchangeWebApp_Resources/js: models.min.js
+Only in /Users/Ward/Code/crowd-exchange/src/staticresources/CrowdExchangeWebApp_Resources/js: models.min.js.gz
+Only in /Users/Ward/Code/crowd-exchange/src/staticresources/CrowdExchangeWebApp_Resources/js: models.min.js.map
+diff -rw /Users/Ward/Code/crowd-exchange/src/staticresources/CrowdExchangeWebApp_Resources/js/services.js /Users/Ward/Code/crowd_exchange_submission/crowdexchange/src/staticresources/CrowdExchangeWebApp_Resources/js/services.js
+4c4
+<     //function for wrapping SFDC Remote methods in promise
+---
+>     //funciton for wrapping SFDC Remote methods in promise
+15c15
+<     CrowdExchangeAppServices.factory('dataServices', function ($http, $q, $sce, $compile, $timeout) {
+---
+>     CrowdExchangeAppServices.factory('dataServices', function ($http, $q, $sce) {
+112c112
+<             getUnreadNotificationsCount: function () {
+---
+> 			addSubmission: function(activityId, submissionNamw) {
+114c114
+<                 CrowdExchangeRemoteController.getUnreadNotificationsCount(getStandardCallback(deferred));
+---
+>                 CrowdExchangeRemoteController.addSubmission(activityId || null, submissionNamw, getStandardCallback(deferred));
+117c117
+<             getInboxNotifications: function (page, pageSize) {
+---
+> 			getSubmissions: function (activityId) {
+119c119
+<                 CrowdExchangeRemoteController.getInboxNotifications(page || null, pageSize || null, getStandardCallback(deferred));
+---
+>                 CrowdExchangeRemoteController.getSubmissions(activityId, getStandardCallback(deferred));
+122c122
+<             getOutboxNotifications: function (page, pageSize) {
+---
+> 			loadSubmissionRequirement: function (submissionId) {
+124c124
+<                 CrowdExchangeRemoteController.getOutboxNotifications(page || null, pageSize || null, getStandardCallback(deferred));
+---
+>                 CrowdExchangeRemoteController.getSubmissionRequirements(submissionId, getStandardCallback(deferred));
+127c127
+<             markNotificationAsRead: function (notificationId) {
+---
+> 			upsertSubmissionReview: function (submission, submissionRequirements, markReviewComplete) {
+129c129
+<                 CrowdExchangeRemoteController.markNotificationAsRead(notificationId || null, getStandardCallback(deferred));
+---
+>                 CrowdExchangeRemoteController.saveSubmissionReview(submission, submissionRequirements, markReviewComplete, getStandardCallback(deferred));
+132c132
+<             archiveNotification: function (notificationId) {
+---
+> 			markReviewComplete: function (submissionId) {
+134c134
+<                 CrowdExchangeRemoteController.archiveNotification(notificationId || null, getStandardCallback(deferred));
+---
+>                 CrowdExchangeRemoteController.markReviewComplete(submissionId, getStandardCallback(deferred));
+137c137
+<             searchMembers: function (request) {
+---
+> 			deleteSubmission: function (submissionId) {
+139,159c139
+<                 CrowdExchangeRemoteController.searchMembers(request || null, getStandardCallback(deferred));
+<                 return deferred.promise;
+<             },
+<             searchActivities: function (request) {
+<                 var deferred = $q.defer();
+<                 CrowdExchangeRemoteController.searchActivities(request || null, getStandardCallback(deferred));
+<                 return deferred.promise;
+<             },
+<             searchStories: function (request) {
+<                 var deferred = $q.defer();
+<                 CrowdExchangeRemoteController.searchStories(request || null, getStandardCallback(deferred));
+<                 return deferred.promise;
+<             },
+<             search: function (request) {
+<                 var deferred = $q.defer();
+<                 CrowdExchangeRemoteController.search(request || null, getStandardCallback(deferred));
+<                 return deferred.promise;
+<             },
+<             getPublisherActivities: function () {
+<                 var deferred = $q.defer();
+<                 CrowdExchangeRemoteController.getPublisherActivities(getStandardCallback(deferred));
+---
+>                 CrowdExchangeRemoteController.deleteSubmission(submissionId, getStandardCallback(deferred));
+192,202d171
+<             },
+<             renderStringTemplate: function (template, scope) {
+<                 var deferred = $q.defer();
+<                 $timeout(function () {
+<                     var linkFn = $compile(template);
+<                     var linkedContent = linkFn(scope);
+<                     scope.$apply();
+<                     deferred.resolve(linkedContent.html());
+<                 }, 0);
+< 
+<                 return deferred.promise;
+209,211d177
+<             showArchiveNotificationConfirm: function () {
+<                 return dialogs.create('archiveNotificationConfirm.html', 'ceConfirmDialogCtrl', {}, 'lg');
+<             },
+213c179
+<                 return dialogs.create('registrationConfirm.html', 'ceConfirmDialogCtrl', {}, 'sm');
+---
+>                 return dialogs.create('registrationConfirm.html', 'ceConfirmDialogCtrl', {}, 'lg');
+216c182
+<                 return dialogs.create('loadingDialog.html', 'ceConfirmDialogCtrl', {}, 'sm');
+---
+>                 return dialogs.create('loadingDialog.html', 'ceConfirmDialogCtrl', {}, 'small');
+219c185
+<                 return dialogs.create('savingActivityAsDraft.html', 'ceConfirmDialogCtrl', {}, 'sm');
+---
+>                 return dialogs.create('savingActivityAsDraft.html', 'ceConfirmDialogCtrl', {}, 'small');
+221,222c187,188
+<             showFileUploading: function (model) {
+<                 return dialogs.create('fileUploadModal.html', 'ceConfirmDialogCtrl', model || {}, 'lg');
+---
+>             showFileUploading: function (percents, filesize) {
+>                 return dialogs.create('fileUploadModal.html', 'ceConfirmDialogCtrl', {percents:percents, filesize:filesize}, 'lg');
+230,231c196,206
+<             showPublisherSelectActivity: function () {
+<                 return dialogs.create('publisherSelectActivity.html', 'pubSelectActivityCtrl', {}, 'lg');
+---
+> 			showActivitySubmitModel : function (activityViewModel) {
+>                 return dialogs.create('activitySubmitModal.html','ceActivitySubmitCtrl', {vm: activityViewModel},'small');
+>             },
+> 			showReviewSaving: function (activityViewModel) {
+>                 return dialogs.create('reviewSavingDialog.html', 'ceReviewSavingDialogCtrl', {vm: activityViewModel}, 'small');
+>             },
+> 			showReviewError: function () {
+>                 return dialogs.create('reviewErrorDialog.html', 'ceConfirmDialogCtrl', {}, 'small');
+>             },
+> 			showReviewScoreError: function () {
+>                 return dialogs.create('reviewScoreErrorDialog.html', 'ceConfirmDialogCtrl', {}, 'small');
+235c210
+<     CrowdExchangeAppServices.controller('pubSelectActivityCtrl', function ($log, $scope, $modalInstance, data, dataServices) {
+---
+>     CrowdExchangeAppServices.controller('ceConfirmDialogCtrl', function ($log, $scope, $modalInstance, data) {
+237,249c212,213
+<         $scope.isLoading = true;
+<         $scope.activities = [];
+<         dataServices.getPublisherActivities().then(function (data) {
+<             $scope.activities = data;
+<             $scope.isLoading = false;
+<         }, function (error) {
+<             $modalInstance.close(undefined);
+<         });
+<         $scope.selectActivity = function (activity) {
+<             $modalInstance.close(activity);
+<         }
+<         $scope.cancel = function () {
+<             $modalInstance.close(undefined);
+---
+>         $scope.no = function () {
+>             $modalInstance.close(false);
+251c215,217
+< 
+---
+>         $scope.yes = function () {
+>             $modalInstance.close(true);
+>         }; // end done
+253c219
+<     CrowdExchangeAppServices.controller('ceConfirmDialogCtrl', function ($log, $scope, $modalInstance, data) {
+---
+> 	CrowdExchangeAppServices.controller('ceReviewSavingDialogCtrl', function ($log, $scope, $modalInstance, data) {
+259a226
+> 			this.vm.updateReview(false);
+260a228,278
+>     }); // end ceReviewSavingDialogCtrl	
+> 	
+> 	CrowdExchangeAppServices.controller('ceActivitySubmitCtrl', function ($log, $scope, $modalInstance, data) {
+>         if (data) jQuery.extend($scope, data);
+>         $scope.no = function () {
+>             $modalInstance.close(false);
+>         };
+>         $scope.yes = function () {
+>             $modalInstance.close(true);			
+>         }; // end done		
+> 		
+> 		$scope.fileToUpload = { file: null, description: "", fileName: "" };	
+> 		/**
+> 		 * uploads Submission for the current activity
+> 		 * @returns {}
+> 		 */
+> 		$scope.uploadSubmittedFile = function () {						
+> 			$modalInstance.close(false);
+> 			if (this.fileToUpload.file) {				
+> 				var file = {
+> 					description: this.fileToUpload.description,
+> 					name: this.fileToUpload.fileName,
+> 					body: this.fileToUpload.file.substring(this.fileToUpload.file.indexOf('base64') + 7)					
+> 				};				
+> 				var dialog = this.vm.dialogs.showFileUploading(40, file.body.size);
+> 				delete this.fileToUpload;
+> 				this.fileToUpload = {};									
+> 				var _this = this.vm;				
+> 				_this.service.addSubmission(_this.id, file.name).then(function (data) {					
+> 					file.parentId = data.id;		
+> 					_this.service.uploadAttachment(file).then(function (data) {						
+> 						if (data[0].success) {
+> 							var newDocument = new SubmissionDocument();
+> 							newDocument.id = data[0].id;
+> 							newDocument.description = file.description;
+> 							newDocument.name = file.name;
+> 							newDocument.createdDate = new Date();
+> 							_this.submissions.submissions.push(newDocument);
+> 							_this.recentSubmission = newDocument;
+> 						}
+> 						_this.showNewSubmission = true;
+> 						_this.selectTab(4);						
+> 						dialog.close();
+> 					});
+> 				}, function (data) {
+> 					dialog.close();
+> 				}, function (progress) {
+> 					dialog.close();
+> 				});
+> 			}
+> 		};		
+diff -rw /Users/Ward/Code/crowd-exchange/src/staticresources/CrowdExchangeWebApp_Resources/js/typescript/Models/Activity.js /Users/Ward/Code/crowd_exchange_submission/crowdexchange/src/staticresources/CrowdExchangeWebApp_Resources/js/typescript/Models/Activity.js
+21d20
+<             if (activity.codeTypes)
+23d21
+<             if (activity.milestones)
+26d23
+<             if (activity.requirements)
+28d24
+<             if (activity.prizes)
+diff -rw /Users/Ward/Code/crowd-exchange/src/staticresources/CrowdExchangeWebApp_Resources/js/typescript/Models/Activity.js.map /Users/Ward/Code/crowd_exchange_submission/crowdexchange/src/staticresources/CrowdExchangeWebApp_Resources/js/typescript/Models/Activity.js.map
+1c1
+< {"version":3,"file":"Activity.js","sourceRoot":"","sources":["Activity.ts"],"names":["Activity","Activity.constructor","Activity.getModel"],"mappings":"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"}
+\ No newline at end of file
+---
+> {"version":3,"file":"Activity.js","sourceRoot":"","sources":["Activity.ts"],"names":["Activity","Activity.constructor","Activity.getModel"],"mappings":"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"}
+\ No newline at end of file
+diff -rw /Users/Ward/Code/crowd-exchange/src/staticresources/CrowdExchangeWebApp_Resources/js/typescript/Models/Activity.ts /Users/Ward/Code/crowd_exchange_submission/crowdexchange/src/staticresources/CrowdExchangeWebApp_Resources/js/typescript/Models/Activity.ts
+26d25
+<             if (activity.codeTypes)
+28d26
+<             if (activity.milestones)
+31d28
+<             if (activity.requirements)
+33d29
+<             if (activity.prizes)
+diff -rw /Users/Ward/Code/crowd-exchange/src/staticresources/CrowdExchangeWebApp_Resources/js/typescript/Models/ActivityViewModel.js /Users/Ward/Code/crowd_exchange_submission/crowdexchange/src/staticresources/CrowdExchangeWebApp_Resources/js/typescript/Models/ActivityViewModel.js
+19c19
+<         if (activity && activity.requirements) {
+---
+>         if (activity) {
+diff -rw /Users/Ward/Code/crowd-exchange/src/staticresources/CrowdExchangeWebApp_Resources/js/typescript/Models/ActivityViewModel.js.map /Users/Ward/Code/crowd_exchange_submission/crowdexchange/src/staticresources/CrowdExchangeWebApp_Resources/js/typescript/Models/ActivityViewModel.js.map
+1c1
+< {"version":3,"file":"ActivityViewModel.js","sourceRoot":"","sources":["ActivityViewModel.ts"],"names":["ActivityViewModel","ActivityViewModel.constructor","ActivityViewModel.milestoneDuration","ActivityViewModel.milestoneChanged","ActivityViewModel.removeRequirement","ActivityViewModel.selectTab","ActivityViewModel.registerToActivity","ActivityViewModel.setDefaultCodeTypes","ActivityViewModel.addRequirement","ActivityViewModel.addPrize","ActivityViewModel.removePrize","ActivityViewModel.activityDuration","ActivityViewModel.uploadFile","ActivityViewModel.addFile","ActivityViewModel.deleteDocument","ActivityViewModel.assignMember","ActivityViewModel.unassignMember","ActivityViewModel.saveAsDraft","ActivityViewModel.publish","ActivityViewModel.upsert","ActivityViewModel.cancelActivity","ActivityViewModel.completeActivity","ActivityViewModel.clone","ActivityViewModel.fetchAssignedMember"],"mappings":"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"}
+\ No newline at end of file
+---
+> {"version":3,"file":"ActivityViewModel.js","sourceRoot":"","sources":["ActivityViewModel.ts"],"names":["ActivityViewModel","ActivityViewModel.constructor","ActivityViewModel.milestoneDuration","ActivityViewModel.milestoneChanged","ActivityViewModel.removeRequirement","ActivityViewModel.selectTab","ActivityViewModel.registerToActivity","ActivityViewModel.setDefaultCodeTypes","ActivityViewModel.addRequirement","ActivityViewModel.addPrize","ActivityViewModel.removePrize","ActivityViewModel.activityDuration","ActivityViewModel.uploadFile","ActivityViewModel.addFile","ActivityViewModel.deleteDocument","ActivityViewModel.assignMember","ActivityViewModel.unassignMember","ActivityViewModel.saveAsDraft","ActivityViewModel.publish","ActivityViewModel.upsert","ActivityViewModel.cancelActivity","ActivityViewModel.completeActivity","ActivityViewModel.clone","ActivityViewModel.fetchAssignedMember"],"mappings":"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"}
+\ No newline at end of file
+diff -rw /Users/Ward/Code/crowd-exchange/src/staticresources/CrowdExchangeWebApp_Resources/js/typescript/Models/ActivityViewModel.ts /Users/Ward/Code/crowd_exchange_submission/crowdexchange/src/staticresources/CrowdExchangeWebApp_Resources/js/typescript/Models/ActivityViewModel.ts
+29c29
+<         if (activity && activity.requirements) {
+---
+>         if (activity) {
+diff -rw /Users/Ward/Code/crowd-exchange/src/staticresources/CrowdExchangeWebApp_Resources/js/typescript/Models/Models.js /Users/Ward/Code/crowd_exchange_submission/crowdexchange/src/staticresources/CrowdExchangeWebApp_Resources/js/typescript/Models/Models.js
+51d50
+<             if (activity.codeTypes)
+53d51
+<             if (activity.milestones)
+56d53
+<             if (activity.requirements)
+58d54
+<             if (activity.prizes)
+509c505
+<         if (activity && activity.requirements) {
+---
+>         if (activity) {
+1451,2020d1446
+< var NotificationViewModel = (function () {
+<     function NotificationViewModel(model, props) {
+<         this.isRead = false;
+<         this.isOpen = false;
+<         this.recipients = [];
+<         if (props) {
+<             this.service = props.service;
+<             this.dialogs = props.dialogs;
+<         }
+<         if (model) {
+<             this.id = model.id;
+<             this.dateSent = model.dateSent;
+<             this.text = model.text;
+<             this.subject = model.subject;
+<             this.type = model.type;
+<             this.status = model.status;
+<             this.isRead = model.isRead;
+<             this.sender = new UserViewModel(model.sender);
+<             if (model.recipients)
+<                 this.recipients = model.recipients.map(function (x) { return new UserViewModel(x); });
+<         }
+<     }
+<     NotificationViewModel.prototype.openClose = function () {
+<         var _this = this;
+<         this.isOpen = !this.isOpen;
+<         if (!this.isRead && this.isOpen) {
+<             this.service.markNotificationAsRead(this.id).then(function (x) {
+<                 _this.isRead = true;
+<             }, function (error) { });
+<         }
+<     };
+<     return NotificationViewModel;
+< })();
+< //# sourceMappingURL=NotificationViewModel.js.map
+< var NotificationsViewModel = (function () {
+<     function NotificationsViewModel(props) {
+<         this.pageSize = 10;
+<         this.totalItems = 1;
+<         this.page = 1;
+<         this.isLoading = false;
+<         this._folderType = "inbox";
+<         if (props) {
+<             this.service = props.service;
+<             this.dialogs = props.dialogs;
+<             this.initialize();
+<         }
+<     }
+<     Object.defineProperty(NotificationsViewModel.prototype, "folderType", {
+<         get: function () { return this._folderType; },
+<         set: function (value) { this._folderType = value; this.folderChanged(); },
+<         enumerable: true,
+<         configurable: true
+<     });
+<     NotificationsViewModel.prototype.folderChanged = function () {
+<         this.page = 1;
+<         this.totalItems = 0;
+<         this.fetchNotifications();
+<     };
+<     NotificationsViewModel.prototype.initialize = function () {
+<         this.fetchNotifications();
+<     };
+<     NotificationsViewModel.prototype.pageChanged = function (newPage) {
+<         this.page = newPage;
+<         this.fetchNotifications();
+<     };
+<     NotificationsViewModel.prototype.fetchNotifications = function () {
+<         var _this = this;
+<         var promise = null;
+<         if (this._folderType === 'inbox') {
+<             promise = this.service.getInboxNotifications(this.page, this.pageSize);
+<         }
+<         else {
+<             promise = this.service.getOutboxNotifications(this.page, this.pageSize);
+<         }
+<         this.isLoading = true;
+<         promise.then(function (data) {
+<             _this.notifications = data.notifications.map(function (x) { return new NotificationViewModel(x, { service: _this.service, dialogs: _this.dialogs }); });
+<             _this.totalItems = data.totalItems;
+<             _this.isLoading = false;
+<         }, function (error) {
+<             _this.isLoading = false;
+<         });
+<     };
+<     NotificationsViewModel.prototype.archiveNotification = function (indx) {
+<         var _this = this;
+<         if (indx < 0 || indx >= this.notifications.length)
+<             return;
+<         this.dialogs.showArchiveNotificationConfirm().result.then(function (result) {
+<             if (result) {
+<                 _this.isLoading = true;
+<                 _this.service.archiveNotification(_this.notifications[indx].id).then(function (x) {
+<                     _this.fetchNotifications();
+<                 }, function (error) { _this.isLoading = false; });
+<             }
+<         });
+<     };
+<     return NotificationsViewModel;
+< })();
+< //# sourceMappingURL=NotificationsViewModel.js.map
+< var __extends = (this && this.__extends) || function (d, b) {
+<     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+<     function __() { this.constructor = d; }
+<     __.prototype = b.prototype;
+<     d.prototype = new __();
+< };
+< /**
+<  * Base class for the tabs viewmodels on search page
+<  */
+< var PaginatedSearchViewModel = (function () {
+<     function PaginatedSearchViewModel(props) {
+<         this.isLoading = false;
+<         this.pageSize = 10;
+<         this.totalItems = 0;
+<         this.page = 1;
+<         if (props) {
+<             this.service = props.service;
+<             this.dialogs = props.dialogs;
+<         }
+<     }
+<     return PaginatedSearchViewModel;
+< })();
+< /**
+<  * Search page tabs
+<  */
+< var SearchTabs;
+< (function (SearchTabs) {
+<     SearchTabs[SearchTabs["All"] = 0] = "All";
+<     SearchTabs[SearchTabs["Stories"] = 1] = "Stories";
+<     SearchTabs[SearchTabs["Activities"] = 2] = "Activities";
+<     SearchTabs[SearchTabs["Members"] = 3] = "Members";
+< })(SearchTabs || (SearchTabs = {}));
+< /**
+<  *  Search page viewmodel
+<  */
+< var SearchViewModel = (function () {
+<     function SearchViewModel(props) {
+<         this.isLoading = false;
+<         this.oldQuery = "";
+<         this.newQuery = "";
+<         this.currentTab = SearchTabs.All;
+<         this.allResults = new AllResultsSearchViewModel();
+<         this.members = new MembersSearchViewModel();
+<         this.stories = new StoriesSearchViewModel();
+<         this.activities = new ActivitiesSearchViewModel();
+<         if (props) {
+<             this.service = props.service;
+<             this.dialogs = props.dialogs;
+<         }
+<         this.allResults = new AllResultsSearchViewModel(props);
+<         this.members = new MembersSearchViewModel(props);
+<         this.stories = new StoriesSearchViewModel(props);
+<         this.activities = new ActivitiesSearchViewModel(props);
+<     }
+<     /**
+<      * sets current tab
+<      * @param tab new tab
+<      * @returns {void}
+<      */
+<     SearchViewModel.prototype.setCurrentTab = function (tab) {
+<         this.currentTab = tab;
+<     };
+<     /**
+<      * fires search for all tabs
+<      * @returns {void}
+<      */
+<     SearchViewModel.prototype.search = function () {
+<         var _this = this;
+<         if (!this.newQuery)
+<             this.newQuery = this.oldQuery;
+<         else
+<             this.oldQuery = this.newQuery;
+<         this.isLoading = true;
+<         this.allResults.search(this.newQuery, function () { return _this.isLoading = false; });
+<         this.members.search(this.newQuery);
+<         this.stories.search(this.newQuery);
+<         this.activities.search(this.newQuery);
+<     };
+<     /**
+<      * method for the publisher's "invite member" functionality
+<      * @param member member to invite
+<      * @returns {}
+<      */
+<     SearchViewModel.prototype.inviteMember = function (member) {
+<         var subject = MEMBER_SEARCH_TEMPLATE.subject;
+<         var firstName = member ? member.firstName : "<enter member's name>";
+<         this.dialogs.showPublisherSelectActivity().result.then(function (result) {
+<             var activityName = result ? result.title : "<enter Activity's Name>";
+<             var body = MEMBER_SEARCH_TEMPLATE.body.replace("{{userFirstName}}", firstName).replace("{{activityName}}", activityName);
+<             window.location = ("mailto:" + member.email + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body));
+<         });
+<     };
+<     return SearchViewModel;
+< })();
+< /**
+<  * All results tab viewmodel
+<  */
+< var AllResultsSearchViewModel = (function (_super) {
+<     __extends(AllResultsSearchViewModel, _super);
+<     function AllResultsSearchViewModel(props) {
+<         _super.call(this, props);
+<         this.results = [];
+<     }
+<     /**
+<      * searches all results for the provided query
+<      * @param query search term
+<      * @param callback callback function
+<      * @returns {void}
+<      */
+<     AllResultsSearchViewModel.prototype.search = function (query, callback) {
+<         if (query)
+<             this.query = query;
+<         this.fetchRecords(callback);
+<     };
+<     /**
+<      * fetches records from server
+<      * @param callback callback function
+<      * @returns {void}
+<      */
+<     AllResultsSearchViewModel.prototype.fetchRecords = function (callback) {
+<         var _this = this;
+<         if (!this.query)
+<             return;
+<         this.isLoading = true;
+<         this.service.search({
+<             query: this.query,
+<             page: this.page,
+<             pageSize: this.pageSize
+<         }).then(function (result) {
+<             _this.totalItems = result.totalItems;
+<             _this.results = result.records.map(function (result) {
+<                 if (result.type === "user")
+<                     return new UserViewModel(result.item);
+<                 else if (result.type === "activity")
+<                     return new ActivityViewModel(result.item);
+<                 else if (result.type === "story")
+<                     return new StoryViewModel(result.item);
+<                 return result.item;
+<             });
+<             _this.isLoading = false;
+<             if (callback)
+<                 callback();
+<         }, function (error) { _this.isLoading = false; if (callback)
+<             callback(); });
+<     };
+<     /**
+<      * Page changed callback
+<      * @param newPage new page number
+<      * @returns {}
+<      */
+<     AllResultsSearchViewModel.prototype.pageChanged = function (newPage) {
+<         this.fetchRecords();
+<     };
+<     return AllResultsSearchViewModel;
+< })(PaginatedSearchViewModel);
+< /**
+<  * Members tab viewmodel
+<  */
+< var MembersSearchViewModel = (function (_super) {
+<     __extends(MembersSearchViewModel, _super);
+<     function MembersSearchViewModel(props) {
+<         _super.call(this, props);
+<         this.results = [];
+<         this.filter = new MembersSeachFilter();
+<     }
+<     /**
+<      * clears search filter
+<      * @returns {}
+<      */
+<     MembersSearchViewModel.prototype.clearFilter = function () {
+<         this.filter.isActive = false;
+<         this.filter.clear();
+<         this.filterResults();
+<     };
+<     /**
+<      * filters the results
+<      * @returns {}
+<      */
+<     MembersSearchViewModel.prototype.filterResults = function () {
+<         this.page = 1;
+<         this.search();
+<     };
+<     /**
+<      * searches members for the provided query
+<      * @param query search term
+<      * @returns {void}
+<      */
+<     MembersSearchViewModel.prototype.search = function (query) {
+<         if (query)
+<             this.query = query;
+<         this.fetchMembers();
+<     };
+<     /**
+<      * fetches records from server
+<      * @returns {void}
+<      */
+<     MembersSearchViewModel.prototype.fetchMembers = function () {
+<         var _this = this;
+<         if (!this.query)
+<             return;
+<         this.isLoading = true;
+<         this.service.searchMembers({
+<             query: this.query,
+<             page: this.page,
+<             pageSize: this.pageSize,
+<             filter: this.filter.getModel()
+<         }).then(function (result) {
+<             _this.totalItems = result.totalItems;
+<             _this.results = result.members.map(function (x) { return new UserViewModel(x); });
+<             _this.isLoading = false;
+<         }, function (error) { _this.isLoading = false; });
+<     };
+<     /**
+<      * Page changed callback
+<      * @param newPage new page number
+<      * @returns {}
+<      */
+<     MembersSearchViewModel.prototype.pageChanged = function (newPage) {
+<         this.fetchMembers();
+<     };
+<     return MembersSearchViewModel;
+< })(PaginatedSearchViewModel);
+< var StoriesSearchViewModel = (function (_super) {
+<     __extends(StoriesSearchViewModel, _super);
+<     function StoriesSearchViewModel(props) {
+<         _super.call(this, props);
+<         this.results = [];
+<         this.filter = new StoriesSeachFilter();
+<     }
+<     /**
+<      * clears search filter
+<      * @returns {}
+<      */
+<     StoriesSearchViewModel.prototype.clearFilter = function () {
+<         this.filter.isActive = false;
+<         this.filter.clear();
+<         this.filterResults();
+<     };
+<     /**
+<      * searches members for the provided query
+<      * @param query search term
+<      * @returns {void}
+<      */
+<     StoriesSearchViewModel.prototype.search = function (query) {
+<         if (query)
+<             this.query = query;
+<         this.fetchStories();
+<     };
+<     /**
+<      * filters the results
+<      * @returns {}
+<      */
+<     StoriesSearchViewModel.prototype.filterResults = function () {
+<         this.page = 1;
+<         this.search();
+<     };
+<     /**
+<      * fetches records from server
+<      * @returns {void}
+<      */
+<     StoriesSearchViewModel.prototype.fetchStories = function () {
+<         var _this = this;
+<         if (!this.query)
+<             return;
+<         this.isLoading = true;
+<         this.service.searchStories({
+<             query: this.query,
+<             page: this.page,
+<             pageSize: this.pageSize,
+<             filter: this.filter.getModel()
+<         }).then(function (result) {
+<             _this.totalItems = result.totalItems;
+<             _this.results = result.stories.map(function (x) { return new StoryViewModel(x); });
+<             _this.isLoading = false;
+<         }, function (error) { _this.isLoading = false; });
+<     };
+<     /**
+<      * Page changed callback
+<      * @param newPage new page number
+<      * @returns {}
+<      */
+<     StoriesSearchViewModel.prototype.pageChanged = function (newPage) {
+<         this.fetchStories();
+<     };
+<     return StoriesSearchViewModel;
+< })(PaginatedSearchViewModel);
+< /**
+<  * Viewmodel for the activities tab on search page
+<  */
+< var ActivitiesSearchViewModel = (function (_super) {
+<     __extends(ActivitiesSearchViewModel, _super);
+<     function ActivitiesSearchViewModel(props) {
+<         _super.call(this, props);
+<         this.results = [];
+<         this.filter = new ActivitiesSeachFilter();
+<     }
+<     /**
+<      * clears search filter
+<      * @returns {}
+<      */
+<     ActivitiesSearchViewModel.prototype.clearFilter = function () {
+<         this.filter.isActive = false;
+<         this.filter.clear();
+<         this.filterResults();
+<     };
+<     /**
+<      * searches members for the provided query
+<      * @param query search term
+<      * @returns {void}
+<      */
+<     ActivitiesSearchViewModel.prototype.search = function (query) {
+<         if (query)
+<             this.query = query;
+<         this.fetchActivities();
+<     };
+<     /**
+<      * filters the results
+<      * @returns {}
+<      */
+<     ActivitiesSearchViewModel.prototype.filterResults = function () {
+<         this.page = 1;
+<         this.search();
+<     };
+<     /**
+<      * fetches records from server
+<      * @returns {void}
+<      */
+<     ActivitiesSearchViewModel.prototype.fetchActivities = function () {
+<         var _this = this;
+<         if (!this.query)
+<             return;
+<         this.isLoading = true;
+<         this.service.searchActivities({
+<             query: this.query,
+<             page: this.page,
+<             pageSize: this.pageSize,
+<             filter: this.filter.getModel()
+<         }).then(function (result) {
+<             _this.totalItems = result.totalItems;
+<             _this.results = result.activities.map(function (x) { return new ActivityViewModel(x, { dialogs: _this.dialogs, service: _this.service }); });
+<             _this.isLoading = false;
+<         }, function (error) { _this.isLoading = false; });
+<     };
+<     /**
+<      * Page changed callback
+<      * @param newPage new page number
+<      * @returns {}
+<      */
+<     ActivitiesSearchViewModel.prototype.pageChanged = function (newPage) {
+<         this.fetchActivities();
+<     };
+<     return ActivitiesSearchViewModel;
+< })(PaginatedSearchViewModel);
+< /**
+<  * Stories tab filter viewModel
+<  */
+< var StoriesSeachFilter = (function () {
+<     function StoriesSeachFilter() {
+<         this.serviceOffering = "all";
+<         this.status = "all";
+<         this.isActive = false;
+<     }
+<     /**
+<      * Alter the visibility of the filter
+<      * @returns {}
+<      */
+<     StoriesSeachFilter.prototype.showHide = function () {
+<         this.isActive = !this.isActive;
+<     };
+<     /**
+<      * Clears filter fields
+<      * @returns {}
+<      */
+<     StoriesSeachFilter.prototype.clear = function () {
+<         this.title = "";
+<         this.description = "";
+<         this.serviceOffering = "all";
+<         this.status = "all";
+<     };
+<     /**
+<     * returns model of the current filter for sending to the server
+<     * @returns {}
+<     */
+<     StoriesSeachFilter.prototype.getModel = function () {
+<         var model = jQuery.extend(false, {}, this);
+<         delete model.isActive;
+<         if (model.serviceOffering === "all")
+<             delete model.serviceOffering;
+<         if (model.status === "all")
+<             delete model.status;
+<         return model;
+<     };
+<     return StoriesSeachFilter;
+< })();
+< /**
+<  * Activities tab filter viewModel
+<  */
+< var ActivitiesSeachFilter = (function () {
+<     function ActivitiesSeachFilter() {
+<         this.challengeType = "all";
+<         this.phase = "all";
+<         this.isActive = false;
+<     }
+<     /**
+<      * Alter the visibility of the filter
+<      * @returns {}
+<      */
+<     ActivitiesSeachFilter.prototype.showHide = function () {
+<         this.isActive = !this.isActive;
+<     };
+<     /**
+<      * Clears filter fields
+<      * @returns {}
+<      */
+<     ActivitiesSeachFilter.prototype.clear = function () {
+<         this.title = "";
+<         this.description = "";
+<         this.challengeType = "all";
+<         this.phase = "all";
+<     };
+<     /**
+<     * returns model of the current filter for sending to the server
+<     * @returns {}
+<     */
+<     ActivitiesSeachFilter.prototype.getModel = function () {
+<         var model = jQuery.extend(false, {}, this);
+<         delete model.isActive;
+<         if (model.challengeType === "all")
+<             delete model.challengeType;
+<         if (model.phase === "all")
+<             delete model.phase;
+<         return model;
+<     };
+<     return ActivitiesSeachFilter;
+< })();
+< /**
+<  * Members tab filter viewModel
+<  */
+< var MembersSeachFilter = (function () {
+<     function MembersSeachFilter() {
+<         this.isActive = false;
+<     }
+<     /**
+<      * Alter the visibility of the filter
+<      * @returns {}
+<      */
+<     MembersSeachFilter.prototype.showHide = function () {
+<         this.isActive = !this.isActive;
+<     };
+<     /**
+<      * Clears filter fields
+<      * @returns {}
+<      */
+<     MembersSeachFilter.prototype.clear = function () {
+<         this.firstName = "";
+<         this.lastName = "";
+<         this.organization = "";
+<         this.role = "";
+<     };
+<     /**
+<     * returns model of the current filter for sending to the server
+<     * @returns {}
+<     */
+<     MembersSeachFilter.prototype.getModel = function () {
+<         var model = jQuery.extend(false, {}, this);
+<         delete model.isActive;
+<         return model;
+<     };
+<     return MembersSeachFilter;
+< })();
+< //# sourceMappingURL=SearchViewModel.js.map
+diff -rw /Users/Ward/Code/crowd-exchange/src/staticresources/CrowdExchangeWebApp_Resources/js/typescript/Models/Models.min.js /Users/Ward/Code/crowd_exchange_submission/crowdexchange/src/staticresources/CrowdExchangeWebApp_Resources/js/typescript/Models/Models.min.js
+1c1
+< ﻿copyFields=function(n,t){for(var i in t)t.hasOwnProperty(i)&&(n[i]=t[i])};var UserViewModel=function(){function n(n){n&&jQuery.extend(this,n)}return Object.defineProperty(n.prototype,"fullName",{get:function(){return((this.firstName||"")+" "+(this.lastName||"")).trim()},enumerable:!0,configurable:!0}),n}(),Activity=function(){function n(n){var r,t,i,u;if(this.title="",this.description="",this.challengeType="Assigned",this.phase="",this.codeTypes=[],this.noPrizes=!1,this.requirements=[],this.prizes=[new ActivityPrize],this.documents=[],this.registrationsCount=0,this.submissionsCount=0,n&&(this.id=n.id,this.title=n.title,this.challengeType=n.challengeType,n.codeTypes&&(this.codeTypes=n.codeTypes.length?n.codeTypes.map(function(n){return new CodeType(n.name,n.skillId,n.id)}):undefined),n.milestones&&(this.milestones=n.milestones.map(function(n){return new ActivityMilestone(n)})),this.noPrizes=n.noPrizes,n.requirements&&(this.requirements=n.requirements.map(function(n){return new ActivityRequirement(n)})),n.prizes&&(this.prizes=n.prizes.map(function(n){return new ActivityPrize(n)})),this.story=n.story,this.documents=n.documents,this.description=jQuery("<div/>").html(n.description).text(),this.phase=n.phase,this.registrationsCount=n.registrationsCount,this.submissionsCount=n.submissionsCount,this.isRegistered=n.isRegistered,n.assignedMember&&(this.assignedMember=new UserViewModel(n.assignedMember))),!this.milestones||!this.milestones.length)for(r=moment(),this.milestones=[],t=0;t<GLOBAL_CONFIG.milestones.length;t++)i=new ActivityMilestone(GLOBAL_CONFIG.milestones[t]),u=t==0?0:GLOBAL_CONFIG.milestones[t-1].defaultDuration,i.scheduledDate=r.add(u,"days").clone().toDate(),this.milestones.push(i)}return n.prototype.getModel=function(){return{id:this.id,title:this.title,description:this.description,challengeType:this.challengeType,phase:this.phase,codeTypes:this.codeTypes?this.codeTypes.map(function(n){return new CodeType(n.name,n.skillId,n.id)}):[],milestones:this.milestones.map(function(n){return n.getModel()}),isRegistered:this.isRegistered,noPrizes:this.noPrizes,requirements:this.requirements.map(function(n){return n.getModel()}),prizes:this.noPrizes?[]:this.prizes.map(function(n){return n.getModel()})}},n}(),Story=function(){function n(n){this.title="";this.description="";this.serviceOffering=null;this.phase="";this.activities=[];n&&(this.activities=n.activities,this.title=n.title,this.description=jQuery("<div/>").html(n.description).text(),this.serviceOffering=n.serviceOffering,this.id=n.id,this.phase=n.phase,this.publisher=new UserViewModel(n.publisher))}return n.prototype.getModel=function(){return{id:this.id,title:this.title,description:this.description,serviceOffering:this.serviceOffering,status:this.phase,activities:this.activities.map(function(n){return n.getModel()})}},n}(),CodeType=function(){function n(n,t,i){this.name=n;this.id=t;this.skillId=i}return n}(),ActivityDocument=function(){function n(){}return n}(),ActivityMilestone=function(){function n(n){n&&(this.scheduledDate=n.scheduledDate?moment.utc(n.scheduledDate).toDate():null,this.completedDate=n.completedDate?moment.utc(n.completedDate).toDate():null,this.name=n.name)}return n.prototype.getOffset=function(n){return n?moment.duration(moment(this.scheduledDate).diff(moment(n.scheduledDate))).asDays():0},n.prototype.getModel=function(){var n=moment(this.scheduledDate),t=moment(this.completedDate);return{name:this.name,scheduledDate:this.scheduledDate?n.subtract(n.zone(),"minutes").toDate().toUTCString():undefined,completedDate:this.completedDate?t.subtract(t.zone(),"minutes").toDate().toUTCString():undefined}},n}(),ActivityPrize=function(){function n(n){this.place=1;this.amount=0;n&&(this.id=n.id,this.place=n.place,this.amount=n.amount)}return Object.defineProperty(n.prototype,"placeLabel",{get:function(){var n="";switch(this.place){case 1:n="st";break;case 2:n="nd";break;case 3:n="rd";break;default:n="th"}return this.place+n},enumerable:!0,configurable:!0}),n.prototype.getModel=function(){return{id:this.id,place:this.place,amount:this.amount}},n}(),ActivityRecomendedMembersViewModel=function(){function n(n,t){this.isInitialized=!1;this.recomendedUsers=[];this._selectAll=!1;this.activityId=n;t&&(this.service=t.service,this.dialogs=t.dialogs)}return Object.defineProperty(n.prototype,"selectAll",{get:function(){return this._selectAll},set:function(n){var t=this;this._selectAll=n;this.recomendedUsers.map(function(n){return n.selected=t._selectAll})},enumerable:!0,configurable:!0}),n.prototype.initialize=function(){var n=this;this.isInitialized||(this.isInitialized=!0,this.service.getRecommendedMembers(this.activityId).then(function(t){n.recomendedUsers=t},function(){n.isInitialized=!1}))},n.prototype.emailSelected=function(){var n=[];this.recomendedUsers.map(function(t){t.selected&&n.push(t.id)});this.emailMembers(n)},n.prototype.emailMember=function(n){this.emailMembers([n])},n.prototype.emailMembers=function(n){this.service.emailToMember(n).then(function(){},function(){})},n}(),ActivityRegistrantsViewModel=function(){function n(n,t){this.isInitialized=!1;this.registrants=[];this.page=1;this.pageSize=8;this.activityId=n;t&&(this.service=t.service,this.dialogs=t.dialogs)}return n.prototype.emailMember=function(n){this.service.emailToMember([n]).then(function(){},function(){})},n.prototype.pageChanged=function(){this.fetchRegistrants()},n.prototype.initialize=function(){this.isInitialized||(this.isInitialized=!0,this.fetchRegistrants())},n.prototype.fetchRegistrants=function(){var n=this;this.service.getRegistrants(this.activityId,this.page,this.pageSize).then(function(t){n.registrants=t},function(){})},n}(),ActivityRegistration=function(){function n(n){this.user=new UserViewModel;n&&(this.id=n.id,this.registrationDate=n.registrationDate,this.user=new UserViewModel(n.user))}return n}(),ActivityRequirement=function(){function n(t){this.childRequirements=[];this.requirementType="";this.importance="";this.description="";t&&(this.description=jQuery("<div/>").html(t.description).text(),this.id=t.id,this.requirementType=t.type,this.importance=t.importance,this.requirementNumber=t.requirementNumber,this.childRequirements=t.childRequirements.map(function(t){return new n(t)}))}return n.prototype.getModel=function(){return{id:this.id,requirementNumber:this.requirementNumber,type:this.requirementType,importance:this.importance,childRequirements:this.childRequirements.map(function(n){return n.getModel()}),description:this.description}},n}(),__extends=this&&this.__extends||function(n,t){function r(){this.constructor=n}for(var i in t)t.hasOwnProperty(i)&&(n[i]=t[i]);r.prototype=t.prototype;n.prototype=new r},ActivityRequirementViewModel=function(n){function t(){n.apply(this,arguments)}return __extends(t,n),t.prototype.addRequirement=function(){var n=new t;n.requirementNumber=this.requirementNumber.split(".")[0]+"."+(this.childRequirements.length+1);this.childRequirements.push(n)},t.prototype.removeRequirement=function(n){this.childRequirements.splice(n,1);var t=this.requirementNumber.split(".")[0];this.childRequirements.map(function(n,i){return n.requirementNumber=t+"."+(i+1)})},t}(ActivityRequirement),ActivitySubmission=function(){function n(n){this.user=new UserViewModel;n&&(this.id=n.id,this.submissionnDate=n.submissionnDate,this.user=new UserViewModel(n.user))}return n}(),__extends=this&&this.__extends||function(n,t){function r(){this.constructor=n}for(var i in t)t.hasOwnProperty(i)&&(n[i]=t[i]);r.prototype=t.prototype;n.prototype=new r},ActivityViewModel=function(n){function t(t,i){n.call(this,t);this.isActive=!1;this.activeTab=0;this.startOffset=0;this.fileToUpload={file:null,description:"",fileName:""};this.defaultSkills=[];t&&t.requirements&&(delete this.requirements,this.requirements=t.requirements.map(function(n){return new ActivityRequirementViewModel(n)}));i&&(this.service=i.service,this.dialogs=i.dialogs,this.navigation=i.navigation,this.registrants=new ActivityRegistrantsViewModel(this.id,i),this.recomendations=new ActivityRecomendedMembersViewModel(this.id,i),this.registrants.totalRegistrants=this.registrationsCount,this.service&&t&&(this.chatterUrl=this.service.trustAsResourceUrl(GLOBAL_CONFIG.activityChatterUrl+"?id="+this.id)))}return __extends(t,n),t.prototype.milestoneDuration=function(n){if(n===this.milestones.length-1)return 0;var t=0;return t=moment(this.milestones[n+1].scheduledDate).diff(moment(this.milestones[n].scheduledDate)),moment.duration(t).asDays()},t.prototype.milestoneChanged=function(n,t,i){var u=moment.duration(moment(t).diff(moment(i))).asDays(),r,f;if(u>0)for(r=n+1;r<this.milestones.length;r++)f=moment(this.milestones[r].scheduledDate).add(u,"days"),this.milestones[r].scheduledDate=f.toDate()},t.prototype.removeRequirement=function(n){this.requirements.splice(n,1);this.requirements.map(function(n,t){n.requirementNumber=t+1+".0";n.childRequirements.map(function(n,i){return n.requirementNumber=t+1+"."+(i+1)})})},t.prototype.selectTab=function(n){this.activeTab=n;switch(n){case 1:this.registrants.initialize();this.fetchAssignedMember();break;case 2:this.recomendations.initialize()}},t.prototype.registerToActivity=function(){var n=this;this.dialogs.showRegistrationConfirm().result.then(function(t){t&&n.service.registerToActivity(n.id).then(function(){n.isRegistered=!0},function(){})})},t.prototype.setDefaultCodeTypes=function(n){var r=this,u=this.codeTypes,t,i;this.codeTypes=[];t=[];i=[];_.map(n,function(n){var r=_.extend(new CodeType(n.name,n.skillId,n.id),_.findWhere(u,{id:n.skillId}));return delete r.$$hashKey,i.push(r),r.skillId&&t.push(r),r});this.defaultSkills=i;setTimeout(function(){r.codeTypes=t},500)},t.prototype.addRequirement=function(){var n=new ActivityRequirementViewModel;n.requirementNumber=this.requirements.length+1+".0";this.requirements.push(n)},t.prototype.addPrize=function(){if(!this.noPrizes){var n=new ActivityPrize;n.place=this.prizes.length+1;this.prizes.push(n)}},t.prototype.removePrize=function(n){if(!this.noPrizes){this.prizes.splice(n,1);for(var t=this.prizes.length;t>0;t--)this.prizes[t-1].place=t}},Object.defineProperty(t.prototype,"activityDuration",{get:function(){return this.milestones[this.milestones.length-1].getOffset(this.milestones[0])},enumerable:!0,configurable:!0}),t.prototype.uploadFile=function(){var i=this,t=this.dialogs.showLoading(),n;this.fileToUpload.file&&(n={description:this.fileToUpload.description,name:this.fileToUpload.fileName,body:this.fileToUpload.file.substring(this.fileToUpload.file.indexOf("base64")+7),parentId:this.id},delete this.fileToUpload,this.fileToUpload={},this.service.uploadAttachment(n).then(function(r){if(t.close(),r[0].success){var u=new ActivityDocument;u.id=r[0].id;u.description=n.description;u.name=n.name;u.createdDate=new Date;i.documents.push(u)}},function(){t.close()},function(){t.close()}))},t.prototype.addFile=function(n){this.fileToUpload.file=n.files.length?n.files[0]:null},t.prototype.deleteDocument=function(n){var t=this,i;n<0||n>=this.documents.length||(i=this.documents[n],i&&this.dialogs.showRegistrationConfirm().result.then(function(r){if(r){var u=t.dialogs.showLoading();t.service.deleteDocument(i.id).then(function(){t.documents.splice(n,1);u.close()},function(){u.close()})}}))},t.prototype.assignMember=function(n){var t=this;this.dialogs.showAssignMember(this.title,n.user.firstName+" "+n.user.lastName).result.then(function(i){i&&t.service.assignMember(t.id,n.user.id).then(function(){t.assignedMember=n.user;t.assignedMemberRegistration=n},function(){})})},t.prototype.unassignMember=function(){var n=this;this.service.unassignMember(this.id).then(function(){n.assignedMember=null},function(){})},t.prototype.saveAsDraft=function(){this.phase="Draft";this.upsert()},t.prototype.publish=function(){var n=this;this.upsert(function(){n.navigation&&n.navigation.path("/publisherActivityDetailsAssignRegister/"+n.id)})},t.prototype.upsert=function(n){var i=this,t;n===void 0&&(n=null);t=this.phase==="Draft"?this.dialogs.showSavingDraftActivity():this.dialogs.showLoading();this.id?this.service.upsertActivity(this.getModel()).then(function(){t.close();n&&n()},function(){t.close()}):this.service.createActivity({title:this.title,description:this.description,challengeType:this.challengeType,storyId:this.story.id,phase:this.phase}).then(function(n){i.id=n.id;t.close()},function(){t.close()})},t.prototype.cancelActivity=function(){var n=this;this.dialogs.showCancelActivity(this.title).result.then(function(t){if(t){var i=n.dialogs.showLoading();n.service.cancelActivity(n.id).then(function(){n.phase="Canceled";i.close()},function(){i.close()})}})},t.prototype.completeActivity=function(){var t=this,n=this.dialogs.showLoading();this.service.completeActivity(this.id).then(function(){t.phase="Completed";n.close();window.location=window.location},function(){n.close()})},t.prototype.clone=function(){return new t(angular.fromJson(angular.toJson(this)))},t.prototype.fetchAssignedMember=function(){var n=this;this.service.getAssignedMember(this.id).then(function(t){n.assignedMemberRegistration=new ActivityRegistration(t)},function(){})},t}(Activity),__extends=this&&this.__extends||function(n,t){function r(){this.constructor=n}for(var i in t)t.hasOwnProperty(i)&&(n[i]=t[i]);r.prototype=t.prototype;n.prototype=new r},StoryViewModel=function(n){function t(t,i){var u,r;for(n.call(this,t),this.isActive=!0,i&&(this.service=i.service,this.dialogs=i.dialogs),u=this.activities||[],this.activities=[],r=0;r<u.length;r++)this.activities.push(new ActivityViewModel(u[r],i))}return __extends(t,n),t.prototype.addActivity=function(n){if(n!==undefined){if(n>=0&&n<this.activities.length){var t=this.activities[n];this.activities.push(t.clone())}}else this.activities.push(new ActivityViewModel)},t.prototype.removeActivity=function(n){var r=this,t,i;n!==undefined&&n>=0&&n<this.activities.length&&(t=this.activities[n].id,t?(i=this.dialogs.showLoading(),this.service.deleteActivity(t).then(function(){r.activities.splice(n,1);i.close()},function(){i.close()})):this.activities.splice(n,1))},t.prototype.setActiveTab=function(n){if(!(n<-1)&&!(n>=this.activities.length)){this.isActive=!1;for(var t=0;t<this.activities.length;t++)this.activities[t].isActive=!1;n<0?this.isActive=!0:this.activities[n].isActive=!0}},t.prototype.setStartOffsets=function(){var t,i,r,u,n;if(this.activities&&this.activities.length){for(t=moment(this.activities[0].milestones[0].scheduledDate),i=moment(this.activities[0].milestones[this.activities[0].milestones.length-1].scheduledDate),n=1;n<this.activities.length;n++)r=moment(this.activities[n].milestones[0].scheduledDate),u=moment(this.activities[n].milestones[this.activities[n].milestones.length-1].scheduledDate),r.diff(t)<0&&(t=r),u.diff(i)>0&&(i=u);for(this.storyStart=t.toDate(),this.storyEnd=i.toDate(),n=1;n<this.activities.length;n++)this.activities[n].startOffset=moment.duration(moment(this.activities[n].milestones[0].scheduledDate).diff(t)).asDays()}},Object.defineProperty(t.prototype,"storyDuration",{get:function(){this.setStartOffsets();var n=moment(this.storyEnd).diff(moment(this.storyStart)),t=moment.duration(n);return t.asDays()},enumerable:!0,configurable:!0}),Object.defineProperty(t.prototype,"totalBudget",{get:function(){for(var n,t,r=0,i=0;i<this.activities.length;i++)if((n=this.activities[i],!n.noPrizes)&&n.prizes)for(t=0;t<n.prizes.length;t++)r+=n.prizes[t].amount;return r},enumerable:!0,configurable:!0}),Object.defineProperty(t.prototype,"registrationsCount",{get:function(){var n=0;return this.activities.map(function(t){return n+=t.registrationsCount}),n},enumerable:!0,configurable:!0}),Object.defineProperty(t.prototype,"submissionsCount",{get:function(){var n=0;return this.activities.map(function(t){return n+=t.submissionsCount}),n},enumerable:!0,configurable:!0}),t}(Story),StoriesFilterViewModel=function(){function n(){this.storyTitle="";this.activityTitle="";this.serviceOffering="";this.activityPhase="";this.showOnlyCompleted=!1;this.isActive=!1;this.clear()}return n.prototype.clear=function(){this.storyTitle="";this.activityTitle="";this.serviceOffering="";this.activityPhase=""},n.prototype.getModel=function(){var n=jQuery.extend(!1,{},this);return delete n.isActive,n.serviceOffering==="all"&&delete n.serviceOffering,n.activityPhase==="all"&&delete n.activityPhase,n},n}(),CreateStoryViewModel=function(){function n(n){this.step=1;this.story=new StoryViewModel(null,n);this.story.activities.push(new ActivityViewModel(null,n));this.stepsCount=this.story.activities.length+2;this.service=n.service;this.dialogs=n.dialogs}return n.prototype.goToNext=function(){this.step!==this.story.activities.length+2&&this.saveCurrentStep(!0)},n.prototype.publish=function(){this.story.phase="In Progress";this.saveCurrentStep(!0,function(){return window.location=document.location.href.match(/(^[^#]*)/)[0]})},n.prototype.saveCurrentStep=function(n,t){var u=this,i,r;n===void 0&&(n=!1);i=this.dialogs.showLoading();this.step===1||this.step===this.story.activities.length+2?this.service.upsertStory({id:this.story.id,title:this.story.title,description:this.story.description,serviceOffering:this.story.serviceOffering}).then(function(r){u.story.id=r.id;n&&(u.step=u.step+1);t&&t();i.close()},function(){i.close()}):(r=this.story.activities[this.step-2],r.id?this.service.upsertActivity(r.getModel()).then(function(){n&&(u.step=u.step+1);i.close()},function(){i.close()}):this.service.createActivity({title:r.title,description:r.description,challengeType:r.challengeType,storyId:this.story.id}).then(function(n){r.id=n.id;i.close()},function(){i.close()}))},n.prototype.removeActivity=function(n){var t=this;this.dialogs.showRegistrationConfirm().result.then(function(){t.story.removeActivity(n);n===t.step+1&&(t.step=t.step-1)})},n.prototype.goToPrev=function(){this.step!==1&&(this.step=this.step-1)},n.prototype.goToStep=function(n){this.step<2||n<1||n>this.story.activities.length+2||(this.step=n)},n}(),StoriesListViewModel=function(){function n(n,t){n===void 0&&(n=new StoriesFilterViewModel);t===void 0&&(t=!1);this.stories=[];this.pageSize=5;this.page=1;this.totalPages=1;this.totalItems=0;this.isActive=!0;this.fetchOnlyCompleted=!1;this.isLoading=!1;this.filter=n;this.fetchOnlyCompleted=t}return n.prototype.fetchStories=function(n){var t=this;(n===void 0&&(n=!1),this.filter||(this.filter=new StoriesFilterViewModel),this.filter.showOnlyCompleted=this.fetchOnlyCompleted,this.isLoading)||(this.isLoading=!0,n&&(this.page=1,this.totalItems=0,this.totalPages=1,this.stories=[]),this.service!=null&&this.service.getStories!=null?this.service.getStories({page:this.page,pageSize:this.pageSize,filter:this.filter.getModel()}).then(function(n){t.totalItems=n.totalItems;t.totalPages=n.totalPages;t.stories=n.stories.map(function(n){return new StoryViewModel(n)});t.isLoading=!1},function(){t.isLoading=!1}):this.isLoading=!1)},n.prototype.pageChanged=function(){this.fetchStories()},n.prototype.goToPage=function(){this.page!==1&&this.page!==this.totalPages&&(this.fetchStories(),this.fetchStories())},n}(),StoriesViewModel=function(){function n(n){this.filter=new StoriesFilterViewModel;this.activeStories=new StoriesListViewModel(this.filter);this.activeStories.service=n;this.activeStories.fetchStories();this.activeStories.isActive=!0;this.completedStories=new StoriesListViewModel(this.filter,!0);this.completedStories.service=n;this.filter.showOnlyCompleted=!0;this.completedStories.fetchStories();this.showTab(1)}return n.prototype.resetFilter=function(){this.filter.clear();this.filter.isActive=!1;this.activeStories.fetchStories();this.completedStories.fetchStories()},n.prototype.filterStories=function(){this.activeStories.fetchStories(!0);this.completedStories.fetchStories(!0)},n.prototype.showTab=function(n){this.activeStories.isActive=n===1;this.completedStories.isActive=n===2},n}(),__extends=this&&this.__extends||function(n,t){function r(){this.constructor=n}for(var i in t)t.hasOwnProperty(i)&&(n[i]=t[i]);r.prototype=t.prototype;n.prototype=new r},StoryDetailsViewModel=function(n){function t(t){n.call(this,{id:t.id});this.service=t.service;this.dialogs=t.dialogs;this.refresh()}return __extends(t,n),t.prototype.refresh=function(){var n=this;this.service.getStory(this.id,!0).then(function(t){jQuery.extend(!0,n,new StoryViewModel(t))},function(){})},t.prototype.registerToActivity=function(n){var t=this;n&&this.dialogs.showRegistrationConfirm().result.then(function(i){i&&t.service.registerToActivity(n).then(function(){for(var r,i=0;i<t.activities.length;i++)if(r=t.activities[i],r.id===n){r.isRegistered=!0;break}},function(){})})},t}(StoryViewModel),__extends=this&&this.__extends||function(n,t){function r(){this.constructor=n}for(var i in t)t.hasOwnProperty(i)&&(n[i]=t[i]);r.prototype=t.prototype;n.prototype=new r},StoryPublisherDetailsViewModel=function(n){function t(t){n.call(this,{id:t.id});this.isEditMode=!1;this.isInitialized=!1;this.service=t.service;this.dialogs=t.dialogs;this.refresh();this.isActive=!0}return __extends(t,n),Object.defineProperty(t.prototype,"daysPassed",{get:function(){return moment.duration(moment().diff(moment(this.storyStart))).asDays()},enumerable:!0,configurable:!0}),t.prototype.refresh=function(){var n=this;this.service.getStory(this.id,!0).then(function(t){var i=new StoryViewModel(t,{service:n.service,dialogs:n.dialogs});i.setStartOffsets();n.service&&i.activities.map(function(t){t.chatterUrl=n.service.trustAsResourceUrl(GLOBAL_CONFIG.activityChatterUrl+"?id="+t.id)});copyFields(n,i);n.isInitialized=!0},function(){})},t.prototype.updateStory=function(){var n=this;this.service.upsertStory({id:this.id,title:this.title,description:this.description,serviceOffering:this.serviceOffering}).then(function(){n.isEditMode=!1},function(){})},t.prototype.editStory=function(){this.isEditMode=!0},t.prototype.cancelEditMode=function(){this.isEditMode=!1},t.prototype.closeStory=function(){var n=this;this.dialogs.showRegistrationConfirm().result.then(function(t){t&&n.service.cancelStory(n.id).then(function(){window.location=window.location},function(){})})},t.prototype.setActiveTab=function(n){n>=0&&n<=this.activities.length&&(this.isActive=!1,this.activities.map(function(n){return n.isActive=!1}),n===0?this.isActive=!0:(this.isEditMode=!1,this.activities[n-1].isActive=!0))},t}(StoryViewModel),NotificationViewModel=function(){function n(n,t){this.isRead=!1;this.isOpen=!1;this.recipients=[];t&&(this.service=t.service,this.dialogs=t.dialogs);n&&(this.id=n.id,this.dateSent=n.dateSent,this.text=n.text,this.subject=n.subject,this.type=n.type,this.status=n.status,this.isRead=n.isRead,this.sender=new UserViewModel(n.sender),n.recipients&&(this.recipients=n.recipients.map(function(n){return new UserViewModel(n)})))}return n.prototype.openClose=function(){var n=this;this.isOpen=!this.isOpen;!this.isRead&&this.isOpen&&this.service.markNotificationAsRead(this.id).then(function(){n.isRead=!0},function(){})},n}(),NotificationsViewModel=function(){function n(n){this.pageSize=10;this.totalItems=1;this.page=1;this.isLoading=!1;this._folderType="inbox";n&&(this.service=n.service,this.dialogs=n.dialogs,this.initialize())}return Object.defineProperty(n.prototype,"folderType",{get:function(){return this._folderType},set:function(n){this._folderType=n;this.folderChanged()},enumerable:!0,configurable:!0}),n.prototype.folderChanged=function(){this.page=1;this.totalItems=0;this.fetchNotifications()},n.prototype.initialize=function(){this.fetchNotifications()},n.prototype.pageChanged=function(n){this.page=n;this.fetchNotifications()},n.prototype.fetchNotifications=function(){var n=this,t=null;t=this._folderType==="inbox"?this.service.getInboxNotifications(this.page,this.pageSize):this.service.getOutboxNotifications(this.page,this.pageSize);this.isLoading=!0;t.then(function(t){n.notifications=t.notifications.map(function(t){return new NotificationViewModel(t,{service:n.service,dialogs:n.dialogs})});n.totalItems=t.totalItems;n.isLoading=!1},function(){n.isLoading=!1})},n.prototype.archiveNotification=function(n){var t=this;n<0||n>=this.notifications.length||this.dialogs.showArchiveNotificationConfirm().result.then(function(i){i&&(t.isLoading=!0,t.service.archiveNotification(t.notifications[n].id).then(function(){t.fetchNotifications()},function(){t.isLoading=!1}))})},n}(),__extends=this&&this.__extends||function(n,t){function r(){this.constructor=n}for(var i in t)t.hasOwnProperty(i)&&(n[i]=t[i]);r.prototype=t.prototype;n.prototype=new r},PaginatedSearchViewModel=function(){function n(n){this.isLoading=!1;this.pageSize=10;this.totalItems=0;this.page=1;n&&(this.service=n.service,this.dialogs=n.dialogs)}return n}(),SearchTabs;(function(n){n[n.All=0]="All";n[n.Stories=1]="Stories";n[n.Activities=2]="Activities";n[n.Members=3]="Members"})(SearchTabs||(SearchTabs={}));var SearchViewModel=function(){function n(n){this.isLoading=!1;this.oldQuery="";this.newQuery="";this.currentTab=SearchTabs.All;this.allResults=new AllResultsSearchViewModel;this.members=new MembersSearchViewModel;this.stories=new StoriesSearchViewModel;this.activities=new ActivitiesSearchViewModel;n&&(this.service=n.service,this.dialogs=n.dialogs);this.allResults=new AllResultsSearchViewModel(n);this.members=new MembersSearchViewModel(n);this.stories=new StoriesSearchViewModel(n);this.activities=new ActivitiesSearchViewModel(n)}return n.prototype.setCurrentTab=function(n){this.currentTab=n},n.prototype.search=function(){var n=this;this.newQuery?this.oldQuery=this.newQuery:this.newQuery=this.oldQuery;this.isLoading=!0;this.allResults.search(this.newQuery,function(){return n.isLoading=!1});this.members.search(this.newQuery);this.stories.search(this.newQuery);this.activities.search(this.newQuery)},n.prototype.inviteMember=function(n){var t=MEMBER_SEARCH_TEMPLATE.subject,i=n?n.firstName:"<enter member's name>";this.dialogs.showPublisherSelectActivity().result.then(function(r){var u=r?r.title:"<enter Activity's Name>",f=MEMBER_SEARCH_TEMPLATE.body.replace("{{userFirstName}}",i).replace("{{activityName}}",u);window.location="mailto:"+n.email+"?subject="+encodeURIComponent(t)+"&body="+encodeURIComponent(f)})},n}(),AllResultsSearchViewModel=function(n){function t(t){n.call(this,t);this.results=[]}return __extends(t,n),t.prototype.search=function(n,t){n&&(this.query=n);this.fetchRecords(t)},t.prototype.fetchRecords=function(n){var t=this;this.query&&(this.isLoading=!0,this.service.search({query:this.query,page:this.page,pageSize:this.pageSize}).then(function(i){t.totalItems=i.totalItems;t.results=i.records.map(function(n){return n.type==="user"?new UserViewModel(n.item):n.type==="activity"?new ActivityViewModel(n.item):n.type==="story"?new StoryViewModel(n.item):n.item});t.isLoading=!1;n&&n()},function(){t.isLoading=!1;n&&n()}))},t.prototype.pageChanged=function(){this.fetchRecords()},t}(PaginatedSearchViewModel),MembersSearchViewModel=function(n){function t(t){n.call(this,t);this.results=[];this.filter=new MembersSeachFilter}return __extends(t,n),t.prototype.clearFilter=function(){this.filter.isActive=!1;this.filter.clear();this.filterResults()},t.prototype.filterResults=function(){this.page=1;this.search()},t.prototype.search=function(n){n&&(this.query=n);this.fetchMembers()},t.prototype.fetchMembers=function(){var n=this;this.query&&(this.isLoading=!0,this.service.searchMembers({query:this.query,page:this.page,pageSize:this.pageSize,filter:this.filter.getModel()}).then(function(t){n.totalItems=t.totalItems;n.results=t.members.map(function(n){return new UserViewModel(n)});n.isLoading=!1},function(){n.isLoading=!1}))},t.prototype.pageChanged=function(){this.fetchMembers()},t}(PaginatedSearchViewModel),StoriesSearchViewModel=function(n){function t(t){n.call(this,t);this.results=[];this.filter=new StoriesSeachFilter}return __extends(t,n),t.prototype.clearFilter=function(){this.filter.isActive=!1;this.filter.clear();this.filterResults()},t.prototype.search=function(n){n&&(this.query=n);this.fetchStories()},t.prototype.filterResults=function(){this.page=1;this.search()},t.prototype.fetchStories=function(){var n=this;this.query&&(this.isLoading=!0,this.service.searchStories({query:this.query,page:this.page,pageSize:this.pageSize,filter:this.filter.getModel()}).then(function(t){n.totalItems=t.totalItems;n.results=t.stories.map(function(n){return new StoryViewModel(n)});n.isLoading=!1},function(){n.isLoading=!1}))},t.prototype.pageChanged=function(){this.fetchStories()},t}(PaginatedSearchViewModel),ActivitiesSearchViewModel=function(n){function t(t){n.call(this,t);this.results=[];this.filter=new ActivitiesSeachFilter}return __extends(t,n),t.prototype.clearFilter=function(){this.filter.isActive=!1;this.filter.clear();this.filterResults()},t.prototype.search=function(n){n&&(this.query=n);this.fetchActivities()},t.prototype.filterResults=function(){this.page=1;this.search()},t.prototype.fetchActivities=function(){var n=this;this.query&&(this.isLoading=!0,this.service.searchActivities({query:this.query,page:this.page,pageSize:this.pageSize,filter:this.filter.getModel()}).then(function(t){n.totalItems=t.totalItems;n.results=t.activities.map(function(t){return new ActivityViewModel(t,{dialogs:n.dialogs,service:n.service})});n.isLoading=!1},function(){n.isLoading=!1}))},t.prototype.pageChanged=function(){this.fetchActivities()},t}(PaginatedSearchViewModel),StoriesSeachFilter=function(){function n(){this.serviceOffering="all";this.status="all";this.isActive=!1}return n.prototype.showHide=function(){this.isActive=!this.isActive},n.prototype.clear=function(){this.title="";this.description="";this.serviceOffering="all";this.status="all"},n.prototype.getModel=function(){var n=jQuery.extend(!1,{},this);return delete n.isActive,n.serviceOffering==="all"&&delete n.serviceOffering,n.status==="all"&&delete n.status,n},n}(),ActivitiesSeachFilter=function(){function n(){this.challengeType="all";this.phase="all";this.isActive=!1}return n.prototype.showHide=function(){this.isActive=!this.isActive},n.prototype.clear=function(){this.title="";this.description="";this.challengeType="all";this.phase="all"},n.prototype.getModel=function(){var n=jQuery.extend(!1,{},this);return delete n.isActive,n.challengeType==="all"&&delete n.challengeType,n.phase==="all"&&delete n.phase,n},n}(),MembersSeachFilter=function(){function n(){this.isActive=!1}return n.prototype.showHide=function(){this.isActive=!this.isActive},n.prototype.clear=function(){this.firstName="";this.lastName="";this.organization="";this.role=""},n.prototype.getModel=function(){var n=jQuery.extend(!1,{},this);return delete n.isActive,n},n}()
+\ No newline at end of file
+---
+> ﻿copyFields=function(n,t){for(var i in t)t.hasOwnProperty(i)&&(n[i]=t[i])};var UserViewModel=function(){function n(n){n&&jQuery.extend(this,n)}return Object.defineProperty(n.prototype,"fullName",{get:function(){return((this.firstName||"")+" "+(this.lastName||"")).trim()},enumerable:!0,configurable:!0}),n}(),Activity=function(){function n(n){var r,t,i,u;if(this.title="",this.description="",this.challengeType="Assigned",this.phase="",this.codeTypes=[],this.noPrizes=!1,this.requirements=[],this.prizes=[new ActivityPrize],this.documents=[],this.registrationsCount=0,this.submissionsCount=0,n&&(this.id=n.id,this.title=n.title,this.challengeType=n.challengeType,this.codeTypes=n.codeTypes.length?n.codeTypes.map(function(n){return new CodeType(n.name,n.skillId,n.id)}):undefined,this.milestones=n.milestones.map(function(n){return new ActivityMilestone(n)}),this.noPrizes=n.noPrizes,this.requirements=n.requirements.map(function(n){return new ActivityRequirement(n)}),this.prizes=n.prizes.map(function(n){return new ActivityPrize(n)}),this.story=n.story,this.documents=n.documents,this.description=jQuery("<div/>").html(n.description).text(),this.phase=n.phase,this.registrationsCount=n.registrationsCount,this.submissionsCount=n.submissionsCount,this.isRegistered=n.isRegistered,n.assignedMember&&(this.assignedMember=new UserViewModel(n.assignedMember))),!this.milestones||!this.milestones.length)for(r=moment(),this.milestones=[],t=0;t<GLOBAL_CONFIG.milestones.length;t++)i=new ActivityMilestone(GLOBAL_CONFIG.milestones[t]),u=t==0?0:GLOBAL_CONFIG.milestones[t-1].defaultDuration,i.scheduledDate=r.add(u,"days").clone().toDate(),this.milestones.push(i)}return n.prototype.getModel=function(){return{id:this.id,title:this.title,description:this.description,challengeType:this.challengeType,phase:this.phase,codeTypes:this.codeTypes?this.codeTypes.map(function(n){return new CodeType(n.name,n.skillId,n.id)}):[],milestones:this.milestones.map(function(n){return n.getModel()}),isRegistered:this.isRegistered,noPrizes:this.noPrizes,requirements:this.requirements.map(function(n){return n.getModel()}),prizes:this.noPrizes?[]:this.prizes.map(function(n){return n.getModel()})}},n}(),Story=function(){function n(n){this.title="";this.description="";this.serviceOffering=null;this.phase="";this.activities=[];n&&(this.activities=n.activities,this.title=n.title,this.description=jQuery("<div/>").html(n.description).text(),this.serviceOffering=n.serviceOffering,this.id=n.id,this.phase=n.phase,this.publisher=new UserViewModel(n.publisher))}return n.prototype.getModel=function(){return{id:this.id,title:this.title,description:this.description,serviceOffering:this.serviceOffering,status:this.phase,activities:this.activities.map(function(n){return n.getModel()})}},n}(),CodeType=function(){function n(n,t,i){this.name=n;this.id=t;this.skillId=i}return n}(),ActivityDocument=function(){function n(){}return n}(),ActivityMilestone=function(){function n(n){n&&(this.scheduledDate=n.scheduledDate?moment.utc(n.scheduledDate).toDate():null,this.completedDate=n.completedDate?moment.utc(n.completedDate).toDate():null,this.name=n.name)}return n.prototype.getOffset=function(n){return n?moment.duration(moment(this.scheduledDate).diff(moment(n.scheduledDate))).asDays():0},n.prototype.getModel=function(){var n=moment(this.scheduledDate),t=moment(this.completedDate);return{name:this.name,scheduledDate:this.scheduledDate?n.subtract(n.zone(),"minutes").toDate().toUTCString():undefined,completedDate:this.completedDate?t.subtract(t.zone(),"minutes").toDate().toUTCString():undefined}},n}(),ActivityPrize=function(){function n(n){this.place=1;this.amount=0;n&&(this.id=n.id,this.place=n.place,this.amount=n.amount)}return Object.defineProperty(n.prototype,"placeLabel",{get:function(){var n="";switch(this.place){case 1:n="st";break;case 2:n="nd";break;case 3:n="rd";break;default:n="th"}return this.place+n},enumerable:!0,configurable:!0}),n.prototype.getModel=function(){return{id:this.id,place:this.place,amount:this.amount}},n}(),ActivityRecomendedMembersViewModel=function(){function n(n,t){this.isInitialized=!1;this.recomendedUsers=[];this._selectAll=!1;this.activityId=n;t&&(this.service=t.service,this.dialogs=t.dialogs)}return Object.defineProperty(n.prototype,"selectAll",{get:function(){return this._selectAll},set:function(n){var t=this;this._selectAll=n;this.recomendedUsers.map(function(n){return n.selected=t._selectAll})},enumerable:!0,configurable:!0}),n.prototype.initialize=function(){var n=this;this.isInitialized||(this.isInitialized=!0,this.service.getRecommendedMembers(this.activityId).then(function(t){n.recomendedUsers=t},function(){n.isInitialized=!1}))},n.prototype.emailSelected=function(){var n=[];this.recomendedUsers.map(function(t){t.selected&&n.push(t.id)});this.emailMembers(n)},n.prototype.emailMember=function(n){this.emailMembers([n])},n.prototype.emailMembers=function(n){this.service.emailToMember(n).then(function(){},function(){})},n}(),ActivityRegistrantsViewModel=function(){function n(n,t){this.isInitialized=!1;this.registrants=[];this.page=1;this.pageSize=8;this.activityId=n;t&&(this.service=t.service,this.dialogs=t.dialogs)}return n.prototype.emailMember=function(n){this.service.emailToMember([n]).then(function(){},function(){})},n.prototype.pageChanged=function(){this.fetchRegistrants()},n.prototype.initialize=function(){this.isInitialized||(this.isInitialized=!0,this.fetchRegistrants())},n.prototype.fetchRegistrants=function(){var n=this;this.service.getRegistrants(this.activityId,this.page,this.pageSize).then(function(t){n.registrants=t},function(){})},n}(),ActivityRegistration=function(){function n(n){this.user=new UserViewModel;n&&(this.id=n.id,this.registrationDate=n.registrationDate,this.user=new UserViewModel(n.user))}return n}(),ActivityRequirement=function(){function n(t){this.childRequirements=[];this.requirementType="";this.importance="";this.description="";t&&(this.description=jQuery("<div/>").html(t.description).text(),this.id=t.id,this.requirementType=t.type,this.importance=t.importance,this.requirementNumber=t.requirementNumber,this.childRequirements=t.childRequirements.map(function(t){return new n(t)}))}return n.prototype.getModel=function(){return{id:this.id,requirementNumber:this.requirementNumber,type:this.requirementType,importance:this.importance,childRequirements:this.childRequirements.map(function(n){return n.getModel()}),description:this.description}},n}(),__extends=this&&this.__extends||function(n,t){function r(){this.constructor=n}for(var i in t)t.hasOwnProperty(i)&&(n[i]=t[i]);r.prototype=t.prototype;n.prototype=new r},ActivityRequirementViewModel=function(n){function t(){n.apply(this,arguments)}return __extends(t,n),t.prototype.addRequirement=function(){var n=new t;n.requirementNumber=this.requirementNumber.split(".")[0]+"."+(this.childRequirements.length+1);this.childRequirements.push(n)},t.prototype.removeRequirement=function(n){this.childRequirements.splice(n,1);var t=this.requirementNumber.split(".")[0];this.childRequirements.map(function(n,i){return n.requirementNumber=t+"."+(i+1)})},t}(ActivityRequirement),ActivitySubmission=function(){function n(n){this.user=new UserViewModel;n&&(this.id=n.id,this.submissionnDate=n.submissionnDate,this.user=new UserViewModel(n.user))}return n}(),__extends=this&&this.__extends||function(n,t){function r(){this.constructor=n}for(var i in t)t.hasOwnProperty(i)&&(n[i]=t[i]);r.prototype=t.prototype;n.prototype=new r},ActivityViewModel=function(n){function t(t,i){n.call(this,t);this.isActive=!1;this.activeTab=0;this.startOffset=0;this.fileToUpload={file:null,description:"",fileName:""};this.defaultSkills=[];t&&(delete this.requirements,this.requirements=t.requirements.map(function(n){return new ActivityRequirementViewModel(n)}));i&&(this.service=i.service,this.dialogs=i.dialogs,this.navigation=i.navigation,this.registrants=new ActivityRegistrantsViewModel(this.id,i),this.recomendations=new ActivityRecomendedMembersViewModel(this.id,i),this.registrants.totalRegistrants=this.registrationsCount,this.service&&t&&(this.chatterUrl=this.service.trustAsResourceUrl(GLOBAL_CONFIG.activityChatterUrl+"?id="+this.id)))}return __extends(t,n),t.prototype.milestoneDuration=function(n){if(n===this.milestones.length-1)return 0;var t=0;return t=moment(this.milestones[n+1].scheduledDate).diff(moment(this.milestones[n].scheduledDate)),moment.duration(t).asDays()},t.prototype.milestoneChanged=function(n,t,i){var u=moment.duration(moment(t).diff(moment(i))).asDays(),r,f;if(u>0)for(r=n+1;r<this.milestones.length;r++)f=moment(this.milestones[r].scheduledDate).add(u,"days"),this.milestones[r].scheduledDate=f.toDate()},t.prototype.removeRequirement=function(n){this.requirements.splice(n,1);this.requirements.map(function(n,t){n.requirementNumber=t+1+".0";n.childRequirements.map(function(n,i){return n.requirementNumber=t+1+"."+(i+1)})})},t.prototype.selectTab=function(n){this.activeTab=n;switch(n){case 1:this.registrants.initialize();this.fetchAssignedMember();break;case 2:this.recomendations.initialize()}},t.prototype.registerToActivity=function(){var n=this;this.dialogs.showRegistrationConfirm().result.then(function(t){t&&n.service.registerToActivity(n.id).then(function(){n.isRegistered=!0},function(){})})},t.prototype.setDefaultCodeTypes=function(n){var r=this,u=this.codeTypes,t,i;this.codeTypes=[];t=[];i=[];_.map(n,function(n){var r=_.extend(new CodeType(n.name,n.skillId,n.id),_.findWhere(u,{id:n.skillId}));return delete r.$$hashKey,i.push(r),r.skillId&&t.push(r),r});this.defaultSkills=i;setTimeout(function(){r.codeTypes=t},500)},t.prototype.addRequirement=function(){var n=new ActivityRequirementViewModel;n.requirementNumber=this.requirements.length+1+".0";this.requirements.push(n)},t.prototype.addPrize=function(){if(!this.noPrizes){var n=new ActivityPrize;n.place=this.prizes.length+1;this.prizes.push(n)}},t.prototype.removePrize=function(n){if(!this.noPrizes){this.prizes.splice(n,1);for(var t=this.prizes.length;t>0;t--)this.prizes[t-1].place=t}},Object.defineProperty(t.prototype,"activityDuration",{get:function(){return this.milestones[this.milestones.length-1].getOffset(this.milestones[0])},enumerable:!0,configurable:!0}),t.prototype.uploadFile=function(){var i=this,t=this.dialogs.showLoading(),n;this.fileToUpload.file&&(n={description:this.fileToUpload.description,name:this.fileToUpload.fileName,body:this.fileToUpload.file.substring(this.fileToUpload.file.indexOf("base64")+7),parentId:this.id},delete this.fileToUpload,this.fileToUpload={},this.service.uploadAttachment(n).then(function(r){if(t.close(),r[0].success){var u=new ActivityDocument;u.id=r[0].id;u.description=n.description;u.name=n.name;u.createdDate=new Date;i.documents.push(u)}},function(){t.close()},function(){t.close()}))},t.prototype.addFile=function(n){this.fileToUpload.file=n.files.length?n.files[0]:null},t.prototype.deleteDocument=function(n){var t=this,i;n<0||n>=this.documents.length||(i=this.documents[n],i&&this.dialogs.showRegistrationConfirm().result.then(function(r){if(r){var u=t.dialogs.showLoading();t.service.deleteDocument(i.id).then(function(){t.documents.splice(n,1);u.close()},function(){u.close()})}}))},t.prototype.assignMember=function(n){var t=this;this.dialogs.showAssignMember(this.title,n.user.firstName+" "+n.user.lastName).result.then(function(i){i&&t.service.assignMember(t.id,n.user.id).then(function(){t.assignedMember=n.user;t.assignedMemberRegistration=n},function(){})})},t.prototype.unassignMember=function(){var n=this;this.service.unassignMember(this.id).then(function(){n.assignedMember=null},function(){})},t.prototype.saveAsDraft=function(){this.phase="Draft";this.upsert()},t.prototype.publish=function(){var n=this;this.upsert(function(){n.navigation&&n.navigation.path("/publisherActivityDetailsAssignRegister/"+n.id)})},t.prototype.upsert=function(n){var i=this,t;n===void 0&&(n=null);t=this.phase==="Draft"?this.dialogs.showSavingDraftActivity():this.dialogs.showLoading();this.id?this.service.upsertActivity(this.getModel()).then(function(){t.close();n&&n()},function(){t.close()}):this.service.createActivity({title:this.title,description:this.description,challengeType:this.challengeType,storyId:this.story.id,phase:this.phase}).then(function(n){i.id=n.id;t.close()},function(){t.close()})},t.prototype.cancelActivity=function(){var n=this;this.dialogs.showCancelActivity(this.title).result.then(function(t){if(t){var i=n.dialogs.showLoading();n.service.cancelActivity(n.id).then(function(){n.phase="Canceled";i.close()},function(){i.close()})}})},t.prototype.completeActivity=function(){var t=this,n=this.dialogs.showLoading();this.service.completeActivity(this.id).then(function(){t.phase="Completed";n.close();window.location=window.location},function(){n.close()})},t.prototype.clone=function(){return new t(angular.fromJson(angular.toJson(this)))},t.prototype.fetchAssignedMember=function(){var n=this;this.service.getAssignedMember(this.id).then(function(t){n.assignedMemberRegistration=new ActivityRegistration(t)},function(){})},t}(Activity),__extends=this&&this.__extends||function(n,t){function r(){this.constructor=n}for(var i in t)t.hasOwnProperty(i)&&(n[i]=t[i]);r.prototype=t.prototype;n.prototype=new r},StoryViewModel=function(n){function t(t,i){var u,r;for(n.call(this,t),this.isActive=!0,i&&(this.service=i.service,this.dialogs=i.dialogs),u=this.activities||[],this.activities=[],r=0;r<u.length;r++)this.activities.push(new ActivityViewModel(u[r],i))}return __extends(t,n),t.prototype.addActivity=function(n){if(n!==undefined){if(n>=0&&n<this.activities.length){var t=this.activities[n];this.activities.push(t.clone())}}else this.activities.push(new ActivityViewModel)},t.prototype.removeActivity=function(n){var r=this,t,i;n!==undefined&&n>=0&&n<this.activities.length&&(t=this.activities[n].id,t?(i=this.dialogs.showLoading(),this.service.deleteActivity(t).then(function(){r.activities.splice(n,1);i.close()},function(){i.close()})):this.activities.splice(n,1))},t.prototype.setActiveTab=function(n){if(!(n<-1)&&!(n>=this.activities.length)){this.isActive=!1;for(var t=0;t<this.activities.length;t++)this.activities[t].isActive=!1;n<0?this.isActive=!0:this.activities[n].isActive=!0}},t.prototype.setStartOffsets=function(){var t,i,r,u,n;if(this.activities&&this.activities.length){for(t=moment(this.activities[0].milestones[0].scheduledDate),i=moment(this.activities[0].milestones[this.activities[0].milestones.length-1].scheduledDate),n=1;n<this.activities.length;n++)r=moment(this.activities[n].milestones[0].scheduledDate),u=moment(this.activities[n].milestones[this.activities[n].milestones.length-1].scheduledDate),r.diff(t)<0&&(t=r),u.diff(i)>0&&(i=u);for(this.storyStart=t.toDate(),this.storyEnd=i.toDate(),n=1;n<this.activities.length;n++)this.activities[n].startOffset=moment.duration(moment(this.activities[n].milestones[0].scheduledDate).diff(t)).asDays()}},Object.defineProperty(t.prototype,"storyDuration",{get:function(){this.setStartOffsets();var n=moment(this.storyEnd).diff(moment(this.storyStart)),t=moment.duration(n);return t.asDays()},enumerable:!0,configurable:!0}),Object.defineProperty(t.prototype,"totalBudget",{get:function(){for(var n,t,r=0,i=0;i<this.activities.length;i++)if((n=this.activities[i],!n.noPrizes)&&n.prizes)for(t=0;t<n.prizes.length;t++)r+=n.prizes[t].amount;return r},enumerable:!0,configurable:!0}),Object.defineProperty(t.prototype,"registrationsCount",{get:function(){var n=0;return this.activities.map(function(t){return n+=t.registrationsCount}),n},enumerable:!0,configurable:!0}),Object.defineProperty(t.prototype,"submissionsCount",{get:function(){var n=0;return this.activities.map(function(t){return n+=t.submissionsCount}),n},enumerable:!0,configurable:!0}),t}(Story),StoriesFilterViewModel=function(){function n(){this.storyTitle="";this.activityTitle="";this.serviceOffering="";this.activityPhase="";this.showOnlyCompleted=!1;this.isActive=!1;this.clear()}return n.prototype.clear=function(){this.storyTitle="";this.activityTitle="";this.serviceOffering="";this.activityPhase=""},n.prototype.getModel=function(){var n=jQuery.extend(!1,{},this);return delete n.isActive,n.serviceOffering==="all"&&delete n.serviceOffering,n.activityPhase==="all"&&delete n.activityPhase,n},n}(),CreateStoryViewModel=function(){function n(n){this.step=1;this.story=new StoryViewModel(null,n);this.story.activities.push(new ActivityViewModel(null,n));this.stepsCount=this.story.activities.length+2;this.service=n.service;this.dialogs=n.dialogs}return n.prototype.goToNext=function(){this.step!==this.story.activities.length+2&&this.saveCurrentStep(!0)},n.prototype.publish=function(){this.story.phase="In Progress";this.saveCurrentStep(!0,function(){return window.location=document.location.href.match(/(^[^#]*)/)[0]})},n.prototype.saveCurrentStep=function(n,t){var u=this,i,r;n===void 0&&(n=!1);i=this.dialogs.showLoading();this.step===1||this.step===this.story.activities.length+2?this.service.upsertStory({id:this.story.id,title:this.story.title,description:this.story.description,serviceOffering:this.story.serviceOffering}).then(function(r){u.story.id=r.id;n&&(u.step=u.step+1);t&&t();i.close()},function(){i.close()}):(r=this.story.activities[this.step-2],r.id?this.service.upsertActivity(r.getModel()).then(function(){n&&(u.step=u.step+1);i.close()},function(){i.close()}):this.service.createActivity({title:r.title,description:r.description,challengeType:r.challengeType,storyId:this.story.id}).then(function(n){r.id=n.id;i.close()},function(){i.close()}))},n.prototype.removeActivity=function(n){var t=this;this.dialogs.showRegistrationConfirm().result.then(function(){t.story.removeActivity(n);n===t.step+1&&(t.step=t.step-1)})},n.prototype.goToPrev=function(){this.step!==1&&(this.step=this.step-1)},n.prototype.goToStep=function(n){this.step<2||n<1||n>this.story.activities.length+2||(this.step=n)},n}(),StoriesListViewModel=function(){function n(n,t){n===void 0&&(n=new StoriesFilterViewModel);t===void 0&&(t=!1);this.stories=[];this.pageSize=5;this.page=1;this.totalPages=1;this.totalItems=0;this.isActive=!0;this.fetchOnlyCompleted=!1;this.isLoading=!1;this.filter=n;this.fetchOnlyCompleted=t}return n.prototype.fetchStories=function(n){var t=this;(n===void 0&&(n=!1),this.filter||(this.filter=new StoriesFilterViewModel),this.filter.showOnlyCompleted=this.fetchOnlyCompleted,this.isLoading)||(this.isLoading=!0,n&&(this.page=1,this.totalItems=0,this.totalPages=1,this.stories=[]),this.service!=null&&this.service.getStories!=null?this.service.getStories({page:this.page,pageSize:this.pageSize,filter:this.filter.getModel()}).then(function(n){t.totalItems=n.totalItems;t.totalPages=n.totalPages;t.stories=n.stories.map(function(n){return new StoryViewModel(n)});t.isLoading=!1},function(){t.isLoading=!1}):this.isLoading=!1)},n.prototype.pageChanged=function(){this.fetchStories()},n.prototype.goToPage=function(){this.page!==1&&this.page!==this.totalPages&&(this.fetchStories(),this.fetchStories())},n}(),StoriesViewModel=function(){function n(n){this.filter=new StoriesFilterViewModel;this.activeStories=new StoriesListViewModel(this.filter);this.activeStories.service=n;this.activeStories.fetchStories();this.activeStories.isActive=!0;this.completedStories=new StoriesListViewModel(this.filter,!0);this.completedStories.service=n;this.filter.showOnlyCompleted=!0;this.completedStories.fetchStories();this.showTab(1)}return n.prototype.resetFilter=function(){this.filter.clear();this.filter.isActive=!1;this.activeStories.fetchStories();this.completedStories.fetchStories()},n.prototype.filterStories=function(){this.activeStories.fetchStories(!0);this.completedStories.fetchStories(!0)},n.prototype.showTab=function(n){this.activeStories.isActive=n===1;this.completedStories.isActive=n===2},n}(),__extends=this&&this.__extends||function(n,t){function r(){this.constructor=n}for(var i in t)t.hasOwnProperty(i)&&(n[i]=t[i]);r.prototype=t.prototype;n.prototype=new r},StoryDetailsViewModel=function(n){function t(t){n.call(this,{id:t.id});this.service=t.service;this.dialogs=t.dialogs;this.refresh()}return __extends(t,n),t.prototype.refresh=function(){var n=this;this.service.getStory(this.id,!0).then(function(t){jQuery.extend(!0,n,new StoryViewModel(t))},function(){})},t.prototype.registerToActivity=function(n){var t=this;n&&this.dialogs.showRegistrationConfirm().result.then(function(i){i&&t.service.registerToActivity(n).then(function(){for(var r,i=0;i<t.activities.length;i++)if(r=t.activities[i],r.id===n){r.isRegistered=!0;break}},function(){})})},t}(StoryViewModel),__extends=this&&this.__extends||function(n,t){function r(){this.constructor=n}for(var i in t)t.hasOwnProperty(i)&&(n[i]=t[i]);r.prototype=t.prototype;n.prototype=new r},StoryPublisherDetailsViewModel=function(n){function t(t){n.call(this,{id:t.id});this.isEditMode=!1;this.isInitialized=!1;this.service=t.service;this.dialogs=t.dialogs;this.refresh();this.isActive=!0}return __extends(t,n),Object.defineProperty(t.prototype,"daysPassed",{get:function(){return moment.duration(moment().diff(moment(this.storyStart))).asDays()},enumerable:!0,configurable:!0}),t.prototype.refresh=function(){var n=this;this.service.getStory(this.id,!0).then(function(t){var i=new StoryViewModel(t,{service:n.service,dialogs:n.dialogs});i.setStartOffsets();n.service&&i.activities.map(function(t){t.chatterUrl=n.service.trustAsResourceUrl(GLOBAL_CONFIG.activityChatterUrl+"?id="+t.id)});copyFields(n,i);n.isInitialized=!0},function(){})},t.prototype.updateStory=function(){var n=this;this.service.upsertStory({id:this.id,title:this.title,description:this.description,serviceOffering:this.serviceOffering}).then(function(){n.isEditMode=!1},function(){})},t.prototype.editStory=function(){this.isEditMode=!0},t.prototype.cancelEditMode=function(){this.isEditMode=!1},t.prototype.closeStory=function(){var n=this;this.dialogs.showRegistrationConfirm().result.then(function(t){t&&n.service.cancelStory(n.id).then(function(){window.location=window.location},function(){})})},t.prototype.setActiveTab=function(n){n>=0&&n<=this.activities.length&&(this.isActive=!1,this.activities.map(function(n){return n.isActive=!1}),n===0?this.isActive=!0:(this.isEditMode=!1,this.activities[n-1].isActive=!0))},t}(StoryViewModel)
+\ No newline at end of file
+Only in /Users/Ward/Code/crowd-exchange/src/staticresources/CrowdExchangeWebApp_Resources/js/typescript/Models: NotificationViewModel.js
+Only in /Users/Ward/Code/crowd-exchange/src/staticresources/CrowdExchangeWebApp_Resources/js/typescript/Models: NotificationViewModel.js.map
+Only in /Users/Ward/Code/crowd-exchange/src/staticresources/CrowdExchangeWebApp_Resources/js/typescript/Models: NotificationViewModel.ts
+Only in /Users/Ward/Code/crowd-exchange/src/staticresources/CrowdExchangeWebApp_Resources/js/typescript/Models: NotificationsViewModel.js
+Only in /Users/Ward/Code/crowd-exchange/src/staticresources/CrowdExchangeWebApp_Resources/js/typescript/Models: NotificationsViewModel.js.map
+Only in /Users/Ward/Code/crowd-exchange/src/staticresources/CrowdExchangeWebApp_Resources/js/typescript/Models: NotificationsViewModel.ts
+Only in /Users/Ward/Code/crowd-exchange/src/staticresources/CrowdExchangeWebApp_Resources/js/typescript/Models: PublisherSearchViewModel.js
+Only in /Users/Ward/Code/crowd-exchange/src/staticresources/CrowdExchangeWebApp_Resources/js/typescript/Models: PublisherSearchViewModel.js.map
+Only in /Users/Ward/Code/crowd-exchange/src/staticresources/CrowdExchangeWebApp_Resources/js/typescript/Models: SearchViewModel.js
+Only in /Users/Ward/Code/crowd-exchange/src/staticresources/CrowdExchangeWebApp_Resources/js/typescript/Models: SearchViewModel.js.map
+Only in /Users/Ward/Code/crowd-exchange/src/staticresources/CrowdExchangeWebApp_Resources/js/typescript/Models: SearchViewModel.ts
+diff -rw /Users/Ward/Code/crowd-exchange/src/staticresources/CrowdExchangeWebApp_Resources/js/typescript/Models/UserViewModel.js.map /Users/Ward/Code/crowd_exchange_submission/crowdexchange/src/staticresources/CrowdExchangeWebApp_Resources/js/typescript/Models/UserViewModel.js.map
+1c1
+< {"version":3,"file":"UserViewModel.js","sourceRoot":"","sources":["UserViewModel.ts"],"names":["___","UserViewModel","UserViewModel.constructor","UserViewModel.fullName"],"mappings":"AAKA,AALA,2IAA2I;AAC3I,+IAA+I;AAC/I,4IAA4I;AAC5I,gJAAgJ;AAChJ,oJAAoJ;AAIpJ,UAAU,GAAG,UAAC,CAAC,EAAE,CAAC;IACd,GAAG,CAAC,CAAC,GAAG,CAAC,CAAC,IAAI,CAAC,CAAC;QAAC,EAAE,CAAC,CAAC,CAAC,CAAC,cAAc,CAAC,CAAC,CAAC,CAAC;YAAC,CAAC,CAAC,CAAC,CAAC,GAAG,CAAC,CAAC,CAAC,CAAC,CAAC;IACtD,gBAAgBA,IAAIA,CAACA,WAAWA,GAAGA,CAACA,CAACA,CAACA,CAACA;AAC3C,CAAC,CAAC;AAIF,AAHA;;GAEG;;IASCC,uBAAYA,KAAqBA;QAC7BC,EAAEA,CAACA,CAACA,KAAKA,CAACA,CAACA,CAACA;YACRA,MAAMA,CAACA,MAAMA,CAACA,IAAIA,EAAEA,KAAKA,CAACA,CAACA;QAC/BA,CAACA;IAELA,CAACA;IACDD,sBAAIA,mCAAQA;aAAZA;YACIE,MAAMA,CAACA,CAACA,CAACA,IAAIA,CAACA,SAASA,IAAIA,EAAEA,CAACA,GAAGA,GAAGA,GAAGA,CAACA,IAAIA,CAACA,QAAQA,IAAIA,EAAEA,CAACA,CAACA,CAACA,IAAIA,EAAEA,CAACA;QACzEA,CAACA;;;OAAAF;IACLA,oBAACA;AAADA,CAACA,AAjBD,IAiBC"}
+\ No newline at end of file
+---
+> {"version":3,"file":"UserViewModel.js","sourceRoot":"","sources":["UserViewModel.ts"],"names":["___","UserViewModel","UserViewModel.constructor","UserViewModel.fullName"],"mappings":"AAKA,AALA,2IAA2I;AAC3I,+IAA+I;AAC/I,4IAA4I;AAC5I,gJAAgJ;AAChJ,oJAAoJ;AAGpJ,UAAU,GAAG,UAAC,CAAC,EAAE,CAAC;IACd,GAAG,CAAC,CAAC,GAAG,CAAC,CAAC,IAAI,CAAC,CAAC;QAAC,EAAE,CAAC,CAAC,CAAC,CAAC,cAAc,CAAC,CAAC,CAAC,CAAC;YAAC,CAAC,CAAC,CAAC,CAAC,GAAG,CAAC,CAAC,CAAC,CAAC,CAAC;IACtD,gBAAgBA,IAAIA,CAACA,WAAWA,GAAGA,CAACA,CAACA,CAACA,CAACA;AAC3C,CAAC,CAAC;AAIF,AAHA;;GAEG;;IAQCC,uBAAYA,KAAqBA;QAC7BC,EAAEA,CAACA,CAACA,KAAKA,CAACA,CAACA,CAACA;YACRA,MAAMA,CAACA,MAAMA,CAACA,IAAIA,EAAEA,KAAKA,CAACA,CAACA;QAC/BA,CAACA;IAELA,CAACA;IACDD,sBAAIA,mCAAQA;aAAZA;YACIE,MAAMA,CAACA,CAACA,CAACA,IAAIA,CAACA,SAASA,IAAIA,EAAEA,CAACA,GAAGA,GAAGA,GAAGA,CAACA,IAAIA,CAACA,QAAQA,IAAIA,EAAEA,CAACA,CAACA,CAACA,IAAIA,EAAEA,CAACA;QACzEA,CAACA;;;OAAAF;IACLA,oBAACA;AAADA,CAACA,AAhBD,IAgBC"}
+\ No newline at end of file
+diff -rw /Users/Ward/Code/crowd-exchange/src/staticresources/CrowdExchangeWebApp_Resources/js/typescript/Models/UserViewModel.ts /Users/Ward/Code/crowd_exchange_submission/crowdexchange/src/staticresources/CrowdExchangeWebApp_Resources/js/typescript/Models/UserViewModel.ts
+7d6
+< declare var MEMBER_SEARCH_TEMPLATE: any;
+21d19
+<     email: string;
+Only in /Users/Ward/Code/crowd-exchange/src/staticresources/CrowdExchangeWebApp_Resources/js/typescript/Models: app.config

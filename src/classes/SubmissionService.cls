@@ -1,6 +1,6 @@
 public with sharing class SubmissionService implements ISubmissionService {
-    @TestVisible private static final Decimal MAX_SCORE_PER_REQUIREMENT = 4;
-    @TestVisible private static final Decimal MIN_SCORE_PER_REQUIREMENT = 1;
+    @TestVisible private static final Decimal MAX_SCORE_PER_REQUIREMENT = 40;
+    @TestVisible private static final Decimal MIN_SCORE_PER_REQUIREMENT = 10;
     /**
      * copies requirements to Submission Requirement table.
      * @param  activity    parent activity of the submissions
@@ -45,8 +45,11 @@ public with sharing class SubmissionService implements ISubmissionService {
         try {
             submission.Submission_Timestamp__c = DateTime.now();
             insert submission;
-            attachment.ParentId = submission.Id;
-            insert attachment;
+            
+            if(attachment != null) {
+            	attachment.ParentId = submission.Id;
+            	insert attachment;
+            }
         } catch (Exception ex) {
             Database.rollback(sp);
             throw ex;
@@ -55,7 +58,7 @@ public with sharing class SubmissionService implements ISubmissionService {
     }
     
     /**
-     * Gets the list of submissions is the last submitted (most recent) submission for each user submitted before the review date
+     * Gets the list of submissions for each user submitted before the review date
      * @param  activity activity for which we need to return submissions
      * @return          List<Submission__c>
      */
@@ -63,32 +66,39 @@ public with sharing class SubmissionService implements ISubmissionService {
        
         ActivityMilestones__c submitMilestone = [SELECT Id, Scheduled_Date__c FROM ActivityMilestones__c WHERE Activity__c = :activity.Id AND Milestone__r.Name = :Constants.SUBMISSION_DATE_MILESTONE_NAME LIMIT 1];
         
-        //Querying all submissions for the activity. Filtering all broken submissions without timestamp and Submitting member reference
-        List<Submission__c> submissions = [SELECT   Name,
-                                                    Activity__c,
-                                                    Evaluation_Percentage__c,
-                                                    Submission_Score__c,
-                                                    Submission_Timestamp__c,
-                                                    Submitting_Member__c
-                                            FROM Submission__c
-                                            WHERE Activity__c = :activity.Id AND Submission_Timestamp__c != null AND Submitting_Member__c != null
-                                            ORDER BY Submission_Timestamp__c ASC];
-        //Creating Subbmiting_Member -> Submission map to ensure that for each user there's will be only one submission
-        Map<Id, Submission__c> submissionMap = new Map<Id, Submission__c>();
+        Id currentUserId = UserInfo.getUserId();
+        // Query Crowd_Exchange_User_Type__c for current logged in user
+        User usr = [SELECT Crowd_Exchange_User_Type__c FROM User WHERE Id = :currentUserId];
         
-        // Updated against TC30050600 
+        Id activityId = activity.Id;
+        	
+        String selectQuery = 'SELECT   Name, Activity__c, Evaluation_Percentage__c,  Submission_Score__c,  Overall_Comment__c, '+
+                              ' Status__c,  Submission_Timestamp__c, Submitting_Member__c,  Submitting_Member__r.FirstName, '+
+                              ' Submitting_Member__r.LastName,  Submitting_Member__r.SmallPhotoUrl, '+
+	                            // we will load only on submission i.e latest.
+	                          ' (SELECT Name, Description, ContentType, BodyLength, CreatedDate  FROM Attachments order by CreatedDate asc limit 1), '+
+	                          ' (Select Evaluation_Score__c From Submission_Requirements__r) '+
+                              ' FROM Submission__c WHERE Activity__c = :activityId AND Submission_Timestamp__c != null ';
+        
+        if(usr.Crowd_Exchange_User_Type__c == Constants.PUBLISHER){
+        	selectQuery += ' AND Submitting_Member__c != null ';
+        } else if(usr.Crowd_Exchange_User_Type__c == Constants.MEMBER) {
+        	selectQuery += ' AND Submitting_Member__c = :currentUserId ';
+        }                
+        
+        selectQuery += ' ORDER BY Submission_Timestamp__c DESC ';
+        
+        //Querying submissions for the activity. Filtering all broken submissions without timestamp and Submitting member reference
+        List<Submission__c> submissions = Database.query(selectQuery);
+        
         // Added check for submission Timestamp to be less then or equal to Activity Milestones Schedule Date
-        
+        List<Submission__c> validSubmissions = new List<Submission__c>();
         for(Submission__c submission : submissions) {
-        	System.debug('++++Submit Milestone: ScheduledDate: ' + submitMilestone.Scheduled_Date__c);
-		    System.debug('++++SubmissionTimestamp: ' + submission.Submission_Timestamp__c);
             if(submission.Submission_Timestamp__c.date() <= submitMilestone.Scheduled_Date__c){
-            	System.debug('++++Valid Submission Found');
-                submissionMap.put(submission.Submitting_Member__c, submission);
+                validSubmissions.add(submission);
             }
-        }
-        
-        return submissionMap.values();
+        }        
+        return validSubmissions;
     }
     
     /**
@@ -113,7 +123,7 @@ public with sharing class SubmissionService implements ISubmissionService {
         Decimal evaluationScoreSum = 0;
         Decimal maximumScore = 0;
         for (Submission_Requirement__c submissionRequirement : submissionRequirements) {
-            maximumScore += (4 * Constants.REQUIRMENT_SCORE_BY_WEIGHT.get(submissionRequirement.Requirement__r.Requirement_Weight__c));
+            maximumScore += (MAX_SCORE_PER_REQUIREMENT * Constants.REQUIRMENT_SCORE_BY_WEIGHT.get(submissionRequirement.Requirement__r.Requirement_Weight__c));
             
             Integer weightScore = 0;
             if(String.isNotBlank(submissionRequirement.Requirement__r.Requirement_Weight__c)) {

@@ -71,7 +71,7 @@
                                     <select ng-model="vm.story.serviceOffering" >
                                         <option  ng-selected="true" value="">Choose Service Offering</option>
                                         <option value="Analytics and Data Management Services">Analytics and Data Management Services</option>
-                                        <option value="Applications Services">Applications Services</option>
+                                        <option value="Application Services">Application Services</option>
                                         <option value="Business Process Services">Business Process Services</option>
                                         <option value="Data Center,Workload and Cloud Services">Data Center,Workload and Cloud Services</option>
                                         <option value="Enterprise Security Services">Enterprise Security Services</option>
@@ -131,7 +131,14 @@
                 <div class="clearfix" /></div>
             <!-- end.creat-activity -->
             <div>
-                <div class="tit">Activity Description</div>
+                <span class="tit">Activity Description</span>  
+	            <span class="pull-right">
+	                 <div class="row-td pull-left">
+	                     <a href="javascript:;" checkbox="a" class="checkbox-img rounded-checkbox" ng-model="activity.addDefaultRequirements">
+	                         <i></i>&nbsp;Add Default Requirements
+	                     </a>
+	                 </div>
+	             </span>
                 <div>
                     <textarea class="data-dec-in" placeholder="Description" ng-model="activity.description"></textarea>
                 </div>

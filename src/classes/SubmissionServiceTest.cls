@@ -184,7 +184,7 @@ private class SubmissionServiceTest {
         List<Submission__c> result = getService().getValidSubmissions(activity);
         Test.stopTest();
 
-        System.assertEquals(1, result.size(), 'Seems like method returned wrong number of submissions');
+        System.assertEquals(2, result.size(), 'Seems like method returned wrong number of submissions');
         // TODO: need to fix this figure out why it isn't working....
         System.debug('+++Result[0].Date:' + result[0].Submission_Timestamp__c );
         System.assertEquals(submission2.Id, result[0].Id, 'Seems like method returned wrong submission');
