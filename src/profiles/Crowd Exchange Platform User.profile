@@ -106,6 +106,14 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>NotificationEmailHandler</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>NotificationEmailHandlerTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>ServiceException</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -220,6 +228,10 @@
     <fieldLevelSecurities>
         <editable>true</editable>
         <field>Activity__c.Minimum_Viable_Score__c</field>
+    </fieldLevelSecurities>
+    <fieldLevelSecurities>
+        <editable>true</editable>
+        <field>Activity__c.Notification_Code__c</field>
     </fieldLevelSecurities>
     <fieldLevelSecurities>
         <editable>false</editable>
@@ -368,9 +380,17 @@
         <hidden>true</hidden>
     </fieldLevelSecurities>
     <fieldLevelSecurities>
+        <editable>true</editable>
+        <field>Registration__c.Notification_Code__c</field>
+    </fieldLevelSecurities>
+    <fieldLevelSecurities>
         <editable>false</editable>
         <field>Registration__c.Registration_Date__c</field>
         <hidden>true</hidden>
+    </fieldLevelSecurities>
+    <fieldLevelSecurities>
+        <editable>false</editable>
+        <field>Registration__c.Story_Name__c</field>
     </fieldLevelSecurities>
     <fieldLevelSecurities>
         <editable>true</editable>
@@ -423,6 +443,10 @@
         <field>Story__c.Description__c</field>
     </fieldLevelSecurities>
     <fieldLevelSecurities>
+        <editable>false</editable>
+        <field>Story__c.NumberOfPublicActivities__c</field>
+    </fieldLevelSecurities>
+    <fieldLevelSecurities>
         <editable>true</editable>
         <field>Story__c.Project_Duration__c</field>
     </fieldLevelSecurities>
@@ -473,6 +497,10 @@
     <fieldLevelSecurities>
         <editable>true</editable>
         <field>Submission__c.Evaluation_Percentage__c</field>
+    </fieldLevelSecurities>
+    <fieldLevelSecurities>
+        <editable>true</editable>
+        <field>Submission__c.Notification_Code__c</field>
     </fieldLevelSecurities>
     <fieldLevelSecurities>
         <editable>true</editable>

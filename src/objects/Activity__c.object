@@ -63,6 +63,34 @@
         <type>Percent</type>
     </fields>
     <fields>
+        <fullName>Notification_Code__c</fullName>
+        <label>Notification Code</label>
+        <picklist>
+            <picklistValues>
+                <fullName>No Registered Users</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No Submissions</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No Reviews Received</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Activity Assigned</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Activity Registration Complete</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <type>Picklist</type>
+    </fields>
+    <fields>
         <fullName>NumberOfRequirements__c</fullName>
         <label>Number of Requirements</label>
         <summaryForeignKey>Requirement__c.Activity__c</summaryForeignKey>

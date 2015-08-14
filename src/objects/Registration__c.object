@@ -13,10 +13,33 @@
         <type>MasterDetail</type>
     </fields>
     <fields>
+        <fullName>Notification_Code__c</fullName>
+        <label>Notification Code</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Story Cancelled</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Activity Cancelled</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <type>Picklist</type>
+    </fields>
+    <fields>
         <fullName>Registration_Date__c</fullName>
         <label>Registration Date</label>
         <required>true</required>
         <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Story_Name__c</fullName>
+        <formula>Activity__r.Story__r.Name</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Story Name</label>
+        <type>Text</type>
     </fields>
     <fields>
         <fullName>User__c</fullName>

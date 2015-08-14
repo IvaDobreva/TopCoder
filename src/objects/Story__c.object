@@ -18,6 +18,18 @@
         <visibleLines>25</visibleLines>
     </fields>
     <fields>
+        <fullName>NumberOfPublicActivities__c</fullName>
+        <label>Number of Public Activities</label>
+        <summaryFilterItems>
+            <field>Activity__c.Status__c</field>
+            <operation>equals</operation>
+            <value>Public</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Activity__c.Story__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <type>Summary</type>
+    </fields>
+    <fields>
         <fullName>Project_Duration__c</fullName>
         <label>Project Duration</label>
         <precision>18</precision>

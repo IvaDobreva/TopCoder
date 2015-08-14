@@ -4,6 +4,6 @@
     <encodingKey>ISO-8859-1</encodingKey>
     <name>Activity Awarded</name>
     <style>none</style>
-    <subject>The Activity {!Activity__c.Name} Has Been Awarded</subject>
+    <subject>The Activity {!Submission__c.Activity__c} Has Been Awarded</subject>
     <type>text</type>
 </EmailTemplate>

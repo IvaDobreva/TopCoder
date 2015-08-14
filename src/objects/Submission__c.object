@@ -20,6 +20,22 @@
         <type>Percent</type>
     </fields>
     <fields>
+        <fullName>Notification_Code__c</fullName>
+        <label>Notification Code</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Submission Review Complete</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Activity Awarded</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <type>Picklist</type>
+    </fields>
+    <fields>
         <fullName>Overall_Comment__c</fullName>
         <label>Overall Comment</label>
         <type>TextArea</type>

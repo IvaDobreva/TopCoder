@@ -26,6 +26,8 @@
 				<members>IStoryService</members>
 				<members>ISubmissionService</members>
 				<members>IUserService</members>
+				<members>NotificationEmailHandler</members>
+        <members>NotificationEmailHandlerTest</members>
 				<members>ServiceException</members>
 				<members>StoryService</members>
 				<members>StoryServiceTest</members>
@@ -133,6 +135,12 @@
         <members>Crowd_Exchange_Email_Templates/Submission_Review_Complete</members>
         <name>EmailTemplate</name>
     </types>
+    <types>Crowd_Exchange_Publishers
+        <members>Crowd_Exchange_Members</members>
+        <members>Crowd_Exchange_Publishers</members>
+        <members>Crowd_Exchange_Users</members>
+        <name>Group</name>
+    </types>
     <types>
         <members>Activity__c-Activity Layout</members>
         <members>Activity_Monitoring_Batch_Error__c-Activity Monitoring Batch Error Layout</members>
@@ -180,9 +188,13 @@
         <name>StaticResource</name>
     </types>
     <types>
+    	  <members>Activity__c</members>
     	  <members>ActivitySkills__c</members>
     	  <members>InternalProjectSkill__c</members>
+        <members>Registration__c</members>
         <members>Skills__c</members>
+        <members>Story__c</members>
+        <members>Submission__c</members>
         <members>UserSkill__c</members>
         <name>Workflow</name>
     </types>

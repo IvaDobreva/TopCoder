@@ -1,6 +1,6 @@
 Hello {!User.Name},
 
-The story {!Story__c.Name} has been cancelled.
+The story {!Registration__c.Story_Name__c} has been cancelled.
 
 Sincerely,
 

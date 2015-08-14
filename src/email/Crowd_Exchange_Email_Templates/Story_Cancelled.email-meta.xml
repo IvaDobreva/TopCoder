@@ -4,6 +4,6 @@
     <encodingKey>ISO-8859-1</encodingKey>
     <name>Story Cancelled</name>
     <style>none</style>
-    <subject>Story Cancelled: {!Story__c.Name}</subject>
+    <subject>Story Cancelled: {!Registration__c.Story_Name__c}</subject>
     <type>text</type>
 </EmailTemplate>

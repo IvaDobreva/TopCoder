@@ -26,6 +26,8 @@
         <members>IStoryService</members>
         <members>ISubmissionService</members>
         <members>IUserService</members>
+        <members>NotificationEmailHandler</members>
+        <members>NotificationEmailHandlerTest</members>
         <members>ServiceException</members>
         <members>StoryService</members>
         <members>StoryServiceTest</members>
@@ -134,6 +136,12 @@
         <name>EmailTemplate</name>
     </types>
     <types>
+        <members>Crowd_Exchange_Members</members>
+        <members>Crowd_Exchange_Publishers</members>
+        <members>Crowd_Exchange_Users</members>
+        <name>Group</name>
+    </types>
+    <types>
         <members>ActivityMilestones__c-ActivityMilestone Layout</members>
         <members>ActivitySkills__c-Activity Skill Layout</members>
         <members>Activity_Monitoring_Batch_Error__c-Activity Monitoring Batch Error Layout</members>
@@ -169,8 +177,12 @@
     </types>
     <types>
         <members>ActivitySkills__c</members>
+        <members>Activity__c</members>
         <members>InternalProjectSkill__c</members>
+        <members>Registration__c</members>
         <members>Skills__c</members>
+        <members>Story__c</members>
+        <members>Submission__c</members>
         <members>UserSkill__c</members>
         <name>Workflow</name>
     </types>

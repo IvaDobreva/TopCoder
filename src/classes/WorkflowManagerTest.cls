@@ -147,7 +147,14 @@ private class WorkflowManagerTest {
         Activity__c updatedActivity = [Select Status__c from Activity__c where id =: activity.Id];
         
         System.assertEquals(Constants.STATUS_IN_REVIEW, updatedActivity.Status__c, 'Updated status as In Review');
-        
+
+        // Test isAnySubmissionReview()
+        Submission__c submission2 = TestFactory.createSubmission(activity);
+        submission2.Submitting_Member__c = user.Id;
+        submission2.Submission_Timestamp__c = DateTime.now().addHours(-48);
+		submission2.Status__c = Constants.REVIEW_COMPLETE_STATUS;
+        insert submission2;
+        WorkflowManager.processActivities(new List<Activity__c> {activity} );
         Test.stopTest();
     }
     
@@ -164,6 +171,7 @@ private class WorkflowManagerTest {
         insert registration;
         
         activity.Assigned_Member__c = user.Id;
+        activity.hasAwards__c = true;
         update activity;
         
         Submission__c submission1 = TestFactory.createSubmission(activity);
@@ -191,11 +199,17 @@ private class WorkflowManagerTest {
         
         update new List<Submission__c>{submission1, submission2};
         
-        updatedActivity = [Select Status__c from Activity__c where id =: activity.Id];
+        updatedActivity = [Select Status__c, Notification_Code__c from Activity__c where id =: activity.Id];
         
         // Activity will be marked as complete as all submission are review complete, which further update
         // activity status as Accept and finaly as complete. 
         System.assertEquals(Constants.STATUS_COMPLETE, updatedActivity.Status__c, 'Updated status as Complete');
+        
+        submission1 = [SELECT Notification_Code__c FROM Submission__c WHERE Id = :submission1.Id];
+        
+		// Notification Code as Submission Review Complete
+        System.assertEquals(Constants.NOTIFICATION_SUBMISSION_REVIEW_COMPLETE, 
+                            submission1.Notification_Code__c, 'Updated Notification Code as Submission Review Complete');
         
         Test.stopTest();
     }
@@ -246,6 +260,132 @@ private class WorkflowManagerTest {
         // There will be no update to activity status as there is on submission not review 
         System.assertEquals(Constants.STATUS_IN_REVIEW, updatedActivity.Status__c, 'Updated status as In Review');
         
+        
+        Test.stopTest();
+    }
+
+    /*
+		test processActivities method setting notification "No Registered Users" "No Submissions" "No Review Received"
+	*/
+    static testMethod void processActivities_No_Reg_Sub_Review_Test() {
+        createTestData();
+        User user = TestFactory.createUser();
+        insert user;
+        
+        Test.startTest();
+        
+        System.assertEquals(Constants.STATUS_DRAFT, activity.Status__c, 'Initail status as Draft');
+        
+        WorkflowManager.processActivities(new List<Activity__c> {activity} );
+        
+        Activity__c updatedActivity = [Select Status__c, Notification_Code__c from Activity__c where id =: activity.Id];
+        
+        System.assertEquals(Constants.STATUS_IN_REGISTRATION, updatedActivity.Status__c, 'Updated status as In Registration');
+        System.assertEquals(Constants.NOTIFICATION_NO_REGISTERED_USERS, updatedActivity.Notification_Code__c, 'Updated Notification Code as No Registered Users');
+
+        // adding a registration record.
+        Registration__c registration = TestFactory.createRegisterMember(user.Id, activity);
+        insert registration;
+        
+        activity.Assigned_Member__c = user.Id;
+        update activity;
+
+        WorkflowManager.processActivities(new List<Activity__c> {activity} );
+        
+        updatedActivity = [Select Status__c, Notification_Code__c from Activity__c where id =: activity.Id];
+        
+        System.assertEquals(Constants.STATUS_IN_SUBMISSION, updatedActivity.Status__c, 'Updated status as In Submission');
+        System.assertEquals(Constants.NOTIFICATION_NO_SUBMISSIONS, updatedActivity.Notification_Code__c, 'Updated Notification Code as No Submissions');
+
+        Submission__c submission1 = TestFactory.createSubmission(activity);
+        submission1.Submitting_Member__c = user.Id;
+        submission1.Submission_Timestamp__c = DateTime.now().addHours(-48);
+		insert submission1;
+
+        WorkflowManager.processActivities(new List<Activity__c> {activity} );
+        
+        updatedActivity = [Select Status__c, Notification_Code__c from Activity__c where id =: activity.Id];
+        
+        System.assertEquals(Constants.STATUS_IN_REVIEW, updatedActivity.Status__c, 'Updated status as In Review');
+        System.assertEquals(Constants.NOTIFICATION_NO_REVIEWS_RECEIVED, updatedActivity.Notification_Code__c, 'Updated Notification Code as No Review Received');        
+
+        Test.stopTest();
+    }
+
+    /*
+		test processActivityCancel method 
+	*/
+    static testMethod void processActivityCancel_Test() {
+        createTestData();
+        User user = TestFactory.createUser();
+        insert user;
+        
+        // adding a registration record.
+        Registration__c registration = TestFactory.createRegisterMember(user.Id, activity);
+        insert registration;
+        
+        activity.Assigned_Member__c = user.Id;
+        activity.hasAwards__c = true;
+        update activity;
+
+        Submission__c submission1 = TestFactory.createSubmission(activity);
+        submission1.Submitting_Member__c = user.Id;
+        submission1.Submission_Timestamp__c = DateTime.now().addHours(-48);        
+        insert submission1;
+
+        Test.startTest();
+        
+        System.assertEquals(Constants.STATUS_DRAFT, activity.Status__c, 'Initail status as Draft');
+        
+        // Calling processActivities process initail status 
+        WorkflowManager.processActivities(new List<Activity__c> {activity} );
+        
+        activity.Status__c = Constants.STATUS_CANCELED;
+        update activity;
+        
+        Registration__c updatedRegistration = [Select Notification_Code__c from Registration__c where id =: registration.Id];
+        System.assertEquals(Constants.NOTIFICATION_ACTIVITY_CANCELLED, updatedRegistration.Notification_Code__c, 'Updated notification code as Activity Canceled');
+
+        Test.stopTest();
+    }
+
+    /*
+		test processStoryCancel method 
+	*/
+    static testMethod void processStoryCancel_Test() {
+        createTestData();
+        User user = TestFactory.createUser();
+        insert user;
+        
+        // adding a registration record.
+        Registration__c registration = TestFactory.createRegisterMember(user.Id, activity);
+        insert registration;
+        
+        activity.Assigned_Member__c = user.Id;
+        activity.hasAwards__c = true;
+        update activity;
+
+        Submission__c submission1 = TestFactory.createSubmission(activity);
+        submission1.Submitting_Member__c = user.Id;
+        submission1.Submission_Timestamp__c = DateTime.now().addHours(-48);        
+        insert submission1;
+
+        Test.startTest();
+        
+        System.assertEquals(Constants.STATUS_DRAFT, activity.Status__c, 'Initail status as Draft');
+        
+        // Calling processActivities process initail status 
+        WorkflowManager.processActivities(new List<Activity__c> {activity} );
+        
+        Story__c story = [SELECT Status__c FROM Story__c WHERE Id = :activity.Story__c];
+        story.Status__c = Constants.STATUS_STORY_CANCELLED;
+        update story;
+        
+        Activity__c updatedActivity = [Select Status__c from Activity__c where id =: activity.Id];
+        Registration__c updatedRegistration = [Select Notification_Code__c from Registration__c where id =: registration.Id];
+        System.assertEquals(Constants.STATUS_CANCELED, updatedActivity.Status__c, 'Updated status as Canceled');
+        System.assertEquals(Constants.NOTIFICATION_STORY_CANCELLED, updatedRegistration.Notification_Code__c, 'Updated notification code as Activity Canceled');
+
         Test.stopTest();
     }
 }

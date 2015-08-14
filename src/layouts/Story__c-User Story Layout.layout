@@ -40,6 +40,10 @@
                 <behavior>Edit</behavior>
                 <field>Service_Offering__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>NumberOfPublicActivities__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>

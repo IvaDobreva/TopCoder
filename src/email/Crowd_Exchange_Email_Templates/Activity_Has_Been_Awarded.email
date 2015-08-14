@@ -1,6 +1,6 @@
 Hello {!User.Name},
 
-The activity {!Activity__c.Name} has been closed and prizes awarded. Please log in to view.
+The activity {!Submission__c.Activity__c} has been closed and prizes awarded. Please log in to view.
 
 Sincerely,
 
