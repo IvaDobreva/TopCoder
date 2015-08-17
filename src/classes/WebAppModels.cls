@@ -583,6 +583,21 @@ public with sharing abstract class WebAppModels {
                 Review_Comment__c = this.reviewComment
             );
         }
+        
+        
+    }
+    
+    public class LoginInformation{
+
+        // parameters
+        public String username { get; set; } 
+        public String password { get; set; } 
+
+        // constructor
+        public LoginInformation(String username, String password){
+            this.username = username;
+            this.password = password;
+        }
     }
     
 }

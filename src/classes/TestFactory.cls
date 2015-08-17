@@ -270,4 +270,42 @@ public class TestFactory {
       insert userNotification;
       return notification;
     }
+    
+     public static Account createAccount(String name) {
+        return new Account(
+                   Name = name
+               );
+    }
+    
+    public static Contact createContact(Id accountId, String lastname) {
+        return new Contact(
+                   LastName = lastname,
+                   AccountId = accountId
+               );
+    }
+    
+    public static User createPortalUser(Id contactId) {
+        Set<String> customerUserTypes = new Set<String> {
+            'CSPLiteUser', 'PowerPartner', 'PowerCustomerSuccess',   'CustomerSuccess'
+        };
+
+        Profile profile = [SELECT Id, Name FROM Profile WHERE UserType IN :customerUserTypes LIMIT 1];
+
+        User portalUser = new User(
+            ProfileId = profile.Id,
+            Username = 'portaluser@cp.com',
+            Email = 'portaluser@cp.com',
+            EmailEncodingkey = 'UTF-8',
+            Localesidkey = 'en_US',
+            Languagelocalekey = 'en_US',
+            Timezonesidkey = 'America/Los_Angeles',
+            Alias='puser',
+            Lastname='PortalUser - 001',
+            ContactId = contactId,
+            Crowd_Exchange_User_Type__c = CrowdExchangeRemoteController.USERTYPE_MEMBER
+        );
+        insert portalUser;
+        system.assertNotEquals(null, portalUser.Id);
+        return portalUser;
+    }
 }

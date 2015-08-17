@@ -50,6 +50,7 @@
     <types>
         <members>BandwidthExceeded</members>
         <members>CrowdExchangeWebApp</members>
+        <members>CrowdExchangeWebApp_Home</members>
         <members>CrowdExchangeWebApp_MemActivityAssigned</members>
         <members>CrowdExchangeWebApp_MemberStoryDetails</members>
         <members>CrowdExchangeWebApp_PubActivityAssign</members>

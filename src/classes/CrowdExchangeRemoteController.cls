@@ -4,6 +4,12 @@ public with sharing class CrowdExchangeRemoteController {
     private static ISubmissionService mSubmissionService = new SubmissionService();
     public CrowdExchangeRemoteController() {
     }
+    
+        // properties for holding user type
+    @TestVisible private static final String USERTYPE_MEMBER = 'Member';
+    @TestVisible private static final String USERTYPE_PUBLISHER = 'Publisher';
+    @TestVisible private static final String GUESTUSER= 'Guest';
+    @TestVisible private static final String STANDARDUSER = 'Standard';
 
     
     @TestVisible private final static String MEMBER_FIELDS = 'FirstName, LastName, SmallPhotoUrl, Email, Crowd_Exchange_Organization__c, '+
@@ -33,6 +39,20 @@ public with sharing class CrowdExchangeRemoteController {
     @TestVisible private final static String STORY_FIELDS_PUBLISHER = STORY_FIELDS + ', (SELECT Id FROM Activities__r)';
     
     private final static String COUNT_FIELD = 'Count(Id) result';
+    
+     /**
+     * redirects to login page if user is already logged in!
+     * @return      PageReference
+     */
+    public PageReference redirectIfLoggedIn() {
+        if(UserInfo.getUserType() != GUESTUSER && UserInfo.getUserType() != STANDARDUSER) {
+            return new PageReference(getLandingPageUrl());
+        }
+        // for other type of users, do not redirect to landing page
+        return null;
+    }
+    
+    
     /**
      * Fetches a story by id
      * @param  id   Story Id
@@ -49,23 +69,23 @@ public with sharing class CrowdExchangeRemoteController {
                 if(usr.Crowd_Exchange_User_Type__c == Constants.PUBLISHER){
                     story = Database.query('SELECT '+STORY_FIELDS_PUBLISHER+' FROM Story__c WHERE Id = :id LIMIT 1');
                 }else {
-                	String storyStatusPlanning = Constants.STORY_PLANNING_STATUS;
+                    String storyStatusPlanning = Constants.STORY_PLANNING_STATUS;
                     List<Story__c> stories = Database.query('SELECT '+STORY_FIELDS_MEMBER+' FROM Story__c WHERE Id = :id AND Status__c != :storyStatusPlanning LIMIT 1');
                     if(!stories.isEmpty()) story = stories.get(0);
                 }
-                	
+                    
                 if(story != null) {
-	                response = new WebAppModels.Story(story);
-	                Set<Id> activitiesIds = new Set<Id>();
-	                for(Activity__c activity : story.Activities__r)
-	                    activitiesIds.add(activity.Id);
-	                if(deep){
-	                   //Querying activities and adding them to the corresponding stories
-	                    List<Activity__c> activities = Database.query('SELECT '+ACTIVITY_FULL_FIELDS+' FROM Activity__c WHERE Id IN :activitiesIds');
-	                    for(Activity__c activity : activities){
-	                        response.activities.add(new WebAppModels.Activity(activity));
-	                    } 
-	                }
+                    response = new WebAppModels.Story(story);
+                    Set<Id> activitiesIds = new Set<Id>();
+                    for(Activity__c activity : story.Activities__r)
+                        activitiesIds.add(activity.Id);
+                    if(deep){
+                       //Querying activities and adding them to the corresponding stories
+                        List<Activity__c> activities = Database.query('SELECT '+ACTIVITY_FULL_FIELDS+' FROM Activity__c WHERE Id IN :activitiesIds');
+                        for(Activity__c activity : activities){
+                            response.activities.add(new WebAppModels.Activity(activity));
+                        } 
+                    }
                 }          
                 return response;
             }else {
@@ -458,30 +478,30 @@ public with sharing class CrowdExchangeRemoteController {
             act.id = activity.Id;
             
             if(act.addDefaultRequirements != null && act.addDefaultRequirements) {
-            	
-            	// loading all default requirements
-            	List<Default_Requirement__c> defaultRequirements = mActivityService.getDefaultRequirements();
-            	
-            	List<Requirement__c> requirementList = new List<Requirement__c>();
-            	Decimal counter = 1.0;
-            	for(Default_Requirement__c dr:defaultRequirements) {
-            		Requirement__c requirement = new Requirement__c ();
-            		requirement.Requirement_Number__c = ''+ (counter.setScale(1));
-            		requirement.Activity__c = activity.Id;
-            		requirement.Description__c = dr.Description__c;
-            		requirement.Type__c = dr.Type__c;
-            		requirement.Requirement_Weight__c = dr.Requirement_Weight__c;
-            		counter++;
-            		requirementList.add(requirement);
-            	}
-            	
-            	// inserting all new requirements created from default requirements
-            	if(!requirementList.isEmpty()) {
-            		insert requirementList;
-            		
-            		// adding requirements to activity model
-            		act.addRequirements(requirementList);
-            	}
+                
+                // loading all default requirements
+                List<Default_Requirement__c> defaultRequirements = mActivityService.getDefaultRequirements();
+                
+                List<Requirement__c> requirementList = new List<Requirement__c>();
+                Decimal counter = 1.0;
+                for(Default_Requirement__c dr:defaultRequirements) {
+                    Requirement__c requirement = new Requirement__c ();
+                    requirement.Requirement_Number__c = ''+ (counter.setScale(1));
+                    requirement.Activity__c = activity.Id;
+                    requirement.Description__c = dr.Description__c;
+                    requirement.Type__c = dr.Type__c;
+                    requirement.Requirement_Weight__c = dr.Requirement_Weight__c;
+                    counter++;
+                    requirementList.add(requirement);
+                }
+                
+                // inserting all new requirements created from default requirements
+                if(!requirementList.isEmpty()) {
+                    insert requirementList;
+                    
+                    // adding requirements to activity model
+                    act.addRequirements(requirementList);
+                }
             }
             return act;
         }catch(Exception ex){
@@ -1154,14 +1174,14 @@ public with sharing class CrowdExchangeRemoteController {
     public static List<WebAppModels.ActivitySubmission> getSubmissions(String activityId) {
         if(String.isBlank(activityId)) throw new WebAppException('Activity Id is null for get Submissions call');
         try{
-        	
-        	// getting review date as it will be just after submission. 
-        	List<ActivityMilestones__c> milestones = [SELECT Milestone__c, Scheduled_Date__c
+            
+            // getting review date as it will be just after submission. 
+            List<ActivityMilestones__c> milestones = [SELECT Milestone__c, Scheduled_Date__c
                 FROM ActivityMilestones__c
                 WHERE Activity__c = :activityId AND Milestone__r.Name LIKE :Constants.REVIEW_DATE_MILESTONE_NAME];
-	        
-	        // submission Due Date == Review Schedule date 
-	        Date submissionDueDate = (!milestones.isEmpty() ? milestones[0].Scheduled_Date__c : system.today());
+            
+            // submission Due Date == Review Schedule date 
+            Date submissionDueDate = (!milestones.isEmpty() ? milestones[0].Scheduled_Date__c : system.today());
             
             //getting all submission with submission attachment
             List<Submission__c> submissions = mSubmissionService.getValidSubmissions(new Activity__c(id = activityId)); 
@@ -1171,14 +1191,14 @@ public with sharing class CrowdExchangeRemoteController {
             
             List<WebAppModels.ActivitySubmission> activitySubmissionList = new List<WebAppModels.ActivitySubmission>();
             for(Submission__c submission:submissions) {
-            	
-            	// If current user is a member user, then only add submission submitted by him/her. Else add all submission for publisher
-            	if(submission.Submitting_Member__c == Userinfo.getUserId() && usr.Crowd_Exchange_User_Type__c == Constants.MEMBER){
-            		activitySubmissionList.add(new WebAppModels.ActivitySubmission(submission, submissionDueDate));
-            		
-            	}else if(usr.Crowd_Exchange_User_Type__c == Constants.PUBLISHER) {
-            		activitySubmissionList.add(new WebAppModels.ActivitySubmission(submission, submissionDueDate));
-            	}
+                
+                // If current user is a member user, then only add submission submitted by him/her. Else add all submission for publisher
+                if(submission.Submitting_Member__c == Userinfo.getUserId() && usr.Crowd_Exchange_User_Type__c == Constants.MEMBER){
+                    activitySubmissionList.add(new WebAppModels.ActivitySubmission(submission, submissionDueDate));
+                    
+                }else if(usr.Crowd_Exchange_User_Type__c == Constants.PUBLISHER) {
+                    activitySubmissionList.add(new WebAppModels.ActivitySubmission(submission, submissionDueDate));
+                }
             }
             return activitySubmissionList;
         } catch(Exception ex){
@@ -1194,19 +1214,19 @@ public with sharing class CrowdExchangeRemoteController {
     @RemoteAction
     public static List<WebAppModels.SubmissionRequirement> getSubmissionRequirements(String submissionId) {
         if(String.isBlank(submissionId)) throw new WebAppException('submission Id is null for getSubmissionRequirments call');
-        try{        	
-        	List<Submission_Requirement__c> submissionRequirements = [Select Submission__c, Review_Comment__c, 
-        									Requirement__r.Requirement_Weight__c, Requirement__r.Requirement_Number__c, 
-        									Requirement__r.Requirement_Evaluation__c, Requirement__r.Description__c, Requirement__r.Type__c,
-        	  								Requirement__c, Evaluation_Score__c From Submission_Requirement__c 
-        	  								where Submission__c =: submissionId order by Requirement__r.Requirement_Number__c ASC];
-        	 
-        	 List<WebAppModels.SubmissionRequirement> submissionRequirementModelList = new 	List<WebAppModels.SubmissionRequirement>();
-        	 for(Submission_Requirement__c sr:submissionRequirements) {
-        	 	submissionRequirementModelList.add(new WebAppModels.SubmissionRequirement(sr));
-        	 }
-        	 return submissionRequirementModelList;
-    	} catch(Exception ex){
+        try{            
+            List<Submission_Requirement__c> submissionRequirements = [Select Submission__c, Review_Comment__c, 
+                                            Requirement__r.Requirement_Weight__c, Requirement__r.Requirement_Number__c, 
+                                            Requirement__r.Requirement_Evaluation__c, Requirement__r.Description__c, Requirement__r.Type__c,
+                                            Requirement__c, Evaluation_Score__c From Submission_Requirement__c 
+                                            where Submission__c =: submissionId order by Requirement__r.Requirement_Number__c ASC];
+             
+             List<WebAppModels.SubmissionRequirement> submissionRequirementModelList = new  List<WebAppModels.SubmissionRequirement>();
+             for(Submission_Requirement__c sr:submissionRequirements) {
+                submissionRequirementModelList.add(new WebAppModels.SubmissionRequirement(sr));
+             }
+             return submissionRequirementModelList;
+        } catch(Exception ex){
             throw new WebAppException();  
         }
     }
@@ -1219,21 +1239,21 @@ public with sharing class CrowdExchangeRemoteController {
     @RemoteAction
     public static void saveSubmissionReview(WebAppModels.ActivitySubmission submissionModel, List<WebAppModels.SubmissionRequirement> submissionRequirementModelList, boolean markReviewComplete) {
         try{
-        	
-        	if(submissionRequirementModelList != null && !submissionRequirementModelList.isEmpty()) {
-        		
-        		List<Submission_Requirement__c> submissionRequirementList = new List<Submission_Requirement__c>();
-        		for(WebAppModels.SubmissionRequirement srModel: submissionRequirementModelList) {
-        			if(!String.isEmpty(srModel.id)) {
-	        			submissionRequirementList.add(srModel.getSObject());
-        			}
-        		}
-        		// updating the reviewed details.
-        		if(!submissionRequirementList.isEmpty()) update submissionRequirementList;
-        	}
-        	
-        	if(submissionModel != null && !String.isEmpty(submissionModel.id)) {
-        		Submission__c submission = new Submission__c(id = submissionModel.id);
+            
+            if(submissionRequirementModelList != null && !submissionRequirementModelList.isEmpty()) {
+                
+                List<Submission_Requirement__c> submissionRequirementList = new List<Submission_Requirement__c>();
+                for(WebAppModels.SubmissionRequirement srModel: submissionRequirementModelList) {
+                    if(!String.isEmpty(srModel.id)) {
+                        submissionRequirementList.add(srModel.getSObject());
+                    }
+                }
+                // updating the reviewed details.
+                if(!submissionRequirementList.isEmpty()) update submissionRequirementList;
+            }
+            
+            if(submissionModel != null && !String.isEmpty(submissionModel.id)) {
+                Submission__c submission = new Submission__c(id = submissionModel.id);
                 submission.Overall_Comment__c = submissionModel.overallComment;
                 
                 // Setting the Reviewer to the submission on initail review. 
@@ -1244,16 +1264,16 @@ public with sharing class CrowdExchangeRemoteController {
                 
                 // if markReviewComplete is true, mark submission review as Review complete 
                 if(markReviewComplete != null && markReviewComplete) {
-                	submission.Status__c = Constants.REVIEW_COMPLETE_STATUS;
-                	// setting review date on marking the review as complete.
-            		submission.Review_Date__c = DateTime.now();
+                    submission.Status__c = Constants.REVIEW_COMPLETE_STATUS;
+                    // setting review date on marking the review as complete.
+                    submission.Review_Date__c = DateTime.now();
                 }
                 
                 // Updating the submission with review score. 
                 update submission;
-        	}
-        	
-    	} catch(Exception ex){
+            }
+            
+        } catch(Exception ex){
             throw new WebAppException();  
         }
     }
@@ -1267,11 +1287,93 @@ public with sharing class CrowdExchangeRemoteController {
     public static void deleteSubmission(String submissionId) {
         if(String.isBlank(submissionId)) throw new WebAppException('submission Id is null for deleteSubmission call');
         try{
-        	delete new Submission__c(id = submissionId);
-    	} catch(Exception ex){
+            delete new Submission__c(id = submissionId);
+        } catch(Exception ex){
             throw new WebAppException();  
         }
     }  
     
     public class WebAppException extends Exception{}
+    
+    /**
+     * Performs login for portal or community user
+     * @param  Wrapper for login information 
+     * @return     modified startURL with session to login
+     */
+    @RemoteAction
+    public static String portalLogin(WebAppModels.LoginInformation objLoginInformation){
+    
+        if(objLoginInformation != null){
+            System.debug('Username: ' + objLoginInformation.username);
+            System.debug('Password: ' + objLoginInformation.password);
+        }
+        
+        // only perform login operation for a user with type Member or Publisher
+        List<User> lstUser = [SELECT Id, FirstName, LastName, Crowd_Exchange_User_Type__c FROM User Where Username = :objLoginInformation.username
+            AND IsActive = TRUE 
+            AND (Crowd_Exchange_User_Type__c = :USERTYPE_MEMBER OR 
+                Crowd_Exchange_User_Type__c = :USERTYPE_PUBLISHER)];
+        
+        
+        if(lstUser != null && lstUser.size() > 0){
+            System.debug('User found: ' + lstUser[0].FirstName + ' ' + lstUser[0].LastName);
+        }
+        
+        if(lstUser.isEmpty()) {
+            System.debug('No Users found');
+            return '';
+        }
+
+        String storyPageUrl = getLandingPageUrl();
+
+        /*
+        // we can add different subviews for Member or publisher as below
+        String storyPageUrl = Page.CrowdExchangeWebApp.getUrl() + '#'
+            lstUser[0].Crowd_Exchange_User_Type__c + 'Story';
+
+        // If we assume Story subviews for Member and Publisher would be memberStory and publisherStory respectively
+        // above url will be constructed as /CrowdExchangeWebApp#memberStory or /CrowdExchangeWebApp#publisherStory
+        */
+
+        // call standard login method
+        PageReference result =  Site.login(objLoginInformation.username, 
+            objLoginInformation.password,
+            storyPageUrl);
+            
+        if(result != null){
+            System.debug('Login successful forwarding to: ' + result.getUrl());
+        }
+
+        return (result == null) ? '' : result.geturl(); 
+    }
+    
+     /**
+     * Internal method to return the Landing page URL
+     * @return     string
+     */
+    private static string getLandingPageUrl() {
+        return Page.CrowdExchangeWebApp.getUrl();
+    }
+
+    /**
+     * Allows portal or community users to reset their own passwords
+     * @param  string user name
+     * @return     boolean
+     */
+    @RemoteAction
+    public static Boolean resetPassword(String username){
+        
+        // only perform forgot password operation for a user with type Member or Publisher
+        List<User> lstUser = [SELECT Id FROM User Where Username = :username
+            AND IsActive = TRUE 
+            AND (Crowd_Exchange_User_Type__c = :USERTYPE_MEMBER OR 
+                Crowd_Exchange_User_Type__c = :USERTYPE_PUBLISHER)];
+        
+        // call standard forgot password method
+        if(!lstUser.isEmpty()) {
+            return Site.forgotPassword(username);
+        } else {
+            return false;
+        }
+    }
 }

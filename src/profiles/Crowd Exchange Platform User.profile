@@ -23,11 +23,11 @@
     </classAccesses>
     <classAccesses>
         <apexClass>Constants</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>CrowdExchangeRemoteController</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>CrowdExchangeRemoteControllerTest</apexClass>
@@ -807,6 +807,10 @@
     <pageAccesses>
         <apexPage>CrowdExchangeWebApp</apexPage>
         <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>CrowdExchangeWebApp_Home</apexPage>
+        <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>CrowdExchangeWebApp_MemActivityAssigned</apexPage>

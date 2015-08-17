@@ -998,4 +998,55 @@ private class CrowdExchangeRemoteControllerTest {
         Test.stopTest();
     }
     
+     /**
+     * login for portal or community user
+     */
+    @isTest static void portalLogin() {
+        Account account = TestFactory.createAccount('Test Acc - 001');
+        insert account;
+        Contact contact = TestFactory.createContact(account.Id, 'PortalUser - 001');
+        insert contact;
+
+        User portalUser = TestFactory.createPortalUser(contact.Id);
+
+        Test.startTest(); 
+            String result = CrowdExchangeRemoteController.portalLogin(
+                new WebAppModels.LoginInformation('portaluser@cp.com', '12345'));
+        Test.stopTest();
+        
+        system.assertEquals(true, String.isEmpty(result));
+    }
+    /**
+     *  reset portal or community user's passwords
+     */
+    @isTest static void resetPassword() {
+        Account account = TestFactory.createAccount('Test Acc - 001');
+        insert account;
+        Contact contact = TestFactory.createContact(account.Id, 'PortalUser - 001');
+        insert contact;
+
+        User portalUser = TestFactory.createPortalUser(contact.Id);
+
+        Test.startTest(); 
+            Boolean result = CrowdExchangeRemoteController.resetPassword(
+                'portaluser@cp.com'
+            );
+        Test.stopTest();
+        
+        system.assertEquals(false, result);
+    }
+    /**
+     *  check page navigation for internal users
+     */
+    @isTest static void checkNavigationForInternalUser() {
+
+        Test.startTest(); 
+        
+            CrowdExchangeRemoteController objController = new CrowdExchangeRemoteController();
+            PageReference redirectedUrl = objController.redirectIfLoggedIn();
+            system.assertEquals(null, redirectedUrl);
+            
+        Test.stopTest();
+    }
+    
 }
