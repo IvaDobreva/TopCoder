@@ -664,6 +664,10 @@
         <field>UserSkill__c.Skill__c</field>
     </fieldLevelSecurities>
     <fieldLevelSecurities>
+        <editable>true</editable>
+        <field>User_Header_Picture__c.User__c</field>
+    </fieldLevelSecurities>
+    <fieldLevelSecurities>
         <editable>false</editable>
         <field>User_Notification__c.Notification__c</field>
         <hidden>true</hidden>
@@ -852,6 +856,9 @@
         <allowRead>true</allowRead>
         <object>UserSkill__c</object>
         <viewAllRecords>true</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <object>User_Header_Picture__c</object>
     </objectPermissions>
     <objectPermissions>
         <object>User_Notification__c</object>

@@ -122,6 +122,7 @@
         <members>Summary_Data__c</members>
         <members>User</members>
         <members>UserSkill__c</members>
+        <members>User_Header_Picture__c</members>
         <members>User_Notification__c</members>
         <name>CustomObject</name>
     </types>

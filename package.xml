@@ -121,6 +121,7 @@
         <members>Submission_Requirement__c</members>
         <members>Summary_Data__c</members>
         <members>User_Notification__c</members>
+        <members>User_Header_Picture__c</members>
         <members>UserSkill__c</members>      
         <members>User</members>
         <name>CustomObject</name>
