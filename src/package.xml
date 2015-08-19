@@ -6,13 +6,18 @@
         <members>ActivityServiceTest</members>
         <members>CalculateSummaryDataBatch</members>
         <members>Constants</members>
+        <members>CrowdExchangeMemPubProfile</members>
+        <members>CrowdExchangeMemberMyProfileController</members>
         <members>CrowdExchangeRemoteController</members>
         <members>CrowdExchangeRemoteControllerTest</members>
         <members>CrowdExchangeWebApp_ConfigController</members>
         <members>CrowdExchangeWebApp_ConfigControllerTest</members>
         <members>CrowdExchangeWebApp_PageController</members>
+        <members>CrowdExchange_MemberDashboard</members>
+        <members>CrowdExchange_MemberMemberProfile</members>
         <members>CrowdExchange_MemberSearchEmailCntr</members>
         <members>CrowdExchange_MemberSearchEmailCntrTest</members>
+        <members>CrowdExchange_PublisherDashboard</members>
         <members>CrowdExchange_Utils</members>
         <members>CrowdExchange_UtilsTest</members>
         <members>DashboardDataCollector</members>
@@ -35,6 +40,11 @@
         <members>SubmissionServiceTest</members>
         <members>TestDataFactory</members>
         <members>TestFactory</members>
+        <members>Test_CrowdExchangeMemPubProfile</members>
+        <members>Test_CrowdExchangeMemberMyProfile</members>
+        <members>Test_CrowdExchange_MemberDashboard</members>
+        <members>Test_CrowdExchange_MemberMemberProfile</members>
+        <members>Test_CrowdExchange_PublisherDashboard</members>
         <members>UserService</members>
         <members>UserServiceTest</members>
         <members>WebAppModels</members>
@@ -52,12 +62,19 @@
         <members>CrowdExchangeWebApp</members>
         <members>CrowdExchangeWebApp_Home</members>
         <members>CrowdExchangeWebApp_MemActivityAssigned</members>
+        <members>CrowdExchangeWebApp_MemMemProfile</members>
+        <members>CrowdExchangeWebApp_MemPubProfile</members>
+        <members>CrowdExchangeWebApp_MemberDashboard</members>
+        <members>CrowdExchangeWebApp_MemberMyProfile</members>
         <members>CrowdExchangeWebApp_MemberStoryDetails</members>
         <members>CrowdExchangeWebApp_PubActivityAssign</members>
         <members>CrowdExchangeWebApp_PubActivityReview</members>
         <members>CrowdExchangeWebApp_PubAddActivity</members>
         <members>CrowdExchangeWebApp_PubCreateStory</members>
+        <members>CrowdExchangeWebApp_PubMemProfile</members>
         <members>CrowdExchangeWebApp_PubStoryDetails</members>
+        <members>CrowdExchangeWebApp_PublisherDashboard</members>
+        <members>CrowdExchangeWebApp_PublisherMyProfile</members>
         <members>CrowdExchangeWebApp_Stories</members>
         <members>CrowdExchange_ActivityFeed</members>
         <members>Exception</members>

@@ -323,7 +323,7 @@ public with sharing class WorkflowManager {
                 if(activity.Status__c == Constants.STATUS_ACCEPTED){ 
 
                     // setting the activity status as Complete. 
-                    activity.Status__c = Constants.STATUS_COMPLETE;
+                    activity.Status__c = Constants.STATUS_COMPLETED;
                     addForUpdate = true;
                     // setting notification "Activity Awarded"
                     if(activity.hasAwards__c){
@@ -376,7 +376,7 @@ public with sharing class WorkflowManager {
                     FROM 
                         Activities__r 
                     WHERE 
-                        Status__c != :Constants.STATUS_COMPLETE AND
+                        Status__c != :Constants.STATUS_COMPLETED AND
                         Status__c != :Constants.STATUS_CANCELED
                     LIMIT 1
                 ) 

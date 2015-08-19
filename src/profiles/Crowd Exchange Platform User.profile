@@ -26,6 +26,14 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>CrowdExchangeMemPubProfile</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>CrowdExchangeMemberMyProfileController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>CrowdExchangeRemoteController</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -46,11 +54,23 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>CrowdExchange_MemberDashboard</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>CrowdExchange_MemberMemberProfile</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>CrowdExchange_MemberSearchEmailCntr</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>CrowdExchange_MemberSearchEmailCntrTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>CrowdExchange_PublisherDashboard</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -139,6 +159,26 @@
     </classAccesses>
     <classAccesses>
         <apexClass>TestFactory</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>Test_CrowdExchangeMemPubProfile</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>Test_CrowdExchangeMemberMyProfile</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>Test_CrowdExchange_MemberDashboard</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>Test_CrowdExchange_MemberMemberProfile</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>Test_CrowdExchange_PublisherDashboard</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -246,6 +286,10 @@
         <field>Activity__c.Publisher__c</field>
     </fieldLevelSecurities>
     <fieldLevelSecurities>
+        <editable>false</editable>
+        <field>Activity__c.Registrants__c</field>
+    </fieldLevelSecurities>
+    <fieldLevelSecurities>
         <editable>true</editable>
         <field>Activity__c.Resource_Commitment__c</field>
     </fieldLevelSecurities>
@@ -261,6 +305,10 @@
         <editable>false</editable>
         <field>Activity__c.Story__c</field>
         <hidden>true</hidden>
+    </fieldLevelSecurities>
+    <fieldLevelSecurities>
+        <editable>false</editable>
+        <field>Activity__c.Submissions__c</field>
     </fieldLevelSecurities>
     <fieldLevelSecurities>
         <editable>false</editable>
@@ -508,6 +556,10 @@
     </fieldLevelSecurities>
     <fieldLevelSecurities>
         <editable>true</editable>
+        <field>Submission__c.Placement__c</field>
+    </fieldLevelSecurities>
+    <fieldLevelSecurities>
+        <editable>true</editable>
         <field>Submission__c.Review_Date__c</field>
     </fieldLevelSecurities>
     <fieldLevelSecurities>
@@ -594,6 +646,10 @@
     <fieldLevelSecurities>
         <editable>true</editable>
         <field>User.Crowd_Exchange_User_Type__c</field>
+    </fieldLevelSecurities>
+    <fieldLevelSecurities>
+        <editable>true</editable>
+        <field>UserSkill__c.Experience_Level__c</field>
     </fieldLevelSecurities>
     <fieldLevelSecurities>
         <editable>true</editable>
@@ -817,6 +873,22 @@
         <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
+        <apexPage>CrowdExchangeWebApp_MemMemProfile</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>CrowdExchangeWebApp_MemPubProfile</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>CrowdExchangeWebApp_MemberDashboard</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>CrowdExchangeWebApp_MemberMyProfile</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
         <apexPage>CrowdExchangeWebApp_MemberStoryDetails</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
@@ -838,6 +910,14 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>CrowdExchangeWebApp_PubStoryDetails</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>CrowdExchangeWebApp_PublisherDashboard</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>CrowdExchangeWebApp_PublisherMyProfile</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>

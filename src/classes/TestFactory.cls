@@ -308,4 +308,18 @@ public class TestFactory {
         system.assertNotEquals(null, portalUser.Id);
         return portalUser;
     }
+    
+     /**
+     * Creates Summary Data
+     */
+    public static void createSummaryData(){
+        Summary_Data__c summaryData = new Summary_Data__c();
+        summaryData.Name = 'Test';
+        summaryData.Timestamp__c = System.now();
+        summaryData.Active_Activities__c = 250;
+        summaryData.Active_Stories__c = 250;
+        summaryData.Completed_Activities__c = 250;
+        insert summaryData;
+        
+    }
 }

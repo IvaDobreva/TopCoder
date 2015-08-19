@@ -112,6 +112,13 @@
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>Registrants__c</fullName>
+        <label>Registrants</label>
+        <summaryForeignKey>Registration__c.Activity__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <type>Summary</type>
+    </fields>
+    <fields>
         <fullName>Resource_Commitment__c</fullName>
         <description>% of utilization required/expected (e.g. 25%)</description>
         <inlineHelpText>% of utilization required/expected (e.g. 25%)</inlineHelpText>
@@ -181,6 +188,13 @@
         <relationshipName>Activities</relationshipName>
         <relationshipOrder>0</relationshipOrder>
         <type>MasterDetail</type>
+    </fields>
+    <fields>
+        <fullName>Submissions__c</fullName>
+        <label>Submissions</label>
+        <summaryForeignKey>Submission__c.Activity__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <type>Summary</type>
     </fields>
     <fields>
         <fullName>Total_Awards__c</fullName>

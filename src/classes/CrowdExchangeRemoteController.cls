@@ -279,7 +279,7 @@ public with sharing class CrowdExchangeRemoteController {
     public static void completeActivity(Id id){
         if(id==null) throw new WebAppException('Id cannot be null');
         try{
-            mActivityService.updateActivities(new List<Activity__c>{new Activity__c(Id = id, Status__c = Constants.STATUS_COMPLETE)});
+            mActivityService.updateActivities(new List<Activity__c>{new Activity__c(Id = id, Status__c = Constants.STATUS_COMPLETED)});
         }catch(Exception ex){
             throw new WebAppException();
         }

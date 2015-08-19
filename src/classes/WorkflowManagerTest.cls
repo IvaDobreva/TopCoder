@@ -203,7 +203,7 @@ private class WorkflowManagerTest {
         
         // Activity will be marked as complete as all submission are review complete, which further update
         // activity status as Accept and finaly as complete. 
-        System.assertEquals(Constants.STATUS_COMPLETE, updatedActivity.Status__c, 'Updated status as Complete');
+        System.assertEquals(Constants.STATUS_COMPLETED, updatedActivity.Status__c, 'Updated status as Complete');
         
         submission1 = [SELECT Notification_Code__c FROM Submission__c WHERE Id = :submission1.Id];
         

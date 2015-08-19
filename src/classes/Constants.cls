@@ -8,6 +8,7 @@ public class Constants {
 	public static final String REVIEW_DATE_MILESTONE_NAME = 'Review Date';
 	public static final String ACCEPTANCE_DATE_MILESTONE_NAME = 'Acceptance Date';
 	public static final String END_DATE_MILESTONE_NAME = 'End Date';
+	public static final Integer NUMBER_OF_MILESTONES = 8;
 	
 	////////////////////////////////////////// END Milestone Constants \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 	//////////////////////////////////////////// Submission Constants \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
@@ -27,7 +28,7 @@ public class Constants {
 	public static final String STATUS_IN_SUBMISSION = 'In Submission';
 	public static final String STATUS_IN_REVIEW = 'In Review';
 	public static final String STATUS_ACCEPTED = 'Accepted';
-	public static final String STATUS_COMPLETE = 'Complete';
+	public static final String STATUS_COMPLETED = 'Completed';
 	public static final String STATUS_CANCELED = 'Canceled';
 
 	public static final Map<String, Integer> REQUIRMENT_SCORE_BY_WEIGHT = new Map<String, Integer>{'Critical' => 4, 'High' => 3, 'Normal' => 2, 'Low' => 1};
@@ -57,4 +58,9 @@ public class Constants {
     // Submission
     public static final String NOTIFICATION_SUBMISSION_REVIEW_COMPLETE = 'Submission Review Complete';
     public static final String NOTIFICATION_ACTIVITY_AWARDED = 'Activity Awarded';
+    
+    public static final String ID = 'id';
+    public static final String EXPERIENCE_LEVEL = 'Experience_Level__c';
+    public static final String MEMBER_SEARCH = 'Member Search';  
+    
 }

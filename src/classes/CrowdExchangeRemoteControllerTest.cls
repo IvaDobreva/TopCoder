@@ -234,7 +234,7 @@ private class CrowdExchangeRemoteControllerTest {
         Test.startTest();
             CrowdExchangeRemoteController.completeActivity(activity.Id);
             activity = [SELECT Status__c FROM Activity__c];
-            System.assertEquals(Constants.STATUS_COMPLETE,activity.Status__c);
+            System.assertEquals(Constants.STATUS_COMPLETED,activity.Status__c);
             try{
                 CrowdExchangeRemoteController.completeActivity(null);
                 System.assert(false); // Never reached

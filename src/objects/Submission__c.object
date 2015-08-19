@@ -41,6 +41,34 @@
         <type>TextArea</type>
     </fields>
     <fields>
+        <fullName>Placement__c</fullName>
+        <label>Placement</label>
+        <picklist>
+            <picklistValues>
+                <fullName>1st</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>2nd</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>3rd</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>4th</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>5th</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <type>Picklist</type>
+    </fields>
+    <fields>
         <fullName>Review_Date__c</fullName>
         <label>Review Date</label>
         <type>DateTime</type>
