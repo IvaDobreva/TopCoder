@@ -190,7 +190,10 @@
         <name>Profile</name>
     </types>
     <types>
+        <members>AllResource</members>
         <members>CrowdExchangeWebApp_Resources</members>
+        <members>JqueryDatatable</members>
+        <members>PageResources</members>
         <name>StaticResource</name>
     </types>
     <types>

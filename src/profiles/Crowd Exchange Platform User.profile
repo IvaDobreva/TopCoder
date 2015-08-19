@@ -909,6 +909,10 @@
         <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
+        <apexPage>CrowdExchangeWebApp_PubMemProfile</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
         <apexPage>CrowdExchangeWebApp_PubStoryDetails</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
