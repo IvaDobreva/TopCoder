@@ -1,4 +1,4 @@
-<apex:page standardStylesheets="false" sidebar="false" showHeader="false" docType="html-5.0" controller="CrowdExchangeMemberMyProfileController">
+<apex:page standardStylesheets="false" sidebar="false" showHeader="false" docType="html-5.0" controller="CE_MemberMyProfileController">
 
     <link rel="stylesheet" type="text/css" href="{!URLFOR($Resource.AllResource, 'css/screen.css')}"/>
     <link rel="stylesheet" type="text/css" href="{!URLFOR($Resource.JqueryDatatable, 'media/css/jquery.dataTables.css')}"/>
@@ -29,7 +29,7 @@
   
           //remote action for uploading user information
           Visualforce.remoting.Manager.invokeAction(              
-          '{!$RemoteAction.CrowdExchangeMemberMyProfileController.uploadProfilePicture}', 
+          '{!$RemoteAction.CE_MemberMyProfileController.uploadProfilePicture}', 
           '{!$User.Id}', isProfilePicChanged, filename,fileData, isBannerPicChanged, bFilename, bFileData,
            fName, lName, email, role, organization, phoneNumber, aboutMe,       
           function(result, event){
@@ -68,7 +68,7 @@
                  //remove spaces from skill name
                  textSkill = textSkill.replace(/\s/g, "");
                  var skillId = skillIdMap[textSkill];
-                 var skill = new UserSkill__c();
+                 var skill = new CE_UserSkill__c();
                  skill.Experience_Level__c = textLevel;
                  skill.Skill__c = skillId;
                  skill.Id = Id; 
@@ -89,7 +89,7 @@
                  textSkill = textSkill.replace(/\s/g, "");        
                  
                  var skillId = skillIdMap[textSkill];
-                 var skill = new UserSkill__c();
+                 var skill = new CE_UserSkill__c();
                  skill.Experience_Level__c = textLevel;
                  skill.Skill__c = skillId;
                  skillArray.push(skill);       
@@ -99,7 +99,7 @@
          //Calling remote action to save skills
          if(skillArray.length>0){
              Visualforce.remoting.Manager.invokeAction(              
-              '{!$RemoteAction.CrowdExchangeMemberMyProfileController.upsertSkills}', 
+              '{!$RemoteAction.CE_MemberMyProfileController.upsertSkills}', 
               skillArray,'{!$User.Id}',    
               function(result, event){       
                   if (event.status) {         

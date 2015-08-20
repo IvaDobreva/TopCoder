@@ -1,6 +1,6 @@
 Hello {!User.Name},
 
-The new story {!Story__c.Name} has been published. Please log in to view.
+The new story {!CE_Story__c.Name} has been published. Please log in to view.
 
 Sincerely,
 

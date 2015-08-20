@@ -1,3 +1,3 @@
 {{userFirstName}}:
 
-I have an Activity in Crowd Exchange which matches your skills and that might interest you.  Please search for the following activity:  {{activityName}} at {!$Setup.CrowdExchangeSettings__c.Site_Url__c}.
+I have an Activity in Crowd Exchange which matches your skills and that might interest you.  Please search for the following activity:  {{activityName}} at {!$Setup.CE_CrowdExchangeSettings__c.Site_Url__c}.

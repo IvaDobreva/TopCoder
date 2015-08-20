@@ -4,6 +4,6 @@
     <encodingKey>ISO-8859-1</encodingKey>
     <name>No Submissions</name>
     <style>none</style>
-    <subject>No Submissions Received For Activity {!Activity__c.Name}</subject>
+    <subject>No Submissions Received For Activity {!CE_Activity__c.Name}</subject>
     <type>text</type>
 </EmailTemplate>

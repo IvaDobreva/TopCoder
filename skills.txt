@@ -1,18 +1,18 @@
-Skills__c java = new Skills__c(Name = 'Java');
-Skills__c c = new Skills__c(Name = 'C');
-Skills__c perl = new Skills__c(Name = 'Perl');
-Skills__c ruby = new Skills__c(Name = 'Ruby');
-Skills__c html = new Skills__c(Name = 'HTML');
-Skills__c xml = new Skills__c(Name = 'XML');
-Skills__c css = new Skills__c(Name = 'CSS');
-Skills__c javascript = new Skills__c(Name = 'Javascript');
-Skills__c mysql = new Skills__c(Name = 'MySQL');
-Skills__c oracle = new Skills__c(Name = 'Oracle');
-Skills__c visualforce = new Skills__c(Name = 'Visualforce');
+CE_Skills__c java = new CE_Skills__c(Name = 'Java');
+CE_Skills__c c = new CE_Skills__c(Name = 'C');
+CE_Skills__c perl = new CE_Skills__c(Name = 'Perl');
+CE_Skills__c ruby = new CE_Skills__c(Name = 'Ruby');
+CE_Skills__c html = new CE_Skills__c(Name = 'HTML');
+CE_Skills__c xml = new CE_Skills__c(Name = 'XML');
+CE_Skills__c css = new CE_Skills__c(Name = 'CSS');
+CE_Skills__c javascript = new CE_Skills__c(Name = 'Javascript');
+CE_Skills__c mysql = new CE_Skills__c(Name = 'MySQL');
+CE_Skills__c oracle = new CE_Skills__c(Name = 'Oracle');
+CE_Skills__c visualforce = new CE_Skills__c(Name = 'Visualforce');
 
 
 
-List<Skills__c> skillList =  new List<Skills__c> { java,
+List<CE_Skills__c> skillList =  new List<CE_Skills__c> { java,
 									                                c,
 									                                perl,
 									                                ruby,

@@ -1,4 +1,4 @@
-<apex:component controller="CrowdExchangeWebApp_ConfigController">
+<apex:component controller="CE_WebApp_ConfigController">
 <script type="text/javascript">
     var GLOBAL_CONFIG = {
         appRoot: "{!URLFOR($Resource.CrowdExchangeWebApp_Resources)}"+"/",
@@ -11,7 +11,7 @@
         }),
         milestones: {!milestones},
         activityChatterUrl: '{!$Site.Domain}{!URLFOR($Page.CrowdExchange_ActivityFeed)}',
-        notificationsCounterUpdateInterval: {!$Setup.CrowdExchangeSettings__c.NotificationsCounterUpdateInterval__c}
+        notificationsCounterUpdateInterval: {!$Setup.CE_CrowdExchangeSettings__c.NotificationsCounterUpdateInterval__c}
     }
 </script>
 </apex:component>

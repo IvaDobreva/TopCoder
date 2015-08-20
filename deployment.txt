@@ -4,7 +4,9 @@ Prerequisites -- These step MUST be performed in order to deploy this code.
 1. Procure a SFDC Developer org. 
 2. Enable Customer Portal
 3. Enable Chatter AnswersChatter answers in your ORG. 
-4. Create a Site called "CrowdExchange".  You'll need the URL for Search Member Email template/Custom Setting below.
+4. Enable a Communities.
+5. Create new Community called "CrowdExchange" Use the Wizard and select the "Visualforce Template".  You'll need the URL for Search Member Email template/Custom Setting below.
+6.	Go to Setup > Administer > Manage Users > Public Groups.  We need to create 3 public group:  "Crowd Exchange Members", "Crowd Exchange Publishers", and "Crowd Exchange Users".  Add all “Publisher” users in “Crowd Exchange Publishers” public group. Add all “Member” users in “Crowd Exchange Members”. Add those 2 public groups in “Crowd Exchange Users”.
 
 Deployment
 1. Unzip the submission zip into a local directory.
@@ -13,19 +15,20 @@ Deployment
  - Caution: In that case, you can overwrite current customization. Ant and saleforce-ant deployment tool is included to the submission
 
 Post Deployment:
-1. - Update the CrowdExchangeSettings__c: 
+1. - Update the CE_CrowdExchangeSettings__c: 
     -- NotificationsCounterUpdateInterval__c = 30
     -- Site_Url__c: community url. Used in “Search member” template
-2.  Goto FLS for Users. Enable all the Crowd_Exchange custom fields for users.  Since we're not migrating profiles these tend to be hidden post-deployment.  You should set your admin user either as a publisher or member and/or create other member and publiser users in the system using the Crowd_Exchange_User_Type field.  The fields are:
+2.  Goto FLS for Users. Enable all the Crowd Exchange custom fields for users.  Since we're not migrating profiles these tend to be hidden post-deployment.  You should set your admin user either as a publisher or member and/or create other member and publiser users in the system using the Crowd_Exchange_User_Type field.  The fields are:
     -- Crowd_Exchange_User_Type__c
     -- Crowd_Exchange_About_Me__c
     -- Crowd_Exchange_Organization__c
+3.  Navigation through the application requires users to have the Crowd_Exchange_User_Type field populated.  Please validate that all users which access the site have this field populated.  This will be a moot point when authentication is working properly.
     
 To Enable Notifications:
 1.	Go to Setup > Build > Develop > Email Services and click New Email Service to create Notification Email Service. Type “notification” for Email Service Name, select Apex Class “NotificationEmailHandler” for Apex Class, check “Actice” and save it.
 2.	On the same page, click “New Email Address” to create a new Email address. Remove pre-filled your email address in Accept Email From field to accept all emails, change Context User to appropriate context user, leave Email Address for “notification” and save it.
 3.	Remember the email address displayed in “Email Address” with “notification@....”. Set the email address to Compliance BCC Email (Setup > Administer > Email Administration > Compliance BCC Email) , check “Enable” and  save it.
-4.	Go to Setup > Administer > Manage Users > Public Groups.  Add all “Publisher” users in “Crowd Exchange Publishers” public group. Add all “Member” users in “Crowd Exchange Members”. Add those 2 public groups in “Crowd Exchange Users”.
+
 
 
 The current home page for the app is the Stories interface:

@@ -1,0 +1,186 @@
+<apex:page showheader="false" sidebar="false" standardstylesheets="false" 
+            cache="false" expires="600" applyBodyTag="false" applyHtmlTag="false" 
+            docType="html-5.0">
+<div class="contents notifications-contents">
+  <div class="gray-bg crumbs">
+
+    <div class="bg-border3" />
+
+    <div class="boxs">
+
+      <div class="lefts">
+        <a href="#/{{user.role}}MyProfile" class="blue-link pull-left">{{user.fullName}}</a>
+        <span class="icon-gray-arrow pull-left" />
+        <span class="current-text gray-text pull-left">Notifications</span>
+        <span class="current-text width95 form-container pull-right" ng-jqtransform="a">
+          <span class="selects-container">            
+            <select ng-model="vm.folderType">
+              <option value="inbox">Inbox</option>
+              <option value="outbox">Outbox</option>
+            </select>          
+          </span>           
+        </span>     
+        <span class="clearfix" />
+      </div>
+    </div>
+  </div>
+  <!-- end .crumbs -->
+
+  <div class="text-center" ng-show="vm.isLoading">
+    <br/>
+    <div>
+      <img src="/img/loading32.gif" />
+    </div>
+  </div>
+  <div class="table-data boxs" ng-hide="vm.isLoading">
+
+    <div class="row row-th">
+
+      <div class="click-box">
+
+        <div class="sub-table">
+
+          <div class="col-td show-hide-td" />
+
+          <div class="col-td text-date">Date</div>
+
+          <div class="col-td">Notification Subject</div>
+
+          <div class="col-td width16">Notification Type</div>
+        </div>
+      </div>
+      <!-- end .click-box -->
+
+      <div class="col-td operation-td" />
+    </div>
+    <!-- end .row -->
+
+    <div class="row-box row-content-{{notification.isOpen?'show':'hide'}}" dir-paginate="notification in vm.notifications | itemsPerPage: vm.pageSize" total-items="vm.totalItems||1" current-page="vm.page" pagination-id="notifications" ng-click="notification.openClose()">
+
+      <div class="row row-td">
+
+        <div class="click-box">
+
+          <div class="sub-table">
+
+            <div class="col-td show-hide-td">
+              <a href="javascript:;" class="icon-show-hide"/>
+            </div>
+
+            <div class="col-td text-date gray-date" ng-style="{ fontFamily: notification.isRead?'HPSimplified, Arial, Helvetica':'HPSimplifiedBold, Arial, Helvetica'}">{{notification.dateSent | date : 'MM/dd/yyyy' }}<em class="spacing12" />{{notification.dateSent | date : 'HH:mm' }}</div>
+
+            <div class="col-td">
+              <span class="{{notification.isRead?'':'orange-link'}}" ng-style="{ fontFamily: notification.isRead?'HPSimplified, Arial, Helvetica':'HPSimplifiedBold, Arial, Helvetica'}">{{notification.subject}}</span>
+            </div>
+
+            <div class="col-td width16" ng-style="{ fontFamily: notification.isRead?'HPSimplified, Arial, Helvetica':'HPSimplifiedBold, Arial, Helvetica'}">{{notification.type}}</div>
+          </div>
+        </div>
+        <!-- end .click-box -->
+
+        <div class="col-td operation-td text-right">
+          <a href="javascript:;" class="icon-del-blue-btn" ng-click="$parent.vm.archiveNotification($index)"><i /></a>
+        </div>
+      </div>
+      <!-- end .row -->
+
+      <div class="content-info">
+        <div class="rows">
+          <div class="text">Notification Recipients:</div>
+          <div class="value">
+            <ul>
+              <li ng-repeat="recipient in notification.recipients track by recipient.id" tip-text="a">
+                <a href="javascript:;" class="blue-link icon-user"><i />{{recipient.firstName}} {{recipient.lastName}}<span ng-hide="$last">;</span></a>
+                <div class="tip-text hide">
+                  <span class="icon-arrow" />
+                  <a href="mailto:{{recipient.email}}" class="blue-link icon-email"><i />{{recipient.email}}</a>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <!-- end .rows -->
+
+        <div class="rows">
+          <div class="text">From:</div>
+          <div class="value">
+            <ul>
+              <li>               
+                <a href="javascript:;" class="blue-link icon-user"><i />{{notification.sender.firstName}} {{notification.sender.lastName}}</a>
+              </li>
+              <li>
+                <a href="mailto:{{notification.sender.email}}" class="blue-link icon-email"><i />{{notification.sender.email}}</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <!-- end .rows -->
+
+        <div class="rows">
+
+          <div class="text">Notification Text:</div>
+
+          <div class="value">
+
+            <p>
+              <pre>{{notification.text}}</pre>
+            </p>
+          </div>
+        </div>
+        <!-- end .rows -->
+
+        <div class="rows">
+
+          <div class="text">Subject:</div>
+
+          <div class="value">
+
+            <p>
+              {{notification.subject}}
+            </p>
+          </div>
+        </div>
+        <!-- end .rows -->
+
+        <div class="rows">
+
+          <div class="text">Type:</div>
+
+          <div class="value">
+
+            <p>
+              {{notification.type}}
+            </p>
+          </div>
+        </div>
+        <!-- end .rows -->
+      </div>
+      <!-- end .content-info -->
+    </div>
+    <!-- end .row-box -->
+    <div class="page-bar up-spacing boxs">
+      <div class="pull-left text-left">
+        <span class="text">Show</span>
+        <span class="form-container width55" ng-jqtransform="a">
+          <span class="selects-container">            
+            <select ng-model="vm.pageSize" convert-to-number="a">
+              <option value="10">10</option>
+              <option value="25">25</option>
+              <option value="50">50</option>
+            </select>                   
+          </span> 
+        </span> 
+      </div>
+      <!-- end .text-left -->
+      <span class="pull-right">
+        <dir-pagination-controls auto-hide="false" pagination-id="notifications" on-page-change="vm.pageChanged(newPageNumber)"> </dir-pagination-controls>
+      </span>
+      <!-- end .pages --> 
+      <div class="clearfix"></div>
+    </div>
+  </div>
+  <!-- end .table-data -->
+
+</div>
+<!-- end .contents -->
+</apex:page>

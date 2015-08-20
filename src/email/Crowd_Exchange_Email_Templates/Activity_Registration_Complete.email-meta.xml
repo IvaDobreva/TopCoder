@@ -4,6 +4,6 @@
     <encodingKey>ISO-8859-1</encodingKey>
     <name>Activity Registration Complete</name>
     <style>none</style>
-    <subject>Registration Complete For Activity {!Activity__c.Name}</subject>
+    <subject>Registration Complete For Activity {!CE_Activity__c.Name}</subject>
     <type>text</type>
 </EmailTemplate>

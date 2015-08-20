@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableReports>true</enableReports>
+    <fields>
+        <fullName>Activity_Skill__c</fullName>
+        <caseSensitive>true</caseSensitive>
+        <description>Field holding concatenated Activity Id and the Skill Id to create a synthetic id to prevent adding duplicate Activity and Skill combinations to ActivitySkill table</description>
+        <externalId>true</externalId>
+        <inlineHelpText>Field holding concatenated Activity Id and the Skill Id to create a synthetic id to prevent adding duplicate Activity and Skill combinations to ActivitySkill table</inlineHelpText>
+        <label>Activity Skill</label>
+        <length>40</length>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>CE_Activity__c</fullName>
+        <label>Activity</label>
+        <referenceTo>CE_Activity__c</referenceTo>
+        <relationshipLabel>Activity Skills</relationshipLabel>
+        <relationshipName>Activity_Skills</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <type>MasterDetail</type>
+    </fields>
+    <fields>
+        <fullName>Skill__c</fullName>
+        <label>Skill</label>
+        <referenceTo>CE_Skills__c</referenceTo>
+        <relationshipLabel>Activity Skills</relationshipLabel>
+        <relationshipName>Activity_Skills</relationshipName>
+        <type>Lookup</type>
+    </fields>
+    <label>Activity Skill</label>
+    <nameField>
+        <displayFormat>AS-{0000000000}</displayFormat>
+        <label>Activity Skills Name</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Activity Skills</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ControlledByParent</sharingModel>
+</CustomObject>

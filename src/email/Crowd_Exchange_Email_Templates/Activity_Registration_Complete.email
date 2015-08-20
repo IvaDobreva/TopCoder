@@ -1,6 +1,6 @@
 Hello {!User.Name},
 
-The registration for activity {!Activity__c.Name} is now complete. Please log in to view.
+The registration for activity {!CE_Activity__c.Name} is now complete. Please log in to view.
 
 Sincerely,
 

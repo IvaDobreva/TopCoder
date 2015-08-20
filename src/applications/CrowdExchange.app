@@ -3,13 +3,13 @@
     <defaultLandingTab>standard-home</defaultLandingTab>
     <label>CrowdExchange</label>
     <tab>standard-Chatter</tab>
-    <tab>Story__c</tab>
-    <tab>Activity__c</tab>
-    <tab>Internal_Project__c</tab>
-    <tab>Milestone__c</tab>
-    <tab>Default_Requirement__c</tab>
-    <tab>Skills__c</tab>
-    <tab>Notification__c</tab>
-    <tab>Requirement__c</tab>
-    <tab>User_Notification__c</tab>
+    <tab>CE_Story__c</tab>
+    <tab>CE_Activity__c</tab>
+    <tab>CE_Internal_Project__c</tab>
+    <tab>CE_Milestone__c</tab>
+    <tab>CE_Default_Requirement__c</tab>
+    <tab>CE_Skills__c</tab>
+    <tab>CE_Notification__c</tab>
+    <tab>CE_Requirement__c</tab>
+    <tab>CE_User_Notification__c</tab>
 </CustomApplication>

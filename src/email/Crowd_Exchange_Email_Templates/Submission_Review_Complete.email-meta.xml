@@ -4,6 +4,6 @@
     <encodingKey>ISO-8859-1</encodingKey>
     <name>Submission Review Complete</name>
     <style>none</style>
-    <subject>Review Complete For Activity {!Submission__c.Activity__c}</subject>
+    <subject>Review Complete For Activity {!CE_Submission__c.CE_Activity__c}</subject>
     <type>text</type>
 </EmailTemplate>

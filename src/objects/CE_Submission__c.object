@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <fields>
+        <fullName>CE_Activity__c</fullName>
+        <label>Activity</label>
+        <referenceTo>CE_Activity__c</referenceTo>
+        <relationshipLabel>Submissions</relationshipLabel>
+        <relationshipName>Submissions</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <type>MasterDetail</type>
+    </fields>
+    <fields>
+        <fullName>Evaluation_Percentage__c</fullName>
+        <label>Evaluation Percentage</label>
+        <precision>18</precision>
+        <scale>2</scale>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>Notification_Code__c</fullName>
+        <label>Notification Code</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Submission Review Complete</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Activity Awarded</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Overall_Comment__c</fullName>
+        <label>Overall Comment</label>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Placement__c</fullName>
+        <label>Placement</label>
+        <picklist>
+            <picklistValues>
+                <fullName>1st</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>2nd</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>3rd</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>4th</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>5th</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Review_Date__c</fullName>
+        <label>Review Date</label>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Reviewed_By__c</fullName>
+        <label>Reviewed By</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Submissions_Reviewed_By</relationshipName>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Status__c</fullName>
+        <label>Status</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Ready to Review</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Review Complete</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Submission_Score__c</fullName>
+        <label>Submission Score</label>
+        <precision>18</precision>
+        <scale>2</scale>
+        <type>Number</type>
+    </fields>
+    <fields>
+        <fullName>Submission_Timestamp__c</fullName>
+        <label>Submission Timestamp</label>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Submitting_Member__c</fullName>
+        <label>Submitting Member</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Submissions</relationshipName>
+        <type>Lookup</type>
+    </fields>
+    <label>Submission</label>
+    <nameField>
+        <label>Submission Name</label>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Submissions</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ControlledByParent</sharingModel>
+</CustomObject>

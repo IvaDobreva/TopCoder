@@ -4,6 +4,6 @@
     <encodingKey>ISO-8859-1</encodingKey>
     <name>No Registered Users</name>
     <style>none</style>
-    <subject>No Registered Users For Activity {!Activity__c.Name}</subject>
+    <subject>No Registered Users For Activity {!CE_Activity__c.Name}</subject>
     <type>text</type>
 </EmailTemplate>

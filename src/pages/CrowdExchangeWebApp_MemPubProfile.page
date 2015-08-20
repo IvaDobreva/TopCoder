@@ -1,4 +1,4 @@
-<apex:page controller="CrowdExchangeMemPubProfile" standardStylesheets="false" sidebar="false" showHeader="false" docType="html-5.0">
+<apex:page controller="CE_MemPubProfileController" standardStylesheets="false" sidebar="false" showHeader="false" docType="html-5.0">
 
     <link rel="stylesheet" type="text/css" href="{!URLFOR($Resource.AllResource, 'css/screen.css')}"/>
     <link rel="stylesheet" type="text/css" href="{!URLFOR($Resource.JqueryDatatable, 'media/css/jquery.dataTables.css')}"/>

@@ -4,6 +4,6 @@
     <encodingKey>ISO-8859-1</encodingKey>
     <name>New Story Published</name>
     <style>none</style>
-    <subject>New Story Published: {!Story__c.Name}</subject>
+    <subject>New Story Published: {!CE_Story__c.Name}</subject>
     <type>text</type>
 </EmailTemplate>

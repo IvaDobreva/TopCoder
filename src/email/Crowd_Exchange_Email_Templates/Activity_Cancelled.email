@@ -1,6 +1,6 @@
 Hello {!User.Name},
 
-The activity {!Registration__c.Activity__c} has been cancelled.
+The activity {!CE_Registration__c.CE_Activity__c} has been cancelled.
 
 Sincerely,
 

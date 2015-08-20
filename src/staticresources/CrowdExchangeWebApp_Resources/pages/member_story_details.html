@@ -1,0 +1,82 @@
+
+<div class="contents publisher-story-activity-contents member-activity-details-contents">
+  
+  <div class="crumbs">
+    <div class="bg-border3"></div>
+    <div class="boxs">
+      <div class="lefts">
+        <a href="member-dashboard.html" class="blue-link pull-left">Dashboard</a>
+        <span class="icon-blue-arrow pull-left"></span>
+        <span class="current-text black-text pull-left">{{vm.title}}</span>
+        <span class="clearfix"></span>
+      </div>
+    </div>
+  </div>
+  <!-- end .crumbs -->
+  
+  <div class="default-story-contents">   
+  <div class="story-contents tab-content">
+    <div class="boxs">
+      <div class="title large-title">
+        <h2>{{vm.title}}</h2>
+      </div>
+      <div class="type type-top">
+        <div class="activity-type pull-left">
+          <span>Publisher<em></em></span>
+          <p class="activity-txt"><a href="javascript:;" class="blue-link">{{vm.publisher.fullName}}</a></p>
+        </div>
+        <div class="process-type pull-left">
+          <span>Organization<em></em></span>
+          <p class="activity-txt"><a href="javascript:;" class="blue-link">{{vm.publisher.organization}}</a></p>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+      <!-- .type --> 
+      <div class="review-description bottom-no">
+        <h3 class="title-h3">Story Description<i></i></h3>
+        <div class="review-desc-con">
+          <div ng-bind-html="vm.description | sanitize"></div>
+        </div>
+      </div>
+      <!-- end.review-description -->
+      <div class="story-activities">
+        <h3 class="title-h3">Story Activities<i></i></h3>        
+          <div class="table-data">
+            <div class="row row-th">
+              <div class="col-td width36">Story/Activity</div>
+              <div class="col-td width10">Type</div>
+              <div class="col-td width11 text-center">Registrants</div>
+              <div class="col-td width11">Start Date</div>
+              <div class="col-td width11">End Date</div>
+              <div class="col-td width10">Phase</div>
+              <div class="col-td width11"></div>
+            </div>
+            <!-- end .row -->
+            <div class="row-title gray-border"></div>
+            <!-- end .row-title -->
+            <div class="row row-td" ng-repeat="activity in vm.activities track by $index">
+              <div class="col-td width36"><a href="member-activity-details-assigned.html?registrants=25&submissions=0" class="blue-link">{{activity.title}}</a></div>
+              <div class="col-td width10">{{activity.challengeType}}</div>
+              <div class="col-td width11 text-center"><a href="member-activity-details-assigned.html?tab=Registrants&registrants=25&submissions=0" class="blue-link">{{vm.registrations.length}}</a></div>
+              <div class="col-td width11">{{ activity.startMilestone.scheduledDate | date : 'MM/dd/yyyy' }}</div>
+              <div class="col-td width11" ng-if="activity.phase !== 'Completed'">{{ activity.endMilestone.scheduledDate | date : 'MM/dd/yyyy' }}</div>
+              <div class="col-td width11" ng-if="activity.phase === 'Completed'">{{ activity.endMilestone.completedDate | date : 'MM/dd/yyyy' }}</div>
+              <div class="col-td width10 yellow">{{activity.phase}}</div>
+              <div class="col-td width11 text-right">
+               <a href="javascript:;" class="blue-border-btn width105 pull-right register-button-search-result open-modal-window {{activity.isRegistered?'hide':''}}" ng-click="$parent.vm.registerToActivity(activity.id)">REGISTER</a>
+               <a href="member-activity-details-assigned.html?tab=Submissions" class="blue-btn width105 radius6 text-center {{activity.isRegistered?'':'hide'}}"><span><span>Submit</span></span></a>
+              </div>
+            </div>
+            <!-- end .row -->
+          </div>
+          <!-- end.table-data -->    
+      </div>
+      <!-- end.review-description -->
+    </div>  
+  </div>
+  <!-- end .story-contents -->
+  
+  </div>
+  <!-- end .default-story-contents -->
+</div>
+<!-- end .contents -->

@@ -4,6 +4,6 @@
     <encodingKey>ISO-8859-1</encodingKey>
     <name>Invitation To Register For an Activity</name>
     <style>none</style>
-    <subject>Invitation Received to Register For Activity {!Activity__c.Name}</subject>
+    <subject>Invitation Received to Register For Activity {!CE_Activity__c.Name}</subject>
     <type>text</type>
 </EmailTemplate>

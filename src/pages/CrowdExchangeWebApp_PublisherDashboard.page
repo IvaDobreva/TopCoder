@@ -1,4 +1,4 @@
-<apex:page standardStylesheets="false" sidebar="false" showHeader="false"  docType="html-5.0" controller="CrowdExchange_PublisherDashboard">
+<apex:page standardStylesheets="false" sidebar="false" showHeader="false"  docType="html-5.0" controller="CE_PublisherDashboardController">
    
    <link rel="stylesheet" type="text/css" href="{!URLFOR($Resource.AllResource, 'css/screen.css')}"/>
    <link rel="stylesheet" type="text/css" href="{!URLFOR($Resource.JqueryDatatable, 'media/css/jquery.dataTables.css')}"/>

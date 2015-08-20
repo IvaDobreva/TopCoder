@@ -1,0 +1,501 @@
+<apex:page showheader="false" sidebar="false" standardstylesheets="false" 
+            cache="false" expires="600" applyBodyTag="false" applyHtmlTag="false" 
+            docType="html-5.0">
+
+    <!-- Search items templates -->
+    <!-- Story item template -->
+    <script type="text/ng-template" id="searchItemStory.html">
+        <div class="row row-td storys-row">
+            <div class="col-td">
+                <span class="icon-total-stories" />
+                <div class="text-box">
+                    <a href="#/{{user.role == 'Publisher'? 'publisherStoryDetails':'memberStoryDetails'}}/{{content.id}}" class="blue-link font18">{{content.title}}</a>
+                    <p class="gray-text font14">Organization: 
+                        <span class="value">{{content.publisher.organization}}</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- end .row -->
+    </script>
+    <!-- Activity item template -->
+    <script type="text/ng-template" id="searchItemActivity.html">
+        <div class="row row-td activities-row">
+            <div class="col-td">
+                <span class="icon-current-activities" />
+                <div class="text-box">
+                    <a href="#/{{(user.role == 'Publisher'?'publisherActivityDetailsAssignRegister':'memberActivityAssignAssigned')}}/{{content.id}}" class="blue-link font18">{{content.title}}</a>
+                    <p class="gray-text font14">Story: 
+                        <a href="#/{{user.role == 'Publisher'? 'publisherStoryDetails':'memberStoryDetails'}}/{{content.story.id}}" class="blue-link">{{content.story.title}}</a>
+                    </p>
+                </div>
+            </div>
+            <div class="col-td">
+                <a href="javascript:;" ng-if="user.role == 'Member'" class="blue-border-btn width85 text-center pull-right font14 register-button-search-result open-modal-window {{content.isRegistered?'hide':''}}" ng-click="content.registerToActivity()">REGISTER</a>
+                <a href="#/memberActivityAssignAssigned/{{content.id}}?tab=Submissions" ng-if="user.role == 'Member'" class="blue-btn width85 radius6 text-center pull-right font14 submit-button-search-result submit-blue-btn {{content.isRegistered?'':'hide'}}"><span><span>SUBMIT</span></span></a>
+                <div class="col-text font14 pull-right {{user.role == 'Member'?'':'width370'}}">
+                    <div class="group">
+                        <span class="text">Activity Stage:</span>
+                        <span class="value">{{content.phase}}</span>
+                    </div>
+                    <div class="group">
+                        <span class="text">Service Offering:</span>
+                        <span class="value">{{content.story.serviceOffering}}</span>
+                    </div>
+                </div>
+                <!-- end .col-text -->
+            </div>
+        </div>
+        <!-- end .row -->
+    </script>
+    <!-- Member item template -->
+    <script type="text/ng-template" id="searchItemMember.html">
+        <div class="row row-td members-row">
+            <div class="col-td">
+                <div class="col-user">
+                    <a href="publisher-member-profile.html" class="portrait-img">
+                        <img src="{{content.photoUrl}}" alt="Portrait" />
+                    </a>
+                    <span class="user-texts">
+                        <a href="publisher-member-profile.html" class="blue-link">{{content.firstName}} {{content.lastName}}</a>
+                        <span class="block">
+                            <span class="gray-text font14">Done:
+                                <span class="value">{{content.activitiesDone}} Work{{content.activitiesDone===1?'':'s'}}</span>
+                            </span>
+                        </span>
+                    </span>
+                </div>
+                <!-- .col-user-->
+            </div>
+            <div class="col-td">
+                <div class="col-text font14 pull-left">
+                    <div class="group">
+                        <span class="text">Skills:</span>
+                        <p class="value"><span ng-repeat="skill in content.skills | limitTo:5">{{skill.name}}{{$last?'':', '}}</span>
+                            <a href="javascript:;" class="blue-link" ng-if="content.skills.length>5">(+{{content.skills.length-5}} more)</a>
+                        </p>
+                    </div>
+                </div>
+                <!-- end .col-text -->
+                <a href="javascript:;" ng-click="$parent.$parent.vm.inviteMember(content)" class="blue-border-btn width55 text-center pull-right font14" ng-if="user.role == 'Publisher'">EMAIL</a>
+                <a href="mailto:{{content.email}}" class="blue-border-btn width55 text-center pull-right font14" ng-if="user.role == 'Member'">EMAIL</a>
+            </div>
+        </div>
+        <!-- end .row -->
+    </script>
+    <!-- End of Search items templates -->
+    <div class="text-center" ng-show="vm.isLoading">
+        <br/>
+        <div>
+            <img src="/img/loading32.gif" />
+        </div>
+    </div>
+    <div ng-if="!vm.isLoading">
+        <!-- No results section -->
+        <div class="contents search-result-no" ng-hide="vm.allResults.totalItems">
+            <div class="bg-border3" />
+            <div class="boxs">
+                <div class="keywords-text">
+                    <span class="text">There is no result for</span>
+                    <span class="value">"{{vm.oldQuery}}"</span>
+                </div>
+                <!-- end .keywords-text -->
+                <div class="search-form">
+                    <span class="icon-big-glass" />
+                    <div class="mains">
+                        <h2>Please try again:</h2>
+                        <div class="search">
+                            <a href="javascript:;" class="icon-search search-again-button" ng-click="vm.search()" />
+                            <input type="text" class="keywords-blue" value="Service" placeholder="Search..." ng-model="vm.newQuery" />
+                        </div>
+                    </div>
+                </div>
+                <!-- end .search-form -->
+            </div>
+        </div>
+        <!-- end .search-result-no -->
+        <!-- Results section -->
+        <div class="contents search-result-contents" ng-show="vm.allResults.totalItems">
+            <div class="bg-border3" />
+            <div class="search-result">
+                <div class="boxs">
+                    <h1 class="keywords">Result for 
+                        <span>“{{vm.oldQuery}}”</span>
+                    </h1>
+                    <div class="tabs-bar boxs">
+                        <nav class="pull-left">
+                            <ul>
+                                <li class="{{vm.currentTab == SearchTabs.All?'current':''}}" data-filter-type="all" ng-click="vm.setCurrentTab(SearchTabs.All)">
+                                    <span />
+                                    <a href="javascript:;">
+                                        <i />All results ({{vm.allResults.totalItems}})
+                                    </a>
+                                </li>
+                                <li class="{{vm.currentTab == SearchTabs.Stories?'current':''}}" data-filter-type="storys-row" ng-click="vm.setCurrentTab(SearchTabs.Stories)">
+                                    <span />
+                                    <a href="javascript:;">
+                                        <i />Stories ({{vm.stories.totalItems}})
+                                    </a>
+                                </li>
+                                <li class="{{vm.currentTab == SearchTabs.Activities?'current':''}}" data-filter-type="activities-row" ng-click="vm.setCurrentTab(SearchTabs.Activities)">
+                                    <span />
+                                    <a href="javascript:;">
+                                        <i />Activities ({{vm.activities.totalItems}})
+                                    </a>
+                                </li>
+                                <li class="{{vm.currentTab == SearchTabs.Members?'current':''}}" data-filter-type="members-row" ng-click="vm.setCurrentTab(SearchTabs.Members)">
+                                    <span />
+                                    <a href="javascript:;">
+                                        <i />Members ({{vm.members.totalItems}})
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                        <div class="pull-right right-box">
+                            <a href="javascript:;" class="{{vm.stories.filter.isActive?'show':'hide'}}-filter filter-btn" ng-if="vm.currentTab == SearchTabs.Stories" ng-click="vm.stories.filter.showHide()">
+                                <i />
+                                <span />
+                                <em>{{vm.stories.filter.isActive?'Hide ':''}}Filter</em>
+                            </a>
+                            <a href="javascript:;" class="{{vm.activities.filter.isActive?'show':'hide'}}-filter filter-btn" ng-if="vm.currentTab == SearchTabs.Activities" ng-click="vm.activities.filter.showHide()">
+                                <i />
+                                <span />
+                                <em>{{vm.activities.filter.isActive?'Hide ':''}}Filter</em>
+                            </a>
+                            <a href="javascript:;" class="{{vm.members.filter.isActive?'show':'hide'}}-filter filter-btn" ng-if="vm.currentTab == SearchTabs.Members" ng-click="vm.members.filter.showHide()">
+                                <i />
+                                <span />
+                                <em>{{vm.members.filter.isActive?'Hide ':''}}Filter</em>
+                            </a>
+                        </div>
+                        <div class="clearfix" /></div>
+                    <div class="clearfix tabs-clearfix" />
+                    <div class="filter-content boxs storys-row" ng-if="vm.currentTab == SearchTabs.Stories && vm.stories.filter.isActive">
+                        <div class="row">
+                            <div class="group width522">
+                                <span class="texts width115">Title:</span>
+                                <span class="input-box width360">
+                                    <input type="text" placeholder="Title" ng-model="vm.stories.filter.title"/>
+                                </span>
+                            </div>
+                            <!-- end .group -->
+                            <div class="group">
+                                <span class="texts width115 "><!-- Description: --></span>
+                                <span class="width360 pull-right">
+                                    <!-- <input type="text" placeholder="Description"  ng-model="vm.stories.filter.description"/> -->
+                                </span>
+                            </div>
+                            <!-- end .group -->
+                        </div>
+                        <!-- end .row -->
+                        <div class="row">
+                            <div class="group width522">
+                                <span class="texts width115">Service Offering:</span>
+                                <span class="form-container width360 z-index1100" ng-jqtransform="a">
+                                    <span class="selects-container">
+                                        <select ng-model="vm.stories.filter.serviceOffering">
+                                          <option value="all">All</option>
+                                          <option value="Analytics and Data Management Services">Analytics and Data Management Services</option>
+                                          <option value="Applications Services">Applications Services</option>
+                                          <option value="Business Process Services">Business Process Services</option>
+                                          <option value="Data Center,Workload and Cloud Services">Data Center, Workload and Cloud Services</option>
+                                          <option value="Enterprise Security Services">Enterprise Security Services</option>
+                                          <option value="Industry Solutions">Industry Solutions</option>
+                                          <option value="Mobility and Workplace Services">Mobility and Workplace Services</option>
+                                        </select>
+                                    </span>
+                                </span>
+                            </div>
+                            <!-- end .group -->
+                            <div class="group">
+                                <span class="texts width115">Status:</span>
+                                <span class="form-container pull-right width360" ng-jqtransform="a">
+                                    <span class="selects-container">
+                                        <select  ng-model="vm.stories.filter.status">
+                                            <option value="all">All</option>
+                                            <option value="In Progress">In Progress</option>
+                                            <option value="Completed">Completed</option>
+                                        </select>
+                                    </span>
+                                </span>
+                            </div>
+                            <!-- end .group -->
+                        </div>
+                        <!-- end .row -->
+                        <div class="btn-box">
+                            <a href="javascript:;" class="blue-border-btn width135 pull-right" ng-click="vm.stories.filterResults()">FILTER</a>
+                            <a href="javascript:;" class="blue-link filter-cancel-button pull-right" ng-click="vm.stories.clearFilter()">Cancel</a>
+                            <span class="clearfix" />
+                        </div>
+                        <!-- end .btn-box -->
+                    </div>
+                    <!-- end .filter-content for storys-row -->
+                    <div class="filter-content boxs activities-row" ng-if="vm.currentTab == SearchTabs.Activities && vm.activities.filter.isActive">
+                        <div class="row">
+                            <div class="group width522">
+                                <span class="texts width115">Title:</span>
+                                <span class="input-box width360">
+                                    <input type="text" placeholder="Title"  ng-model="vm.activities.filter.title"/>
+                                </span>
+                            </div>
+                            <!-- end .group -->
+                            <div class="group">
+                                <span class="texts width115"><!-- Description: --></span>
+                                <span class="width360 pull-right">
+                                    <!-- <input type="text" placeholder="Description" /> -->
+                                </span>
+                            </div>
+                            <!-- end .group -->
+                        </div>
+                        <!-- end .row -->
+                        <div class="row">
+                            <div class="group width522">
+                                <span class="texts width115">Challenge Type:</span>
+                                <span class="form-container width360 z-index1100" ng-jqtransform="a">
+                                    <span class="selects-container">
+                                        <select ng-model="vm.activities.filter.challengeType">
+                                            <option value="all">All</option>
+                                            <option value="Assignment">Assignment</option>
+                                            <option value="Competition">Competition</option>
+                                            <option value="Team">Team</option>
+                                        </select>
+                                    </span>
+                                </span>
+                            </div>
+                            <!-- end .group -->
+                            <div class="group">
+                                <span class="texts width115">Activity Phase:</span>
+                                <span class="form-container width360 pull-right" ng-jqtransform="a">
+                                    <span class="selects-container">
+                                        <select ng-model="vm.activities.filter.phase">
+                                            <option value="all">All</option>
+                                            <option value="Public">Public</option>
+                                            <option value="In Registration">In Registration</option>
+                                            <option value="In Assignment">In Assignment</option>
+                                            <option value="In Submission">In Submission</option>
+                                            <option value="In Review">In Review</option>
+                                            <option value="Review Completed">Review Completed</option>
+                                            <option value="Accepted">Accepted</option>
+                                            <option value="Completed">Completed</option>
+                                            <option value="Canceled">Canceled</option>
+                                        </select>
+                                    </span>
+                                </span>
+                            </div>
+                            <!-- end .group -->
+                        </div>
+                        <!-- end .row -->
+                        <div class="btn-box">
+                            <a href="javascript:;" class="blue-border-btn width135 pull-right" ng-click="vm.activities.filterResults()">FILTER</a>
+                            <a href="javascript:;" class="blue-link filter-cancel-button pull-right" ng-click="vm.activities.clearFilter()">Cancel</a>
+                            <span class="clearfix" />
+                        </div>
+                        <!-- end .btn-box -->
+                    </div>
+                    <!-- end .filter-content for activities-row -->
+                    <div class="filter-content boxs members-row" ng-if="vm.currentTab == SearchTabs.Members && vm.members.filter.isActive">
+                        <div class="row">
+                            <div class="group width522">
+                                <span class="texts width115">First Name:</span>
+                                <span class="input-box width360">
+                                    <input type="text" placeholder="First Name" ng-model="vm.members.filter.firstName" />
+                                </span>
+                            </div>
+                            <!-- end .group -->
+                            <div class="group">
+                                <span class="texts width115">Last Name:</span>
+                                <span class="input-box width360 pull-right">
+                                    <input type="text" placeholder="Last Name" ng-model="vm.members.filter.lastName" />
+                                </span>
+                            </div>
+                            <!-- end .group -->
+                        </div>
+                        <!-- end .row -->
+                        <div class="row">
+                            <div class="group width522">
+                                <span class="texts width115">Organization:</span>
+                                <span class="input-box width360">
+                                    <input type="text" placeholder="Organization" ng-model="vm.members.filter.organization" />
+                                </span>
+                            </div>
+                            <!-- end .group -->
+                            <div class="group">
+                                <span class="texts width115">Role:</span>
+                                <span class="input-box width360 pull-right">
+                                    <input type="text" placeholder="Role" ng-model="vm.members.filter.role" />
+                                </span>
+                            </div>
+                            <!-- end .group -->
+                        </div>
+                        <!-- end .row -->
+                        <div class="btn-box">
+                            <a href="javascript:;" class="blue-border-btn width135 pull-right" ng-click="vm.members.filterResults()">FILTER</a>
+                            <a href="javascript:;" class="blue-link filter-cancel-button pull-right" ng-click="vm.members.clearFilter()">Cancel</a>
+                            <span class="clearfix" />
+                        </div>
+                        <!-- end .btn-box -->
+                    </div>
+                    <!-- end .filter-content for members-row -->
+                    <div class="search-all-results-contents sub-tab-content" ng-show="vm.currentTab == SearchTabs.All && !vm.allResults.isLoading">
+                        <div class="table-data" data-total-row-number="40" data-total-page-number="4">
+                             <search-item content="record" dir-paginate="record in vm.allResults.results | itemsPerPage: vm.allResults.pageSize" total-items="vm.allResults.totalItems||1" current-page="vm.allResults.page" pagination-id="allResults" />
+                        </div>
+                        <!-- end .table-data -->
+                        <div class="page-bar up-spacing">
+                            <div class="pull-left text-left" ng-if="vm.currentTab == SearchTabs.All">
+                                <span class="text">Show</span>
+                                <span class="form-container width65" ng-jqtransform="a">
+                                    <span class="selects-container">
+                                        <select ng-model="vm.allResults.pageSize" convert-to-number="a">
+                                            <option value="5">5</option>
+                                            <option value="10">10</option>
+                                            <option value="20">20</option>
+                                            <option value="{{vm.allResults.totalItems}}">All</option>
+                                        </select>
+                                    </span>
+                                </span>
+                                <span class="text">Records per page</span>
+                            </div>
+                            <!-- end .text-left -->
+                            <div class="hide"><br /></div>
+                            <span class="pull-right">
+                                <dir-pagination-controls auto-hide="false" pagination-id="allResults" on-page-change="vm.allResults.pageChanged(newPageNumber)"> </dir-pagination-controls>
+                            </span>
+                            <div class="clearfix" /></div>
+                        <!-- end .page-bar -->
+                    </div>
+                    <!-- end .search-all-results-contents -->
+                    <!-- All Records loading indicator -->
+                    <div class="text-center" ng-show="vm.currentTab == SearchTabs.All && vm.allResults.isLoading">
+                        <br/>
+                        <br/>
+                        <div>
+                            <img src="/img/loading32.gif" />
+                        </div>
+                        <br/>
+                        <br/>
+                    </div>
+                    <div class="search-all-results-contents sub-tab-content search-stories-results" ng-show="vm.currentTab == SearchTabs.Stories && !vm.stories.isLoading">
+                        <div class="table-data">
+                            <search-item content="story" dir-paginate="story in vm.stories.results | itemsPerPage: vm.stories.pageSize" total-items="vm.stories.totalItems||1" current-page="vm.stories.page" pagination-id="stories" />
+                        </div>
+                        <!-- end .table-data -->
+                        <div class="page-bar up-spacing">
+                            <div class="pull-left text-left" ng-if="vm.currentTab == SearchTabs.Stories">
+                                <span class="text">Show</span>
+                                <span class="form-container width65" ng-jqtransform="a">
+                                    <span class="selects-container">
+                                        <select ng-model="vm.stories.pageSize" convert-to-number="a">
+                                            <option value="5">5</option>
+                                            <option value="10">10</option>
+                                            <option value="20">20</option>
+                                            <option value="{{vm.stories.totalItems}}">All</option>
+                                        </select>
+                                    </span>
+                                </span>
+                                <span class="text">Stories per page</span>
+                            </div>
+                            <!-- end .text-left -->
+                            <div class="hide"><br /></div>
+                            <span class="pull-right">
+                                <dir-pagination-controls auto-hide="false" pagination-id="stories" on-page-change="vm.stories.pageChanged(newPageNumber)"> </dir-pagination-controls>
+                            </span>
+                            <div class="clearfix" /></div>
+                        <!-- end .page-bar -->
+                    </div>
+                    <!-- end .search-all-results-contents.search-stories-results -->
+                    <!-- Stories loading indicator -->
+                    <div class="text-center" ng-show="vm.currentTab == SearchTabs.Stories && vm.stories.isLoading">
+                        <br/>
+                        <br/>
+                        <div>
+                            <img src="/img/loading32.gif" />
+                        </div>
+                        <br/>
+                        <br/>
+                    </div>
+                    <div class="search-all-results-contents sub-tab-content search-activities-results" ng-show="vm.currentTab == SearchTabs.Activities && !vm.activities.isLoading">
+                        <div class="table-data" data-total-row-number="40" data-total-page-number="4">
+                            <search-item content="activity" dir-paginate="activity in vm.activities.results | itemsPerPage: vm.activities.pageSize" total-items="vm.activities.totalItems||1" current-page="vm.activities.page" pagination-id="activities"/>
+                        </div>
+                        <!-- end .table-data -->
+                        <div class="page-bar up-spacing">
+                            <div class="pull-left text-left" ng-if="vm.currentTab == SearchTabs.Activities">
+                                <span class="text">Show</span>
+                                <span class="form-container width65" ng-jqtransform="a">
+                                    <span class="selects-container">
+                                        <select ng-model="vm.activities.pageSize" convert-to-number="a">
+                                            <option value="5">5</option>
+                                            <option value="10">10</option>
+                                            <option value="20">20</option>
+                                            <option value="{{vm.activities.totalItems}}">All</option>
+                                        </select>
+                                    </span>
+                                </span>
+                                <span class="text">Activities per page</span>
+                            </div>
+                            <!-- end .text-left -->
+                            <div class="hide"><br /></div>
+                            <span class="pull-right">
+                                <dir-pagination-controls auto-hide="false" pagination-id="activities" on-page-change="vm.activities.pageChanged(newPageNumber)"> </dir-pagination-controls>
+                            </span>
+                            <div class="clearfix" /></div>
+                        <!-- end .page-bar -->
+                    </div>
+                    <!-- end .search-all-results-contents.search-activities-results -->
+                    <!-- Activities loading indicator -->
+                    <div class="text-center" ng-show="vm.currentTab == SearchTabs.Activities && vm.activities.isLoading">
+                        <br/>
+                        <br/>
+                        <div>
+                            <img src="/img/loading32.gif" />
+                        </div>
+                        <br/>
+                        <br/>
+                    </div>
+                    <div class="search-all-results-contents sub-tab-content search-members-results" ng-show="vm.currentTab == SearchTabs.Members && !vm.members.isLoading">
+                        <div class="table-data">
+                            <search-item content="member" dir-paginate="member in vm.members.results | itemsPerPage: vm.members.pageSize" total-items="vm.members.totalItems||1" current-page="vm.members.page" pagination-id="members"/>
+                        </div>
+                        <!-- end .table-data -->
+                        <div class="page-bar up-spacing">
+                            <div class="pull-left text-left" ng-if="vm.currentTab == SearchTabs.Members">
+                                <span class="text">Show</span>
+                                <span class="form-container width65" ng-jqtransform="a">
+                                    <span class="selects-container">
+                                        <select ng-model="vm.members.pageSize" convert-to-number="a">
+                                            <option value="5">5 </option>
+                                            <option value="10">10</option>
+                                            <option value="20">20</option>
+                                            <option value="{{vm.members.totalItems}}">All</option>
+                                        </select>
+                                    </span>
+                                </span>
+                                <span class="text">Members per page</span>
+                            </div>
+                            <!-- end .text-left -->
+                            <span class="pull-right">
+                                <dir-pagination-controls auto-hide="false" pagination-id="members" on-page-change="vm.members.pageChanged(newPageNumber)"> </dir-pagination-controls>
+                            </span>
+                            <div class="clearfix" /></div>
+                        <!-- end .page-bar -->
+                    </div>
+                    <!-- end .search-all-results-contents.search-members-results -->
+                    <!-- Members loading indicator -->
+                    <div class="text-center" ng-show="vm.currentTab == SearchTabs.Members && vm.members.isLoading">
+                        <br/>
+                        <br/>
+                        <div>
+                            <img src="/img/loading32.gif" />
+                        </div>
+                        <br/>
+                        <br/>
+                    </div>
+                </div>
+            </div>
+            <!-- end .search-result -->
+        </div>
+        <!-- end .contents -->
+    </div>
+
+</apex:page>

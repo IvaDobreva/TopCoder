@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableReports>true</enableReports>
+    <fields>
+        <fullName>CE_Activity__c</fullName>
+        <label>Activity</label>
+        <referenceTo>CE_Activity__c</referenceTo>
+        <relationshipName>ActivityMilestones</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <type>MasterDetail</type>
+    </fields>
+    <fields>
+        <fullName>Completed_Date__c</fullName>
+        <label>Completed Date</label>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>CE_Milestone__c</fullName>
+        <label>Milestone</label>
+        <referenceTo>CE_Milestone__c</referenceTo>
+        <relationshipName>ActivityMilestones</relationshipName>
+        <relationshipOrder>1</relationshipOrder>
+        <type>MasterDetail</type>
+    </fields>
+    <fields>
+        <fullName>Scheduled_Date__c</fullName>
+        <label>Scheduled Date</label>
+        <type>Date</type>
+    </fields>
+    <label>Activity Milestone</label>
+    <nameField>
+        <displayFormat>AM-{000000000}</displayFormat>
+        <label>ActivityMilestones Name</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Activity Milestones</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ControlledByParent</sharingModel>
+</CustomObject>

@@ -4,6 +4,6 @@
     <encodingKey>ISO-8859-1</encodingKey>
     <name>Activity Cancelled</name>
     <style>none</style>
-    <subject>Activity Cancelled: {!Registration__c.Activity__c}</subject>
+    <subject>Activity Cancelled: {!CE_Registration__c.CE_Activity__c}</subject>
     <type>text</type>
 </EmailTemplate>

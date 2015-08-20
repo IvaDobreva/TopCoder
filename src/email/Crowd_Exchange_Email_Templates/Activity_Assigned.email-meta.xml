@@ -4,6 +4,6 @@
     <encodingKey>ISO-8859-1</encodingKey>
     <name>Activity Assigned</name>
     <style>none</style>
-    <subject>New Activity Assigned: {!Activity__c.Name}</subject>
+    <subject>New Activity Assigned: {!CE_Activity__c.Name}</subject>
     <type>text</type>
 </EmailTemplate>

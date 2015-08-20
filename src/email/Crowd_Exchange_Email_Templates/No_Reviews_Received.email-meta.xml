@@ -4,6 +4,6 @@
     <encodingKey>ISO-8859-1</encodingKey>
     <name>No Reviews Received</name>
     <style>none</style>
-    <subject>No Reviews Received For Activity {!Activity__c.Name}</subject>
+    <subject>No Reviews Received For Activity {!CE_Activity__c.Name}</subject>
     <type>text</type>
 </EmailTemplate>

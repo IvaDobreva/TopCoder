@@ -1,6 +1,6 @@
 Hello {!User.Name},
 
-No reviews have been received for the activity {!Activity__c.Name}.
+No reviews have been received for the activity {!CE_Activity__c.Name}.
 
 Sincerely,
 

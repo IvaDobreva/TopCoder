@@ -1,4 +1,4 @@
-<apex:page standardStylesheets="false" sidebar="false" showHeader="false" docType="html-5.0" controller="CrowdExchangeMemPubProfile">
+<apex:page standardStylesheets="false" sidebar="false" showHeader="false" docType="html-5.0" controller="CE_MemPubProfileController">
 
    <link rel="stylesheet" type="text/css" href="{!URLFOR($Resource.AllResource, 'css/screen.css')}"/>
    <link rel="stylesheet" type="text/css" href="{!URLFOR($Resource.JqueryDatatable, 'media/css/jquery.dataTables.css')}"/>
@@ -23,7 +23,7 @@
           
           //Call remote action to save information               
           Visualforce.remoting.Manager.invokeAction(              
-          '{!$RemoteAction.CrowdExchangeMemPubProfile.uploadProfilePicture}', 
+          '{!$RemoteAction.CE_MemPubProfileController.uploadProfilePicture}', 
           '{!$User.Id}', isProfilePicChanged, filename,fileData, isBannerPicChanged, bFilename, bFileData,
            fName, lName, email, role, organization, phoneNumber, aboutMe,                       
           function(result, event){
