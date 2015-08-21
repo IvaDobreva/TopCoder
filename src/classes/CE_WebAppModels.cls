@@ -189,7 +189,7 @@ public with sharing abstract class CE_WebAppModels {
                 this.organization = model.Crowd_Exchange_Organization__c ;
             } catch(Exception ex){}
             try{
-                this.addSkills(model.User_Skills__r);
+                this.addSkills(model.Member_Skills__r);
             } catch(Exception ex){}
             try{
                 this.email = model.Email;

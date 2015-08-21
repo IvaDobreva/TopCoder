@@ -355,8 +355,8 @@ public with sharing class CE_RemoteController {
             CE_Registration__c reg = [SELECT Registration_Date__c, User__r.FirstName, User__r.LastName, User__r.SmallPhotoUrl FROM CE_Registration__c 
                                     WHERE CE_Activity__c =:activityId AND User__c = :userId LIMIT 1];
             CE_WebAppModels.ActivityRegitration result = new CE_WebAppModels.ActivityRegitration(reg);
-            User usr = [SELECT (SELECT Skill__c, Skill__r.Name FROM User_Skills__r),(SELECT Id FROM Submissions__r) FROM User WHERE Id = :userId];
-            result.user.addSkills(usr.User_Skills__r);
+            User usr = [SELECT (SELECT Skill__c, Skill__r.Name FROM Member_Skills__r),(SELECT Id FROM Submissions__r) FROM User WHERE Id = :userId];
+            result.user.addSkills(usr.Member_Skills__r);
             result.user.activitiesDone = usr.Submissions__r.size();
             return result;
         }catch(Exception ex){
@@ -389,13 +389,13 @@ public with sharing class CE_RemoteController {
             Set<Id> skillsIds = new Set<Id>();
             for(CE_ActivitySkills__c actSkill : actSkills)
                 skillsIds.add(actSkill.Skill__c);
-            List<User> users = [SELECT FirstName, LastName, SmallPhotoUrl,(SELECT Skill__c, Skill__r.Name FROM User_Skills__r),(SELECT Id FROM Submissions__r)
+            List<User> users = [SELECT FirstName, LastName, SmallPhotoUrl,(SELECT Skill__c, Skill__r.Name FROM Member_Skills__r),(SELECT Id FROM Submissions__r)
                                 FROM User 
                                 WHERE Id IN (SELECT Member__c FROM CE_UserSkill__c WHERE Skill__c IN :skillsIds)];
             List<CE_WebAppModels.UserModel> result = new List<CE_WebAppModels.UserModel>();
             for(User usr : users){
                 CE_WebAppModels.UserModel dto = new CE_WebAppModels.UserModel(usr);
-                dto.addSkills(usr.User_Skills__r);
+                dto.addSkills(usr.Member_Skills__r);
                 result.add(dto);
             }
             return result;
@@ -429,9 +429,9 @@ public with sharing class CE_RemoteController {
             if(pageSize==null||pageSize<0)
                 pageSize = REGISTRANTS_PAGE_SIZE;
             Integer offset = (page-1)*pageSize;
-            List<User> users = [SELECT (SELECT Skill__c, Skill__r.Name FROM User_Skills__r),(SELECT Id FROM Submissions__r) FROM User WHERE Id IN :resultMap.keySet() LIMIT :pageSize OFFSET :offset];
+            List<User> users = [SELECT (SELECT Skill__c, Skill__r.Name FROM Member_Skills__r),(SELECT Id FROM Submissions__r) FROM User WHERE Id IN :resultMap.keySet() LIMIT :pageSize OFFSET :offset];
             for(User usr : users){
-                resultMap.get(usr.Id).user.addSkills(usr.User_Skills__r);
+                resultMap.get(usr.Id).user.addSkills(usr.Member_Skills__r);
                 resultMap.get(usr.Id).user.activitiesDone = usr.Submissions__r.size();
             }
             return resultMap.values();
@@ -453,10 +453,10 @@ public with sharing class CE_RemoteController {
             CE_Registration__c registration = [SELECT Name,CE_Activity__c,Registration_Date__c,User__c,User__r.Name,User__r.FirstName,User__r.LastName,User__r.SmallPhotoUrl 
                                             FROM CE_Registration__c 
                                             WHERE User__c = :activity.Assigned_Member__c AND CE_Activity__c = :id LIMIT 1];
-            User usr = [SELECT (SELECT Skill__c, Skill__r.Name FROM User_Skills__r),(SELECT Id FROM Submissions__r) FROM User WHERE Id = :activity.Assigned_Member__c];
+            User usr = [SELECT (SELECT Skill__c, Skill__r.Name FROM Member_Skills__r),(SELECT Id FROM Submissions__r) FROM User WHERE Id = :activity.Assigned_Member__c];
             CE_WebAppModels.ActivityRegitration result = new CE_WebAppModels.ActivityRegitration(registration);
             result.user.activitiesDone = usr.Submissions__r.size();
-            result.user.addSkills(usr.User_Skills__r);
+            result.user.addSkills(usr.Member_Skills__r);
             return result;
         }catch(Exception ex){
             throw new WebAppException();

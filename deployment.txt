@@ -25,7 +25,7 @@ Post Deployment:
 3.  Navigation through the application requires users to have the Crowd_Exchange_User_Type field populated.  Please validate that all users which access the site have this field populated.  This will be a moot point when authentication is working properly.
     
 To Enable Notifications:
-1.	Go to Setup > Build > Develop > Email Services and click New Email Service to create Notification Email Service. Type “notification” for Email Service Name, select Apex Class “NotificationEmailHandler” for Apex Class, check “Actice” and save it.
+1.	Go to Setup > Build > Develop > Email Services and click New Email Service to create Notification Email Service. Type “notification” for Email Service Name, select Apex Class “NotificationEmailHandler” for Apex Class, check “Active” and save it.
 2.	On the same page, click “New Email Address” to create a new Email address. Remove pre-filled your email address in Accept Email From field to accept all emails, change Context User to appropriate context user, leave Email Address for “notification” and save it.
 3.	Remember the email address displayed in “Email Address” with “notification@....”. Set the email address to Compliance BCC Email (Setup > Administer > Email Administration > Compliance BCC Email) , check “Enable” and  save it.
 
