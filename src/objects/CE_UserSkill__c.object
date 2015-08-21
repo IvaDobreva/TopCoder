@@ -42,7 +42,7 @@
         <fullName>Member__c</fullName>
         <label>Member</label>
         <referenceTo>User</referenceTo>
-        <relationshipName>User_Skills</relationshipName>
+        <relationshipName>Members_Skills</relationshipName>
         <type>Lookup</type>
     </fields>
     <fields>

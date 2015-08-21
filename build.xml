@@ -31,6 +31,16 @@
           deployroot="/Users/Ward/Code/crowd-exchange/src">
         </sf:deploy>
       </target>
+      
+       <target name="deployCodeCheckOnly">
+        <sf:deploy
+          username="${developer.username}"
+          password="${developer.password}" 
+          serverurl="${developer.serverurl}" 
+          deployroot="/Users/Ward/Code/crowd-exchange/src"
+          checkOnly="true">
+        </sf:deploy>
+      </target>
 
 
 	

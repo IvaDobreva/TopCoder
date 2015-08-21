@@ -46,7 +46,7 @@
         <fullName>Publisher__c</fullName>
         <label>Publisher</label>
         <referenceTo>User</referenceTo>
-        <relationshipName>User_Stories</relationshipName>
+        <relationshipName>Publisher_Stories</relationshipName>
         <type>Lookup</type>
     </fields>
     <fields>
