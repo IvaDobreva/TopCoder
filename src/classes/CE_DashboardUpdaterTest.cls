@@ -3,6 +3,9 @@
 * -------------------------------------------------
 * Created By: Daniel Eagle (daniel.eagle@hp.com)
 * Last Modified: 7/16/2015
+* Modified By: Gaurav Kheterpal (gaurav.kheterpal@appirio.com)
+* Modified On: 8/25/2015
+* Modification done: Corrected the syntax to execute batch
 * -------------------------------------------------
 * Test methods for the Dashboard Updater.
 **************************************************/ 
@@ -81,7 +84,7 @@ private class CE_DashboardUpdaterTest {
         // begin test
         Test.startTest();
         CE_DashboardUpdater dashboardUpdater = new CE_DashboardUpdater();
-        // dashboardUpdater.execute();
+        database.executeBatch(dashboardUpdater);
         Test.stopTest();
         
         // verify results
