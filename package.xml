@@ -133,6 +133,7 @@
     </types>
     <types>
 	    	<members>CE_Activity__c</members>
+	    	<members>CE_ActivityMilestones__c</members>
 	    	<members>CE_Default_Requirement__c</members>
 	    	<members>CE_Internal_Project__c</members>
 	    	<members>CE_Milestones__c</members>
