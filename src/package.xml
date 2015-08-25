@@ -132,7 +132,16 @@
         <name>CustomPageWebLink</name>
     </types>
     <types>
-        <members>*</members>
+	    	<members>CE_Activity__c</members>
+	    	<members>CE_Default_Requirement__c</members>
+	    	<members>CE_Internal_Project__c</members>
+	    	<members>CE_Milestones__c</members>
+	    	<members>CE_Notification__c</members>
+	    	<members>CE_Requirement__c</members>
+	    	<members>CE_Skills__c</members>
+	    	<members>CE_Story__c</members>
+	    	<members>CE_Summary_Data__c</members>
+	    	<members>CE_User_Notification__c</members>
         <name>CustomTab</name>
     </types>
     <types>
@@ -195,5 +204,5 @@
         <members>CE_UserSkill__c</members>
         <name>Workflow</name>
     </types>
-    <version>15.0</version>
+    <version>34.0</version>
 </Package>
