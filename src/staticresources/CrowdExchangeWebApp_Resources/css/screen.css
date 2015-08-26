@@ -3739,7 +3739,7 @@ a.jqTransformCheckbox,
 			.timeline-item{
 				width:148px;
 				display:inline-block;
-				margin-right:22px;
+				margin-right:60px;
 			}
 				.timeline-item:nth-child(1) span{
 					color:#043e7a;
@@ -3751,7 +3751,7 @@ a.jqTransformCheckbox,
 					color:#03b3ce;
 				}
 				.timeline-item:nth-child(4) span{
-					color:#f9bb14;
+					color:#000000;
 				}
 				.timeline-item:nth-child(5) span{
 					color:#ff5419;
@@ -3882,7 +3882,8 @@ a.jqTransformCheckbox,
 						background:#03b3ce;
 					}
 					.line-items-d,.line-items-3 a{
-						background:#55b837;
+						/*background:#55b837;*/
+						background:#e3e3e3;
 					}
 					.line-items-e,.line-items-4 a{
 						background:#f9bb14;
