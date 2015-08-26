@@ -36,7 +36,7 @@
    <body ng-controller="mainController as main" ng-cloak="true">
       <header class="header">
          <div class="boxs">
-            <a href="#/memberDashboard" class="logo pull-left"></a>
+            <a href="#/{{user.role + 'Dashboard'}}" class="logo pull-left"></a>
             <!-- end .logo -->
             <div class="pull-right">
                <nav>
