@@ -12,13 +12,14 @@ public with sharing class CE_RemoteController {
     @TestVisible private static final String STANDARDUSER = 'Standard';
 
     
-    @TestVisible private final static String MEMBER_FIELDS = 'FirstName, LastName, SmallPhotoUrl, Email, Crowd_Exchange_Organization__c, '+
-                                                                    '(SELECT Skill__c, Skill__r.Name FROM User_Skills__r), (SELECT Id FROM Submissions__r) ';
+    @TestVisible private final static String MEMBER_FIELDS = 'FirstName, LastName, SmallPhotoUrl, Email, Crowd_Exchange_Organization__c, Crowd_Exchange_User_Type__c,'+
+                                                                    '(SELECT Skill__c, Skill__r.Name FROM Member_Skills__r), (SELECT Id FROM Submissions__r) ';
 
     @TestVisible private final static String ACTIVITY_LIGHT_FIELDS = 'Name, Description__c, hasAwards__c, Challenge_Type__c, CE_Story__c, Status__c, '+
-                                                ' Assigned_Member__c, Assigned_Member__r.FirstName, Assigned_Member__r.LastName, Assigned_Member__r.SmallPhotoUrl, '+
-                                                'CE_Story__r.Name, CE_Story__r.Service_Offering__c,'+
-                                                ' (SELECT Id, Registration_Date__c, User__r.FirstName, User__r.LastName, User__r.SmallPhotoUrl FROM Registrations__r),'+
+                                                ' Assigned_Member__c, Assigned_Member__r.FirstName, Assigned_Member__r.LastName, Assigned_Member__r.SmallPhotoUrl, Assigned_Member__r.Crowd_Exchange_User_Type__c, Assigned_Member__r.Crowd_Exchange_Organization__c,'+
+                                                'CE_Story__r.Name, CE_Story__r.Service_Offering__c, CE_Story__r.Description__c, CE_Story__r.Status__c,CE_Story__r.Publisher__r.FirstName, CE_Story__r.Publisher__r.LastName, CE_Story__r.Publisher__r.SmallPhotoUrl,'+ 
+                                                'CE_Story__r.Publisher__r.Crowd_Exchange_User_Type__c,CE_Story__r.Publisher__r.Crowd_Exchange_Organization__c,CE_Story__r.Publisher__r.Email,'+
+                                                ' (SELECT Id, Registration_Date__c, User__r.FirstName, User__r.LastName, User__r.SmallPhotoUrl,User__r.Email, User__r.Crowd_Exchange_User_Type__c, User__r.Crowd_Exchange_Organization__c FROM Registrations__r),'+
                                                 ' (SELECT Id FROM Submissions__r) ';
     @TestVisible private final static String ACTIVITY_FULL_FIELDS = 'Name, Description__c, hasAwards__c, Challenge_Type__c, CE_Story__c, Status__c, '+
                                                 ' Assigned_Member__c, Assigned_Member__r.FirstName, Assigned_Member__r.LastName, Assigned_Member__r.SmallPhotoUrl, '+
