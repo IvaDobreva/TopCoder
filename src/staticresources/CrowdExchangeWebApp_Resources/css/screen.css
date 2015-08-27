@@ -6450,10 +6450,10 @@ a.jqTransformCheckbox,
 
 	/* .modal-alert */
 	.modal-alert {
-		  width:536px;
+      width:536px;
       height:220px;
       box-shadow: 0 5px 0 rgba(0, 0, 0, 0.15);
-      margin:-110px 0 0 -268px;
+      margin: 20% 0 0 -268px;
 	}
 		.modal-alert p {
 			font-size: 22px;
