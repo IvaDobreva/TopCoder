@@ -9,9 +9,9 @@
                 <div class="lefts">
                     <a href="#/publisherDashboard" class="blue-link pull-left">Dashboard</a>
                     <span class="icon-gray-arrow pull-left" />
-                    <a href="#/publisherStoryDetails/{{vm.story.id}}" class="blue-link pull-left">{{vm.story.title}}</a>
+                    <a href="#/publisherStoryDetails/{{vm.story.id}}" class="blue-link pull-left"><div ng-bind-html="vm.story.title"></div></a>
                     <span class="icon-blue-arrow pull-left" />
-                    <span class="current-text black-text pull-left">{{vm.title}}</span>
+                    <span class="current-text black-text pull-left"><div ng-bind-html="vm.title"></div></span>
                     <span class="clearfix" />
                 </div>
             </div>
@@ -19,7 +19,7 @@
         <!-- end .crumbs -->
         <div class="title boxs">
             <div class="title title-large boxs">
-                <h2 class="pull-left">{{vm.title}}</h2>
+                <h2 class="pull-left"><div ng-bind-html="vm.title"></div></h2>
                 <!-- end .activity-btn-->
                 <div class="clearfix" /></div>
             <div class="clearfix" />
