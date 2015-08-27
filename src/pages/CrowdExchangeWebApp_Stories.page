@@ -95,14 +95,14 @@
       <!-- end .row -->
       <div class="row-group" ng-repeat="story in vm.activeStories.stories track by $index">
         <div class="row-title">
-          <a href="#/{{$parent.user.role == 'Publisher'? 'publisherStoryDetails':'memberStoryDetails'}}/{{story.id}}" class="pull-left">{{story.title}}</a>
+          <a href="#/{{$parent.user.role == 'Publisher'? 'publisherStoryDetails':'memberStoryDetails'}}/{{story.id}}" class="pull-left"><div ng-bind-html="story.title"></div></a>
           <a href="#/publisherAddActivity/{{story.id}}" class="blue-border-btn width135 pull-right" ng-if="story.publisher.id == $parent.user.id">ADD ACTIVITY</a>
 
           <span class="clearfix"></span>
         </div>
         <!-- end .row-title -->
         <div class="row row-td" ng-repeat="activity in story.activities track by $index">
-          <div class="col-td width50"><a href="#/{{($parent.user.role == 'Publisher'?'publisherActivityDetailsAssignRegister':'memberActivityAssignAssigned')}}/{{activity.id}}" class="blue-link">{{activity.title}}</a></div>
+          <div class="col-td width50"><a href="#/{{($parent.user.role == 'Publisher'?'publisherActivityDetailsAssignRegister':'memberActivityAssignAssigned')}}/{{activity.id}}" class="blue-link"><div ng-bind-html="activity.title"></div></a></div>
           <div class="col-td width13">{{activity.phase}}</div>
           <div class="col-td width10 text-center"><a href="#/{{($parent.user.role == 'Publisher'?'publisherActivityDetailsAssignRegister':'memberActivityAssignAssigned')}}/{{activity.id}}?tab=Registrants" class="blue-link">{{activity.registrationsCount}}</a></div>
           <div class="col-td width10 text-center"><a href="#/{{($parent.user.role == 'Publisher'?'publisherActivityDetailsAssignRegister':'memberActivityAssignAssigned')}}/{{activity.id}}?tab=Submissions" class="blue-link">{{activity.submissionsCount}}</a></div>
@@ -159,7 +159,7 @@
         </div>
         <!-- end .row-title -->
         <div class="row row-td" ng-repeat="activity in story.activities track by $index">
-          <div class="col-td width50"><a href="#/{{($parent.user.role == 'Publisher'?'publisherActivityDetailsCompetitionReview':'memberActivityAssignAssigned')}}/{{activity.id}}" class="blue-link">{{activity.title}}</a></div>
+          <div class="col-td width50"><a href="#/{{($parent.user.role == 'Publisher'?'publisherActivityDetailsCompetitionReview':'memberActivityAssignAssigned')}}/{{activity.id}}" class="blue-link"><div ng-bind-html="activity.title"></div></a></div>
           <div class="col-td width13">{{activity.phase}}</div>
           <div class="col-td width10 text-center"><a href="#/{{($parent.user.role == 'Publisher'?'publisherActivityDetailsCompetitionReview':'memberActivityAssignAssigned')}}/{{activity.id}}?tab=Registrants" class="blue-link">{{activity.registrationsCount}}</a></div>
           <div class="col-td width10 text-center"><a href="#/{{($parent.user.role == 'Publisher'?'publisherActivityDetailsCompetitionReview':'memberActivityAssignAssigned')}}/{{activity.id}}?tab=Submissions" class="blue-link">{{activity.submissionsCount}}</a></div>

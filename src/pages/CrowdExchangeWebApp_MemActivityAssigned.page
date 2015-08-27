@@ -8,9 +8,9 @@
             <div class="lefts">
                 <a href="#/memberDashboard" class="blue-link pull-left">Dashboard</a>
                 <span class="icon-gray-arrow pull-left" />
-                <a href="#/memberStoryDetails/{{vm.story.id}}" class="blue-link pull-left">{{vm.story.title}}</a>
+                <a href="#/memberStoryDetails/{{vm.story.id}}" class="blue-link pull-left"><div ng-bind-html="vm.story.title"></div></a>
                 <span class="icon-blue-arrow pull-left" />
-                <span class="current-text black-text pull-left">{{vm.title}}</span>
+                <span class="current-text black-text pull-left"><div ng-bind-html="vm.title"></div></span>
                 <span class="clearfix" />
             </div>
         </div>
@@ -18,7 +18,7 @@
     <!-- end .crumbs -->
     <div class="activity-contents tab-content">
         <div class="title title-large boxs">
-            <h2>{{vm.title}}</h2>
+            <h2><div ng-bind-html="vm.title"></div></h2>
             <!-- end .activity-btn-->
         </div>
         <!-- end .title -->
@@ -228,11 +228,11 @@
         <!-- end .activity-detail-contents -->
         <div class="member-registrants-contents boxs sub-tab-content" ng-show="vm.activeTab==1">
             <div class="col-user" ng-repeat="registration in vm.registrants.registrants">
-                <a href="member-member-profile.html" class="portrait-img">
+                <a href="#/membermemberprofile/{{registration.user.id}}" class="portrait-img">
                     <img src="{{registration.user.photoUrl}}" alt="Portrait" />
                 </a>
                 <span class="user-texts">
-                    <a href="member-member-profile.html" class="blue-link">{{registration.user.firstName+' '+registration.user.lastName}}</a>
+                    <a href="#/membermemberprofile/{{registration.user.id}}" class="blue-link">{{registration.user.firstName+' '+registration.user.lastName}}</a>
                     <span class="texts gray">{{registration.registrationDate | date:'MM/dd/yyyy'}}</span>
                 </span>
             </div>
@@ -303,12 +303,12 @@
                 <div class="pull-left">
                     <h2 class="title-h2">REVIEW</h2>
                     <div class="col-user">
-                        <a href="member-member-profile.html" class="portrait-img">
+                        <a href="#/membermemberprofile/{{vm.submissionRequirements.submission.user.id}}" class="portrait-img">
                             <img src="{{vm.submissionRequirements.submission.user.photoUrl}}" alt="Portrait" />
                         </a>
                         <span class="user-texts">
                             <span class="texts gray">Member Name</span>
-                            <a href="member-member-profile.html" class="blue-link">{{vm.submissionRequirements.submission.user.firstName+' '+vm.submissionRequirements.submission.user.lastName}}</a>
+                            <a href="#/membermemberprofile/{{vm.submissionRequirements.submission.user.id}}" class="blue-link">{{vm.submissionRequirements.submission.user.firstName+' '+vm.submissionRequirements.submission.user.lastName}}</a>
                         </span>
                     </div>
                     <!-- .col-user-->

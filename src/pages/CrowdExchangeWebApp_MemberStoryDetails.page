@@ -8,7 +8,7 @@
             <div class="lefts">
                 <a href="#/memberDashboard" class="blue-link pull-left">Dashboard</a>
                 <span class="icon-blue-arrow pull-left" />
-                <span class="current-text black-text pull-left">{{vm.title}}</span>
+                <span class="current-text black-text pull-left"><div ng-bind-html="vm.title"></div></span>
                 <span class="clearfix" />
             </div>
         </div>
@@ -18,7 +18,7 @@
         <div class="story-contents tab-content">
             <div class="boxs">
                 <div class="title large-title">
-                    <h2>{{vm.title}}</h2>
+                    <h2><div ng-bind-html="vm.title"></div></h2>
                 </div>
                 <div class="type type-top">
                     <div class="activity-type pull-left">

@@ -8,7 +8,7 @@
                 <div class="lefts">
                     <a href="#/publisherDashboard" class="blue-link pull-left">Dashboard</a>
                     <span class="icon-blue-arrow pull-left" />
-                    <span class="current-text black-text pull-left">{{vm.title}}</span>
+                    <span class="current-text black-text pull-left"><div ng-bind-html="vm.title"></div></span>
                     <span class="clearfix" />
                 </div>
             </div>
@@ -27,7 +27,7 @@
                         <li ng-repeat="activity in vm.activities track by $index" class="{{activity.isActive?'current':''}}">
                             <span />
                             <a href="javascript:;" ng-click="vm.setActiveTab( $index + 1 )">
-                                <i />{{activity.title}}
+                                <i /><div ng-bind-html="activity.title"></div>
                             </a>
                         </li>
                         <li class="icon-add-btn open-modal-window" data-modal-class="modal-confirm-create-new-activity">
@@ -138,7 +138,7 @@
             <!-- end .story-contents -->
             <div class="activity-contents tab-content" ng-show="activity.isActive" ng-repeat="activity in vm.activities track by activity.id">
                 <div class="title boxs">
-                    <h2 class="pull-left">{{activity.title?activity.title:'Activity '+($index+1)}}</h2>
+                    <h2 class="pull-left"><div ng-bind-html="activity.title?activity.title:'Activity '+($index+1)"></div></h2>
                     <div class="activity-btn pull-right">
                         <div class="remove-activity pull-left" ng-if="activity.phase =='Review Complete' || activity.phase =='Draft'">
                             <a class="cancel-activity-button open-modal-window" data-modal-class="modal-cancel-activity" href="javascript:;"

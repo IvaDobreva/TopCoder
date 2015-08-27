@@ -8,9 +8,9 @@
             <div class="lefts">
                 <a href="javascript:;" class="blue-link pull-left">Dashboard</a>
                 <span class="icon-gray-arrow pull-left" />
-                <a href="#publisherStoryDetails/{{vm.story.id}}" class="blue-link pull-left">{{vm.story.title}}</a>
+                <a href="#publisherStoryDetails/{{vm.story.id}}" class="blue-link pull-left"><div ng-bind-html="vm.story.title"></div></a>
                 <span class="icon-blue-arrow pull-left" />
-                <span class="current-text black-text pull-left">{{vm.title}}</span>
+                <span class="current-text black-text pull-left"><div ng-bind-html="vm.title"></div></span>
                 <span class="clearfix" />
             </div>
         </div>
@@ -19,7 +19,7 @@
     <div class="activity-contents tab-content">
         <div class="title boxs">
             <div class="title title-large boxs">
-                <h2 class="pull-left">{{vm.title}}</h2>
+                <h2 class="pull-left"><div ng-bind-html="vm.title"></div></h2>
                 <!-- end .activity-btn-->
                 <div class="activity-btn pull-right">
                     <div class="remove-activity pull-left">
@@ -243,11 +243,11 @@
                 <div class="row row-td">
                     <div class="col-td width28">
                         <div class="col-user">
-                            <a href="publisher-member-profile.html" class="portrait-img">
+                            <a href="#/publishermemberprofile/{{vm.assignedMemberRegistration.user.id}}" class="portrait-img">
                                 <img src="{{vm.assignedMemberRegistration.user.photoUrl}}" alt="Portrait" />
                             </a>
                             <span class="user-texts">
-                                <a href="publisher-member-profile.html" class="blue-link">{{vm.assignedMemberRegistration.user.firstName+' '+vm.assignedMemberRegistration.user.lastName}}</a>
+                                <a href="#/publishermemberprofile/{{vm.assignedMemberRegistration.user.id}}" class="blue-link">{{vm.assignedMemberRegistration.user.firstName+' '+vm.assignedMemberRegistration.user.lastName}}</a>
                                 <span class="texts green">Available</span> <!-- If user is assigned -> user is registered -> he/she is available -->
                             </span>
                         </div>
@@ -285,7 +285,7 @@
                 <div class="row row-td" ng-repeat="registration in vm.registrants.registrants" >
                     <div class="col-td width28">
                         <div class="col-user">
-                            <a href="publisher-member-profile.html" class="portrait-img">
+                            <a href="#/publishermemberprofile/{{registration.user.id}}" class="portrait-img">
                                 <img src="{{registration.user.photoUrl}}" alt="Portrait" />
                             </a>
                             <span class="user-texts">
@@ -347,11 +347,11 @@
                     </div>
                     <div class="col-td width20">
                         <div class="col-user">
-                            <a href="publisher-member-profile.html" class="portrait-img">
+                            <a href="#/publishermemberprofile/{{member.id}}" class="portrait-img">
                                 <img src="{{member.photoUrl}}" alt="Portrait" />
                             </a>
                             <span class="user-texts">
-                                <a href="publisher-member-profile.html" class="blue-link">{{member.firstName+' '+member.lastName}}</a>
+                                <a href="#/publishermemberprofile/{{member.id}}" class="blue-link">{{member.firstName+' '+member.lastName}}</a>
                                 <span class="texts green">Available</span>
                             </span>
                         </div>
@@ -394,7 +394,7 @@
                 <div class="row row-td " ng-repeat="submission in vm.submissions.submissions track by $index" >
                     <div class="col-td width20">
                         <div class="name-box">
-                            <a href="publisher-member-profile.html" class="chatter-img">
+                            <a href="#/publishermemberprofile/{{submission.user.id}}" class="chatter-img">
                                 <img src="{{submission.user.photoUrl}}" alt="Portrait" />
                             </a>
                             <a href="member-member-profile.html" class="blue-link">{{submission.user.firstName+' '+submission.user.lastName}}</a>
@@ -432,12 +432,12 @@
                 <div class="pull-left">
                     <h2 class="title-h2">REVIEW</h2>
                     <div class="col-user">
-                        <a href="publisher-member-profile.html" class="portrait-img">
+                        <a href="#/publishermemberprofile/{{vm.submissionRequirements.submission.user.id}}" class="portrait-img">
                             <img src="{{vm.submissionRequirements.submission.user.photoUrl}}" alt="Portrait" />
                         </a>
                         <span class="user-texts">
                             <span class="texts gray">Member Name</span>
-                            <a href="publisher-member-profile.html" class="blue-link">{{vm.submissionRequirements.submission.user.firstName+' '+vm.submissionRequirements.submission.user.lastName}}</a>
+                            <a href="#/publishermemberprofile/{{vm.submissionRequirements.submission.user.id}}" class="blue-link">{{vm.submissionRequirements.submission.user.firstName+' '+vm.submissionRequirements.submission.user.lastName}}</a>
                         </span>
                     </div>
                     <!-- .col-user-->
