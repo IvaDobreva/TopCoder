@@ -66,7 +66,8 @@
                             </a>
                             <a href="javascript:;" class="blue-border-btn edit-story-btn pull-right" ng-click="vm.editStory()">EDIT STORY</a>
                         </div>
-                        <div class="clearfix" /></div>
+                        <div class="clearfix" />
+                    </div>
                     <!-- .type -->
                     <div class="review-data">
                         <div class="review-data-top">
@@ -125,6 +126,16 @@
                         <!-- end.review-data-line -->
                     </div>
                     <!-- end.review-data -->
+                    <div class="type">
+	                    <div class="activity-type pull-left">
+	                        <span>Service Offerings
+	                            <em />
+	                        </span>
+	                        <p class="activity-txt">{{vm.serviceOffering}}</p>
+	                    </div>
+	                    <div class="clearfix" />
+                    </div>
+                    <!-- end.review-description -->
                     <div class="review-description">
                         <h3 class="title-h3">Story Description
                             <i />
@@ -688,15 +699,13 @@
                     <form>
                         <dl>
                             <dt class="data-tit">
-                              Story Title
-                
+                                Story Title
                                 <span class="tip-box">
                                     <a href="javascript:;" class="icon-blue-tip" tooltip="" />
                                     <span class="tip-content hide">
                                         <i />
                                         Dolor sit amet, consectetur adipiscing elit.
                                         Aenean euismod bibendum laoreet. 
-                    
                                     </span>
                                 </span>
                             </dt>
@@ -704,15 +713,34 @@
                                 <input class="data-tit-in" type="text" ng-model="vm.title" placeholder="Title" />
                             </dd>
                             <dt class="data-tit">
-                                    Story Description
-              
+                                Service Offerings
+                            </dt>
+		                    <dd class="data-in">
+		                        <span class="activity-type">
+		                            <span class="form-container width335" ng-jqtransform="a">
+		                                <span class="selects-container">
+		                                    <select ng-model="vm.story.serviceOffering" style="width: 335px;">
+		                                        <!-- <option ng-selected="true" value="">Choose Service Offering</option> -->
+		                                        <option ng-selected="true" value="Analytics and Data Management Services">Analytics and Data Management Services</option>
+		                                        <option value="Application Services">Application Services</option>
+		                                        <option value="Business Process Services">Business Process Services</option>
+		                                        <option value="Data Center,Workload and Cloud Services">Data Center,Workload and Cloud Services</option>
+		                                        <option value="Enterprise Security Services">Enterprise Security Services</option>
+		                                        <option value="Industry Solutions">Industry Solutions</option>
+		                                        <option value="Mobility and Workplace Services">Mobility and Workplace Services</option>
+		                                    </select>
+		                                </span>
+		                            </span>
+		                        </span>
+		                    </dd>
+                            <dt class="data-tit">
+                                Story Description
                                 <span class="tip-box">
                                     <a href="javascript:;" class="icon-blue-tip" tooltip="" />
                                     <span class="tip-content hide">
                                         <i />
                                         Dolor sit amet, consectetur adipiscing elit.
                                         Aenean euismod bibendum laoreet. 
-              
                                     </span>
                                 </span>
                             </dt>

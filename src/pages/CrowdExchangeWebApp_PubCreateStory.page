@@ -69,8 +69,8 @@
                             <span class="form-container width335" ng-jqtransform="a">
                                 <span class="selects-container">
                                     <select ng-model="vm.story.serviceOffering" >
-                                        <option  ng-selected="true" value="">Choose Service Offering</option>
-                                        <option value="Analytics and Data Management Services">Analytics and Data Management Services</option>
+                                        <!-- <option ng-selected="true" value="">Choose Service Offering</option> -->
+                                        <option ng-selected="true" value="Analytics and Data Management Services">Analytics and Data Management Services</option>
                                         <option value="Application Services">Application Services</option>
                                         <option value="Business Process Services">Business Process Services</option>
                                         <option value="Data Center,Workload and Cloud Services">Data Center,Workload and Cloud Services</option>
