@@ -5,8 +5,8 @@
         currentUser: new UserViewModel({
             id:'{!currentUser.Id}',
             role:'{!currentUser.role}',
-            firstName: '{!currentUser.firstName}',
-            lastName: '{!currentUser.lastName}',
+            firstName: '{!HTMLENCODE(currentUser.firstName)}',
+            lastName: '{!HTMLENCODE(currentUser.lastName)}',
             photoUrl: '{!currentUser.photoUrl}'
         }),
         milestones: {!milestones},
