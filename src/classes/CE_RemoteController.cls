@@ -160,9 +160,16 @@ public with sharing class CE_RemoteController {
             storyToUpdate.Name = story.title;
             storyToUpdate.Service_Offering__c = story.serviceOffering;
             if(story.id == null){
+            	if(story.phase != null && story.phase != ''){
+            		storyToUpdate.Status__c = story.phase;
+            	}else{
+            		storyToUpdate.Status__c = CE_Constants.STORY_PLANNING_STATUS;
+            	}
+            	
                 mStoryService.createStories(new List<CE_Story__c>{storyToUpdate});
                 story.id = storyToUpdate.Id;
             } else {
+            	storyToUpdate.Status__c = story.phase;
                 mStoryService.updateStories(new List<CE_Story__c>{storyToUpdate});
             }
             
@@ -475,6 +482,7 @@ public with sharing class CE_RemoteController {
             CE_Activity__c activity = act.getSObject();
             activity.CE_Story__c = act.storyId;
             activity.Publisher__c = UserInfo.getUserId();
+            activity.Status__c = CE_Constants.STATUS_DRAFT;
             mActivityService.createActivities(new List<CE_Activity__c>{activity});
             act.id = activity.Id;
             
@@ -539,11 +547,13 @@ public with sharing class CE_RemoteController {
             CE_Activity__c activity = null;
             if(String.isBlank(activityId)){
                 activity = act.getSObject();
+                activity.Status__c = CE_Constants.STATUS_DRAFT;
                 insert activity;
             } else {
                 objsToUpdate.add(act.getSObject());
                 //Retrieving current activity with all child objects
                 activity = Database.query('SELECT '+ACTIVITY_FULL_FIELDS+' FROM CE_Activity__c WHERE Id = :activityId LIMIT 1');
+                activity.Status__c = CE_Constants.STATUS_DRAFT;
             }
     
             //Milestones update
@@ -675,7 +685,7 @@ public with sharing class CE_RemoteController {
             insert objsToInsert;
             update objsToUpdate;
             delete objsToDelete;
-
+			upsert activity;
         }catch(Exception ex){
             Database.rollback(sp);
             //throw new WebAppException();
