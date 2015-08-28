@@ -66,8 +66,7 @@
                             </a>
                             <a href="javascript:;" class="blue-border-btn edit-story-btn pull-right" ng-click="vm.editStory()">EDIT STORY</a>
                         </div>
-                        <div class="clearfix" />
-                    </div>
+                        <div class="clearfix" /></div>
                     <!-- .type -->
                     <div class="review-data">
                         <div class="review-data-top">
@@ -126,14 +125,14 @@
                         <!-- end.review-data-line -->
                     </div>
                     <!-- end.review-data -->
-                    <div class="type">
-	                    <div class="activity-type pull-left">
-	                        <span>Service Offerings
-	                            <em />
-	                        </span>
-	                        <p class="activity-txt">{{vm.serviceOffering}}</p>
-	                    </div>
-	                    <div class="clearfix" />
+                     <div class="type">
+                       <div class="activity-type pull-left">
+                           <span>Service Offerings
+                               <em />
+                           </span>
+                           <p class="activity-txt">{{vm.serviceOffering}}</p>
+                       </div>
+                       <div class="clearfix" />
                     </div>
                     <!-- end.review-description -->
                     <div class="review-description">
@@ -371,11 +370,11 @@
                         <div class="row row-td">
                             <div class="col-td width28">
                                 <div class="col-user">
-                                    <a href="publisher-member-profile.html" class="portrait-img">
+                                    <a href="#/publishermemberprofile/{{activity.assignedMemberRegistration.user.id}}" class="portrait-img">
                                         <img src="{{activity.assignedMemberRegistration.user.photoUrl}}" alt="Portrait" />
                                     </a>
                                     <span class="user-texts">
-                                        <a href="publisher-member-profile.html" class="blue-link">{{activity.assignedMemberRegistration.user.firstName+' '+activity.assignedMemberRegistration.user.lastName}}</a>
+                                        <a href="#/publishermemberprofile/{{activity.assignedMemberRegistration.user.id}}" class="blue-link">{{activity.assignedMemberRegistration.user.firstName+' '+activity.assignedMemberRegistration.user.lastName}}</a>
                                         <span class="texts green">Available</span> <!-- If user is assigned -> user is registered -> he/she is available -->
                                     </span>
                                 </div>
@@ -413,11 +412,11 @@
                         <div class="row row-td" ng-repeat="registration in activity.registrants.registrants" >
                             <div class="col-td width28">
                                 <div class="col-user">
-                                    <a href="publisher-member-profile.html" class="portrait-img">
+                                    <a href="#/publishermemberprofile/{{registration.user.id}}" class="portrait-img">
                                         <img src="{{registration.user.photoUrl}}" alt="Portrait" />
                                     </a>
                                     <span class="user-texts">
-                                        <a href="publisher-registration-profile.html" class="blue-link">{{registration.user.firstName+' '+registration.user.lastName}}</a>
+                                        <a href="#/publishermemberprofile/{{registration.user.id}}" class="blue-link">{{registration.user.firstName+' '+registration.user.lastName}}</a>
                                         <span class="texts green">Available</span>
                                     </span>
                                 </div>
@@ -475,11 +474,11 @@
                             </div>
                             <div class="col-td width20">
                                 <div class="col-user">
-                                    <a href="publisher-member-profile.html" class="portrait-img">
+                                    <a href="#/publishermemberprofile/{{member.id}}" class="portrait-img">
                                         <img src="{{member.photoUrl}}" alt="Portrait" />
                                     </a>
                                     <span class="user-texts">
-                                        <a href="publisher-member-profile.html" class="blue-link">{{member.firstName+' '+member.lastName}}</a>
+                                        <a href="#/publishermemberprofile/{{member.id}}" class="blue-link">{{member.firstName+' '+member.lastName}}</a>
                                         <span class="texts green">Available</span>
                                     </span>
                                 </div>
@@ -521,36 +520,36 @@
                         <!-- end .row -->
                         
                         <div class="row row-td " ng-repeat="submission in activity.submissions.submissions track by $index" >
-		                    <div class="col-td width20">
-		                        <div class="name-box">
-		                            <a href="publisher-member-profile.html" class="chatter-img">
-		                                <img src="{{submission.user.photoUrl}}" alt="Portrait" />
-		                            </a>
-		                            <a href="member-member-profile.html" class="blue-link">{{submission.user.firstName+' '+submission.user.lastName}}</a>
-		                        </div>
-		                        <!-- .name-box-->
-		                    </div>
-		                    <div class="col-td width20">
-		                        <span class="left10">{{submission.submissionDate | date : 'MM/dd/yyyy' }}
-		                            <em class="spacing12" />{{submission.submissionDate | date : 'HH:mm' }}
-		                        </span>
-		                    </div>
-		                    <div class="col-td width18">{{submission.name}}</div>
-		                    <div class="col-td width12 text-center"  >
-		                    	<span ng-if="submission.evaluationPercentage && $first" >{{submission.evaluationPercentage}}%</span>
-		                    </div>
-		                    <div class="col-td width12 text-center">
-		                        <a href="javascript:;" class="blue-link edit-view-scoreboard-link" ng-if="!submission.evaluationPercentage && $first" ng-click="activity.showReviewTab(5,submission.id)" >Review</a>
-		                        <a href="javascript:;" class="blue-link edit-view-scoreboard-link" ng-if="submission.evaluationPercentage && $first" ng-click="activity.showReviewTab(5,submission.id)" >Edit</a>
-		                    </div>
-		                    <div class="col-td width14 text-center">
-		                        <a href="/servlet/servlet.FileDownload?file={{submission.document.id}}" target="_blank" class="blue-btn radius6 pull-right">
-		                            <span>
-		                                <span>Download</span>
-		                            </span>
-		                        </a>
-		                    </div> 
-		                </div>
+                            <div class="col-td width20">
+                                <div class="name-box">
+                                    <a href="#/publishermemberprofile/{{submission.user.id}}" class="chatter-img">
+                                        <img src="{{submission.user.photoUrl}}" alt="Portrait" />
+                                    </a>
+                                    <a href="member-member-profile.html" class="blue-link">{{submission.user.firstName+' '+submission.user.lastName}}</a>
+                                </div>
+                                <!-- .name-box-->
+                            </div>
+                            <div class="col-td width20">
+                                <span class="left10">{{submission.submissionDate | date : 'MM/dd/yyyy' }}
+                                    <em class="spacing12" />{{submission.submissionDate | date : 'HH:mm' }}
+                                </span>
+                            </div>
+                            <div class="col-td width18">{{submission.name}}</div>
+                            <div class="col-td width12 text-center"  >
+                                <span ng-if="submission.evaluationPercentage && $first" >{{submission.evaluationPercentage}}%</span>
+                            </div>
+                            <div class="col-td width12 text-center">
+                                <a href="javascript:;" class="blue-link edit-view-scoreboard-link" ng-if="!submission.evaluationPercentage && $first" ng-click="activity.showReviewTab(5,submission.id)" >Review</a>
+                                <a href="javascript:;" class="blue-link edit-view-scoreboard-link" ng-if="submission.evaluationPercentage && $first" ng-click="activity.showReviewTab(5,submission.id)" >Edit</a>
+                            </div>
+                            <div class="col-td width14 text-center">
+                                <a href="/servlet/servlet.FileDownload?file={{submission.document.id}}" target="_blank" class="blue-btn radius6 pull-right">
+                                    <span>
+                                        <span>Download</span>
+                                    </span>
+                                </a>
+                            </div> 
+                        </div>
                     </div>
                     <!-- end .table-data -->
                 </div>
@@ -560,12 +559,12 @@
                         <div class="pull-left">
                             <h2 class="title-h2">REVIEW</h2>
                             <div class="col-user">
-                                <a href="publisher-member-profile.html" class="portrait-img">
+                                <a href="#/publishermemberprofile/{{activity.submissionRequirements.submission.user.id}}" class="portrait-img">
                                     <img src="{{activity.submissionRequirements.submission.user.photoUrl}}" alt="Portrait" />
                                 </a>
                                 <span class="user-texts">
                                     <span class="texts gray">Member Name</span>
-                                    <a href="publisher-member-profile.html" class="blue-link">{{activity.submissionRequirements.submission.user.firstName+' '+activity.submissionRequirements.submission.user.lastName}}</a>
+                                    <a href="#/publishermemberprofile/{{activity.submissionRequirements.submission.user.id}}" class="blue-link">{{activity.submissionRequirements.submission.user.firstName+' '+activity.submissionRequirements.submission.user.lastName}}</a>
                                 </span>
                             </div>
                             <!-- .col-user-->
@@ -610,20 +609,20 @@
                                 <div class="importance pull-left">
                                     <span class="pull-left">Importance:</span>
                                     <span class="value pull-left orange" ng-if="subReq.requirement.importance == 'High' ">{{subReq.requirement.importance}}</span>
-		                            <span class="value pull-left yellow" ng-if="subReq.requirement.importance == 'Low' ">{{subReq.requirement.importance}}</span>
-		                            <span class="value pull-left ex-critical-label" ng-if="subReq.requirement.importance == 'Critical' ">{{subReq.requirement.importance}}</span>
-		                            <span class="value pull-left ex-normal-label" ng-if="subReq.requirement.importance == 'Normal' ">{{subReq.requirement.importance}}</span>
+                                    <span class="value pull-left yellow" ng-if="subReq.requirement.importance == 'Low' ">{{subReq.requirement.importance}}</span>
+                                    <span class="value pull-left ex-critical-label" ng-if="subReq.requirement.importance == 'Critical' ">{{subReq.requirement.importance}}</span>
+                                    <span class="value pull-left ex-normal-label" ng-if="subReq.requirement.importance == 'Normal' ">{{subReq.requirement.importance}}</span>
                                 </div>
                             </div>
                             <div class="col-td width28">
                                 <span class="form-container z-index1110">
                                     <span class="selects-container">
                                         <select ng-model="subReq.evaluationScore" ng-init="0" >
-		                                    <option value="40.00" >Meets and Exceeds Requirements</option>
-		                                    <option value="30.00" >Meets Requirements</option> 
-		                                    <option value="20.00" >Somewhat Meets Requirements</option>
-		                                    <option value="10.00" >Doesn't Meet Requirements</option>
-		                                </select>
+                                            <option value="40.00" >Meets and Exceeds Requirements</option>
+                                            <option value="30.00" >Meets Requirements</option> 
+                                            <option value="20.00" >Somewhat Meets Requirements</option>
+                                            <option value="10.00" >Doesn't Meet Requirements</option>
+                                        </select>
                                     </span>
                                 </span>
                             </div>
@@ -662,21 +661,21 @@
                             <textarea class="requite-con-m" placeholder="Type Your Comments" ng-model="activity.submissionRequirements.submission.overallComment" ></textarea>
                         </span>
                         <div class="btn-bar">
-                        	<a href="javascript:;" class="blue-btn radius6 pull-right save-review-button disable" ng-if="!activity.submissionRequirements.showReviewCompleteBtn" >
-		                        <span>
-		                            <span>Complete Review</span>
-		                        </span>
-		                    </a>
-		                    <a href="javascript:;" class="blue-btn radius6 pull-right save-review-button" ng-if="activity.submissionRequirements.showReviewCompleteBtn" ng-click="activity.completeReview()" >
-		                        <span>
-		                            <span>Complete Review</span>
-		                        </span>
-		                    </a>
-		                    <a href="javascript:;" class="blue-btn radius6 pull-right save-review-button" ng-click="activity.validateReview()" >
-		                        <span>
-		                            <span>Save Review</span>
-		                        </span>
-		                    </a>
+                            <a href="javascript:;" class="blue-btn radius6 pull-right save-review-button disable" ng-if="!activity.submissionRequirements.showReviewCompleteBtn" >
+                                <span>
+                                    <span>Complete Review</span>
+                                </span>
+                            </a>
+                            <a href="javascript:;" class="blue-btn radius6 pull-right save-review-button" ng-if="activity.submissionRequirements.showReviewCompleteBtn" ng-click="activity.completeReview()" >
+                                <span>
+                                    <span>Complete Review</span>
+                                </span>
+                            </a>
+                            <a href="javascript:;" class="blue-btn radius6 pull-right save-review-button" ng-click="activity.validateReview()" >
+                                <span>
+                                    <span>Save Review</span>
+                                </span>
+                            </a>
                             <div class="hide">
                                 <a href="javascript:;" class="saving-review-btn open-modal-window" data-modal-class="modal-saving-review" ng-click="activity.validateReview()"  >Saving Review</a>
                                 <a href="javascript:;" class="saving-error-btn open-modal-window" data-modal-class="modal-saving-error">Please fill all comments</a>
@@ -699,13 +698,15 @@
                     <form>
                         <dl>
                             <dt class="data-tit">
-                                Story Title
+                              Story Title
+                
                                 <span class="tip-box">
                                     <a href="javascript:;" class="icon-blue-tip" tooltip="" />
                                     <span class="tip-content hide">
                                         <i />
                                         Dolor sit amet, consectetur adipiscing elit.
                                         Aenean euismod bibendum laoreet. 
+                    
                                     </span>
                                 </span>
                             </dt>
@@ -713,34 +714,37 @@
                                 <input class="data-tit-in" type="text" ng-model="vm.title" placeholder="Title" />
                             </dd>
                             <dt class="data-tit">
-                                Service Offerings
+                              Service Offerings
                             </dt>
-		                    <dd class="data-in">
-		                        <span class="activity-type">
-		                            <span class="form-container width335" ng-jqtransform="a">
-		                                <span class="selects-container">
-		                                    <select ng-model="vm.story.serviceOffering" style="width: 335px;">
-		                                        <!-- <option ng-selected="true" value="">Choose Service Offering</option> -->
-		                                        <option ng-selected="true" value="Analytics and Data Management Services">Analytics and Data Management Services</option>
-		                                        <option value="Application Services">Application Services</option>
-		                                        <option value="Business Process Services">Business Process Services</option>
-		                                        <option value="Data Center,Workload and Cloud Services">Data Center,Workload and Cloud Services</option>
-		                                        <option value="Enterprise Security Services">Enterprise Security Services</option>
-		                                        <option value="Industry Solutions">Industry Solutions</option>
-		                                        <option value="Mobility and Workplace Services">Mobility and Workplace Services</option>
-		                                    </select>
-		                                </span>
-		                            </span>
-		                        </span>
-		                    </dd>
+                           <dd class="data-in">
+                               <span class="activity-type">
+                                   <span class="form-container width335" ng-jqtransform="a">
+                                       <span class="selects-container">
+                                           <select ng-model="vm.story.serviceOffering" style="width: 335px;">
+                                              <!-- <option ng-selected="true" value="">Choose Service Offering</option> -->
+                                               <option ng-selected="true" value="Analytics and Data Management Services">Analytics and Data Management Services</option>
+                                               <option value="Application Services">Application Services</option>
+                                               <option value="Business Process Services">Business Process Services</option>
+                                               <option value="Data Center,Workload and Cloud Services">Data Center,Workload and Cloud Services</option>
+                                               <option value="Enterprise Security Services">Enterprise Security Services</option>
+                                               <option value="Industry Solutions">Industry Solutions</option>
+                                               <option value="Mobility and Workplace Services">Mobility and Workplace Services</option>
+                                           </select>
+                                       </span>
+                                   </span>
+                               </span>
+                           </dd>
+                            
                             <dt class="data-tit">
-                                Story Description
+                                    Story Description
+              
                                 <span class="tip-box">
                                     <a href="javascript:;" class="icon-blue-tip" tooltip="" />
                                     <span class="tip-content hide">
                                         <i />
                                         Dolor sit amet, consectetur adipiscing elit.
                                         Aenean euismod bibendum laoreet. 
+              
                                     </span>
                                 </span>
                             </dt>
