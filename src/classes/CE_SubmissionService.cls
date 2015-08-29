@@ -47,8 +47,8 @@ public with sharing class CE_SubmissionService implements CE_ISubmissionService 
             insert submission;
             
             if(attachment != null) {
-            	attachment.ParentId = submission.Id;
-            	insert attachment;
+                attachment.ParentId = submission.Id;
+                insert attachment;
             }
         } catch (Exception ex) {
             Database.rollback(sp);
@@ -63,27 +63,32 @@ public with sharing class CE_SubmissionService implements CE_ISubmissionService 
      * @return          List<CE_Submission__c>
      */
     public List<CE_Submission__c> getValidSubmissions(CE_Activity__c activity) {
-       
-        CE_ActivityMilestones__c submitMilestone = [SELECT Id, Scheduled_Date__c FROM CE_ActivityMilestones__c WHERE CE_Activity__c = :activity.Id AND CE_Milestone__r.Name = :CE_Constants.SUBMISSION_DATE_MILESTONE_NAME LIMIT 1];
+        // Bug fix : http://community.topcoder.com/tc?module=ProjectDetail&pj=30051251
+        List<CE_ActivityMilestones__c> submitMilestoneList = [SELECT Id, Scheduled_Date__c FROM CE_ActivityMilestones__c WHERE CE_Activity__c = :activity.Id AND CE_Milestone__r.Name = :CE_Constants.SUBMISSION_DATE_MILESTONE_NAME LIMIT 1];
+        
+        // If we dont have setup the Submission Milestone, Just return the empty list.
+        if(submitMilestoneList == null || submitMilestoneList.size() != 1){
+            return new List<CE_Submission__c>();
+        }
         
         Id currentUserId = UserInfo.getUserId();
         // Query Crowd_Exchange_User_Type__c for current logged in user
         User usr = [SELECT Crowd_Exchange_User_Type__c FROM User WHERE Id = :currentUserId];
         
         Id activityId = activity.Id;
-        	
+            
         String selectQuery = 'SELECT   Name, CE_Activity__c, Evaluation_Percentage__c,  Submission_Score__c,  Overall_Comment__c, '+
                               ' Status__c,  Submission_Timestamp__c, Submitting_Member__c,  Submitting_Member__r.FirstName, '+
                               ' Submitting_Member__r.LastName,  Submitting_Member__r.SmallPhotoUrl, '+
-	                            // we will load only on submission i.e latest.
-	                          ' (SELECT Name, Description, ContentType, BodyLength, CreatedDate  FROM Attachments order by CreatedDate asc limit 1), '+
-	                          ' (Select Evaluation_Score__c From Submission_Requirements__r) '+
+                                // we will load only on submission i.e latest.
+                              ' (SELECT Name, Description, ContentType, BodyLength, CreatedDate  FROM Attachments order by CreatedDate asc limit 1), '+
+                              ' (Select Evaluation_Score__c From Submission_Requirements__r) '+
                               ' FROM CE_Submission__c WHERE CE_Activity__c = :activityId AND Submission_Timestamp__c != null ';
         
         if(usr.Crowd_Exchange_User_Type__c == CE_Constants.PUBLISHER){
-        	selectQuery += ' AND Submitting_Member__c != null ';
+            selectQuery += ' AND Submitting_Member__c != null ';
         } else if(usr.Crowd_Exchange_User_Type__c == CE_Constants.MEMBER) {
-        	selectQuery += ' AND Submitting_Member__c = :currentUserId ';
+            selectQuery += ' AND Submitting_Member__c = :currentUserId ';
         }                
         
         selectQuery += ' ORDER BY Submission_Timestamp__c DESC ';
@@ -93,11 +98,11 @@ public with sharing class CE_SubmissionService implements CE_ISubmissionService 
         
         // Added check for submission Timestamp to be less then or equal to Activity Milestones Schedule Date
         List<CE_Submission__c> validSubmissions = new List<CE_Submission__c>();
-        for(CE_Submission__c submission : submissions) {
-            if(submission.Submission_Timestamp__c.date() <= submitMilestone.Scheduled_Date__c){
-                validSubmissions.add(submission);
+            for(CE_Submission__c submission : submissions) {
+                if(submission.Submission_Timestamp__c.date() <= submitMilestoneList[0].Scheduled_Date__c){
+                    validSubmissions.add(submission);
+                }
             }
-        }        
         return validSubmissions;
     }
     

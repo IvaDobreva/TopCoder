@@ -236,25 +236,25 @@ public with sharing abstract class CE_WebAppModels {
         public boolean isReviewComplete {get;set;}
         
         public ActivitySubmission(CE_Submission__c model, Date submissionDueDate) {
-        	this(model);
-        	this.submissionDueDate = submissionDueDate;
-        	this.isSubmissionEnd = (this.submissionDueDate <= Datetime.now());
+            this(model);
+            this.submissionDueDate = submissionDueDate;
+            this.isSubmissionEnd = (this.submissionDueDate <= Datetime.now());
         }
 
         public ActivitySubmission(CE_Submission__c model){
-			this.id = model.Id;
-			this.name = model.name;
-			this.submissionDate = model.Submission_Timestamp__c;
-			this.submissionScore = model.Submission_Score__c;
-			this.overallComment = model.Overall_Comment__c;
-			this.evaluationPercentage = model.Evaluation_Percentage__c != null ? (model.Evaluation_Percentage__c).setScale(2) : 0;
-			this.isReviewComplete = model.Status__c == CE_Constants.REVIEW_COMPLETE_STATUS ? true : false;
-			
-			// setting the document
-			if(model.Attachments != null && !model.Attachments.isEmpty()) {
-				this.document = new SubmissionDocument(model.Attachments[0]);
-			}
-			try{
+            this.id = model.Id;
+            this.name = model.name;
+            this.submissionDate = model.Submission_Timestamp__c;
+            this.submissionScore = model.Submission_Score__c;
+            this.overallComment = model.Overall_Comment__c;
+            this.evaluationPercentage = model.Evaluation_Percentage__c != null ? (model.Evaluation_Percentage__c).setScale(2) : 0;
+            this.isReviewComplete = model.Status__c == CE_Constants.REVIEW_COMPLETE_STATUS ? true : false;
+            
+            // setting the document
+            if(model.Attachments != null && !model.Attachments.isEmpty()) {
+                this.document = new SubmissionDocument(model.Attachments[0]);
+            }
+            try{
                 this.user = new UserModel(model.Submitting_Member__r);
             } catch(Exception ex){}
         }
@@ -352,8 +352,27 @@ public with sharing abstract class CE_WebAppModels {
                 this.codeTypes.add(new CodeType(skill));
             }
             this.milestones = new List<ActivityMilestone>();
+            Boolean isSubmissionMilestoneSet = false;
+            Boolean isDueDateReached = false;
             for(CE_ActivityMilestones__c milestone : model.ActivityMilestones__r){
+                
+                // Added Validatation.
+                // We are checking whether milestone has reached Scheduled date or not and also Whether we have setup the Submission date milestone.
+                
+                if(milestone.CE_Milestone__r.Name == CE_Constants.SUBMISSION_DATE_MILESTONE_NAME){
+                    if(milestone.Scheduled_Date__c < Datetime.now()){
+                        isDueDateReached = true;
+                    }
+                    isSubmissionMilestoneSet = true;
+                }
                 this.milestones.add(new ActivityMilestone(milestone));
+            }
+            
+            // If both the conditions satisfies, Allow Submission button would be active.
+            if(isSubmissionMilestoneSet && !isDueDateReached){
+                allowSubmission = true;
+            }else{
+                allowSubmission = false;
             }
             this.milestones.sort();
             this.requirements = new List<ActivityRequirement>();
@@ -398,11 +417,11 @@ public with sharing abstract class CE_WebAppModels {
         
         // Method to add requirements to ActivityRequirement model
         public void addRequirements(List<CE_Requirement__c> requirements) {
-        	this.requirements = new List<ActivityRequirement>();
-        	for(CE_Requirement__c  requirement : requirements) {
-        		ActivityRequirement requirementDto = new ActivityRequirement(requirement);
-         		this.requirements.add(requirementDto);
-        	}
+            this.requirements = new List<ActivityRequirement>();
+            for(CE_Requirement__c  requirement : requirements) {
+                ActivityRequirement requirementDto = new ActivityRequirement(requirement);
+                this.requirements.add(requirementDto);
+            }
         }
         
         public CE_Activity__c getSObject(){
@@ -566,11 +585,11 @@ public with sharing abstract class CE_WebAppModels {
         public ActivityRequirement requirement {get;set;}
         
         public SubmissionRequirement(CE_Submission_Requirement__c model) {
-        	this.id = model.id;
-        	this.evaluationScore = ''+model.Evaluation_Score__c;
-        	this.reviewComment = model.Review_Comment__c;
-        	
-        	try{
+            this.id = model.id;
+            this.evaluationScore = ''+model.Evaluation_Score__c;
+            this.reviewComment = model.Review_Comment__c;
+            
+            try{
                 this.requirement = new ActivityRequirement((CE_Requirement__c)model.getsObject('Requirement__r'));
             } catch(Exception ex){}
         }
