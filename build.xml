@@ -15,7 +15,7 @@
 			 username="${developer.username}"
 	     password="${developer.password}" 
 	     serverurl="${developer.serverurl}" 
-			 retrieveTarget="/Users/Ward/Code/crowd-exchange/src"  
+			 retrieveTarget="/Users/Ward/Code/crowd-exchange3/crowdexchange/src"  
 			 unpackaged="package.xml" 
 			 pollWaitMillis="10000" 
 			 maxPoll="20"/>
@@ -28,7 +28,7 @@
           username="${developer.username}"
           password="${developer.password}" 
           serverurl="${developer.serverurl}" 
-          deployroot="/Users/Ward/Code/crowd-exchange/src">
+          deployroot="/Users/Ward/Code/crowd-exchange3/crowdexchange/src">
         </sf:deploy>
       </target>
       
@@ -37,7 +37,7 @@
           username="${developer.username}"
           password="${developer.password}" 
           serverurl="${developer.serverurl}" 
-          deployroot="/Users/Ward/Code/crowd-exchange/src"
+          deployroot="/Users/Ward/Code/crowd-exchange3/crowdexchange/src"
           checkOnly="true">
         </sf:deploy>
       </target>

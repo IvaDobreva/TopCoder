@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
     <fieldUpdates>
-        <fullName>Update Member Skill</fullName>
+        <fullName>updatememberskill</fullName>
         <field>Member_Skill__c</field>
         <formula>Member__c + &apos;-&apos; +  Skill__c</formula>
+        <name>Update Member Skill</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Formula</operation>
         <protected>false</protected>
@@ -11,7 +12,7 @@
     <rules>
         <fullName>User Skill - Update Member Skill</fullName>
         <actions>
-            <name>Update Member Skill</name>
+            <name>updatememberskill</name>
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>

@@ -1,54 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
     <alerts>
-        <fullName>Activity Assigned</fullName>
+        <fullName>activityassigned</fullName>
+        <description>Activity Assigned</description>
         <protected>false</protected>
         <recipients>
             <field>Assigned_Member__c</field>
             <type>userLookup</type>
         </recipients>
+        <senderType>CurrentUser</senderType>
         <template>Crowd_Exchange_Email_Templates/Activity_Assigned</template>
     </alerts>
     <alerts>
-        <fullName>Activity Registration Complete</fullName>
+        <fullName>activityregistrationcomplete</fullName>
+        <description>Activity Registration Complete</description>
         <protected>false</protected>
         <recipients>
             <field>Publisher__c</field>
             <type>userLookup</type>
         </recipients>
+        <senderType>CurrentUser</senderType>
         <template>Crowd_Exchange_Email_Templates/Activity_Registration_Complete</template>
     </alerts>
     <alerts>
-        <fullName>No Registered Users</fullName>
+        <fullName>noregisteredusers</fullName>
+        <description>No Registered Users</description>
         <protected>false</protected>
         <recipients>
             <field>Publisher__c</field>
             <type>userLookup</type>
         </recipients>
+        <senderType>CurrentUser</senderType>
         <template>Crowd_Exchange_Email_Templates/No_Registered_Users</template>
     </alerts>
     <alerts>
-        <fullName>No Reviews Received</fullName>
+        <fullName>noreviewsreceived</fullName>
+        <description>No Reviews Received</description>
         <protected>false</protected>
         <recipients>
             <field>Publisher__c</field>
             <type>userLookup</type>
         </recipients>
+        <senderType>CurrentUser</senderType>
         <template>Crowd_Exchange_Email_Templates/No_Reviews_Received</template>
     </alerts>
     <alerts>
-        <fullName>No Submissions</fullName>
+        <fullName>nosubmissions</fullName>
+        <description>No Submissions</description>
         <protected>false</protected>
         <recipients>
             <field>Publisher__c</field>
             <type>userLookup</type>
         </recipients>
+        <senderType>CurrentUser</senderType>
         <template>Crowd_Exchange_Email_Templates/No_Submissions</template>
     </alerts>
     <rules>
         <fullName>Activity Assigned</fullName>
         <actions>
-            <name>Activity Assigned</name>
+            <name>activityassigned</name>
             <type>Alert</type>
         </actions>
         <active>true</active>
@@ -61,7 +71,7 @@
     <rules>
         <fullName>Activity Registration Complete</fullName>
         <actions>
-            <name>Activity Registration Complete</name>
+            <name>activityregistrationcomplete</name>
             <type>Alert</type>
         </actions>
         <active>true</active>
@@ -75,7 +85,7 @@
     <rules>
         <fullName>No Registered Users</fullName>
         <actions>
-            <name>No Registered Users</name>
+            <name>noregisteredusers</name>
             <type>Alert</type>
         </actions>
         <active>true</active>
@@ -89,7 +99,7 @@
     <rules>
         <fullName>No Reviews Received</fullName>
         <actions>
-            <name>No Reviews Received</name>
+            <name>noreviewsreceived</name>
             <type>Alert</type>
         </actions>
         <active>true</active>
@@ -103,7 +113,7 @@
     <rules>
         <fullName>No Submissions</fullName>
         <actions>
-            <name>No Submissions</name>
+            <name>nosubmissions</name>
             <type>Alert</type>
         </actions>
         <active>true</active>

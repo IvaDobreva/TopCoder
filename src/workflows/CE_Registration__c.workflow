@@ -1,27 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
     <alerts>
-        <fullName>Activity Cancelled</fullName>
+        <fullName>activitycancelled</fullName>
+        <description>Activity Cancelled</description>
         <protected>false</protected>
         <recipients>
             <field>User__c</field>
             <type>userLookup</type>
         </recipients>
+        <senderType>CurrentUser</senderType>
         <template>Crowd_Exchange_Email_Templates/Activity_Cancelled</template>
     </alerts>
     <alerts>
-        <fullName>Story Cancelled</fullName>
+        <fullName>storycancelled</fullName>
+        <description>Story Cancelled</description>
         <protected>false</protected>
         <recipients>
             <field>User__c</field>
             <type>userLookup</type>
         </recipients>
+        <senderType>CurrentUser</senderType>
         <template>Crowd_Exchange_Email_Templates/Story_Cancelled</template>
     </alerts>
     <rules>
         <fullName>Activity Cancelled</fullName>
         <actions>
-            <name>Activity Cancelled</name>
+            <name>activitycancelled</name>
             <type>Alert</type>
         </actions>
         <active>true</active>
@@ -35,7 +39,7 @@
     <rules>
         <fullName>Story Cancelled</fullName>
         <actions>
-            <name>Story Cancelled</name>
+            <name>storycancelled</name>
             <type>Alert</type>
         </actions>
         <active>true</active>

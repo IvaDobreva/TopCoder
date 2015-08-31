@@ -1,18 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
     <alerts>
-        <fullName>New Story Published</fullName>
+        <fullName>newstorypublished</fullName>
+        <description>New Story Published</description>
         <protected>false</protected>
         <recipients>
-            <recipient>Crowd Exchange Users</recipient>
+            <recipient>Crowd_Exchange_Users</recipient>
             <type>group</type>
         </recipients>
+        <senderType>CurrentUser</senderType>
         <template>Crowd_Exchange_Email_Templates/New_Story_Published</template>
     </alerts>
     <rules>
         <fullName>Story</fullName>
         <actions>
-            <name>New Story Published</name>
+            <name>newstorypublished</name>
             <type>Alert</type>
         </actions>
         <active>true</active>
