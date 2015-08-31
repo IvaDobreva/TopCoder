@@ -11,7 +11,7 @@
                     <span class="icon-gray-arrow pull-left" />
                     <a href="#/publisherStoryDetails/{{vm.story.id}}" class="blue-link pull-left"><div ng-bind-html="vm.story.title"></div></a>
                     <span class="icon-blue-arrow pull-left" />
-                    <span class="current-text black-text pull-left"><div ng-bind-html="vm.title"></div></span>
+                    <span class="current-text black-text pull-left">{{vm.title}}</div></span>
                     <span class="clearfix" />
                 </div>
             </div>
