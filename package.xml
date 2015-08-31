@@ -184,6 +184,12 @@
         <name>Layout</name>
     </types>
     <types>
+        <members>Crowd_Exchange_Admin_Permission_Set</members>
+        <members>Crowd_Exchange_Member_Permission_Set</members>
+        <members>Crowd_Exchange_Publisher_Permission_Set</members>
+        <name>PermissionSet</name>
+    </types>
+    <types>
         <members>*</members>
         <name>Portal</name>
     </types>
