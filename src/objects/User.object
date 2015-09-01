@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>Crowd_Exchange_About_Me__c</fullName>
+        <label>Crowd Exchange About Me</label>
+        <length>32768</length>
+        <type>LongTextArea</type>
+        <visibleLines>10</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Crowd_Exchange_Organization__c</fullName>
+        <label>Crowd Exchange Organization</label>
+        <length>255</length>
+        <type>Text</type>
+    </fields>
+    <fields>
+        <fullName>Crowd_Exchange_User_Type__c</fullName>
+        <label>Crowd_Exchange_User_Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Member</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Publisher</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <type>Picklist</type>
+    </fields>
+</CustomObject>

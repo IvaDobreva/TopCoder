@@ -1,0 +1,17 @@
+<apex:component controller="CE_WebApp_ConfigController">
+<script type="text/javascript">
+    var GLOBAL_CONFIG = {
+        appRoot: "{!URLFOR($Resource.CrowdExchangeWebApp_Resources)}"+"/",
+        currentUser: new UserViewModel({
+            id:'{!currentUser.Id}',
+            role:'{!currentUser.role}',
+            firstName: '{!HTMLENCODE(currentUser.firstName)}',
+            lastName: '{!HTMLENCODE(currentUser.lastName)}',
+            photoUrl: '{!currentUser.photoUrl}'
+        }),
+        milestones: {!milestones},
+        activityChatterUrl: '{!$Site.Domain}{!URLFOR($Page.CrowdExchange_ActivityFeed)}',
+        notificationsCounterUpdateInterval: {!$Setup.CE_CrowdExchangeSettings__c.NotificationsCounterUpdateInterval__c}
+    }
+</script>
+</apex:component>

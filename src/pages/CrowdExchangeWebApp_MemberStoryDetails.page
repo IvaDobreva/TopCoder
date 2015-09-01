@@ -1,0 +1,99 @@
+<apex:page showheader="false" sidebar="false" standardstylesheets="false" 
+            cache="false" expires="600" applyBodyTag="false" applyHtmlTag="false" 
+            docType="html-5.0" >
+<div class="contents publisher-story-activity-contents member-activity-details-contents" ng-show="isInitialized">
+    <div class="crumbs">
+        <div class="bg-border3" />
+        <div class="boxs">
+            <div class="lefts">
+                <a href="#/memberDashboard" class="blue-link pull-left">Dashboard</a>
+                <span class="icon-blue-arrow pull-left" />
+                <span class="current-text black-text pull-left"><div ng-bind-html="vm.title"></div></span>
+                <span class="clearfix" />
+            </div>
+        </div>
+    </div>
+    <!-- end .crumbs -->
+    <div class="default-story-contents">
+        <div class="story-contents tab-content">
+            <div class="boxs">
+                <div class="title large-title">
+                    <h2><div ng-bind-html="vm.title"></div></h2>
+                </div>
+                <div class="type type-top">
+                    <div class="activity-type pull-left">
+                        <span>Publisher
+                            <em />
+                        </span>
+                        <p class="activity-txt">
+                            <a href="javascript:;" class="blue-link">{{vm.publisher.fullName}}</a>
+                        </p>
+                    </div>
+                    <div class="process-type pull-left">
+                        <span>Organization
+                            <em />
+                        </span>
+                        <p class="activity-txt">
+                            <a href="javascript:;" class="blue-link">{{vm.publisher.organization}}</a>
+                        </p>
+                    </div>
+                    <div class="clearfix" /></div>
+                <!-- .type -->
+                <div class="review-description bottom-no">
+                    <h3 class="title-h3">Story Description
+                        <i />
+                    </h3>
+                    <div class="review-desc-con">
+                        <div ng-bind-html="vm.description | sanitize" /></div>
+                </div>
+                <!-- end.review-description -->
+                <div class="story-activities">
+                    <h3 class="title-h3">Story Activities
+                        <i />
+                    </h3>
+                    <div class="table-data">
+                        <div class="row row-th">
+                            <div class="col-td width36">Story/Activity</div>
+                            <div class="col-td width10">Type</div>
+                            <div class="col-td width11 text-center">Registrants</div>
+                            <div class="col-td width11">Start Date</div>
+                            <div class="col-td width11">End Date</div>
+                            <div class="col-td width10">Phase</div>
+                            <div class="col-td width11" /></div>
+                        <!-- end .row -->
+                        <div class="row-title gray-border" />
+                        <!-- end .row-title -->
+                        <div class="row row-td" ng-repeat="activity in vm.activities track by $index">
+                            <div class="col-td width36">
+                                <a href="#/memberActivityAssignAssigned/{{activity.id}}" class="blue-link">{{activity.title}}</a>
+                            </div>
+                            <div class="col-td width10">{{activity.challengeType}}</div>
+                            <div class="col-td width11 text-center">
+                                <a href="#/memberActivityAssignAssigned/{{activity.id}}?tab=Registrants" class="blue-link">{{activity.registrationsCount}}</a>
+                            </div>
+                            <div class="col-td width11">{{ activity.milestones[0].scheduledDate | date : 'MM/dd/yyyy' }}</div>
+                            <div class="col-td width11" ng-if="activity.phase !== 'Completed'">{{ activity.milestones[activity.milestones.length-1].scheduledDate | date : 'MM/dd/yyyy' }}</div>
+                            <div class="col-td width11" ng-if="activity.phase === 'Completed'">{{ activity.milestones[activity.milestones.length-1].completedDate | date : 'MM/dd/yyyy' }}</div>
+                            <div class="col-td width10 yellow">{{activity.phase}}</div>
+                            <div class="col-td width11 text-right">
+                                <a href="javascript:;" class="blue-border-btn width105 pull-right register-button-search-result open-modal-window {{activity.isRegistered?'hide':''}}" ng-click="$parent.vm.registerToActivity(activity.id)">REGISTER</a>
+                                <a href="member-activity-details-assigned.html?tab=Submissions" class="blue-btn width105 radius6 text-center {{activity.isRegistered?'':'hide'}}">
+                                    <span>
+                                        <span>Submit</span>
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                        <!-- end .row -->
+                    </div>
+                    <!-- end.table-data -->
+                </div>
+                <!-- end.review-description -->
+            </div>
+        </div>
+        <!-- end .story-contents -->
+    </div>
+    <!-- end .default-story-contents -->
+</div>
+<!-- end .contents -->
+</apex:page>

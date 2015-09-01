@@ -1,0 +1,7 @@
+Hello {!User.Name},
+
+The story {!CE_Registration__c.Story_Name__c} has been cancelled.
+
+Sincerely,
+
+The CrowdExchange Platform Team

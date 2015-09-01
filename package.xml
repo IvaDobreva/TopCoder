@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <types>
+        <members>CE_ActivityMonitoringBatch</members>
+        <members>CE_ActivityService</members>
+        <members>CE_ActivityServiceTest</members>
+        <members>CE_CalculateSummaryDataBatch</members>
+        <members>CE_Constants</members>
+        <members>CE_MemPubProfileController</members>
+        <members>CE_MemberMyProfileController</members>
+        <members>CE_RemoteController</members>
+        <members>CE_RemoteControllerTest</members>
+        <members>CE_WebApp_ConfigController</members>
+        <members>CE_WebApp_ConfigControllerTest</members>
+        <members>CE_WebApp_PageController</members>
+        <members>CE_MemberDashboardController</members>
+        <members>CE_MemberMemberProfileController</members>
+        <members>CE_MemberSearchEmailController</members>
+        <members>CE_MemberSearchEmailControllerTest</members>
+        <members>CE_PublisherDashboardController</members>
+        <members>CE_Utils</members>
+        <members>CE_UtilsTest</members>
+        <members>CE_DashboardDataCollector</members>
+        <members>CE_DashboardUpdater</members>
+        <members>CE_DashboardUpdaterScheduler</members>
+        <members>CE_DashboardUpdaterSchedulerTest</members>
+        <members>CE_DashboardUpdaterTest</members>
+        <members>CE_EmailHelper</members>
+        <members>CE_EmailHelperTest</members>
+        <members>CE_IActivityService</members>
+        <members>CE_IStoryService</members>
+        <members>CE_ISubmissionService</members>
+        <members>CE_IUserService</members>
+        <members>CE_NotificationEmailHandler</members>
+        <members>CE_NotificationEmailHandlerTest</members>
+        <members>CE_ServiceException</members>
+        <members>CE_StoryService</members>
+        <members>CE_StoryServiceTest</members>
+        <members>CE_SubmissionService</members>
+        <members>CE_SubmissionServiceTest</members>
+        <members>CE_TestDataFactory</members>
+        <members>CE_TestFactory</members>
+        <members>CE_Test_MemPubProfileController</members>
+        <members>CE_Test_MemberMyProfileController</members>
+        <members>CE_Test_MemberDashboardController</members>
+        <members>CE_Test_MemberMemberProfileController</members>
+        <members>CE_Test_PublisherDashboardController</members>
+        <members>CE_UserService</members>
+        <members>CE_UserServiceTest</members>
+        <members>CE_WebAppModels</members>
+        <members>CE_WebAppModelsTest</members>
+        <members>CE_WorkflowManager</members>
+        <members>CE_WorkflowManagerTest</members>
+        <name>ApexClass</name>
+    </types>
+    <types>
+        <members>CrowdExchangeWebApp_Config</members>
+        <members>CrowdExchange_MemberSearchEmail</members>	 
+        <name>ApexComponent</name>
+    </types>
+    <types>
+        <members>CrowdExchange_BandwidthExceeded</members>
+        <members>CrowdExchangeWebApp</members>
+        <members>CrowdExchangeWebApp_Home</members>
+        <members>CrowdExchangeWebApp_MemActivityAssigned</members>
+        <members>CrowdExchangeWebApp_MemMemProfile</members>
+        <members>CrowdExchangeWebApp_MemPubProfile</members>
+        <members>CrowdExchangeWebApp_MemberDashboard</members>
+        <members>CrowdExchangeWebApp_MemberMyProfile</members>
+        <members>CrowdExchangeWebApp_MemberStoryDetails</members>
+        <members>CrowdExchangeWebApp_Notifications</members>
+        <members>CrowdExchangeWebApp_PubActivityAssign</members>
+        <members>CrowdExchangeWebApp_PubActivityReview</members>
+        <members>CrowdExchangeWebApp_PubAddActivity</members>
+        <members>CrowdExchangeWebApp_PubCreateStory</members>
+        <members>CrowdExchangeWebApp_PubMemProfile</members>
+        <members>CrowdExchangeWebApp_PubStoryDetails</members>
+        <members>CrowdExchangeWebApp_PublisherDashboard</members>
+        <members>CrowdExchangeWebApp_PublisherMyProfile</members>
+        <members>CrowdExchangeWebApp_Search</members>
+        <members>CrowdExchangeWebApp_Stories</members>
+        <members>CrowdExchange_ActivityFeed</members>
+        <members>CrowdExchange_Exception</members>
+        <members>CrowdExchange_FileNotFound</members>
+        <members>CrowdExchange_InMaintenance</members>
+        <members>CrowdExchange_Unauthorized</members>
+        <members>CrowdExchange_UnderConstruction</members>
+        <name>ApexPage</name>
+    </types>
+    <types>
+        <members>ActivityHandler</members>
+        <members>SubmissionHandler</members>
+        <name>ApexTrigger</name>
+    </types>
+    <types>
+        <members>CrowdExchange</members>
+        <name>CustomApplication</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>CustomLabels</name>
+    </types>
+    <types>
+        <members>CE_ActivityMilestones__c</members>
+        <members>CE_ActivitySkills__c</members>
+        <members>CE_Activity_Monitoring_Batch_Error__c</members>
+        <members>CE_Activity__c</members>
+        <members>CE_Award__c</members>
+        <members>CE_CrowdExchangeSettings__c</members>
+        <members>CE_Default_Requirement__c</members>
+        <members>CE_InternalProjectSkill__c</members>
+        <members>CE_Internal_Project__c</members>
+        <members>CE_Member_Skill_Snapshot__c</members>
+        <members>CE_Member_Summary_Snapshot__c</members>
+        <members>CE_Milestone__c</members>
+        <members>CE_Notification__c</members>
+        <members>CE_Registration__c</members>
+        <members>CE_Requirement__c</members>
+        <members>CE_Skills__c</members>
+        <members>CE_Story__c</members>
+        <members>CE_Submission_Requirement__c</members>
+        <members>CE_Submission__c</members>
+        <members>CE_Summary_Data__c</members>
+        <members>CE_User_Header_Picture__c</members>
+        <members>CE_UserSkill__c</members>
+        <members>CE_User_Notification__c</members>
+        <members>User</members>
+        <name>CustomObject</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>CustomPageWebLink</name>
+    </types>
+    <types>
+	    	<members>CE_Activity__c</members>
+	    	<members>CE_ActivityMilestones__c</members>
+	    	<members>CE_Default_Requirement__c</members>
+	    	<members>CE_Internal_Project__c</members>
+	    	<members>CE_Milestone__c</members>
+	    	<members>CE_Notification__c</members>
+	    	<members>CE_Requirement__c</members>
+	    	<members>CE_Skills__c</members>
+	    	<members>CE_Story__c</members>
+	    	<members>CE_Summary_Data__c</members>
+	    	<members>CE_User_Notification__c</members>
+        <name>CustomTab</name>
+    </types>
+    <types>
+        <members>Crowd_Exchange_Email_Templates</members>
+        <members>Crowd_Exchange_Email_Templates/Activity_Assigned</members>
+        <members>Crowd_Exchange_Email_Templates/Activity_Cancelled</members>
+        <members>Crowd_Exchange_Email_Templates/Activity_Has_Been_Awarded</members>
+        <members>Crowd_Exchange_Email_Templates/Activity_Registration_Complete</members>
+        <members>Crowd_Exchange_Email_Templates/Invitation_To_Register_For_an_Activity</members>
+        <members>Crowd_Exchange_Email_Templates/Member_Search</members>
+        <members>Crowd_Exchange_Email_Templates/New_Story_Published</members>
+        <members>Crowd_Exchange_Email_Templates/No_Registered_Users</members>
+        <members>Crowd_Exchange_Email_Templates/No_Reviews_Received</members>
+        <members>Crowd_Exchange_Email_Templates/No_Submissions</members>
+        <members>Crowd_Exchange_Email_Templates/Story_Cancelled</members>
+        <members>Crowd_Exchange_Email_Templates/Submission_Review_Complete</members>
+        <name>EmailTemplate</name>
+    </types>
+    <types>
+        <members>CE_ActivityMilestones__c-ActivityMilestone Layout</members>
+        <members>CE_ActivitySkills__c-Activity Skill Layout</members>
+        <members>CE_Activity_Monitoring_Batch_Error__c-Activity Monitoring Batch Error Layout</members>
+        <members>CE_Activity__c-Activity Layout</members>
+        <members>CE_Award__c-Award Layout</members>
+        <members>CE_Default_Requirement__c-Default Requirement Layout</members>
+        <members>CE_InternalProjectSkill__c-Internal Project Skill Layout</members>
+        <members>CE_Internal_Project__c-Internal Project Layout</members>
+        <members>CE_Milestone__c-Milestone Layout</members>
+        <members>CE_Notification__c-Notification Layout</members>
+        <members>CE_Registration__c-Registration Layout</members>
+        <members>CE_Requirement__c-Requirement Layout</members>
+        <members>CE_Story__c-User Story Layout</members>
+        <members>CE_Submission__c-Submission Layout</members>
+        <members>CE_Summary_Data__c-Summary Data Layout</members>
+        <members>User-Crowd Exchange User Layout</members>
+        <members>CE_UserSkill__c-UserSkill Layout</members>
+        <members>CE_User_Notification__c-User Notification Layout</members>
+        <members>CE_User_Notification__c-User Notification Layout</members>
+        <name>Layout</name>
+    </types>
+    <types>
+        <members>Crowd_Exchange_Admin_Permission_Set</members>
+        <members>Crowd_Exchange_Member_Permission_Set</members>
+        <members>Crowd_Exchange_Publisher_Permission_Set</members>
+        <name>PermissionSet</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>Portal</name>
+    </types>
+    <types>
+    	  <members>AllResource</members>
+    	  <members>CrowdExchangeWebApp_Resources</members>
+    	  <members>JqueryDatatable</members>
+    	  <members>PageResources</members>
+        <name>StaticResource</name>
+    </types>
+    <types>
+        <members>CE_ActivitySkills__c</members>
+        <members>CE_Activity__c</members>
+        <members>CE_InternalProjectSkill__c</members>
+        <members>CE_Registration__c</members>
+        <members>CE_Skills__c</members>
+        <members>CE_Story__c</members>
+        <members>CE_Submission__c</members>
+        <members>CE_UserSkill__c</members>
+        <name>Workflow</name>
+    </types>
+    <version>34.0</version>
+</Package>

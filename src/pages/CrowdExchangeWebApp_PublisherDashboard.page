@@ -1,0 +1,536 @@
+<apex:page standardStylesheets="false" sidebar="false" showHeader="false"  docType="html-5.0" controller="CE_PublisherDashboardController">
+   
+   <link rel="stylesheet" type="text/css" href="{!URLFOR($Resource.AllResource, 'css/screen.css')}"/>
+   <link rel="stylesheet" type="text/css" href="{!URLFOR($Resource.JqueryDatatable, 'media/css/jquery.dataTables.css')}"/>
+   <link rel="stylesheet" type="text/css" href="{!URLFOR($Resource.PageResources, 'css/PublisherDashboard.css')}"/>
+   
+   <script src="{!URLFOR($Resource.JqueryDatatable, 'media/js/jquery.dataTables.js')}"></script>
+   <script src="{!URLFOR($Resource.AllResource, 'js/script.js')}"></script>
+   <script src="{!URLFOR($Resource.PageResources, 'js/PublisherDashboard.js')}"></script> 
+   
+   <div class="contents publisher-dashboard-contents">
+      <div class="gray-bg info-group">
+         <div class="bg-border3"></div>
+         <apex:outputPanel rendered="{!isSummaryDataPresent}">
+            <div class="container-fluid boxs">
+               <div class="row">
+                  <div class="col-md-3">
+                     <div class="blue-module container-module">
+                        <div class="icon-text">
+                           <span class="icon-total-stories"></span>
+                           <div class="value">
+                              <span class="number">
+                                 <apex:outputpanel rendered="{!summaryData.Total_Stories__c!=null}" >
+                                    <apex:outputtext value="{!summaryData.Total_Stories__c}" />
+                                 </apex:outputpanel>
+                                 <apex:outputpanel rendered="{!summaryData.Total_Stories__c==null}" >
+                                    <apex:outputtext value="0" />
+                                 </apex:outputpanel>
+                              </span>
+                              <span class="gray-text">Total Stories</span>
+                           </div>
+                        </div>
+                        <!-- end .icon-text -->
+                        <div class="down-text">
+                           <div class="pull-left">
+                              <span class="number">
+                                 <apex:outputpanel rendered="{!summaryData.Active_Stories__c!=null}" >
+                                    <apex:outputtext value="{!summaryData.Active_Stories__c}" />
+                                 </apex:outputpanel>
+                                 <apex:outputpanel rendered="{!summaryData.Active_Stories__c==null}" >
+                                    <apex:outputtext value="0" />
+                                 </apex:outputpanel>
+                              </span>
+                              <span class="gray-text">Active</span>
+                           </div>
+                           <div class="pull-right">
+                              <span class="number">
+                                 <apex:outputpanel rendered="{!summaryData.Completed_Stories__c!=null}" >
+                                    <apex:outputtext value="{!summaryData.Completed_Stories__c}" />
+                                 </apex:outputpanel>
+                                 <apex:outputpanel rendered="{!summaryData.Completed_Stories__c==null}" >
+                                    <apex:outputtext value="0" />
+                                 </apex:outputpanel>
+                              </span>
+                              <span class="gray-text">Completed</span>
+                           </div>
+                           <div class="clearfix"></div>
+                        </div>
+                        <!-- end .down-text -->
+                     </div>
+                  </div>
+                  <!-- end .col-md-3 -->
+                  <div class="col-md-3">
+                     <div class="purple-module container-module">
+                        <div class="icon-text">
+                           <span class="icon-total-activities"></span>
+                           <div class="value">
+                              <span class="number">
+                                 <apex:outputpanel rendered="{!summaryData.Total_Activities__c!=null}" >
+                                    <apex:outputtext value="{!summaryData.Total_Activities__c}" />
+                                 </apex:outputpanel>
+                                 <apex:outputpanel rendered="{!summaryData.Total_Activities__c==null}" >
+                                    <apex:outputtext value="0" />
+                                 </apex:outputpanel>
+                              </span>
+                              <span class="gray-text">Total Activities</span>
+                           </div>
+                        </div>
+                        <!-- end .icon-text -->
+                        <div class="down-text">
+                           <div class="pull-left">
+                              <span class="number">
+                                 <apex:outputpanel rendered="{!summaryData.Active_Activities__c!=null}" >
+                                    <apex:outputtext value="{!summaryData.Active_Activities__c}" />
+                                 </apex:outputpanel>
+                                 <apex:outputpanel rendered="{!summaryData.Active_Activities__c==null}" >
+                                    <apex:outputtext value="0" />
+                                 </apex:outputpanel>
+                              </span>
+                              <span class="gray-text">Active</span>
+                           </div>
+                           <div class="pull-right">
+                              <span class="number">
+                                 <apex:outputpanel rendered="{!summaryData.Completed_Activities__c!=null}" >
+                                    <apex:outputtext value="{!summaryData.Completed_Activities__c}" />
+                                 </apex:outputpanel>
+                                 <apex:outputpanel rendered="{!summaryData.Completed_Activities__c==null}" >
+                                    <apex:outputtext value="0" />
+                                 </apex:outputpanel>
+                              </span>
+                              <span class="gray-text">Completed</span>
+                           </div>
+                           <div class="clearfix"></div>
+                        </div>
+                        <!-- end .down-text -->
+                     </div>
+                  </div>
+                  <!-- end .col-md-3 -->
+                  <div class="col-md-3">
+                     <div class="green-module container-module">
+                        <div class="icon-text">
+                           <span class="icon-registrations"></span>
+                           <div class="value">
+                              <span class="number">
+                                 <apex:outputpanel rendered="{!summaryData.Total_Registrations__c!=null}" >
+                                    <apex:outputtext value="{!summaryData.Total_Registrations__c}" />
+                                 </apex:outputpanel>
+                                 <apex:outputpanel rendered="{!summaryData.Total_Registrations__c==null}" >
+                                    <apex:outputtext value="0" />
+                                 </apex:outputpanel>
+                              </span>
+                              <span class="gray-text">Registrations</span>
+                           </div>
+                        </div>
+                        <!-- end .icon-text -->
+                        <div class="down-text">
+                           <div class="pull-left">
+                              <span class="number">
+                                 <apex:outputpanel rendered="{!summaryData.Total_Submissions__c!=null}" >
+                                    <apex:outputtext value="{!summaryData.Total_Submissions__c}" />
+                                 </apex:outputpanel>
+                                 <apex:outputpanel rendered="{!summaryData.Total_Submissions__c==null}" >
+                                    <apex:outputtext value="0" />
+                                 </apex:outputpanel>
+                              </span>
+                              <span class="gray-text">Submission</span>
+                           </div>
+                           <div class="pull-right">
+                              <span class="number">
+                                 <apex:outputpanel rendered="{!summaryData.Total_Reviews__c!=null}" >
+                                    <apex:outputtext value="{!summaryData.Total_Reviews__c}" />
+                                 </apex:outputpanel>
+                                 <apex:outputpanel rendered="{!summaryData.Total_Reviews__c==null}" >
+                                    <apex:outputtext value="0" />
+                                 </apex:outputpanel>
+                              </span>
+                              <span class="gray-text">Reviews</span>
+                           </div>
+                           <div class="clearfix"></div>
+                        </div>
+                        <!-- end .down-text -->
+                     </div>
+                  </div>
+                  <!-- end .col-md-3 -->
+                  <div class="col-md-3">
+                     <div class="gray-module container-module">
+                        <div class="icon-text">
+                           <span class="icon-total-members"></span>
+                           <div class="value">
+                              <span class="number">
+                                 <apex:outputpanel rendered="{!summaryData.Total_Users__c!=null}" >
+                                    <apex:outputText value="{0, number, ###,###}">
+                                       <apex:param value="{!summaryData.Total_Users__c}"/>
+                                    </apex:outputText>
+                                 </apex:outputpanel>
+                                 <apex:outputpanel rendered="{!summaryData.Total_Users__c==null}" >
+                                    <apex:outputtext value="0" />
+                                 </apex:outputpanel>
+                              </span>
+                              <span class="gray-text">Total Members</span>
+                           </div>
+                        </div>
+                        <!-- end .icon-text -->
+                        <div class="down-text">
+                           <div class="pull-left">
+                              <span class="number blue-text">
+                                 <apex:outputpanel rendered="{!summaryData.Number_of_Members__c!=null}" >
+                                    <apex:outputText value="{0, number, ###,###}">
+                                       <apex:param value="{!summaryData.Number_of_Members__c}"/>
+                                    </apex:outputText>
+                                 </apex:outputpanel>
+                                 <apex:outputpanel rendered="{!summaryData.Number_of_Members__c==null}" >
+                                    <apex:outputtext value="0" />
+                                 </apex:outputpanel>
+                              </span>
+                              <span class="gray-text">Members</span>
+                           </div>
+                           <div class="pull-right">
+                              <span class="number orange-text">
+                                 <apex:outputpanel rendered="{!summaryData.Number_of_Publishers__c!=null}" >
+                                    <apex:outputText value="{0, number, ###,###}">
+                                       <apex:param value="{!summaryData.Number_of_Publishers__c}"/>
+                                    </apex:outputText>
+                                 </apex:outputpanel>
+                                 <apex:outputpanel rendered="{!summaryData.Number_of_Publishers__c==null}" >
+                                    <apex:outputtext value="0" />
+                                 </apex:outputpanel>
+                              </span>
+                              <span class="gray-text">Publishers</span>
+                           </div>
+                           <div class="clearfix"></div>
+                        </div>
+                        <!-- end .down-text -->
+                     </div>
+                  </div>
+                  <!-- end .col-md-4 -->    
+               </div>
+            </div>
+         </apex:outputPanel>
+      </div>
+      <!-- end .info-group -->
+      <div class="tabs-bar boxs">
+         <nav class="pull-left">
+            <ul>
+               <li class="current"><span></span><a href="javascript:;"><i></i>My Active Stories</a></li>
+               <li><span></span><a href="javascript:;"><i></i>My Completed Stories</a></li>
+            </ul>
+         </nav>
+         <div class="pull-right right-box">
+            <a href="#/publisherCreateStory" class="blue-btn radius6"><span><span>Create Story</span></span></a>
+         </div>
+         <div class="clearfix"></div>
+      </div>
+      <!-- end .tabs-bar -->
+      <div class="my-active-stories tab-content">
+         <div class="table-data boxs has-rows-group">
+            <apex:outputPanel rendered="{!isActiveStoryWrapperPresent}">
+               <table id="activeStories">
+                  <thead>
+                     <tr>
+                        <th>
+                           <div class="row row-th">
+                              <div class="col-td width42">Story/Activity</div>
+                              <div class="col-td width12">Stage</div>
+                              <div class="col-td width11 text-center">Registrants</div>
+                              <div class="col-td width11 text-center">Submissions</div>
+                              <div class="col-td width8 text-right">Start Date</div>
+                              <div class="col-td width12 text-center">End Date</div>
+                              <div class="col-td width6"></div>
+                           </div>
+                        </th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     <apex:repeat value="{!listActiveStoryWrapper}" var="activeStoryWrapper">
+                        <tr>
+                           <td>
+                              <div class="row-group">
+                                 <div class="row-title">
+                                    <apex:outputPanel rendered="{!currentuser.Crowd_Exchange_User_Type__c == 'Publisher'}">
+                                       <a href="#/publisherStoryDetails/{!activeStoryWrapper.Story.Id}" class="pull-left">
+                                          <apex:outputtext value="{!activeStoryWrapper.Story.Name}" />
+                                       </a>
+                                    </apex:outputPanel>
+                                    <a class="blue-border-btn width135 pull-right" href="#/publisherAddActivity/{!activeStoryWrapper.Story.Id}" >ADD ACTIVITY</a>
+                                    <span class="clearfix"></span>
+                                 </div>
+                                 <!-- end .row-title -->
+                                 <apex:outputPanel rendered="{!activeStoryWrapper.isActivityPresent}">
+                                    <apex:repeat value="{!activeStoryWrapper.listActivity}" var="activity">
+                                       <div class="row row-td">
+                                          <div class="col-td width42">
+                                             <apex:outputPanel rendered="{!currentuser.Crowd_Exchange_User_Type__c == 'Publisher'}">
+                                                <a href="#/publisherActivityDetailsAssignRegister/{!activity.id}" class="blue-link">
+                                                   <apex:outputtext value="{!activity.Name}" />
+                                                </a>
+                                             </apex:outputPanel>
+                                          </div>
+                                          <div class="col-td width12">
+                                             <apex:outputtext value="{!activity.Status__c}" />
+                                          </div>
+                                          <div class="col-td width11 text-center">
+                                             <apex:outputPanel rendered="{!currentuser.Crowd_Exchange_User_Type__c == 'Publisher'}">
+                                                <a href="#/publisherActivityDetailsAssignRegister/{!activity.id}?tab=Registrants" class="blue-link">
+                                                   <apex:outputtext value="{!activity.Registrants__c}" />
+                                                </a>
+                                             </apex:outputPanel>
+                                          </div>
+                                          <div class="col-td width11 text-center">
+                                             <apex:outputPanel rendered="{!currentuser.Crowd_Exchange_User_Type__c == 'Publisher'}">
+                                                <a href="#/publisherActivityDetailsAssignRegister/{!activity.id}?tab=Submissions" class="blue-link">
+                                                   <apex:outputtext value="{!activity.Submissions__c}" />
+                                                </a>
+                                             </apex:outputPanel>
+                                          </div>
+                                          <div class="col-td width8 text-right">
+                                             <apex:outputText value="{0,date,MM'/'dd'/'yyyy}">
+                                                <!-- <apex:param value="{!activity.Start_Date__c}" />  -->
+                                                <apex:param value="" />
+                                             </apex:outputText>
+                                          </div>
+                                          <div class="col-td width12 text-center">
+                                             <apex:outputText value="{0,date,MM'/'dd'/'yyyy}">
+                                                <!-- <apex:param value="{!activity.End_Date__c}" /> -->
+                                                <apex:param value="" />
+                                             </apex:outputText>
+                                          </div>
+                                          <div class="col-td width6 text-right"><a class="blue-link" href="#/publisherEditActivity/{!activity.Id}">Edit</a></div>
+                                       </div>
+                                       <!-- end .row -->
+                                    </apex:repeat>
+                                 </apex:outputPanel>
+                                 <apex:outputPanel rendered="{!activeStoryWrapper.isActivityPresent}">
+                                    <br></br>
+                                    <br></br>
+                                 </apex:outputPanel>
+                              </div>
+                           </td>
+                        </tr>
+                     </apex:repeat>
+                  </tbody>
+               </table>
+            </apex:outputPanel>
+            <apex:outputPanel rendered="{!NOT(isActiveStoryWrapperPresent)}">
+               <div class="row row-td storys-row">
+                  <br></br>
+                  <br></br>
+                  <br></br>
+                  <center>
+                     <p class="gray-text font18">
+                        <apex:outputText value="No Active Stories Present !!" />
+                     </p>
+                  </center>
+                  <br></br>
+                  <br></br>
+                  <br></br>
+               </div>
+               <!-- end .row -->
+            </apex:outputPanel>
+         </div>
+         <!-- end .table-data --> 
+      </div>
+      <div class="my-completed-stories tab-content">
+         <div class="table-data boxs has-rows-group">
+            <apex:outputPanel rendered="{!isCompletedStoryWrapperPresent}">
+               <table id="completedStories">
+                  <thead>
+                     <tr>
+                        <th>
+                           <div class="row row-th">
+                              <div class="col-td width42">Story/Activity</div>
+                              <div class="col-td width12">Stage</div>
+                              <div class="col-td width11 text-center">Registrants</div>
+                              <div class="col-td width11 text-center">Submissions</div>
+                              <div class="col-td width8 text-right">Start Date</div>
+                              <div class="col-td width12 text-center">End Date</div>
+                              <div class="col-td width6"></div>
+                           </div>
+                        </th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     <apex:repeat value="{!listCompletedStoryWrapper}" var="completedStoryWrapper">
+                        <tr>
+                           <td>
+                              <div class="row-group">
+                                 <div class="row-title">
+                                    <apex:outputPanel rendered="{!currentuser.Crowd_Exchange_User_Type__c == 'Publisher'}">
+                                       <a href="#/publisherStoryDetails/{!completedStoryWrapper.Story.Id}" class="pull-left">
+                                          <apex:outputtext value="{!completedStoryWrapper.Story.Name}" />
+                                       </a>
+                                    </apex:outputPanel>
+                                    <span class="clearfix"></span>
+                                 </div>
+                                 <!-- end .row-title -->
+                                 <apex:outputPanel rendered="{!completedStoryWrapper.isActivityPresent}">
+                                    <apex:repeat value="{!completedStoryWrapper.listActivity}" var="activity">
+                                       <div class="row row-td">
+                                          <div class="col-td width42">
+                                             <apex:outputPanel rendered="{!currentuser.Crowd_Exchange_User_Type__c == 'Publisher'}">
+                                                <a href="#/publisherActivityDetailsAssignRegister/{!activity.id}" class="blue-link">
+                                                   <apex:outputtext value="{!activity.Name}" />
+                                                </a>
+                                             </apex:outputPanel>
+                                          </div>
+                                          <div class="col-td width12">
+                                             <apex:outputtext value="{!activity.Status__c}" />
+                                          </div>
+                                          <div class="col-td width11 text-center">
+                                             <apex:outputPanel rendered="{!currentuser.Crowd_Exchange_User_Type__c == 'Publisher'}">
+                                                <a href="#/publisherActivityDetailsAssignRegister/{!activity.id}?tab=Registrants" class="blue-link">
+                                                   <apex:outputtext value="{!activity.Registrants__c}" />
+                                                </a>
+                                             </apex:outputPanel>
+                                          </div>
+                                          <div class="col-td width11 text-center">
+                                             <apex:outputPanel rendered="{!currentuser.Crowd_Exchange_User_Type__c == 'Publisher'}">
+                                                <a href="#/publisherActivityDetailsAssignRegister/{!activity.id}?tab=Submissions" class="blue-link">
+                                                   <apex:outputtext value="{!activity.Submissions__c}" />
+                                                </a>
+                                             </apex:outputPanel>
+                                          </div>
+                                          <div class="col-td width8 text-right">
+                                             <apex:outputText value="{0,date,MM'/'dd'/'yyyy}">
+                                                <!--   <apex:param value="{!activity.Start_Date__c}" />  ---->
+                                                <apex:param value=""/>
+                                             </apex:outputText>
+                                          </div>
+                                          <div class="col-td width12 text-center">
+                                             <apex:outputText value="{0,date,MM'/'dd'/'yyyy}">
+                                              <!--    <apex:param value="{!activity.End_Date__c}" />  ---> 
+                                              	<apex:param value=""/>
+                                             </apex:outputText>
+                                          </div>
+                                          <div class="col-td width6 text-right"><a class="blue-link"></a></div>
+                                       </div>
+                                       <!-- end .row -->
+                                    </apex:repeat>
+                                 </apex:outputPanel>
+                              </div>
+                           </td>
+                        </tr>
+                     </apex:repeat>
+                  </tbody>
+               </table>
+            </apex:outputPanel>
+            <apex:outputPanel rendered="{!NOT(isCompletedStoryWrapperPresent)}">
+               <div class="row row-td storys-row">
+                  <br></br>
+                  <br></br>
+                  <br></br>
+                  <center>
+                     <p class="gray-text font18">
+                        <apex:outputText value="No Completed Stories Present !!" />
+                     </p>
+                  </center>
+                  <br></br>
+                  <br></br>
+                  <br></br>
+               </div>
+               <!-- end .row -->
+            </apex:outputPanel>
+         </div>
+         <!-- end .table-data --> 
+      </div>
+      <div class="gray-bg bottom-column-group">
+         <div class="container-fluid boxs">
+            <div class="row">
+               <div class="col-md-4">
+                  <div class="top-technologies-column">
+                     <h2>
+                        <span class="text">Top technologies</span>
+                        <a href="javascript:;" class="blue-link">All Technologies</a>
+                     </h2>
+                     <div class="module">
+                        <apex:outputPanel rendered="{!isMemberSkillSnapshotPresent}">
+                           <div class="row-th">
+                              <div class="technologies">Technologies</div>
+                              <div class="members">Members</div>
+                           </div>
+                           <apex:repeat value="{!listMemberSkillSnapshot}" var="skillSnapshot">
+                              <div class="row-td">
+                                 <div class="technologies">
+                                    <apex:outputText value="{!skillSnapshot.Skill_Name__c}" />
+                                 </div>
+                                 <div class="members">
+                                    <span class="number text-right">
+                                       <apex:outputpanel rendered="{!skillSnapshot.Member_Count__c!=null}" >
+                                          <apex:outputtext value="{!skillSnapshot.Member_Count__c}" />
+                                       </apex:outputpanel>
+                                       <apex:outputpanel rendered="{!skillSnapshot.Member_Count__c==null}" >
+                                          <apex:outputtext value="0" />
+                                       </apex:outputpanel>
+                                    </span>
+                                    <span class="slider"><span data-percentage="{! (skillSnapshot.Member_Count__c/totalMembers)*100 }"></span></span>
+                                 </div>
+                              </div>
+                           </apex:repeat>
+                           <!-- end .row-th -->
+                        </apex:outputPanel>
+                        <apex:outputPanel rendered="{!NOT(isMemberSkillSnapshotPresent)}">
+                           <br></br>
+                           <br></br>
+                           <br></br>
+                           <br></br>
+                           <br></br>
+                           <br></br>
+                           <center>
+                              <p class="gray-text font18">
+                                 <apex:outputText value="No technology Present !!" />
+                              </p>
+                           </center>
+                        </apex:outputPanel>
+                     </div>
+                  </div>
+                  <!-- end .top-technologies-column -->
+               </div>
+               <!-- end .col-md-4 -->
+               <div class="col-md-8">
+                  <div class="developers-column">
+                     <h2>
+                        <span class="text">Developers who I have worked with</span>
+                        <a href="javascript:;" class="blue-link">All My Developers</a>
+                     </h2>
+                     <div class="module">
+                        <apex:outputPanel rendered="{!isDeveloperPresent}">
+                           <apex:repeat value="{!listDeveloper}" var="developer">
+                              <div class="col-user">
+                                 <a href="#/publishermemberprofile/{!developer.id}" class="portrait-img"><img src="{!developer.SmallPhotoUrl}" alt="Portrait" /></a>
+                                 <span class="user-texts">
+                                    <a href="#/publishermemberprofile/{!developer.id}" class="blue-link">
+                                       <apex:outputText value="{!developer.Name}" />
+                                    </a>
+                                 </span>
+                              </div>
+                           </apex:repeat>
+                        </apex:outputPanel>
+                        <apex:outputPanel rendered="{!NOT(isDeveloperPresent)}">
+                           <div class="row row-td storys-row">
+                              <br></br>
+                              <br></br>
+                              <br></br>
+                              <br></br>
+                              <br></br>
+                              <br></br>
+                              <center>
+                                 <p class="gray-text font18">
+                                    <apex:outputText value="No Developer's Present !!" />
+                                 </p>
+                              </center>
+                           </div>
+                           <!-- end .row -->
+                        </apex:outputPanel>
+                        <div class="clearfix"></div>
+                     </div>
+                  </div>
+                  <!-- end .developers-column -->
+               </div>
+               <!-- end .col-md-8 -->    
+            </div>
+         </div>
+      </div>
+      <!-- end .bottom-column-group -->
+   </div>
+   <!-- end .contents -->
+</apex:page>

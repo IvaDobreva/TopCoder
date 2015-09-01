@@ -1,0 +1,470 @@
+<apex:page standardStylesheets="false" sidebar="false" showHeader="false" docType="html-5.0" controller="CE_MemberMemberProfileController">
+   
+   <link rel="stylesheet" type="text/css" href="{!URLFOR($Resource.AllResource, 'css/screen.css')}"/>
+   <link rel="stylesheet" type="text/css" href="{!URLFOR($Resource.JqueryDatatable, 'media/css/jquery.dataTables.css')}"/>
+    <link rel="stylesheet" type="text/css" href="{!URLFOR($Resource.PageResources, 'css/MemberMemberProfile.css')}"/>
+   
+   <script src="{!URLFOR($Resource.JqueryDatatable, 'media/js/jquery.dataTables.js')}"></script>    
+   <script src="{!URLFOR($Resource.AllResource, 'js/script.js')}"></script>
+   <script src="{!URLFOR($Resource.PageResources, 'js/MemberMemberProfile.js')}"></script>      
+   
+   <div class="contents profile-contents">
+      <div class="bg-border3"></div>
+      <div class="boxs">
+         <div class="banners">
+            <apex:outputPanel rendered="{!headerImageAttachment!=null}">
+               <img src="{!URLFOR($Action.Attachment.Download, headerImageAttachment.Id)}" class="banner-img" alt="banner" />
+            </apex:outputPanel>
+            <apex:outputPanel rendered="{!headerImageAttachment == null}">
+               <img src="{!URLFOR($Resource.AllResource, 'i/i-3/edit-member-banner.jpg')}" class="banner-img" alt="banner" />
+            </apex:outputPanel>
+         </div>
+         <!-- end .banners -->
+         <article class="left-info pull-left">
+            <div class="top-link">
+               <span class="clearfix"></span>
+            </div>
+            <!-- end .top-link -->
+            <div class="brief">
+               <span class="profile-img"><img src="{!currentMember.FullPhotoUrl}" alt="profile" /></span>
+               <h2>
+                  <apex:outputtext value="{!currentMember.Name}" />
+               </h2>
+               <a href="mailto:{!currentMember.email}" class="blue-btn width145 radius6 text-center"><span><span>Send Email</span></span></a>         
+            </div>
+            <!-- end .brief -->
+            <div class="text-module gray-border-top">
+               <ul>
+                  <li>
+                     <span class="texts">Name</span>
+                     <span class="value">
+                        <apex:outputtext value="{!currentMember.Name}" />
+                     </span>
+                  </li>
+                  <li>
+                     <span class="texts">Email</span>
+                     <span class="value">
+                        <apex:outputtext value="{!currentMember.Email}" />
+                     </span>
+                  </li>
+                  <li>
+                     <span class="texts">Role</span>
+                     <span class="value">
+                        <apex:outputtext value="{!currentMember.Title}" />
+                     </span>
+                  </li>
+                  <li>
+                     <span class="texts">Organization</span>
+                     <span class="value">
+                        <apex:outputtext value="{!currentMember.Crowd_Exchange_Organization__c}" />
+                     </span>
+                  </li>
+                  <li>
+                     <span class="texts">Phone Number</span>
+                     <span class="value">
+                        <apex:outputtext value="{!currentMember.Phone}" />
+                     </span>
+                  </li>
+                  <li class="about-me">
+                     <span class="texts">About Me</span>
+                     <p class="value">
+                        <apex:outputtext value="{!currentMember.Crowd_Exchange_About_Me__c}" />
+                     </p>
+                  </li>
+               </ul>
+            </div>
+            <!-- end .text-module -->
+         </article>
+         <!-- end .left-info -->
+         <div class="min-contents">
+            <div class="info-group">
+               <div class="col-3">
+                  <div class="green-module container-module expert-skils">
+                     <h2 class="number">
+                        <apex:outputtext value="{!totalMemberSkill}" />
+                     </h2>
+                     <p class="texts">Member Skills</p>
+                  </div>
+                  <!-- end .container-module -->
+               </div>
+               <!-- end .col-3 -->
+               <div class="col-3">
+                  <div class="blue-module container-module current-activities">
+                     <h2 class="number">
+                        <span class="icon-current-activities"></span>
+                        <apex:outputtext value="{!currentActivity}" />
+                     </h2>
+                     <p class="texts">Current Activities</p>
+                  </div>
+                  <!-- end .container-module -->
+               </div>
+               <!-- end .col-3 -->
+               <div class="col-3">
+                  <div class="black-module container-module total-activitys">
+                     <h2 class="number">
+                        <apex:outputtext value="{!totalActivity}" />
+                     </h2>
+                     <p class="texts">Total Activitys</p>
+                  </div>
+                  <!-- end .container-module -->
+               </div>
+               <!-- end .col-3 -->
+               <div class="col-3">
+                  <div class="blue-module container-module activitys-by-weeks">
+                     <h2 class="number"><span class="icon-activitys-by-weeks">&nbsp;</span></h2>
+                     <p class="texts">Activitys by Weeks</p>
+                  </div>
+                  <!-- end .container-module -->
+               </div>
+               <!-- end .col-3 -->
+               <div class="clearfix"></div>
+            </div>
+            <!-- end .info-group -->
+            <div class="row-title">
+               <h2 class="pull-left">Member Skills</h2>
+            </div>
+            <!-- end .row-title -->
+            <apex:outputPanel rendered="{!isMemberSkillPresent}">
+               <div class="table-data member-info-table">
+                  <div class="row row-th">
+                     <div class="col-td width66"><span class="spacing-left8">Skill Title</span></div>
+                     <div class="col-td width21"></div>
+                     <div class="col-td width13">Level</div>
+                  </div>
+                  <apex:repeat value="{!listMemberSkills}" var="memberSkill">
+                     <div class="row row-td">
+                        <div class="col-td width66">
+                           <span class="font18">
+                              <apex:outputtext value="{!memberSkill.Skill__r.Name}" />
+                           </span>
+                        </div>
+                        <div class="col-td width21">
+                           <ul class="blue-progress-bar">
+                              <apex:outputPanel rendered="{!memberSkill.Experience_Level__c = null}">
+                                 <li></li>
+                                 <li></li>
+                                 <li></li>
+                                 <li></li>
+                                 <li></li>
+                              </apex:outputPanel>
+                              <apex:outputPanel rendered="{!memberSkill.Experience_Level__c = 'Entry'}">
+                                 <li class="active"></li>
+                                 <li></li>
+                                 <li></li>
+                                 <li></li>
+                                 <li></li>
+                              </apex:outputPanel>
+                              <apex:outputPanel rendered="{!memberSkill.Experience_Level__c = 'Intermediate'}">
+                                 <li class="active"></li>
+                                 <li class="active"></li>
+                                 <li></li>
+                                 <li></li>
+                                 <li></li>
+                              </apex:outputPanel>
+                              <apex:outputPanel rendered="{!memberSkill.Experience_Level__c = 'Specialist'}">
+                                 <li class="active"></li>
+                                 <li class="active"></li>
+                                 <li class="active"></li>
+                                 <li></li>
+                                 <li></li>
+                              </apex:outputPanel>
+                              <apex:outputPanel rendered="{!memberSkill.Experience_Level__c = 'Expert'}">
+                                 <li class="active"></li>
+                                 <li class="active"></li>
+                                 <li class="active"></li>
+                                 <li class="active"></li>
+                                 <li></li>
+                              </apex:outputPanel>
+                              <apex:outputPanel rendered="{!memberSkill.Experience_Level__c = 'Master'}">
+                                 <li class="active"></li>
+                                 <li class="active"></li>
+                                 <li class="active"></li>
+                                 <li class="active"></li>
+                                 <li class="active"></li>
+                              </apex:outputPanel>
+                           </ul>
+                        </div>
+                        <div class="col-td width13">
+                           <apex:outputtext value="{!memberSkill.Experience_Level__c}" />
+                        </div>
+                     </div>
+                     <!-- end .row-td -->
+                  </apex:repeat>
+               </div>
+               <!-- end .table-data -->
+            </apex:outputPanel>
+            <apex:outputPanel rendered="{!NOT(isMemberSkillPresent)}">
+               <center>
+                  <br></br>
+                  <br></br>
+                  <p class="gray-text font18">
+                     <apex:outputText value="No Skills Present !!" />
+                  </p>
+               </center>
+            </apex:outputPanel>
+            <div class="tab-content">
+               <nav class="sub-tabs-bar">
+                  <ul>
+                     <li class="current"><i></i><a href="javascript:;">Internal Projects</a></li>
+                     <li><i></i><a href="javascript:;">Current Activities ({!currentActivity})</a></li>
+                     <li><i></i><a href="javascript:;">Completed Activities ({!completedActivityCount})</a></li>
+                  </ul>
+                  <span class="clearfix"></span>
+               </nav>
+               <!-- end .sub-tabs-bar -->
+               <div class="clearfix tabs-clearfix"></div>
+               <div class="internal-projects-contents sub-tab-content">
+                  <div class="table-data">
+                     <apex:outputPanel rendered="{!isInternalProjectsPresent}">
+                        <table id="InternalProjects">
+                           <thead style="display:none;">
+                              <tr>
+                                 <th>
+                                    <apex:outputText value="Name" />
+                                 </th>
+                              </tr>
+                           </thead>
+                           <tbody>
+                              <apex:repeat value="{!listInternalProjects}" var="internalProject">
+                                 <tr>
+                                    <td>
+                                       <div class="info-module-row row row-td">
+                                          <div class="link-bar">
+                                             <a href="javascript:;" class="blue-link">
+                                                <apex:outputtext value="{!internalProject.Name}" />
+                                             </a>
+                                          </div>
+                                          <apex:outputPanel rendered="{!internalProject.Internal_Project_Skills__r != null && internalProject.Internal_Project_Skills__r.size > 0}">
+                                             <h3>
+                                                <span class="texts">Skills used:</span>
+                                                <span class="value">
+                                                   <apex:repeat value="{!internalProject.Internal_Project_Skills__r }" var="internalProjectSkills">
+                                                      <span>
+                                                         <apex:outputtext value="{!internalProjectSkills.Skill__r.Name}," />
+                                                      </span>
+                                                   </apex:repeat>
+                                                </span>
+                                             </h3>
+                                          </apex:outputPanel>
+                                          <p class="text-info">
+                                             <apex:outputtext value="{!internalProject.Description__c}" />
+                                          </p>
+                                       </div>
+                                       <!-- end .info-module-row -->
+                                    </td>
+                                 </tr>
+                              </apex:repeat>
+                           </tbody>
+                        </table>
+                        <br />
+                        <br />
+                     </apex:outputPanel>
+                     <apex:outputPanel rendered="{!NOT(isInternalProjectsPresent)}">
+                        <div class="row row-td storys-row">
+                           <br></br>
+                           <br></br>
+                           <br></br>
+                           <center>
+                              <p class="gray-text font18">
+                                 <apex:outputText value="No Internal Project's Present !!" />
+                              </p>
+                           </center>
+                           <br></br>
+                           <br></br>
+                           <br></br>
+                        </div>
+                        <!-- end .row -->
+                     </apex:outputPanel>
+                  </div>
+               </div>
+               <!-- end .internal-projects-contents -->
+               <div class="current-activities-contents sub-tab-content hide">
+                  <div class="table-data">
+                     <apex:outputPanel rendered="{!isCurrentActivityPresent}">
+                        <table id="CurrentActivityTable">
+                           <thead style="display:none;">
+                              <tr>
+                                 <th>
+                                    <apex:outputText value="Name" />
+                                 </th>
+                              </tr>
+                           </thead>
+                           <tbody>
+                              <apex:repeat value="{!listCurrentActivityWrapper}" var="cActivityWrapper">
+                                 <tr>
+                                    <td>
+                                       <div class="row row-td">
+                                          <div class="col-module">
+                                             <div class="mains blue-module">
+                                                <div class="pull-left">
+                                                   <span class="icon-current-activities"></span>
+                                                   <div class="text-box">
+                                                      <a href="#/memberActivityAssignAssigned/{!cActivityWrapper.activity.Id}" class="blue-link">
+                                                         <apex:outputText value="{!cActivityWrapper.activity.Name}" />
+                                                      </a>
+                                                      <p class="gray-text">
+                                                         <apex:outputText value="{0,date,MM'/'dd'/'yyyy}">
+                                                            <apex:param value="{!cActivityWrapper.startDate}" />
+                                                         </apex:outputText>
+                                                         —
+                                                         <apex:outputText value="{0,date,MM'/'dd'/'yyyy}">
+                                                            <apex:param value="{!cActivityWrapper.endDate}" />
+                                                         </apex:outputText>
+                                                      </p>
+                                                   </div>
+                                                </div>
+                                                <div class="clearfix"></div>
+                                                <apex:outputPanel rendered="{!cActivityWrapper.activity.Activity_Skills__r != null && cActivityWrapper.activity.Activity_Skills__r.size > 0}">
+                                                   <h3>
+                                                      <div class="bottom-info">
+                                                         <span class="texts">Skills used:</span>
+                                                         <span class="value">
+                                                            <apex:repeat value="{!cActivityWrapper.activity.Activity_Skills__r  }" var="activitySkill">
+                                                               <span>
+                                                                  <apex:outputtext value="{!activitySkill.Skill__r.Name}," />
+                                                               </span>
+                                                            </apex:repeat>
+                                                         </span>
+                                                      </div>
+                                                   </h3>
+                                                </apex:outputPanel>
+                                             </div>
+                                          </div>
+                                          <!-- end .col-module -->
+                                       </div>
+                                       <!-- end .row-td -->
+                                    </td>
+                                 </tr>
+                              </apex:repeat>
+                           </tbody>
+                        </table>
+                        <br />
+                        <br />
+                     </apex:outputPanel>
+                     <apex:outputPanel rendered="{!NOT(isCurrentActivityPresent)}">
+                        <div class="row row-td storys-row">
+                           <br></br>
+                           <br></br>
+                           <br></br>
+                           <center>
+                              <p class="gray-text font18">
+                                 <apex:outputText value="No Current Activity Present !!" />
+                              </p>
+                           </center>
+                           <br></br>
+                           <br></br>
+                           <br></br>
+                        </div>
+                        <!-- end .row -->
+                     </apex:outputPanel>
+                  </div>
+                  <!-- end .table-data -->  
+               </div>
+               <!-- end .current-activities-contents -->
+               <div class="completed-activities-contents sub-tab-content hide">
+                  <div class="table-data">
+                     <apex:outputPanel rendered="{!isCompletedActivityPresent}">
+                        <table id="CompletedActivity">
+                           <thead style="display:none;">
+                              <tr>
+                                 <th>
+                                    <apex:outputText value="Name" />
+                                 </th>
+                              </tr>
+                           </thead>
+                           <tbody>
+                              <apex:repeat value="{!listCompletedActivityWrapper}" var="completedActivityWrap">
+                                 <tr>
+                                    <td>
+                                       <div class="row row-td">
+                                          <div class="col-module">
+                                             <div class="mains blue-module">
+                                                <div class="pull-left">
+                                                   <span class="icon-current-activities"></span>
+                                                   <div class="text-box">
+                                                      <a href="#/memberActivityAssignAssigned/{!completedActivityWrap.completedActivity.id}" class="blue-link">
+                                                         <apex:outputText value="{!completedActivityWrap.completedActivity.Name}" />
+                                                      </a>
+                                                      <p class="gray-text">
+                                                         <apex:outputText value="{0,date,MM'/'dd'/'yyyy}">
+                                                            <apex:param value="{!completedActivityWrap.startDate}" />
+                                                         </apex:outputText>
+                                                         —  
+                                                         <apex:outputText value="{0,date,MM'/'dd'/'yyyy}">
+                                                            <apex:param value="{!completedActivityWrap.endDate}" />
+                                                         </apex:outputText>
+                                                      </p>
+                                                   </div>
+                                                </div>
+                                                <apex:outputPanel rendered="{!completedActivityWrap.submission != null}">
+                                                   <div class="pull-right">
+                                                      <div class="text-box">
+                                                         <span class="gray-text">
+                                                            <apex:outputText value="{!completedActivityWrap.submission.Placement__c} place - " />
+                                                            <apex:outputField value="{!completedActivityWrap.completedActivity.Cost__c}" />
+                                                         </span>
+                                                         <p class="black-text">
+                                                            Score:
+                                                            <apex:outputText value=" {!completedActivityWrap.submission.Evaluation_Percentage__c}" />
+                                                            <span></span>
+                                                            <apex:outputText value="{!completedActivityWrap.submission.Submission_Score__c} " />
+                                                            points
+                                                         </p>
+                                                      </div>
+                                                   </div>
+                                                </apex:outputPanel>
+                                                <span class="clearfix"></span>
+                                                <apex:outputPanel rendered="{!completedActivityWrap.completedActivity.Activity_Skills__r != null && completedActivityWrap.completedActivity.Activity_Skills__r.size > 0}">
+                                                   <div class="bottom-info">
+                                                      <span class="texts">Skills used:</span>
+                                                      <span class="value">
+                                                         <apex:repeat value="{!completedActivityWrap.completedActivity.Activity_Skills__r }" var="activitySkill">
+                                                            <span>
+                                                               <apex:outputtext value="{!activitySkill.Skill__r.Name}," />
+                                                            </span>
+                                                         </apex:repeat>
+                                                      </span>
+                                                   </div>
+                                                </apex:outputPanel>
+                                             </div>
+                                          </div>
+                                          <!-- end .col-module -->
+                                       </div>
+                                       <!-- end .row-td -->
+                                    </td>
+                                 </tr>
+                              </apex:repeat>
+                           </tbody>
+                        </table>
+                        <br />
+                        <br />
+                     </apex:outputPanel>
+                     <apex:outputPanel rendered="{!NOT(isCompletedActivityPresent)}">
+                        <div class="row row-td storys-row">
+                           <br></br>
+                           <br></br>
+                           <br></br>
+                           <center>
+                              <p class="gray-text font18">
+                                 <apex:outputText value="No Completed Activity Present !!" />
+                              </p>
+                           </center>
+                           <br></br>
+                           <br></br>
+                           <br></br>
+                        </div>
+                        <!-- end .row -->
+                     </apex:outputPanel>
+                  </div>
+                  <!-- end .table-data -->         
+               </div>
+               <!-- end .completed-activities-contents -->
+            </div>
+            <!-- end .tab-content -->
+         </div>
+         <!-- end .min-contents -->
+         <div class="clearfix"></div>
+      </div>
+   </div>
+   <!-- end .contents -->
+</apex:page>

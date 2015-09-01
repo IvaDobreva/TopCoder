@@ -1,0 +1,47 @@
+<project name="Sample usage of Salesforce Ant tasks" default="test" basedir="." xmlns:sf="antlib:com.salesforce">
+
+    <property file="build.properties"/>
+    <property environment="env"/>
+    <tstamp/>
+
+    <!-- <property name="mydir" value='dev3-${DSTAMP}'/> -->
+    <!-- <property name="mydir" value="code"/> -->
+    <property name="mydate" value='${DSTAMP}'/>
+
+ <!-- dumps -->
+
+    <target name="getCode">
+		 <sf:retrieve 
+			 username="${developer.username}"
+	     password="${developer.password}" 
+	     serverurl="${developer.serverurl}" 
+			 retrieveTarget="/Users/Ward/Code/crowd-exchange3/crowdexchange/src"  
+			 unpackaged="package.xml" 
+			 pollWaitMillis="10000" 
+			 maxPoll="20"/>
+	    </target>
+
+<!--  deploys -->
+
+      <target name="deployCode">
+        <sf:deploy
+          username="${developer.username}"
+          password="${developer.password}" 
+          serverurl="${developer.serverurl}" 
+          deployroot="/Users/Ward/Code/crowd-exchange3/crowdexchange/src">
+        </sf:deploy>
+      </target>
+      
+       <target name="deployCodeCheckOnly">
+        <sf:deploy
+          username="${developer.username}"
+          password="${developer.password}" 
+          serverurl="${developer.serverurl}" 
+          deployroot="/Users/Ward/Code/crowd-exchange3/crowdexchange/src"
+          checkOnly="true">
+        </sf:deploy>
+      </target>
+
+
+	
+</project>

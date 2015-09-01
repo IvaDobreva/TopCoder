@@ -1,0 +1,805 @@
+<apex:page showheader="false" sidebar="false" standardstylesheets="false" 
+            cache="false" applyBodyTag="false" applyHtmlTag="false" 
+            docType="html-5.0"
+            controller="CE_RemoteController"
+            action="{!redirectIfLoggedIn}">
+  <html>
+    <head>
+    <!-- Meta Tags -->
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+      <meta name="viewport" content="initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+      <meta name="apple-mobile-web-app-capable" content="yes" />
+      <meta name="format-detection" content="telephone=no"/>
+      <title>Home</title>
+
+      <!-- Bootstrap -->
+      <link href="{!URLFOR($Resource.CrowdExchangeWebApp_Resources, 'lib/bootstrap/css/bootstrap.min.css')}" rel="stylesheet"/>
+      <link href="{!URLFOR($Resource.CrowdExchangeWebApp_Resources, 'lib/bootstrap/css/bootstrap-theme.min.css')}" rel="stylesheet"/>
+      <!-- Main CSS -->
+      <link href="{!URLFOR($Resource.CrowdExchangeWebApp_Resources, 'css/font.css')}" rel="stylesheet" />
+      <link href="{!URLFOR($Resource.CrowdExchangeWebApp_Resources, 'css/jqtransform.css')}" rel="stylesheet" />
+      <link href="{!URLFOR($Resource.CrowdExchangeWebApp_Resources, 'css/jquery.ui.css')}" rel="stylesheet" />
+      <link href="{!URLFOR($Resource.CrowdExchangeWebApp_Resources, 'css/screen.css')}" rel="stylesheet" />
+      
+      <!-- jQuery library -->
+      <script src="{!URLFOR($Resource.CrowdExchangeWebApp_Resources, 'js/jquery-2.1.1.min.js')}"></script>
+      <script src="{!URLFOR($Resource.CrowdExchangeWebApp_Resources, 'js/jquery-ui.js')}"></script>
+      <script src="{!URLFOR($Resource.CrowdExchangeWebApp_Resources, 'js/jquery.jqtransform.js')}"></script>
+      <script src="{!URLFOR($Resource.CrowdExchangeWebApp_Resources, 'lib/bootstrap/js/bootstrap.min.js')}"></script>
+      <!-- Main JS -->
+      <script src="{!URLFOR($Resource.CrowdExchangeWebApp_Resources, 'js/script.js')}"></script>
+
+    </head>
+    <body>
+    <div class="home-top-box">
+      <header class="header">
+        <a href="javascript:;" class="logo pull-left"></a>
+        <div class="pull-right">
+         <div class="search">
+           <a href="javascript:;" class="icon-search"></a>
+           <input type="text" placeholder="Search..."/>
+         </div>
+         <!-- end .search -->
+         <div class="btn-box">
+           <a href="javascript:;" class="white-link">REGISTER</a>
+           <a href="javascript:;" class="white-btn open-modal-window" data-modal-class="modal-login">LOGIN</a>
+         </div>
+         <!-- end .btn-box -->
+       </div>
+      </header>
+      <!-- end .header -->
+      <div id="carousel-banner-area" class="carousel slide" data-ride="carousel" data-interval="false">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+          <li data-target="#carousel-banner-area" data-slide-to="0" class="active"></li>
+          <li data-target="#carousel-banner-area" data-slide-to="1"></li>
+          <li data-target="#carousel-banner-area" data-slide-to="2"></li>
+          <li data-target="#carousel-banner-area" data-slide-to="3"></li>
+        </ol>
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner" role="listbox">
+          <div class="item active">
+            <h2>Our Works</h2>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod 
+              bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra 
+              justo commodo. Proin gravida dolor sit amet lacus
+            </p>
+          </div>
+          <div class="item">
+            <h2>Our Works2</h2>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod 
+              bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra 
+              justo commodo. Proin gravida dolor sit amet lacus
+            </p>
+          </div>
+          <div class="item">
+            <h2>Our Works3</h2>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod 
+              bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra 
+              justo commodo. Proin gravida dolor sit amet lacus
+            </p>
+          </div>
+          <div class="item">
+            <h2>Our Works4</h2>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod 
+              bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra 
+              justo commodo. Proin gravida dolor sit amet lacus
+            </p>
+          </div>
+        </div>
+      </div>
+      <!-- end .carousel -->  
+      <div class="banner-img">
+        <div class="blue-top-bg"></div>
+        <img src="{!URLFOR($Resource.CrowdExchangeWebApp_Resources, 'i/i-3/home-top-banner.jpg')}" alt="banner"/>
+      </div>
+      <!-- end .banner-img -->
+    </div>
+    <!-- end .home-top-box -->
+
+    <div class="join-our-community">
+      <h2>Join Our Community</h2>  
+      <div id="carousel-join-our-community-area" class="carousel slide video-carousel" data-ride="carousel" data-interval="false">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+          <li data-target="#carousel-join-our-community-area" data-slide-to="0" class="active"></li>
+          <li data-target="#carousel-join-our-community-area" data-slide-to="1"></li>
+        </ol>
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner" role="listbox">
+          <div class="item active">
+            <div class="info">
+              <a href="javascript:;" class="play-btn"></a>
+              <h3>Publishers</h3>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean 
+                euismod bibendum laoreet. Proin gravida dolor sit amet lacus 
+                accumsan et viverra justo commodo. Proin gravida dolor sit amet
+              </p>
+            </div>
+            <!-- end .info -->
+            <div class="video-box">
+              <div class="black-top-bg"></div>
+              <img src="{!URLFOR($Resource.CrowdExchangeWebApp_Resources, 'i/i-3/home-video-img1.jpg')}" alt="video"/>
+            </div>
+            <!-- end .video-box -->
+          </div>
+          <div class="item">
+            <div class="info">
+              <a href="javascript:;" class="play-btn"></a>
+              <h3>Publishers2</h3>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean 
+                euismod bibendum laoreet. Proin gravida dolor sit amet lacus 
+                accumsan et viverra justo commodo. Proin gravida dolor sit amet
+              </p>
+            </div>
+            <!-- end .info -->
+            <div class="video-box">
+              <div class="black-top-bg"></div>
+              <img src="{!URLFOR($Resource.CrowdExchangeWebApp_Resources, 'i/i-3/home-video-img1.jpg')}" alt="video"/>
+            </div>
+            <!-- end .video-box -->
+          </div>
+        </div>
+      </div>
+      <!-- end .video-carousel -->   
+      <div class="home-large-btn">
+        <a href="javascript:;" class="blue-btn radius6 icon-join-as-a-publisher"><span><span><i></i>Join as a publisher</span></span></a>
+        <a href="javascript:;" class="blue-btn radius6 icon-join-as-a-member"><span><span><i></i>Join as a member</span></span></a>
+      </div> 
+      <!-- end .home-large-btn --> 
+    </div>
+    <!-- end .join-our-community -->
+
+    <div class="our-activities">
+      <div class="container">
+        <h2>Our Activities</h2> 
+        <div class="row">
+          <div class="col-xs-2">
+            <a href="javascript:;" class="round-col round-blue round-active">
+              <span class="border-round">
+                <span class="round"><i></i></span>
+              </span>
+            </a>
+            <!-- end .round-col -->
+          </div>
+          <div class="col-xs-2">
+            <a href="javascript:;" class="round-col round-green">
+              <span class="border-round">
+                <span class="round"><i></i></span>
+              </span>
+            </a>
+            <!-- end .round-col -->
+          </div>
+          <div class="col-xs-2">
+            <a href="javascript:;" class="round-col round-orange">
+              <span class="border-round">
+                <span class="round"><i></i></span>
+              </span>
+            </a>
+            <!-- end .round-col -->
+          </div>
+          <div class="col-xs-2">
+            <a href="javascript:;" class="round-col round-purple">
+              <span class="border-round">
+                <span class="round"><i></i></span>
+              </span>
+            </a>
+            <!-- end .round-col -->
+          </div>
+          <div class="col-xs-2">
+            <a href="javascript:;" class="round-col round-yellow">
+              <span class="border-round">
+                <span class="round"><i></i></span>
+              </span>
+            </a>
+            <!-- end .round-col -->
+          </div>
+          <div class="col-xs-2">
+            <a href="javascript:;" class="round-col round-cyan">
+              <span class="border-round">
+                <span class="round"><i></i></span>
+              </span>
+            </a>
+            <!-- end .round-col -->
+          </div>
+        </div>
+        <!-- end .row -->
+        <div class="info-box">
+          <h2>Analytics and Data Management Services</h2>
+          <p>
+            Vestibulum rhoncus purus vitae justo ornare viverra. Praesent consectetur justo a diam iaculis nec
+            hendrerit quam ultricies
+          </p>
+        </div>
+        <div class="info-box hide">
+          <h2>Analytics and Data Management Services2</h2>
+          <p>
+            Vestibulum rhoncus purus vitae justo ornare viverra. Praesent consectetur justo a diam iaculis nec
+            hendrerit quam ultricies
+          </p>
+        </div>
+        <div class="info-box hide">
+          <h2>Analytics and Data Management Services3</h2>
+          <p>
+            Vestibulum rhoncus purus vitae justo ornare viverra. Praesent consectetur justo a diam iaculis nec
+            hendrerit quam ultricies
+          </p>
+        </div>
+        <div class="info-box hide">
+          <h2>Analytics and Data Management Services4</h2>
+          <p>
+            Vestibulum rhoncus purus vitae justo ornare viverra. Praesent consectetur justo a diam iaculis nec
+            hendrerit quam ultricies
+          </p>
+        </div>
+        <div class="info-box hide">
+          <h2>Analytics and Data Management Services5</h2>
+          <p>
+            Vestibulum rhoncus purus vitae justo ornare viverra. Praesent consectetur justo a diam iaculis nec
+            hendrerit quam ultricies
+          </p>
+        </div>
+        <div class="info-box hide">
+          <h2>Analytics and Data Management Services6</h2>
+          <p>
+            Vestibulum rhoncus purus vitae justo ornare viverra. Praesent consectetur justo a diam iaculis nec
+            hendrerit quam ultricies
+          </p>
+        </div>
+        
+      </div> 
+    </div>
+    <!-- end .our-activities -->
+
+    <div class="how-the-job-done">
+      <div class="container">
+        <h2>How The Job Done</h2> 
+        <div class="row">
+          <div class="col-xs-4">
+            <div class="info-module">
+              <span class="round-gray icon-white-assigned"><i></i></span>
+              <h3>Assigned</h3>
+              <p>
+                Praesent consectetur justo a diam 
+                iaculis nec hendrerit quam ultricies 
+                vestibulum rhoncus purus vitae 
+                justo ornare viverra  
+              </p>
+            </div>
+            <!-- end .info-module -->
+          </div>
+          <div class="col-xs-4">
+            <div class="info-module">
+              <span class="round-gray icon-white-competition"><i></i></span>
+              <h3 class="spacing-left20">Competition</h3>
+              <p class="spacing-left20">
+                Lorem ipsum dolor sit amet, 
+                consectetur adipiscing elit. Aenean 
+                euismod bibendum laoret et viverra 
+                justo commodo 
+              </p>
+            </div>
+            <!-- end .info-module -->
+          </div>
+          <div class="col-xs-4">
+            <div class="info-module">
+              <span class="round-gray icon-white-team spacing-left20"><i></i></span>
+              <h3 class="spacing-left20">Team</h3>
+              <p class="spacing-left20">
+                Vestibulum rhoncus purus vitae justo 
+                viverra praesent consectetur justo 
+                diam iaculis nec hendrerit quam 
+                ultricies
+              </p>
+            </div>
+            <!-- end .info-module -->
+          </div>
+        </div>    
+      </div> 
+    </div>
+    <!-- end .how-the-job-done -->
+
+    <div class="what-s-new">
+      <div class="container">
+        <h2>What’s New</h2> 
+          <div id="carousel-which-is-new-area" class="carousel slide video-carousel" data-ride="carousel" data-interval="false">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+              <li data-target="#carousel-which-is-new-area" data-slide-to="0" class="active"></li>
+              <li data-target="#carousel-which-is-new-area" data-slide-to="1"></li>
+              <li data-target="#carousel-which-is-new-area" data-slide-to="2"></li>
+            </ol>
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner" role="listbox">
+              <div class="item active">
+                <div class="info">
+                  <a href="javascript:;" class="play-btn"></a>
+                  <h3>Lorem Ipsum Dolor</h3>
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean 
+                    euismod bibendum laoreet. Proin gravida dolor sit amet lacus 
+                    accumsan et viverra justo commodo. Proin gravida dolor sit amet lacus
+                  </p>
+                </div>
+                <!-- end .info -->
+                <div class="video-box">
+                  <div class="black-top-bg"></div>
+                  <img src="{!URLFOR($Resource.CrowdExchangeWebApp_Resources, 'i/i-3/home-video-img2.jpg')}" alt="video"/>
+                </div>
+                <!-- end .video-box -->
+              </div>
+              <div class="item">
+                <div class="info">
+                  <a href="javascript:;" class="play-btn"></a>
+                  <h3>Lorem Ipsum Dolor2</h3>
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean 
+                    euismod bibendum laoreet. Proin gravida dolor sit amet lacus 
+                    accumsan et viverra justo commodo. Proin gravida dolor sit amet lacus
+                  </p>
+                </div>
+                <!-- end .info -->
+                <div class="video-box">
+                  <div class="black-top-bg"></div>
+                  <img src="{!URLFOR($Resource.CrowdExchangeWebApp_Resources, 'i/i-3/home-video-img2.jpg')}" alt="video"/>
+                </div>
+                <!-- end .video-box -->
+              </div>
+              <div class="item">
+                <div class="info">
+                  <a href="javascript:;" class="play-btn"></a>
+                  <h3>Lorem Ipsum Dolor3</h3>
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean 
+                    euismod bibendum laoreet. Proin gravida dolor sit amet lacus 
+                    accumsan et viverra justo commodo. Proin gravida dolor sit amet lacus
+                  </p>
+                </div>
+                <!-- end .info -->
+                <div class="video-box">
+                  <div class="black-top-bg"></div>
+                  <img src="{!URLFOR($Resource.CrowdExchangeWebApp_Resources, 'i/i-3/home-video-img2.jpg')}" alt="video"/>
+                </div>
+                <!-- end .video-box -->
+              </div>
+            </div>
+          </div>
+          <!-- end .video-carousel -->   
+      </div> 
+    </div>
+    <!-- end .what-s-new -->
+      
+    <footer class="footer home-footer">
+      <div class="info-top">
+        <div class="boxs"> 
+          <div class="about-us">
+            <h2>About Us</h2>
+            <p>
+              "CrowdExchange"is a developer community.
+              This is an internal community portal that will
+              be used by our employees to crowdsource open
+              Stories(projects)and Activites(tasks) within our
+              Company.
+            </p>
+            <a href="javascript:;" class="blue-link">More About Us</a>
+          </div>
+          <!-- end .about-us -->
+          <div class="faq">
+            <h2>FAQ<a href="javascript:;" class="blue-link">All Faq</a></h2>
+            <ul>
+              <li><a href="javascript:;">Lorem ipsum dolor sit amet?</a></li>
+              <li><a href="javascript:;">Dolor sit amet consectetur</a></li>
+              <li><a href="javascript:;">Aenean euismod</a></li>
+              <li><a href="javascript:;">Bibendum Lorem ipsum</a></li>
+              <li><a href="javascript:;">Dolor sit amet consectetur</a></li>
+            </ul>
+          </div>
+          <!-- end .faq -->
+          <div class="logo-text">
+            <span class="logo"></span>
+            <p>
+              123 Lorem ipsum st.city name
+              state 12345,USA
+            </p>
+            <div class="rows"><span>Phone</span>+02 555 123456</div>
+            <div class="rows"><span>Fax</span>+02 555 123456</div>
+            <a href="mailto:support@crowdexchange" class="blue-link">support@crowdexchange</a>        
+          </div>
+          <!-- end .logo-text -->
+          <div class="clearfix"></div>
+        </div>
+      </div>
+      <!-- end .info-top -->  
+      <div class="info-bottom">
+        <div class="boxs"> 
+          <span class="pull-left">&copy; 2015 CrowdExchange.All Rights reserved.</span>
+          <span class="pull-right">
+            <a href="javascript:;" class="blue-link">Privacy Policy</a> 
+            <i>.</i>
+            <a href="javascript:;" class="blue-link">Terms</a>  
+          </span>
+          <div class="clearfix"></div>
+        </div>
+      </div>
+      <!-- end .info-bottom -->   
+    </footer>
+    <!-- end .footer -->
+
+    <div class="modal-bg hide"></div>
+     
+    <div class="modal-container modal-submit hide">
+      <div class="titles">
+        <a href="javascript:;" class="close-btn modal-window-close">Close</a> 
+        <h2 class="title-txt">Submit</h2>
+      </div>
+      <div class="mains">
+        <p class="text-box">Submit your code</p>
+        <div class="row-bar browse-bar">
+          <span class="input-box"><input type="text" placeholder="Browse for file"/></span>
+          <a href="javascript:;" class="blue-border-btn">BROWSE</a>
+          <span class="image-video-file"><input type="file" class="files"/></span>
+        </div>
+      </div>
+      <!-- end .mains -->
+      <div class="btn-row">
+        <a href="javascript:;" class="blue-btn submit-btn radius6 open-modal-window" data-modal-class="modal-uploading"><span><span>Upload</span></span></a>  
+      </div>
+      <!-- end .btn-row -->
+    </div>
+    <!-- end .modal-submit -->
+     
+    <div class="modal-container modal-uploading hide">
+      <div class="titles">
+        <a href="javascript:;" class="close-btn modal-window-close">Close</a> 
+        <h2 class="title-txt">Uploading</h2>
+      </div>
+      <div class="mains">
+        <p class="text-box">
+          <span class="black">Do not close browser tab or browser</span>
+          while file is uploading 
+        </p>
+        <div class="progress-box">
+          <div class="function"><div class="green-bar"></div></div>
+          <div class="texts">
+            <span class="period">File size: <span class="value">1MB</span></span>
+            <span class="period">Speed: <span class="value">20 KB/sec</span></span>
+            <span class="period">Remain: <span class="value">30 seconds</span></span>
+          </div>
+        </div>
+      </div>
+      <!-- end .mains -->
+      <div class="btn-row">
+        <a href="javascript:;" class="blue-border-btn cancel-btn modal-window-cancel">CANCEL</a>
+      </div>
+      <!-- end .btn-row -->
+    </div>
+    <!-- end .modal-uploading -->
+     
+    <div class="modal-container modal-alert modal-saving-activity-as-draft hide">
+      <div class="titles">
+        <a href="javascript:;" class="close-btn modal-window-close">Close</a> 
+        <h2 class="title-txt">Alert</h2>
+      </div>
+      <div class="saving-boxs">
+        <div class="mains">
+          <p>Saving Activity as Draft</p>
+        </div>
+        <!-- end .mains -->
+        <div class="btn-row">
+          <a href="publisher-dashboard.html" class="blue-btn width105 radius6 text-center yes-btn"><span><span>OK</span></span></a>
+        </div>
+        <!-- end .btn-row -->
+      </div>
+    </div>
+    <!-- end .modal-alert -->
+     
+    <div class="modal-container modal-alert modal-cancel-activity hide">
+      <div class="titles">
+        <a href="javascript:;" class="close-btn modal-window-close">Close</a> 
+        <h2 class="title-txt">Alert</h2>
+      </div>
+      <div class="remove-boxs">
+        <div class="mains">
+          <p>
+            <span class="block">Do you want to cancel</span>
+            Activity Title Name Lorem Ipsum 1?
+          </p>
+        </div>
+        <!-- end .mains -->
+        <div class="btn-row">
+          <a href="javascript:;" class="blue-border-btn cancel-btn no-btn modal-window-cancel">NO</a>
+          <a href="javascript:;" class="blue-btn width105 radius6 text-center yes-btn modal-window-cancel"><span><span>Yes</span></span></a>
+        </div>
+        <!-- end .btn-row -->
+      </div>
+    </div>
+    <!-- end .modal-alert -->
+     
+    <div class="modal-container modal-alert modal-confirm-create-new-activity hide">
+      <div class="titles">
+        <a href="javascript:;" class="close-btn modal-window-close">Close</a> 
+        <h2 class="title-txt">Alert</h2>
+      </div>
+      <div class="sure-boxs">
+        <div class="mains">
+          <p>Do you create new activity?</p>
+        </div>
+        <!-- end .mains -->
+        <div class="btn-row">
+          <a href="javascript:;" class="blue-border-btn cancel-btn no-btn modal-window-cancel">NO</a>
+          <a href="publisher-add-activity.html" class="blue-btn width105 radius6 text-center yes-btn"><span><span>Yes</span></span></a>
+        </div>
+        <!-- end .btn-row -->
+      </div>
+    </div>
+    <!-- end .modal-alert -->
+
+    <div class="modal-container modal-alert modal-close-story hide">
+      <div class="titles">
+        <a href="javascript:;" class="close-btn modal-window-close">Close</a> 
+        <h2 class="title-txt">&nbsp;</h2>
+      </div>
+      <div class="sure-boxs">
+        <div class="mains">
+          <p>Are you sure want to close this story?</p>
+        </div>
+        <!-- end .mains -->
+        <div class="btn-row">
+          <a href="javascript:;" class="blue-border-btn cancel-btn no-btn modal-window-cancel">NO</a>
+          <a href="javascript:;" class="blue-btn width105 radius6 text-center yes-btn modal-window-cancel"><span><span>Yes</span></span></a>
+        </div>
+        <!-- end .btn-row -->
+      </div>
+    </div>
+    <!-- end .modal-alert -->
+
+    <div class="modal-container modal-alert modal-create-story-steps-cancel hide">
+      <div class="titles">
+        <a href="javascript:;" class="close-btn modal-window-close">Close</a> 
+        <h2 class="title-txt">Alert</h2>
+      </div>
+      <div class="sure-boxs">
+        <div class="mains">
+          <p>Are you sure to cancel?</p>
+        </div>
+        <!-- end .mains -->
+        <div class="btn-row">
+          <a href="javascript:;" class="blue-border-btn cancel-btn no-btn modal-window-cancel">NO</a>
+          <a href="publisher-dashboard.html" class="blue-btn width105 radius6 text-center yes-btn"><span><span>Yes</span></span></a>
+        </div>
+        <!-- end .btn-row -->
+      </div>
+    </div>
+    <!-- end .modal-alert -->
+
+    <div class="modal-container modal-alert modal-assign-member hide">
+      <div class="titles">
+        <a href="javascript:;" class="close-btn modal-window-close">Close</a> 
+        <h2 class="title-txt">&nbsp;</h2>
+      </div>
+      <div class="sure-boxs">
+        <div class="mains">
+          <p>Are you sure want to assign<br/>
+          Activity Title Name to the Member?</p>
+        </div>
+        <!-- end .mains -->
+        <div class="btn-row">
+          <a href="javascript:;" class="blue-border-btn cancel-btn no-btn modal-window-cancel">NO</a>
+          <a href="javascript:;" class="blue-btn width105 radius6 text-center yes-btn modal-window-cancel"><span><span>Yes</span></span></a>
+        </div>
+        <!-- end .btn-row -->
+      </div>
+    </div>
+    <!-- end .modal-alert -->
+
+    <div class="modal-container modal-alert modal-delete-requirement-box hide">
+      <div class="titles">
+        <a href="javascript:;" class="close-btn modal-window-close">Close</a> 
+        <h2 class="title-txt">&nbsp;</h2>
+      </div>
+      <div class="sure-boxs">
+        <div class="mains">
+          <p>Are you sure?</p>
+        </div>
+        <!-- end .mains -->
+        <div class="btn-row">
+          <a href="javascript:;" class="blue-border-btn cancel-btn no-btn modal-window-cancel">NO</a>
+          <a href="javascript:;" class="blue-btn width105 radius6 text-center yes-btn modal-window-cancel"><span><span>Yes</span></span></a>
+        </div>
+        <!-- end .btn-row -->
+      </div>
+    </div>
+    <!-- end .modal-alert -->
+
+    <div class="modal-container modal-alert modal-cancel-review hide">
+      <div class="titles">
+        <a href="javascript:;" class="close-btn modal-window-close">Close</a> 
+        <h2 class="title-txt">&nbsp;</h2>
+      </div>
+      <div class="sure-boxs">
+        <div class="mains">
+          <p>Are you sure to cancel the Review?</p>
+        </div>
+        <!-- end .mains -->
+        <div class="btn-row">
+          <a href="javascript:;" class="blue-border-btn cancel-btn no-btn modal-window-cancel">NO</a>
+          <a href="javascript:;" class="blue-btn width105 radius6 text-center yes-btn modal-window-cancel"><span><span>Yes</span></span></a>
+        </div>
+        <!-- end .btn-row -->
+      </div>
+    </div>
+    <!-- end .modal-alert -->
+
+    <div class="modal-container modal-alert modal-register-search-result hide">
+      <div class="titles">
+        <a href="javascript:;" class="close-btn modal-window-close">Close</a> 
+        <h2 class="title-txt">&nbsp;</h2>
+      </div>
+      <div class="sure-boxs">
+        <div class="mains">
+          <p>Are you sure?</p>
+        </div>
+        <!-- end .mains -->
+        <div class="btn-row">
+          <a href="javascript:;" class="blue-border-btn cancel-btn no-btn modal-window-cancel">NO</a>
+          <a href="javascript:;" class="blue-btn width105 radius6 text-center yes-btn modal-window-cancel"><span><span>Yes</span></span></a>
+        </div>
+        <!-- end .btn-row -->
+      </div>
+    </div>
+    <!-- end .modal-alert -->
+
+    <div class="modal-container modal-alert modal-saving-review hide">
+      <div class="titles">
+        <a href="javascript:;" class="close-btn modal-window-close">Close</a> 
+        <h2 class="title-txt">Alert</h2>
+      </div>
+      <div class="saving-boxs">
+        <div class="mains">
+          <p>Saving Review</p>
+        </div>
+        <!-- end .mains -->
+        <div class="btn-row">
+          <a href="javascript:;" class="blue-btn width105 radius6 text-center yes-btn modal-window-cancel"><span><span>OK</span></span></a>
+        </div>
+        <!-- end .btn-row -->
+      </div>
+    </div>
+    <!-- end .modal-alert -->
+
+    <div class="modal-container modal-alert modal-saving-error hide">
+      <div class="titles">
+        <a href="javascript:;" class="close-btn modal-window-close">Close</a> 
+        <h2 class="title-txt">Alert</h2>
+      </div>
+      <div class="saving-boxs">
+        <div class="mains">
+          <p>Please fill all comments</p>
+        </div>
+        <!-- end .mains -->
+        <div class="btn-row">
+          <a href="javascript:;" class="blue-btn width105 radius6 text-center yes-btn modal-window-cancel"><span><span>OK</span></span></a>
+        </div>
+        <!-- end .btn-row -->
+      </div>
+    </div>
+    <!-- end .modal-alert -->
+     
+    <div class="modal-container modal-forms modal-login hide">
+      <div class="titles">
+        <a href="javascript:;" class="close-btn modal-window-close">Close</a> 
+        <h2 class="title-txt">Login</h2>
+      </div>
+      <div class="mains">
+        <div class="logo"></div>
+        <div class="form-box">
+          
+          <!-- added for form validation: challenge #30050986 - 4th August 2015 -->
+          <div class="row login-error-container error-row">
+            <span class="error-text-username error-text hide">Please enter a username.</span>
+            <span class="error-text-password error-text hide">Please enter a valid password.</span>
+            <span class="error-text-unauthorized error-text hide">Please try with a valid credentials.</span>
+          </div>
+
+          <div class="row username-container">
+            <!-- changed for challenge #30050986 - 4th August 2015 -->
+            <span class="text">Username</span>
+            <span class="value">
+              <span class="input-box"><input id="login-username" type="text" placeholder="Username"/></span>
+            </span>
+          </div>
+          <!-- end .row -->
+          <div class="row password-container">
+            <span class="text">Password</span>
+            <span class="value">
+              <span class="input-box"><input id="login-password" type="password" placeholder="Password"/></span>
+            </span>
+          </div>
+          <!-- end .row -->
+        </div>
+        <!-- end .form-box -->
+      </div>
+      <!-- end .mains -->
+      <div class="btn-row">
+        <a href="javascript:;" class="blue-btn login-btn radius6"><span><span>Login</span></span></a>  
+      </div>
+      <!-- end .btn-row -->
+      <div class="link-row">
+        <a href="javascript:;" class="blue-link pull-right open-modal-window" data-modal-class="modal-forgot-password">Forgot Password</a>  
+        <span class="clearfix"></span>   
+      </div>
+      <!-- end .link-row -->
+    </div>
+    <!-- end .modal-login -->
+     
+    <div class="modal-container modal-forms modal-forgot-password hide">
+      <div class="titles">
+        <a href="javascript:;" class="close-btn modal-window-close">Close</a> 
+        <h2 class="title-txt">Forgot Password</h2>
+      </div>
+      <div class="mains">
+        <div class="form-box">
+          <div class="title-text">
+            <p>
+              We will send temporary password 
+              to your email address
+            </p>
+          </div>
+          <!-- end .row -->
+          <div class="row">
+            <span class="error-text">No user with this username. Please try again.</span>
+            <span class="text">Username</span>
+            <span class="value">
+              <span class="input-box"><input type="text" class="username-input" placeholder="Username"/></span>
+            </span>
+          </div>
+          <!-- end .row -->
+        </div>
+        <!-- end .form-box -->
+      </div>
+      <!-- end .mains -->
+      <div class="btn-row">
+        <a href="javascript:;" class="blue-btn submit-btn radius6"><span><span>Submit</span></span></a>  
+      </div>
+      <!-- end .btn-row -->
+      <div class="link-row">
+        <a href="javascript:;" class="icon-back-btn open-modal-window" data-modal-class="modal-login"><i></i>Back to Login</a>  
+        <span class="clearfix"></span>   
+      </div>
+      <!-- end .link-row -->
+    </div>
+    <!-- end .modal-forgot-password -->
+     
+    <div class="modal-container modal-forms modal-confirmation hide">
+      <div class="titles">
+        <a href="javascript:;" class="close-btn modal-window-close">Close</a> 
+        <h2 class="title-txt">Confirmation</h2>
+      </div>
+      <div class="mains">
+        <div class="logo"></div>
+        <div class="tip-text green-text">
+          <!-- changed for challenge #30050986 - 4th August 2015 -->
+          <p>
+            An email has been sent to your email address 
+            with instructions on how to reset your password.
+          </p>
+        </div>
+        <!-- end .tip-text -->
+      </div>
+      <!-- end .mains -->
+      <div class="link-row">
+        <a href="javascript:;" class="icon-back-btn modal-window-close"><i></i>Back to Home</a>  
+        <span class="clearfix"></span>   
+      </div>
+      <!-- end .link-row -->
+    </div>
+    <!-- end .modal-confirmation -->
+    </body>
+  </html>
+</apex:page>

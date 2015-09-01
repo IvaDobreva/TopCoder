@@ -1,0 +1,36 @@
+Installation Instruction for the Crowd Exchange Web Application 
+
+Prerequisites -- These step MUST be performed in order to deploy this code.
+1. Procure a SFDC Developer org. 
+2. Enable Customer Portal
+3. Enable Chatter AnswersChatter answers in your ORG. 
+4. Enable a Communities.
+5. Create new Community called "CrowdExchange" Use the Wizard and select the "Visualforce Template".  You'll need the URL for Search Member Email template/Custom Setting below.
+6. Go to Setup > Administer > Manage Users > Public Groups.  We need to create 3 public group:  "Crowd Exchange Members", "Crowd Exchange Publishers", and "Crowd Exchange Users".  Add all “Publisher” users in “Crowd Exchange Publishers” public group. Add all “Member” users in “Crowd Exchange Members”. Add those 2 public groups in “Crowd Exchange Users”.
+
+Deployment
+1. Unzip the submission zip into a local directory.
+2. Update the build.xml and build.properties files for your local environment
+3  Deploy the sources directly via ant using the Force.com Migration Tools using the "ant deployCode" target.
+ - Caution: In that case, you can overwrite current customization. Ant and saleforce-ant deployment tool is included to the submission
+
+Post Deployment:
+1. Update the CE_CrowdExchangeSettings__c: 
+    -- NotificationsCounterUpdateInterval__c = 30
+    -- Site_Url__c: community url. Used in “Search member” template
+2. Assign the appropriate permission set to the User that you're planning to use to access the application.  Users will either be assigned to the Crowd Exchange Member Permission Set, the Crowd Exchange Publisher Permission Set, or the Crowd Exchange Admin Permission Set.
+3. Navigation through the application requires users to have the User.Crowd_Exchange_User_Type field populated.  Please validate that all users which access the site have this field populated.  This will be a moot point when authentication is working properly.
+4. Insert the milestones, skills, and default requirements into the system using the anonymous Apex code found in milestones.txt, skills.txt, defaultrequirements.txt.  An anonymous Apex window can be opened in the developer console.
+5. Enable feed tracking for the Activity object. This can be found under Settings->Chatter->Feed Tracking.
+    
+To Enable Notifications:
+1.	Go to Setup > Build > Develop > Email Services and click New Email Service to create Notification Email Service. Type “notification” for Email Service Name, select Apex Class “NotificationEmailHandler” for Apex Class, check “Active” and save it.
+2.	On the same page, click “New Email Address” to create a new Email address. Remove pre-filled your email address in Accept Email From field to accept all emails, change Context User to appropriate context user, leave Email Address for “notification” and save it.
+3.	Remember the email address displayed in “Email Address” with “notification@....”. Set the email address to Compliance BCC Email (Setup > Administer > Email Administration > Compliance BCC Email) , check “Enable” and  save it.
+
+
+
+The current home page for the app is the Stories interface:
+
+https://<your instance>/apex/CrowdExchangeWebApp#/Stories
+

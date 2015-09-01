@@ -1,0 +1,25 @@
+<apex:component allowDML="true" controller="CE_MemberSearchEmailController">
+<apex:form styleClass="hide">
+<!-- Action function hack because we cannot use DML in ctor -->
+<apex:actionFunction name="doInit" action="{!getEmailTemplate}" rerender="panel"/>
+<apex:outputPanel id="panel" styleClass="hide">
+    <apex:outputPanel rendered="{!initialized}">
+    <!-- Email template for inviting members -->
+    <script type="text/javascript">
+        var MEMBER_SEARCH_TEMPLATE = {
+            body : '{!JSENCODE(emailTemplate)}',
+            subject: '{!JSENCODE(emailSubject)}'
+        }
+    </script>
+    </apex:outputPanel>
+    <!-- After component is loaded calling method for compiling email template -->
+    <apex:outputPanel rendered="{!NOT(initialized)}">
+        <script>
+             setTimeout(function () {
+                 doInit();
+             },1000); //Just wait a second before initialization
+        </script>
+    </apex:outputPanel>
+</apex:outputPanel>
+</apex:form>
+</apex:component>

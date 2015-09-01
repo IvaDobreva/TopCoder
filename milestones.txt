@@ -1,0 +1,25 @@
+
+CE_Milestone__c publishDateMilestone = new CE_Milestone__c(Name = 'Publish Date', Display_In_Initial_Setup__c = true, Default_Time_Period__c = 1, Type__c = 'Software Development', Step_Number__c = 1);
+CE_Milestone__c startDateMilestone = new CE_Milestone__c(Name = 'Start Date', Display_In_Initial_Setup__c = true, Default_Time_Period__c = 2, Type__c = 'Software Development', Step_Number__c = 2);
+CE_Milestone__c registrationDateMilestone = new CE_Milestone__c(Name = 'Registration Date', Display_In_Initial_Setup__c = true, Default_Time_Period__c = 2, Type__c = 'Software Development', Step_Number__c = 3);
+CE_Milestone__c assignmentDateMilestone = new CE_Milestone__c(Name = 'Assignment Date', Display_In_Initial_Setup__c = false, Default_Time_Period__c = 1, Type__c = 'Software Development', Step_Number__c = 4);
+CE_Milestone__c submissionDateMilestone = new CE_Milestone__c(Name = 'Submission Date', Display_In_Initial_Setup__c = true, Default_Time_Period__c = 7, Type__c = 'Software Development', Step_Number__c = 5);
+CE_Milestone__c reviewDateMilestone = new CE_Milestone__c(Name = 'Review Date', Display_In_Initial_Setup__c = true, Default_Time_Period__c = 2, Type__c = 'Software Development', Step_Number__c = 6);
+CE_Milestone__c acceptanceDateMilestone = new CE_Milestone__c(Name = 'Acceptance Date', Display_In_Initial_Setup__c = false, Default_Time_Period__c = 1, Type__c = 'Software Development', Step_Number__c = 7);
+CE_Milestone__c endDateMilestone = new CE_Milestone__c(Name = 'End Date', Display_In_Initial_Setup__c = false, Default_Time_Period__c = 1, Type__c = 'Software Development', Step_Number__c = 8);
+
+
+List<CE_Milestone__c> milestoneList =  new List<CE_Milestone__c> { publishDateMilestone,
+															                                startDateMilestone,
+															                                registrationDateMilestone,
+															                                assignmentDateMilestone,
+															                                submissionDateMilestone,
+															                                reviewDateMilestone,
+															                                acceptanceDateMilestone,
+															                                endDateMilestone
+															                                      };
+															                                    
+insert milestoneList;                                    
+                                      
+                                      
+                                      

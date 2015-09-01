@@ -1,0 +1,7 @@
+Hello {!User.Name},
+
+The registration for activity {!CE_Activity__c.Name} is now complete. Please log in to view.
+
+Sincerely,
+
+The CrowdExchange Platform Team
