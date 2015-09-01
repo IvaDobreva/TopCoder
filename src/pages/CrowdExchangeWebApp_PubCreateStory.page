@@ -154,8 +154,7 @@
                             <span class="pull-left">Importance:</span>
                             <span class="form-container width85 pull-left" ng-jqtransform="a">
                                 <span class="selects-container">
-                                    <select ng-model="requirement.importance">
-                                        <option ng-selected="true" value="">Select</option>
+                                <select ng-model="requirement.importance" ng-init="requirement.importance = requirement.importance || 'Normal'">
                                         <option value="Critical">Critical</option>
                                         <option value="High">High</option>
                                         <option value="Normal">Normal</option>
@@ -179,8 +178,7 @@
                                     <span class="pull-left">Importance:</span>
                                     <span class="form-container width85 pull-left" ng-jqtransform="a">
                                         <span class="selects-container">
-                                            <select ng-model="childRequirement.importance">
-                                                <option ng-selected="true" value="">Select</option>
+											<select ng-model="childRequirement.importance" ng-init="childRequirement.importance = childRequirement.importance || 'Normal'">
                                                 <option value="Critical">Critical</option>
                                                 <option value="High">High</option>
                                                 <option value="Normal">Normal</option>

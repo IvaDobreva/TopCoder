@@ -78,7 +78,7 @@
             <!-- end .chart-registrants -->
             <div class="chart chart-stage orenge-border pull-left">
                 <em>{{vm.phase}}</em>
-                <span class="grey-txt">Stage</span>
+                <span class="grey-txt">Phase</span>
             </div>
             <!-- end .chart-stage -->
             <div class="clearfix" /></div>
