@@ -115,7 +115,7 @@
                             </div>
                             <!-- end.review-main-line -->
                             <div class="review-main-line position" ng-style="{ 'min-width': {{Math.floor(954 * (activity.activityDuration / $parent.vm.storyDuration))}}+'px', 'top': '{{$index*40}}px', 'left': {{Math.floor(954 * (activity.startOffset / $parent.vm.storyDuration))}}+'px' }" ng-repeat="activity in vm.activities track by $index">
-                                <a href="javascript:;">{{$index + 1}}. {{activity.title?activity.title:'Activity '+($index+1)}}</a>
+                                <a href="javascript:;">{{$index + 1.}} <span ng-bind-html="activity.title?activity.title:'Activity '+($index+1)"></span></a>
                                 <span class="review-line-con {{( activity.endMilestone.completedDate && today > activity.endMilestone.completedDate ? 'green-bg': 'blue-bg')}}">
                                     <i />
                                 </span>
