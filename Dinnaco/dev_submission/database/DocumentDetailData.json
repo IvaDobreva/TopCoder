@@ -1,0 +1,509 @@
+{
+    "Contents":{
+        "Title":"Holdings Limited",
+        "Desciption":"Statement of Comprehensive Income for the year ended 31 March 2015",
+        "Data":[
+            {
+                "NameContent":"Continuing operations",
+                "ValueColOne":"2015(£)",
+                "ValueColTwo":"2014(£)",
+                "Data":[
+                    {
+                        "Name":"Interest income",
+                        "ValueColOne":"",
+                        "ValueColTwo":""
+                    },
+                    {
+                        "Name":"Interest expense",
+                        "ValueColOne":3125,
+                        "ValueColTwo":3125
+                    }
+                ]
+            },
+            {
+                "NameContent":"Net interest expense",
+                "ValueColOne":3125,
+                "ValueColTwo":3125,
+                "Data":[
+                    {
+                        "Name":"Other income",
+                        "ValueColOne":"",
+                        "ValueColTwo":""
+                    },
+                    {
+                        "Name":"Other operating expense",
+                        "ValueColOne":"",
+                        "ValueColTwo":""
+                    }
+                ]
+            },
+            {
+                "NameContent":"Loss before tax for the year",
+                "ValueColOne":3125,
+                "ValueColTwo":3125,
+                "Data":[
+                    {
+                        "Name":"Taxation",
+                        "ValueColOne":"",
+                        "ValueColTwo":""
+                    }
+                ]
+            },
+            {
+                "NameContent":"Loss for the year and total comprehensive loss for the year",
+                "ValueColOne":3125,
+                "ValueColTwo":2975,
+                "Data":[
+
+                ]
+            },
+            {
+                "NameContent":"Non-current assets",
+                "ValueColOne":"",
+                "ValueColTwo":"",
+                "Data":[
+                    {
+                        "Name":"Investment in subsidary",
+                        "ValueColOne":3150,
+                        "ValueColTwo":2975
+                    }
+                ]
+            },
+            {
+                "NameContent":"Current assets",
+                "ValueColOne":"",
+                "ValueColTwo":"",
+                "Data":[
+                    {
+                        "Name":"Cash and cash equivalents",
+                        "ValueColOne":3150,
+                        "ValueColTwo":2975
+                    }
+                ]
+            },
+            {
+                "NameContent":"Total assets",
+                "ValueColOne":3150,
+                "ValueColTwo":25381,
+                "Data":[
+
+                ]
+            },
+            {
+                "NameContent":"Current liabilities",
+                "ValueColOne":22569,
+                "ValueColTwo":"",
+                "Data":[
+                    {
+                        "Name":"Other loans",
+                        "ValueColOne":22569,
+                        "ValueColTwo":""
+                    }
+                ]
+            },
+            {
+                "NameContent":"Non-current liabilities",
+                "ValueColOne":22569,
+                "ValueColTwo":"",
+                "Data":[
+                    {
+                        "Name":"Other loans",
+                        "ValueColOne":22569,
+                        "ValueColTwo":""
+                    }
+                ]
+            },
+            {
+                "NameContent":"Total liabilities",
+                "ValueColOne":22569,
+                "ValueColTwo":"",
+                "Data":[
+
+                ]
+            }
+        ]
+    },
+    "Tags":[
+        {
+            "ElementIndex":"00",
+            "Hideen":"N",
+            "RowCaption":"F",
+            "Title":"Tag Name",
+            "ReportedValue":3150,
+            "DrOrCr":2.3,
+            "TagIdentifier":"GBP",
+            "Units":1,
+            "Dimension":"5",
+            "Context":"C",
+            "TaggedValue":10,
+            "Decimals":10,
+            "Scale":"s",
+            "Type":"N"
+        },
+        {
+            "ElementIndex":"00",
+            "Hideen":"N",
+            "RowCaption":"F",
+            "Title":"Tag Name",
+            "ReportedValue":3150,
+            "DrOrCr":2.3,
+            "TagIdentifier":"GBP",
+            "Units":1,
+            "Dimension":"5",
+            "Context":"C",
+            "TaggedValue":10,
+            "Decimals":10,
+            "Scale":"s",
+            "Type":"N"
+        },
+        {
+            "ElementIndex":"00",
+            "Hideen":"N",
+            "RowCaption":"F",
+            "Title":"Tag Name",
+            "ReportedValue":3150,
+            "DrOrCr":2.3,
+            "TagIdentifier":"GBP",
+            "Units":1,
+            "Dimension":"5",
+            "Context":"C",
+            "TaggedValue":10,
+            "Decimals":10,
+            "Scale":"s",
+            "Type":"N"
+        },
+        {
+            "ElementIndex":"00",
+            "Hideen":"N",
+            "RowCaption":"F",
+            "Title":"Tag Name",
+            "ReportedValue":3150,
+            "DrOrCr":2.3,
+            "TagIdentifier":"GBP",
+            "Units":1,
+            "Dimension":"5",
+            "Context":"C",
+            "TaggedValue":10,
+            "Decimals":10,
+            "Scale":"s",
+            "Type":"N"
+        },
+        {
+            "ElementIndex":"00",
+            "Hideen":"N",
+            "RowCaption":"F",
+            "Title":"Tag Name",
+            "ReportedValue":3150,
+            "DrOrCr":2.3,
+            "TagIdentifier":"GBP",
+            "Units":1,
+            "Dimension":"5",
+            "Context":"C",
+            "TaggedValue":10,
+            "Decimals":10,
+            "Scale":"s",
+            "Type":"N"
+        },
+        {
+            "ElementIndex":"00",
+            "Hideen":"N",
+            "RowCaption":"F",
+            "Title":"Tag Name",
+            "ReportedValue":3150,
+            "DrOrCr":12.3,
+            "TagIdentifier":"GBP",
+            "Units":1,
+            "Dimension":"5",
+            "Context":"C",
+            "TaggedValue":10,
+            "Decimals":10,
+            "Scale":"s",
+            "Type":"N"
+        },
+        {
+            "ElementIndex":"00",
+            "Hideen":"N",
+            "RowCaption":"F",
+            "Title":"Tag Name",
+            "ReportedValue":3150,
+            "DrOrCr":21.3,
+            "TagIdentifier":"GBP",
+            "Units":1,
+            "Dimension":"5",
+            "Context":"C",
+            "TaggedValue":10,
+            "Decimals":10,
+            "Scale":"s",
+            "Type":"N"
+        }
+    ],
+    "SelectColumns":[
+        {
+            "Title":"Element Index",
+            "ShortTitle":"Idx",
+            "isCheck":true
+        },
+        {
+            "Title":"Hidden",
+            "ShortTitle":"Hidden",
+            "isCheck":true
+        },
+        {
+            "Title":"Title",
+            "ShortTitle":"Title",
+            "isCheck":true
+        },
+        {
+            "Title":"Reported Value",
+            "ShortTitle":"Rep. Value",
+            "isCheck":true
+        },
+        {
+            "Title":"Dr/Cr",
+            "ShortTitle":"Dr/Cr",
+            "isCheck":true
+        },
+        {
+            "Title":"TagIdentifier",
+            "ShortTitle":"Tag Ident.",
+            "isCheck":true
+        },
+        {
+            "Title":"Units",
+            "ShortTitle":"Units",
+            "isCheck":true
+        },
+        {
+            "Title":"Dimension",
+            "ShortTitle":"Dimension",
+            "isCheck":false
+        },
+        {
+            "Title":"Tagged Value",
+            "ShortTitle":"Tag. Value",
+            "isCheck":false
+        },
+        
+        {
+            "Title":"Decimals",
+            "ShortTitle":"Decimals",
+            "isCheck":true
+        },
+        {
+            "Title":"Scale",
+            "ShortTitle":"Scale",
+            "isCheck":false
+        }
+    ],
+    "History":[
+        {
+            "Name":"Smith Doe",
+            "Time":"10:00AM",
+            "Operation":"Comment",
+            "DatePost":"Mar 31, 2015"
+        },
+        {
+            "Name":"Jane Doe",
+            "Time":"10:00AM",
+            "Operation":"Comment",
+            "DatePost":"Mar 31, 2015"
+        },
+        {
+            "Name":"John Doe",
+            "Time":"10:00AM",
+            "Operation":"Create",
+            "DatePost":"Mar 25, 2015"
+        },
+        {
+            "Name":"Jessica Doe",
+            "Time":"08:00AM",
+            "Operation":"Delete",
+            "DatePost":"April 10, 2014"
+        },
+        {
+            "Name":"Jane Doe",
+            "Time":"10:00AM",
+            "Operation":"Delete",
+            "DatePost":"April 28, 2014"
+        },
+        {
+            "Name":"Jessica Doe",
+            "Time":"08:00AM",
+            "Operation":"Update",
+            "DatePost":"April 10, 2014"
+        },
+        {
+            "Name":"Jane Doe",
+            "Time":"10:00AM",
+            "Operation":"Update",
+            "DatePost":"April 28, 2014"
+        },
+        {
+            "Name":"Lia Doe",
+            "Time":"11:00AM",
+            "Operation":"Comment",
+            "DatePost":"May 28, 2014"
+        },
+        {
+            "Name":"Lia Doe",
+            "Time":"10:00AM",
+            "Operation":"Comment",
+            "DatePost":"Mar 31, 2014"
+        },
+        {
+            "Name":"Lia Doe",
+            "Time":"07:00AM",
+            
+
+            "Operation":"Comment",
+            "DatePost":"Mar 31, 2014"
+        }
+    ],
+    "Attribute":[
+        {
+            "Title":"All"
+        },
+        {
+            "Title":"Element Index"
+        },
+        {
+            "Title":"Hideen"
+        },
+        {
+            "Title":"Row Caption"
+        },
+        {
+            "Title":"Title"
+        },
+        {
+            "Title":"Reported Value"
+        },
+        {
+            "Title":"Dr/Cr"
+        },
+        {
+            "Title":"Tag Identifier"
+        },
+        {
+            "Title":"Dimension"
+        },
+        {
+            "Title":"Context"
+        },
+        {
+            "Title":"Tagged Value"
+        },
+        {
+            "Title":"Units"
+        },
+        {
+            "Title":"Decimals"
+        },
+        {
+            "Title":"Scale"
+        },
+        {
+            "Title":"Type"
+        }
+    ],
+    "ComparePriorYears":[
+        {
+            "Tag":"Lorem Tag Title",
+            "Year":2015,
+            "PreviousYear2014":85,
+            "CurrentYear2015":70
+        },
+        {
+            "Tag":"Lorem Tag Title",
+            "Status":"low",
+            "Year":2015,
+            "PreviousYear2014":50,
+            "CurrentYear2015":55,
+            "DifferenceDetails":"Lorem ipsum sit"
+        },
+        {
+            "Tag":"Lorem Tag Title",
+            "Year":2015,
+            "PreviousYear2014":85,
+            "CurrentYear2015":70
+        },
+        {
+            "Tag":"Lorem Tag Title",
+            "Year":2015,
+            "PreviousYear2014":85,
+            "CurrentYear2015":70
+        },
+        {
+            "Tag":"Lorem Tag Title",
+            "Year":2014,
+            "PreviousYear2014":85,
+            "CurrentYear2015":70
+        },
+        {
+            "Tag":"Lorem Tag Title",
+            "Status":"normal",
+            "Year":2014,
+            "PreviousYear2014":85,
+            "CurrentYear2015":70,
+            "DifferenceDetails":"Lorem ipsum sit"
+        },
+        {
+            "Tag":"Lorem Tag Title",
+            "Year":2014,
+            "PreviousYear2014":85,
+            "CurrentYear2015":70
+        },
+        {
+            "Tag":"Lorem Tag Title",
+            "Status":"hight",
+            "Year":2014,
+            "PreviousYear2014":85,
+            "CurrentYear2015":70,
+            "DifferenceDetails":"Lorem ipsum dolor sit amet"
+        },
+        {
+            "Tag":"Lorem Tag Title",
+            "Year":2013,
+            "PreviousYear2014":85,
+            "CurrentYear2015":70
+        },
+        {
+            "Tag":"Lorem Tag Title",
+            "Year":2013,
+            "PreviousYear2014":85,
+            "CurrentYear2015":70
+        },
+        {
+            "Tag":"Lorem Tag Title",
+            "Year":2013,
+            "PreviousYear2014":85,
+            "CurrentYear2015":70
+        },
+        {
+            "Tag":"Lorem Tag Title",
+            "Status":"hight",
+            "Year":2014,
+            "PreviousYear2014":85,
+            "CurrentYear2015":70,
+            "DifferenceDetails":"Lorem ipsum dolor sit amet"
+        },
+        {
+            "Tag":"Lorem Tag Title",
+            "Year":2013,
+            "PreviousYear2014":85,
+            "CurrentYear2015":70
+        },
+        {
+            "Tag":"Lorem Tag Title",
+            "Year":2013,
+            "PreviousYear2014":85,
+            "CurrentYear2015":70
+        },
+        {
+            "Tag":"Lorem Tag Title",
+            "Year":2013,
+            "PreviousYear2014":85,
+            "CurrentYear2015":70
+        }
+    ]
+}

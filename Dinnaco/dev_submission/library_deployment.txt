@@ -1,0 +1,27 @@
+Library
+
+Circle progress:
+	jquery.knob.min.js
+		MIT Lisence
+	redrawKnob.js
+		MIT Lisence
+
+For CSS pre-processor
+	All belows have MIT lisence
+		prefixfree.min.js
+		prefixfree.dynamic-dom.min.js
+		angular-filter.js
+		angular.less.js
+
+For dropdown
+	angular-dropdowns.js		
+		MIT Lisence
+
+jquery-ui.min.js		
+	MIT Lisence
+
+
+Deployment
+
+	Just deploy the prototype on a server to run.
+		

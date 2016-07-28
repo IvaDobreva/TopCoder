@@ -1,0 +1,43 @@
+<div class="row">
+	<div class="dinnaco-full-content">
+		<header data-header-template>
+		</header>
+		<!-- /header -->
+		<div class="main-content reset">
+			<div class="tab-asked-questions">
+				<div class="top-title">
+					<span class="name">FAQs</span>
+				</div>
+				<!-- /top-title -->
+				<div class="bottom-details">
+					<ul>
+						<li data-ng-repeat="item in fAQsData" data-ng-class="{expand:item.isExpand}">
+							<a class="arrow" href="javascript:;" data-ng-click="item.isExpand =!item.isExpand;checkHeight()">
+								<i class="icons"></i>
+							</a>
+							<span class="question">{{item.title}}</span>
+							<div class="read-me">
+								<p class="para" data-ng-repeat="para in item.description.split('\n')">{{para}}</p>
+							</div>
+							<!-- /read-me -->
+						</li>
+					</ul>
+				</div>
+				<!-- /bottom-details -->
+			</div>
+			<!-- /tab-asked-questions -->
+		</div>
+		<!-- /main-content -->
+		<footer data-footer-template>
+		</footer>
+		<!-- /footer -->
+		<div class="overlay" data-ng-class="{show:isShowPopupDisclaimer}" data-ng-click="clickHiddenPopupDisclaimer()"></div>
+		<!-- /overlay -->
+		<div class="disclaimer-popup" data-disclaimer-popup-template data-ng-hide="!isShowPopupDisclaimer">
+		</div>
+		<!-- /disclaimer-popup -->
+	</div>
+	<!-- /dinnaco-full-content -->
+</div>
+<!-- end .row. -->
+	

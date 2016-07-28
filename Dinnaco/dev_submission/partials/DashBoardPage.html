@@ -1,0 +1,678 @@
+<div class="row">
+	<div class="dinnaco-full-content">
+		<header data-header-template>
+		</header> 
+		<!-- /header -->
+		<div class="main-content">
+			<div class="tab-dashboard-details">
+				<div class="top-content">
+					<div class="circle-chart-details" data-ng-hide="isCompareTag">
+						<div class="wrapper">
+							<div class="same-box col-sm-4 col-md-4 col-lg-4 one">
+								<span class="title">ETR</span>
+								<div class="cover-all">
+									<div class="left-chart">
+										<div class="top-chart">
+											<!-- etr radius chart -->
+											<div class="etr-radius">
+												<span class="percent-tick dark-blue">%</span>
+												<input class="knob" id="etr" data-radius-chart data-angleOffset=0 data-linecap=round value="0" data-fgColor="#002776" data-bgColor="#e3e3e3" data-readOnly="true" data-thickness="0.14">
+											</div>
+										</div>
+										<!-- /top-chart -->
+										<span class="formula">{{listCompareTag[0].TotalETR / listCompareTag[0].Entities.length || 0 | number:0}} / {{listCompareTag[0].TotalETR || 0 | number:0}} ($)</span>
+									</div>
+									<!-- /left-chart -->
+									<div class="right-info">
+										<span class="arrow icons"  ng-class="{'up' : listCompareTag[0].compareETR > 0 , 'down' : listCompareTag[0].compareETR < 0}"></span>
+										<span class="percent d-blue">{{listCompareTag[0].compareETR || 0 | number:0}}%</span>
+										<span class="compare">Compare with last ETR</span>
+									</div>
+									<!-- /right-info -->
+									<div class="clear"></div>
+								</div>
+								<!-- /cover-all -->
+							</div>
+							<!-- /same-box -->
+							<div class="same-box col-sm-4 col-md-4 col-lg-4 two">
+								<span class="title">DEBTOR DAYS</span>
+								<div class="cover-all">
+									<div class="left-chart">
+										<div class="top-chart">
+											<!-- Debtor days chart -->
+											<div class="day-radius">
+												<input class="knob" id="debtor-day" data-radius-chart data-angleOffset=0 data-linecap=round value="0" data-fgColor="#81bc00" data-bgColor="#e3e3e3" data-readOnly="true"  data-thickness="0.14" data-displayInput ="false">
+												<div class="show-day">
+													<span class="number-title">{{listCompareTag[listCompareTag.length -1].DebtorDays || 0 | number:0}}</span>
+													<span class="day-title">days</span>
+												</div>
+											</div>
+										</div>
+										<!-- /top-chart -->
+										<span class="formula">{{listCompareTag[0].TotalDebtorDays / listCompareTag[0].Entities.length || 0 | number:0}} / {{listCompareTag[0].TotalDebtorDays || 0 | number:0}} ($)
+											<span class="text-green">*365</span>
+										</span>
+									</div>
+									<!-- /left-chart -->
+									<div class="right-info">
+										<span class="arrow icons" ng-class="{'up' : listCompareTag[0].compareDebtorDays > 0 , 'down' : listCompareTag[0].compareDebtorDays < 0}"></span>
+										<span class="percent green">{{listCompareTag[0].compareDebtorDays || 0 | number:0}}%</span>
+										<span class="compare">Compare with last Debtor Days</span>
+									</div>
+									<!-- /right-info -->
+									<div class="clear"></div>
+								</div>
+								<!-- /cover-all -->
+							</div>
+							<!-- /same-box -->
+							<div class="same-box col-sm-4 col-md-4 col-lg-4 three">
+								<span class="title">ROCE</span>
+								<div class="cover-all">
+									<div class="left-chart">
+										<div class="top-chart">
+											<!-- roce chart -->
+											<span class="percent-tick light-blue">%</span>
+											<div class="roce-radius">
+												<input class="knob" id="roce" data-radius-chart data-angleOffset=0 data-linecap=round value="0" data-fgColor="#00a1de" data-bgColor="#e3e3e3" data-readOnly="true"  data-thickness="0.14">
+											</div>
+										</div>
+										<!-- /top-chart -->
+										<span class="formula">{{listCompareTag[0].TotalROCE / listCompareTag[0].Entities.length || 0 | number:0}} / {{listCompareTag[0].TotalROCE || 0 | number:0}} ($)</span>
+									</div>
+									<!-- /left-chart -->
+									<div class="right-info">
+										<span class="arrow icons" ng-class="{'up' : listCompareTag[0].compareROCE > 0 , 'down' : listCompareTag[0].compareROCE < 0}"></span>
+										<span class="percent l-blue">{{listCompareTag[0].compareROCE*100 || 0 | number:0}}%</span>
+										<span class="compare">Compare with last ROCE</span>
+									</div>
+									<!-- /right-info -->
+									<div class="clear"></div>
+								</div>
+								<!-- /cover-all -->
+							</div>
+							<!-- /same-box -->
+							<div class="clear"></div>
+						</div>
+						<!-- /wrapper -->
+					</div>
+					<!-- /circle-chart-details -->
+					<div class="column-chart-details" data-ng-hide="!isCompareTag">
+						<div class="wrapper">
+							<div class="same-box col-sm-4 col-md-4 col-lg-4 one">
+								<div class="cover-all">
+									<div class="top-title">
+										<span class="name">ETR</span>
+										<a class="show-table icons" href="javascript:;" data-ng-click="isShowEtrChart=false" data-ng-class="{active:!isShowEtrChart}"></a>
+										<a class="show-chart icons" href="javascript:;" data-ng-click="isShowEtrChart=true" data-ng-class="{active:isShowEtrChart}"></a>
+										<div class="clear"></div>
+									</div>
+									<!-- /top-title -->
+									<div class="bottom-info">
+										<div class="first-group" data-ng-hide="!isShowEtrChart">
+											<div class="cover-table">
+												<table>
+													<thead>
+														<tr>
+															<th class="one">
+																<span>Entity</span>
+															</th>
+															<th class="two">
+																<span>{{lastThreeYears[0]}}</span>
+															</th>
+															<th class="two">
+																<span>{{lastThreeYears[1]}}</span>
+															</th>
+															<th class="two">
+																<span>{{lastThreeYears[2]}}</span>
+															</th>
+														</tr>
+													</thead>
+													<!-- /thead -->
+													<tbody>
+														<tr data-ng-repeat="item in listCompareTag">
+															<td>
+																<span class="only">{{item.ClientName}}</span>
+															</td>
+															<td>
+																<span>{{getDataETR(item,0) | number:0}}</span>
+															</td>
+															<td>
+																<span>{{getDataETR(item,1) | number:0}}</span>
+															</td>
+															<td>
+																<span>{{getDataETR(item,2) | number:0}}</span>
+															</td>
+														</tr>
+													</tbody>
+													<!-- /tbody -->
+												</table>
+												<!-- /table -->
+											</div>
+											<!-- /cover-table -->
+										</div>
+										<!-- /first-group -->
+										<div class="second-group" data-ng-hide="isShowEtrChart">
+											<div class="group-bar" id="etrChart" data-group-chart data-ng-click="clickChartOnIpad('ETR')"></div>
+										</div>
+										<!-- /second-group -->
+									</div>
+									<!-- /bottom-info -->
+								</div>
+								<!-- /cover-all -->
+								<a class="btn-zoom icons" href="javascript:;" data-ng-click="selectedCompareZoom('ETR')"></a>
+							</div>
+							<!-- /same-box -->
+							<div class="same-box col-sm-4 col-md-4 col-lg-4 two">
+								<div class="cover-all">
+									<div class="top-title">
+										<span class="name">DEBTOR DAYS</span>
+										<a class="show-table icons" href="javascript:;" data-ng-click="isShowDebtorDaysChart=false" data-ng-class="{active:!isShowDebtorDaysChart}"></a>
+										<a class="show-chart icons" href="javascript:;" data-ng-click="isShowDebtorDaysChart=true" data-ng-class="{active:isShowDebtorDaysChart}"></a>
+										<div class="clear"></div>
+									</div>
+									<!-- /top-title -->
+									<div class="bottom-info">
+										<div class="first-group" data-ng-hide="!isShowDebtorDaysChart">
+											<div class="cover-table">
+												<table>
+													<thead>
+														<tr>
+															<th class="one">
+																<span>Entity</span>
+															</th>
+															<th class="two">
+																<span>{{lastThreeYears[0]}}</span>
+															</th>
+															<th class="two">
+																<span>{{lastThreeYears[1]}}</span>
+															</th>
+															<th class="two">
+																<span>{{lastThreeYears[2]}}</span>
+															</th>
+														</tr>
+													</thead>
+													<!-- /thead -->
+													<tbody>
+														<tr data-ng-repeat="item in listCompareTag">
+															<td>
+																<span class="only">{{item.ClientName}}</span>
+															</td>
+															<td>
+																<span>{{getDataDebtorDays(item,0) | number:0}}</span>
+															</td>
+															<td>
+																<span>{{getDataDebtorDays(item,1) | number:0}}</span>
+															</td>
+															<td>
+																<span>{{getDataDebtorDays(item,2) | number:0}}</span>
+															</td>
+														</tr>
+													</tbody>
+													<!-- /tbody -->
+												</table>
+												<!-- /table -->
+											</div>
+											<!-- /cover-table -->
+										</div>
+										<!-- /first-group -->
+										<div class="second-group" data-ng-hide="isShowDebtorDaysChart">
+											<div class="group-bar" id="dayChart" data-group-chart-day data-ng-click="clickChartOnIpad('DEBTOR DAYS')"></div>
+										</div>
+										<!-- /second-group -->
+									</div>
+									<!-- /bottom-info -->
+								</div>
+								<!-- /cover-all -->
+								<a class="btn-zoom icons" href="javascript:;" data-ng-click="selectedCompareZoom('DEBTOR DAYS')"></a>
+							</div>
+							<!-- /same-box -->
+							<div class="same-box col-sm-4 col-md-4 col-lg-4 three">
+								<div class="cover-all">
+									<div class="top-title">
+										<span class="name">ROCE</span>
+										<a class="show-table icons" href="javascript:;" data-ng-click="isShowRoceChart=false" data-ng-class="{active:!isShowRoceChart}"></a>
+										<a class="show-chart icons" href="javascript:;" data-ng-click="isShowRoceChart=true" data-ng-class="{active:isShowRoceChart}"></a>
+										<div class="clear"></div>
+									</div>
+									<!-- /top-title -->
+									<div class="bottom-info">
+										<div class="first-group" data-ng-hide="!isShowRoceChart">
+											<div class="cover-table">
+												<table>
+													<thead>
+														<tr>
+															<th class="one">
+																<span>Entity</span>
+															</th>
+															<th class="two">
+																<span>{{lastThreeYears[0]}}</span>
+															</th>
+															<th class="two">
+																<span>{{lastThreeYears[1]}}</span>
+															</th>
+															<th class="two">
+																<span>{{lastThreeYears[2]}}</span>
+															</th>
+														</tr>
+													</thead>
+													<!-- /thead -->
+													<tbody>
+														<tr data-ng-repeat="item in listCompareTag">
+															<td>
+																<span class="only">{{item.ClientName}}</span>
+															</td>
+															<td>
+																<span>{{getDataRoce(item,0) | number:0}}</span>
+															</td>
+															<td>
+																<span>{{getDataRoce(item,1) | number:0}}</span>
+															</td>
+															<td>
+																<span>{{getDataRoce(item,2) | number:0}}</span>
+															</td>
+														</tr>
+													</tbody>
+													<!-- /tbody -->
+												</table>
+												<!-- /table -->
+											</div>
+											<!-- /cover-table -->
+										</div>
+										<!-- /first-group -->
+										<div class="second-group" data-ng-hide="isShowRoceChart">
+											<div class="group-bar" id="roceChart" data-group-chart-roce data-ng-click="clickChartOnIpad('ROCE')"></div>
+										</div>
+										<!-- /second-group -->
+									</div>
+									<!-- /bottom-info -->
+								</div>
+								<!-- /cover-all -->
+								<a class="btn-zoom icons" href="javascript:;" data-ng-click="selectedCompareZoom('ROCE')"></a>
+							</div>
+							<!-- /same-box -->
+							<div class="clear"></div>
+						</div>
+						<!-- /wrapper -->
+					</div>
+					<!-- /column-chart-details -->
+					<div class="drag-n-drop" data-drop="true"  data-jqyoui-droppable="{multiple:true,onDrop:'highlightRow'}" data-ng-class="getClassDragDropIpad()">
+						<span class="title-for-dd" data-ng-hide="isHidenTitleDrag">Drag and Drop or select upto 3 entities</span>
+						<a class="btn-compare" href="javascript:;" data-ng-click="clickShowPopupCompare();" data-ng-hide="!isCompareTag">Compare Tags</a>
+						<ul>
+							<li data-ng-repeat="item in listCompareTag track by $index" data-ng-show="item.ClientName" data-drag="true" data-jqyoui-options="{revert: 'invalid', helper: 'clone'}" data-ng-model="list4" data-jqyoui-draggable="{index: {{$index}},animate:true,onDrop:'highlightRow'}">
+								<div class="demo-tag">
+									<a class="btn-close icons" href="javascript:;" data-ng-click="removeTagCompare(item.Id)"></a>
+									<span class="title">{{item.ClientName}}</span>
+								</div>
+								<!-- /demo-tag -->
+							</li>
+						</ul>
+						<div class="clear"></div>
+					</div>
+					<!-- /drag-n-drop -->
+				</div>
+				<!-- /top-content -->
+				<div class="bottom-content">
+					<div class="top-actions" data-ng-class="getClassForGridIpad()">
+						<div class="left-group only-desk">
+							<a class="same" href="javascript:;" data-ng-click="changeGrid(false)" data-ng-class="{active:!isShowGridVer}">List View</a>
+							<a class="same" href="javascript:;" data-ng-click="changeGrid(true)" data-ng-class="{active:isShowGridVer}">Grid View</a>
+						</div>
+						<!-- /left-group -->
+						<div class="left-group-mobi only-mobi">
+							<span class="title">View as</span>
+							<a class="icon-list icons" href="javascript:;" data-ng-click="isShowGridVer=false" data-ng-class="{active:!isShowGridVer}"></a>
+							<a class="icon-grid icons" href="javascript:;" data-ng-click="isShowGridVer=true" data-ng-class="{active:isShowGridVer}"></a>
+							<div class="clear"></div>
+						</div>
+						<!-- /left-group -->
+						<div class="right-group">
+							<div class="search-here">
+								<a class="icons" href="javascript:;"></a>
+								<input class="for-search" placeholder="Search" data-ng-model="querySearch" data-ng-change="search()"/>
+							</div>
+							<!-- /search-here -->
+							<div class="sort-by sort-change">
+								<div data-dropdown-select="ddSelectOptionsSortBy" data-dropdown-model="ddSelectSelectedSortBy" data-dropdown-onchange="sortByFunc(selected)"></div>
+							</div>
+							<!-- /sort-by -->
+							<div class="sort-by filter-by">
+								<div id="filter-dropdown" data-dropdown-select="ddSelectOptionsFilterBy" data-dropdown-model="ddSelectSelectedFilterBy" data-dropdown-onchange="filterByFunc(selected)" data-ng-click="handleDropDown()"></div>
+							</div>
+							<!-- /filter-by -->
+						</div>
+						<!-- /right-group -->
+						<div class="clear"></div>
+					</div>
+					<!-- /top-actions -->
+					<div class="middle-info">
+						<div class="list-version" data-ng-hide="isShowGridVer">
+							<table class="primary-tb">
+								<tr data-ng-repeat="item in pagedItems[currentPage]" >
+									<td>
+										<div class="first-group" data-ng-class="{choose:item.isCheck,
+										expand:item.isExpand}">
+											<span class="same" data-drag="true" data-jqyoui-options="{revert: 'invalid', helper: 'clone'}"  data-jqyoui-draggable="{index: {{item.Id}}, placeholder: 'keep'}">{{item.ClientName}}</span>
+											<span class="same clone">{{item.Entities.length}} Document<span data-ng-if="item.Entities.length > 1">s</span></span>
+											<a class="down icons" href="javascript:;" data-ng-click="item.isExpand =!item.isExpand"></a>
+											<input type="checkbox" id="cbox01" data-ng-model="item.isCheck">
+											<label class="tick-me" data-ng-click="clickCheckBoxItem(item)"></label>
+										</div>
+										<!-- /first-group -->
+										<div class="second-group" data-ng-hide="!item.isExpand">
+											<table class="secondary-tb">
+												<thead>
+													<tr>
+														<th class="one">
+															<a class="same only" href="javascript:;" data-ng-click="sort_by_entity(item,'Year')" data-ng-class="{active:(item.strSortingOrderEntity==='Year'&& !item.reverseEntity)}">Year <i class="icons"></i></a>
+														</th>
+														<th class="two">
+															<a class="same" href="javascript:;" data-ng-click="sort_by_entity(item,'iXBLRIdocument')" data-ng-class="{active:(item.strSortingOrderEntity==='iXBLRIdocument'&& !item.reverseEntity)}">iXBLR document <i class="icons"></i></a>
+														</th>
+														<th class="three">
+															<a class="same" href="javascript:;" data-ng-click="sort_by_entity(item,'OpenQueries')" data-ng-class="{active:(item.strSortingOrderEntity==='OpenQueries'&& !item.reverseEntity)}">Open Queries <i class="icons"></i></a>
+														</th>
+														<th class="four">
+															<a class="same" href="javascript:;" data-ng-click="sort_by_entity(item,'PDFDocs')" data-ng-class="{active:(item.strSortingOrderEntity==='PDFDocs'&& !item.reverseEntity)}">PDF Docs <i class="icons"></i></a>
+														</th>
+														<th class="five">
+															<a class="same" href="javascript:;" data-ng-click="sort_by_entity(item,'ETR')" data-ng-class="{active:(item.strSortingOrderEntity==='ETR'&& !item.reverseEntity)}">ETR <i class="icons"></i></a>
+														</th>
+														<th class="six">
+															<a class="same" href="javascript:;" data-ng-click="sort_by_entity(item,'DebtorDays')" data-ng-class="{active:(item.strSortingOrderEntity==='DebtorDays'&& !item.reverseEntity)}">DD <i class="icons"></i></a>
+														</th>
+														<th class="seven">
+															<a class="same" href="javascript:;" data-ng-click="sort_by_entity(item,'ROCE')" data-ng-class="{active:(item.strSortingOrderEntity==='ROCE'&& !item.reverseEntity)}">ROCE <i class="icons"></i></a>
+														</th>
+													</tr>
+												</thead>
+												<!-- /thead -->
+												<tbody>
+													<tr data-ng-repeat="entity in item.Entities">
+														<td class="one">
+															<span class="same">{{entity.Year}}</span>
+														</td>
+														<td class="two">
+															<a class="btn-view" href="javascript:;" data-ng-click="goDocummentDetailPage(entity.EntityId, entity.FileGUID)">View</a>
+															<a class="btn-dload" href="javascript:;" data-ng-click="GetFile(entity.FileGUID,'txt')">Download</a>
+														</td>
+														<td class="three">
+															<span class="same d-blue">{{entity.OpenQueries| number:0}}</span>
+														</td>
+														<td class="four">
+															<a class="btn-dload" href="javascript:;" data-ng-click="GetFile(entity.FileGUID,'pdf')">Download</a>
+														</td>
+														<td class="five">
+															<span class="same">{{entity.ETR | number:0}}%</span>
+														</td>
+														<td class="six">
+															<span class="same">{{entity.DebtorDays| number:0}}</span>
+														</td>
+														<td class="seven">
+															<span class="same">{{entity.ROCE*100| number:0}}%</span>
+														</td>
+												</tbody>
+												<!-- /tbody -->
+											</table>
+											<!-- /table -->
+										</div>
+										<!-- /second-group -->
+									</td>
+								</tr>
+							</table>
+						</div>
+						<!-- /list-version -->
+						<div class="grid-version" data-ng-hide="!isShowGridVer">
+							<div class="same-box col-sm-4 col-md-4 col-lg-3" data-ng-repeat="item in pagedItems[currentPage]" data-ng-class="getClassForGridItem($index,item)">
+								<div class="top-title">
+									<input type="checkbox" id="cbox11" data-ng-model="item.isCheck">
+									<label class="tick-me" data-ng-click="clickCheckBoxItem(item)"></label>
+									<span class="name" data-drag="true" data-jqyoui-options="{revert: 'invalid', helper: 'clone'}"  data-jqyoui-draggable="{index: {{item.Id}}, placeholder: 'keep'}">{{item.ClientName}}</span>
+								</div>
+								<!-- /top-title -->
+								<div class="bottom-info" data-ng-click="queryEntityByLastYear(item.Entities)">
+									<ul>
+										<li>
+											<span class="one">Queries</span>
+											<span class="two">{{item.OpenQueries}} open out of {{item.Queries}}</span>
+										</li>
+										<li>
+											<span class="one">ETR</span>
+											<span class="two">{{item.ETR | number:0}}%</span>
+										</li>
+										<li>
+											<span class="one">Debtor Days</span>
+											<span class="two">{{item.DebtorDays | number :0}}</span>
+										</li>
+										<li>
+											<span class="one">ROCE</span>
+											<span class="two">{{item.ROCE*100 | number :0}}%</span>
+										</li>
+									</ul>
+								</div>
+							</div>
+							<!-- /same-box -->							
+							<div class="clear"></div>
+						</div>
+						<!-- /grid-version -->
+					</div>
+					<!-- /middle-info -->
+					<div class="bottom-pagination" data-ng-class="getClassForGridIpad()">
+						<div class="choose-page">
+							<ul>
+								<li >
+									<a class="btn-prev" href="javascript:;" data-ng-click="prevPage()">
+										<i class="icons"></i>
+									</a>
+								</li>
+
+								<li data-ng-hide="!hiddenDotPage">
+									<a class="btn-num for-dot" href="javascript:;">...</a>
+								</li>
+
+								<li data-ng-repeat="n in getRangePage(pagedItems.length)">
+									<a class="btn-num" href="javascript:;" data-ng-class="{active: n == currentPage,'last for-num':(n+1===pagedItems.length)}" data-ng-click="setPage()">{{n + 1}}</a>
+								</li>
+								<li data-ng-hide="(pagedItems.length<=4)|| hiddenDotPage">
+									<a class="btn-num last for-dot" href="javascript:;">...</a>
+								</li>
+								<li>
+									<a class="btn-prev clone" href="javascript:;" data-ng-click="nextPage()">
+										<i class="icons"></i>
+									</a>
+								</li>
+							</ul>
+							<div class="clear"></div>
+						</div>
+						
+						<!-- /choose-page -->
+						<div class="show-per">
+							<span>Show</span>
+							<div class="dropdown-here hide-arrow none-color">
+								<div data-dropdown-select="ddSelectOptionsPerPage" data-dropdown-model="ddSelectSelectedPerPage" data-dropdown-onchange="perPageFunc(selected);"></div>
+								<div class="box-arrow">
+									<a href="javascript:;" class="top-arrow icons"></a>
+									<a href="javascript:;" class="bottom-arrow icons"></a>
+								</div>
+							</div>
+							<span>per page</span>
+						</div>
+						<span class="view-per only-mobi">View 1 -10 of 100</span>
+						<div class="clear"></div>
+					</div>
+					<!-- /bottom-pagination -->
+
+					<div class="put-text" data-ng-show="isShowInputTextFilter">
+						<a class="btn-close icons" href="javascript:;" data-ng-click="hiddenInputFilter()"></a>
+						<input type="text" class="put-text-here compare-input" placeholder="Enter value filter" data-ng-model="querySearchDropdown" data-ng-change="search()" data-ng-keypress="handleInput($event)"/>
+					</div>
+					<!-- /put-text -->
+					<div class="put-text number" data-ng-show="isShowInputNumberFilter">
+						<a class="btn-close icons" href="javascript:;" data-ng-click="hiddenInputFilter()"></a>
+						<div data-dropdown-select="ddCompareSelects" data-dropdown-model="ddCompareSelected" data-dropdown-onchange="search(selected)" class="compare-select"></div>
+
+						<input type="text" class="put-text-here compare-input" placeholder="Enter value filter" data-ng-model="querySearchDropdown" data-format="number" data-ng-change="search()" data-ng-keypress="handleInput($event)"/>
+					</div>
+					<!-- /put-number -->
+				</div>
+				<!-- /bottom-content -->
+			</div>
+			<!-- /tab-dashboard-details -->
+		</div>
+		<!-- /main-content -->
+		<footer data-footer-template>
+		</footer>
+		<!-- /footer -->
+		<div class="overlay" data-ng-class="{show:(isShowPopupChart|| isShowPopupCompare || isShowPopupDisclaimer)}" data-ng-click="clickHiddenPopup();"></div>
+		<!-- /overlay -->
+		<div class="debtor-days-popup" data-ng-hide="!isShowPopupChart">
+			<a class="btn-close icons" href="javascript:;" data-ng-click="clickHiddenPopup();"></a>
+			<a class="btn-cancel" href="javascript:;" data-ng-click="clickHiddenPopup();">Cancel</a>
+			<div class="top-title">
+				<a class="show-table icons" href="javascript:;" data-ng-click="isShowDataPopupChart=false" data-ng-class="{active:!isShowDataPopupChart}"></a>
+				<a class="show-chart icons" href="javascript:;" data-ng-click="isShowDataPopupChart=true" data-ng-class="{active:isShowDataPopupChart}"></a>
+				<span class="name">{{titleSelectedCompare}}</span>
+				<div class="clear"></div>
+			</div>
+			<!-- /top-title -->
+			<div class="bottom-details">
+				<div class="first-group" data-ng-hide="isShowDataPopupChart">
+					<div class="group-bar" id="zoomChart" data-group-chart-zoom></div>
+				</div>
+				<!-- /first-group -->
+				<div class="second-group" data-ng-hide="!isShowDataPopupChart">
+					<div class="cover-table">
+						<table>
+							<thead>
+								<tr>
+									<th class="one">
+										<span>Entity</span>
+									</th>
+									<th class="two">
+										<span>{{lastThreeYears[0]}}</span>
+									</th>
+									<th class="two">
+										<span>{{lastThreeYears[1]}}</span>
+									</th>
+									<th class="two">
+										<span>{{lastThreeYears[2]}}</span>
+									</th>
+								</tr>
+							</thead>
+							<!-- /thead -->
+							<tbody>
+								<tr data-ng-repeat="item in listCompareTag">
+									<td>
+										<span class="only">{{item.ClientName}}</span>
+									</td>
+									<td>
+										<span>{{getDataPopupChart(item,0) | number:0}}</span>
+									</td>
+									<td>
+										<span>{{getDataPopupChart(item,1) | number:0}}</span>
+									</td>
+									<td>
+										<span>{{getDataPopupChart(item,2) | number:0}}</span>
+									</td>
+								</tr>
+							</tbody>
+							<!-- /tbody -->
+						</table>
+					</div>
+					<!-- /cover-table -->
+				</div>
+				<!-- /second-group -->
+			</div>		
+			<!-- /bottom-details -->
+		</div>
+		<!-- /debtor-days-popup -->
+		<div class="compare-tags-popup" data-ng-hide="!isShowPopupCompare">
+			<a class="btn-close icons" href="javascript:;" data-ng-click="clickHiddenPopup();"></a>
+			<a class="btn-cancel" href="javascript:;" data-ng-click="clickHiddenPopup();">Cancel</a>
+			<div class="top-title">
+				<span class="name">Compare Tags</span>
+				<div class="clear"></div>
+			</div>
+			<!-- /top-title -->
+			<div class="bottom-details">
+				<div class="choose-act">
+					<div class="left-group">
+						<div class="dropdown-here">
+							<div data-dropdown-select="ddSelectOptionsCompareTags" data-dropdown-model="ddSelectSelectedCompareTags" data-dropdown-onchange="compareTagsFunc(selected)"></div>
+						</div>
+						<!-- /dropdown-here -->
+						<div class="choose-multi-tag" data-ng-show="isShowListSelectTags">
+							<div class="cover-all">
+								<ul>
+									<li data-ng-repeat="item in compareTagsData">
+										<input type="checkbox" id="$index" data-ng-model="item.isCheck">
+										<label class="tick-mee" data-ng-click="item.isCheck = !item.isCheck"><span>{{item.Tag}}</span></label>
+									</li>
+								</ul>
+								<div class="clear"></div>
+							</div>
+							<!-- /cover-all -->
+							<div class="db-buttons">
+								<a class="btn-apply" href="javascript:;" data-ng-click="clickApplyPopupCompare(true)">Apply</a>
+								<a class="btn-cancell" href="javascript:;" data-ng-click="clickApplyPopupCompare(false)">Cancel</a>
+								<div class="clear"></div>
+							</div>
+							<!-- /db-buttons -->
+							<div class="fake-fog"></div>
+							<!-- /fake-fog -->
+							<div class="fake-fog"></div>
+							<!-- /fake-fog -->
+						</div>
+						<a class="btn-select" href="javascript:;" data-ng-click="isShowListSelectTags=!isShowListSelectTags" data-ng-class="{active:isShowListSelectTags}">Select Tags (<i>{{selectedTagsLength()}}</i>)</a>
+						<div class="clear"></div>
+					</div>
+					<!-- /left-group -->
+					<div class="right-group">
+						<a class="one icons" href="javascript:;" data-ng-click="exportData('compare-div', 'doc_compare')" ></a>
+						<a class="two icons" href="javascript:;" data-ng-click="printDiv('compare-div')"></a>
+					</div>
+					<!-- /right-group -->
+					<div class="clear"></div>
+				</div>
+				<!-- /choose-act -->
+				<div class="cover-table" id="compare-div">
+					<table id="compare-table">
+						<thead>
+							<tr>
+								<th class="one">
+									<span class="only">Tag</span>
+								</th>
+								<th class="two" data-ng-repeat="column in listCompareTag">
+									<span>{{column.ClientName}}</span>
+								</th>
+							</tr>
+						</thead>
+						<!-- /thead -->
+						<tbody>
+							<tr data-ng-repeat="item in allCompareValues | filter:filterCompareTagsData:item">
+								<td class="one">
+									<span class="only"><span class="before" data-ng-style="{background: getColorCode(item.Contextid, item.FileGUID).color}"></span> {{item.Tag.substr(0,30)}}</span>
+								</td>
+								</td>
+								<td class="two" data-ng-repeat="column in listCompareTag">
+									<span>{{item[column.ClientName]}}</span>
+								</td>
+							</tr>
+							
+						</tbody>
+						<!-- /tbody -->
+					</table>
+					<!-- /table -->
+				</div>
+				<!-- /cover-table -->
+			</div>
+			<!-- /bottom-details -->
+		</div>
+		<!-- /compare-tags-popup -->
+		<div class="disclaimer-popup" data-disclaimer-popup-template data-ng-hide="!isShowPopupDisclaimer">
+		</div>
+		<!-- /disclaimer-popup -->
+	</div>
+	<!-- /dinnaco-full-content -->
+</div>
+<!-- end .row. -->

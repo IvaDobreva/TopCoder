@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>iXBRL Viewer</title>
+	
+    <Link href="/Content/bootstrap.css" rel="stylesheet" />
+	<link href="/Content/Site.css" rel="stylesheet" />
+	
+	<script src="/Scripts/jquery-1.10.2.js"></script>
+	<script src="/Scripts/angular.min.js"></script>
+	<script src="/Scripts/bootstrap.js"></script>
+	<script src="/Scripts/angular/config/XBRLViewer.js"></script>
+	<script src="/Scripts/angular/controllers/dashboardController.js"></script>
+	<script src="/Scripts/angular/services/clientsService.js"></script>
+	<script src="/Scripts/angular/services/entitiesService.js"></script>
+	<script src="/Scripts/angular/services/tagListService.js"></script>
+	<script src="/Scripts/angular/services/contextRefService.js"></script>
+	<script src="/Scripts/angular/services/tagComparisonService.js"></script>
+	<script src="/Scripts/angular/services/fileService.js"></script>
+	
+</head>
+<body ng-app="XBRLViewer">
+    <div class="navbar navbar-inverse navbar-fixed-top" style="background-color:#002776">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li></li>
+                    <li></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        <hr />
+		<div class="jumbotron">
+			<h1>iXBRL Viewer</h1>
+			<p class="lead">iXBRL Viewer Site</p>
+			<p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+		</div>
+		<div class="row" ng-controller="dashboardController">
+			<div class="col-md-6">
+				<h2>Client Years</h2>
+				<p>Pellentesque habitant morbi tristique senectus et netus et.</p>
+				<p><a class="btn btn-info" ng-click="getClientYears()">Load Client Years &raquo;</a>&nbsp; <span ng-show="clientYearsCount">{{clientYearsCount}} client years loaded</span></p>
+				<p><a class="btn btn-info" ng-click="getClientYear()">Load Client Years &raquo;</a>&nbsp; <span ng-show="clientYearCount">{{clientYearCount}} client year loaded</span></p>
+			</div>
+			<div class="col-md-6">
+				<h2>Entities</h2>
+				<p>Pellentesque habitant morbi tristique senectus et netus et.</p>
+				<p><a class="btn btn-info" ng-click="getEntities()">Load Entities &raquo;</a>&nbsp; <span ng-show="entityCount">{{entityCount}} entities loaded</span></p>
+				<p><a class="btn btn-info" ng-click="getEntity()">Load Entity &raquo;</a>&nbsp; <span ng-show="entitySingleCount">{{entitySingleCount}} entity loaded</span></p>
+			</div>
+			<div class="col-md-6">
+				<h2>Tagging</h2>
+				<p>Pellentesque habitant morbi tristique senectus et netus et.</p>
+				<p><a class="btn btn-info" ng-click="GetAllTagLists()">Load All Tag Lists &raquo;</a>&nbsp; <span ng-show="tagListsCount">{{tagListsCount}} Tag Lists loaded</span></p>
+				<p><a class="btn btn-info" ng-click="GetTagList()">Load Single Tag List &raquo;</a>&nbsp; <span ng-show="tagListCount">{{tagListCount}} Tag List loaded</span></p>
+			</div>
+			<div class="col-md-6">
+				<h2>Context References</h2>
+				<p>Pellentesque habitant morbi tristique senectus et netus et.</p>
+				<p><a class="btn btn-info" ng-click="GetAllContextRefs()">Load All Context Refs &raquo;</a>&nbsp; <span ng-show="contextRefsCount">{{contextRefsCount}} Context Refs loaded</span></p>
+				<p><a class="btn btn-info" ng-click="GetContextRef()">Load Single Context Ref &raquo;</a>&nbsp; <span ng-show="contextRefCount">{{contextRefCount}} Context Ref loaded</span></p>
+			</div>
+			<div class="col-md-6">
+				<h2>Tag Comparisons</h2>
+				<p>Pellentesque habitant morbi tristique senectus et netus et.</p>
+				<p><a class="btn btn-info" ng-click="GetTagComparisons()">Load Tag Comparisons &raquo;</a>&nbsp; <span ng-show="tagComparisonsCount">{{tagComparisonsCount}} Tag Comparisons loaded</span></p>
+				<p><a class="btn btn-info" ng-click="GetTagComparison()">Load Single Tag Comparison &raquo;</a>&nbsp; <span ng-show="tagComparisonCount">{{tagComparisonCount}} Tag Comparison loaded</span></p>
+			</div>
+			<div class="col-md-6">
+				<h2>Files</h2>
+				<p>Pellentesque habitant morbi tristique senectus et netus et.</p>
+				<p><a class="btn btn-info" ng-click="GetFile()">Load File &raquo;</a>&nbsp; <span ng-show="fileCount">{{fileCount}} File loaded</span></p>
+			</div>
+
+			<div ng-bind-html="file"></div>
+		</div>
+		<hr />
+        <footer>
+            <p>&copy; 2016 - iXBRL Viewer</p>
+        </footer>
+    </div>
+</body>
+</html>

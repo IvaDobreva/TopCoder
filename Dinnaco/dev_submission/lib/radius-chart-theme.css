@@ -1,0 +1,73 @@
+/*radius chart theme*/
+.knob {
+	font-size: 40px !important;
+	font-weight: 600 !important;
+	font-family: 'Open Sans'  !important;
+	width: 80px !important;
+	margin-left: -128px !important;
+}
+	.day-radius {
+		position: relative;
+	}
+		.day-radius .show-day {
+			display: block;
+			position: absolute;
+			top: 53px;
+			left: 30px;
+			font-family: 'Open Sans';
+		}
+			.day-radius .show-day .number-title {
+				display: inline-block;
+				font-size: 34px;
+				font-weight: 600;
+				color: #81bc00;
+			}
+				.day-radius .show-day .day-title {
+					display: inline-block;
+					font-size: 20px;
+					font-weight: 600;
+					color: #81bc00;
+				}
+	.percent-tick {
+		display: block;
+		position: absolute;
+		font-size: 40px;
+		font-weight: 600;
+		font-family: 'Open Sans';
+		top: 53px;
+		left: 95px;
+	}
+		.percent-tick.dark-blue {
+			color: #002776;
+		}
+		.percent-tick.light-blue {
+			color: #00a1de;
+		}			
+/*iPad in portrait & landscape*/
+@media only screen 
+and (min-width : 768px) 
+and (max-width : 1279px)  {	
+	.knob {
+		font-size: 30px !important;
+		margin-left: -104px !important;
+		margin-top: 32px !important;
+	}
+
+	.day-radius .show-day {
+	    top: 35px;
+	    left: 17px;
+	}
+		.day-radius .show-day .number-title {
+		    font-size: 30px;
+		}
+		.day-radius .show-day .day-title {
+		    font-size: 18px;
+		}
+
+	.percent-tick {
+		font-size: 30px;
+		top: 35px;
+		left: 65px;
+	}
+
+}			

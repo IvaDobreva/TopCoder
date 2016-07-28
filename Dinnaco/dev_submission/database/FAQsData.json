@@ -1,0 +1,13 @@
+[{
+		"title": "What is XBRL/iXBRL?",
+		"description": "XBRL involves the application of computer-readable tags to business data. This enables the data to be processed automatically by software, bringing great gains in efficiency and providing an opportunity for high quality analysis of business information."
+	}, {
+		"title": "What are the benefits of iXBRL",
+		"description": "The introduction of XBRL tags enables automated processing of business information by computer software, cutting out laborious and costly processes of manual re-entry and comparison. Computers can treat XBRL data ‘intelligently’: They can recognise the information in a XBRL document, select it, analyse it, store it, exchange it with other computers and present it automatically in a variety of ways for users. XBRL greatly increases the speed of handling of financial data, reduces the chance of error and permits automatic checking of information."
+	}, {
+		"title": "Company responsibilities for iXBRL filing ",
+		"description": "It is a company’s responsibility to ensure that it adequately complies with requirements for filing in iXBRL. Companies which are using final accounts production or tax preparation software to file in iXBRL should ensure that their software is adequate to handle the type and scope of data in their reports. They may wish to consult their software providers or accountants on this point."
+	}
+
+
+]

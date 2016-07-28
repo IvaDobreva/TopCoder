@@ -1,0 +1,120 @@
+{
+	"sortByDashBoard":[
+			{
+				"text": "name",
+				"value": "ClientName"
+			}, 
+			{
+				"text": "date",
+				"value": "DebtorDays"
+			}, 
+			{
+				"text": "num of documents",
+				"value": "NumberOfDocuments"
+			}
+		],
+	"filterByDashBoard":[
+			{
+				"text": "Name",
+				"value": "ClientName"
+			}, 
+			{
+				"text": "Open Queries",
+				"value": "OpenQueries"
+			}, 
+			{
+				"text": "ETR",
+				"value": "ETR"
+			}, 
+			{
+				"text": "DD",
+				"value": "DebtorDays"
+			}, 
+			{
+				"text": "ROCE",
+				"value": "ROCE"
+			}
+
+		],
+	"compareTags":[
+			{
+				"text": "All",
+				"value": "All"
+			}, 
+			{
+				"text": "2015",
+				"value": 2015
+			}, 
+			{
+				"text": "2014",
+				"value": 2014
+			}, 
+			{
+				"text": "2013",
+				"value": 2013
+			}
+		],
+	"numberPerPage":[
+			{
+				"text": "10",
+				"value": 10
+			}, 
+			{
+
+				"text": "25",
+				"value": 25
+			}, 
+			{
+				"text": "50",
+				"value": 50
+			},
+			{
+				"text": "100",
+				"value": 100
+			}
+		],
+	"allQueries":[
+			{
+				"text": "All Queries",
+				"value": 0
+			}, 
+			{
+				"text": "Open",
+				"value": 1
+			}, 
+			{
+				"text": "Resolved",
+				"value": 2
+			}
+		],
+	"hDN":[
+			{
+				"text": "N",
+				"value": false
+			}, 
+			{
+				"text": "Y",
+				"value": true
+			}
+		],
+	"category":[
+			{
+				"text": "Dr",
+				"value": 0
+			}, 
+			{
+				"text": "Cr",
+				"value": 1
+			}
+		],
+	"units":[
+			{
+				"text": "GBP",
+				"value": 0
+			}, 
+			{
+				"text": "MTP",
+				"value": 1
+			}
+		]			
+}

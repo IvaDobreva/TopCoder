@@ -1,0 +1,11 @@
+<a class="btn-close icons" href="javascript:;" data-ng-click="clickHiddenPopupDisclaimer()"></a>
+<a class="btn-ok" href="javascript:;" data-ng-click="clickHiddenPopupDisclaimer()">OK</a>
+<div class="top-title">
+	<span class="name">Disclaimer</span>
+</div>
+<!-- /top-title -->
+<div class="bottom-details">
+	<span class="title">{{disclaimerdataItem.title}}</span>
+	<p class="para" data-ng-repeat="para in disclaimerdataItem.description.split('\n')">{{para}}</p>
+
+</div>

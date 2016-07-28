@@ -1,0 +1,299 @@
+<div class="row" data-ng-click="isShowListSelectColumn=false">
+	<div class="dinnaco-full-content">
+		<header data-header-template>
+		</header> 
+		<!-- /header -->
+		<div class="main-content clone">
+			<div class="page-document">
+				<div class="head-page">
+					<p class="title-text">
+						Document Detail
+					</p>
+					<div class="right">
+						<a href="javascript:;" class="back" data-ng-click="goDashBoard()">Back</a>
+						<span class="border"></span>
+						<a class="printer icons" href="javascript:;"></a>
+						<a class="export icons" href="javascript:;" data-ng-click="printDiv('printDetail')"></a>
+					</div>
+				</div>
+				<div class="clear"></div>
+				<!-- Head page -->
+				<div class="body-page" data-ng-class="{active:isShowLeftContentDocument}">
+					<a href="javascript:;" class="button-unless" data-ng-click="isShowLeftContentDocument = !isShowLeftContentDocument"><i class="icons"></i></a>
+					<div class="left">
+						<div class="main-side">
+							<div class="tag">
+								<a href="javascript:;" data-ng-click="showTabTitle='Contents'" data-ng-class="{active:showTabTitle==='Contents'}">Contents</a>
+								<a href="javascript:;" data-ng-click="showTabTitle='Tags'" data-ng-class="{active:showTabTitle==='Tags'}">Tags</a>
+								<a href="javascript:;" data-ng-click="showTabTitle='History'" data-ng-class="{active:showTabTitle==='History'}">History</a>
+							</div>
+							<div class="clear"></div>
+							<div class="main-content-side" data-ng-show="showTabTitle==='Contents'">
+								<p class="title">
+									{{Contents.Title}}
+								</p>
+								<p class="text-detail">
+									{{Contents.Description}}
+								</p>
+								<ul class="list-side">
+									<li class="list-one" data-ng-if="Contents.Data.length === 0">
+										<a class="text-mother" href="javascript:;">No contents found</a>
+									</li>
+
+									<li class="list-one" data-ng-repeat="item in Contents.Data" data-ng-class="{active:item.isExpand}">
+										<a class="text-mother" href="javascript:;" data-ng-click="item.isExpand=!item.isExpand; goToContent(item.NameContent)">{{item.NameContent}}</a>
+										<ul class="sub-side">
+											<li data-ng-repeat="contentItem in item.Data" data-ng-click="clickContenTable($event,item); goToContent(contentItem.Name)" data-ng-class="{active:contentItem.isSelected}"><span>{{contentItem.Name}}</span></li>
+										</ul>
+									</li>
+								</ul>
+							</div>
+							<!-- Tag Content -->
+							<div class="main-tag-side" data-ng-show="showTabTitle==='Tags'">
+								<div class="head-tag">
+									<div class="head">
+										<a href="javascript:;" class="select-type" data-ng-click="isShowListSelectColumn=!isShowListSelectColumn;$event.stopPropagation()" data-ng-class="{active:isShowListSelectColumn}">Select Columns</a>
+										<a href="javascript:;" class="printer icons"></a>
+										<a href="javascript:;" class="export icons"></a>
+										<!-- /dropdown-here -->
+										<div class="choose-multi-tag" data-ng-hide="!isShowListSelectColumn" data-ng-click="$event.stopPropagation()">
+											<div class="cover-all">
+												<ul>
+													<li data-ng-repeat="item in documentDetailData.SelectColumns">
+														<input type="checkbox" id="$index" data-ng-model="item.isCheck">
+														<label class="tick-mee" data-ng-click="item.isCheck = !item.isCheck"><span>{{item.Title}}</span></label>
+													</li>
+												</ul>
+												<div class="clear"></div>
+											</div>
+											<!-- /cover-all -->
+											<div class="db-buttons">
+												<a class="btn-apply" href="javascript:;" data-ng-click="isShowListSelectColumn=false;applyDataColumnSelect()">Apply</a>
+												<a class="btn-cancell" href="javascript:;" data-ng-click="isShowListSelectColumn=false">Cancel</a>
+												<div class="clear"></div>
+											</div>
+											<!-- /db-buttons -->
+											<div class="fake-fog"></div>
+											<!-- /fake-fog -->
+											<div class="fake-fog"></div>
+											<!-- /fake-fog -->
+										</div>
+									</div>
+									<div class="clear"></div>
+									<div class="data">
+										<table>
+											<thead>
+												<tr>
+													<td  data-ng-hide="!arraySelectColumn[0].isCheck"><span>{{arraySelectColumn[0].ShortTitle}}</span></td>
+													<td  data-ng-hide="!arraySelectColumn[1].isCheck"><span>{{arraySelectColumn[1].ShortTitle}}</span></td>
+													<td  data-ng-hide="!arraySelectColumn[2].isCheck"><span>{{arraySelectColumn[2].ShortTitle}}</span></td>
+													<td  data-ng-hide="!arraySelectColumn[3].isCheck"><span>{{arraySelectColumn[3].ShortTitle}}</span></td>
+													<td  data-ng-hide="!arraySelectColumn[4].isCheck"><span>{{arraySelectColumn[4].ShortTitle}}</span></td>
+													<td  data-ng-hide="!arraySelectColumn[5].isCheck"><span>{{arraySelectColumn[5].ShortTitle}}</span></td>
+													<td  data-ng-hide="!arraySelectColumn[6].isCheck"><span>{{arraySelectColumn[6].ShortTitle}}</span></td>
+													<td  data-ng-hide="!arraySelectColumn[7].isCheck"><span>{{arraySelectColumn[7].ShortTitle}}</span></td>
+													<td  data-ng-hide="!arraySelectColumn[8].isCheck"><span>{{arraySelectColumn[8].ShortTitle}}</span></td>
+													<td  data-ng-hide="!arraySelectColumn[9].isCheck"><span>{{arraySelectColumn[9].ShortTitle}}</span></td>
+													<td  data-ng-hide="!arraySelectColumn[10].isCheck"><span>{{arraySelectColumn[10].ShortTitle}}</span></td>
+												</tr>
+											</thead>
+											<tbody>
+												<tr class="input">
+													<td data-ng-hide="!arraySelectColumn[0].isCheck"><input data-ng-model="criteria.TagId" type="text" class="small"/></td>
+													<td data-ng-hide="!arraySelectColumn[1].isCheck" class="selected">
+														<div class="drop-down-here small-table-dropdown">
+															<div data-dropdown-select="ddSelectOptionsHDN" data-dropdown-model="ddSelectSelectedHDN"></div>
+														</div>
+													</td>
+													<td data-ng-hide="!arraySelectColumn[2].isCheck"><input data-ng-model="criteria.TagName" type="text"  class="large"/></td>
+													<td data-ng-hide="!arraySelectColumn[3].isCheck"><input data-ng-model="criteria.ReportedValue" type="text"  class="small"/></td>
+													<td data-ng-hide="!arraySelectColumn[4].isCheck"><input data-ng-model="criteria.DrOrCr" type="text"  class="small"/>
+													</td>
+													<td data-ng-hide="!arraySelectColumn[5].isCheck"><input data-ng-model="criteria.Contextid" type="text" class="small"/></td>
+													<td data-ng-hide="!arraySelectColumn[6].isCheck"><input data-ng-model="criteria.Unit" type="text" class="small"/></td>
+													<td data-ng-hide="!arraySelectColumn[7].isCheck"><input data-ng-model="criteria.PeriodEnd" type="text" class="small"/></td>
+													<td data-ng-hide="!arraySelectColumn[8].isCheck"><input data-ng-model="criteria.TupleName" type="text" class="small"/></td>
+													<td data-ng-hide="!arraySelectColumn[9].isCheck"><input data-ng-model="criteria.Decimals" type="text" class="small"/></td>
+													<td data-ng-hide="!arraySelectColumn[10].isCheck"><input data-ng-model="criteria.Scale" type="text" class="small"/></td>
+												</tr>
+												<tr class="text-data" data-ng-repeat="item in tags.TagsList | filter:criteriaMatch(criteria, ddSelectSelectedHDN)" data-ng-click="goToTag(item.Contextid, item.TagName)">
+													<td data-ng-hide="!arraySelectColumn[0].isCheck"><span>{{item.TagId}}</span></td>
+													<td data-ng-hide="!arraySelectColumn[1].isCheck"><span>{{item.IsHidden ? "Y" : "N"}}</span></td>
+													<td data-ng-hide="!arraySelectColumn[2].isCheck"><span>{{item.Caption || item.TagName}}</span></td>
+													<td data-ng-hide="!arraySelectColumn[3].isCheck"><span>{{item.ReportedValue | number:0}}</span></td>
+													<td data-ng-hide="!arraySelectColumn[4].isCheck"><span>{{item.DrOrCr}}</span></td>
+													<td data-ng-hide="!arraySelectColumn[5].isCheck"><span>{{item.Contextid}}</span></td>
+													<td data-ng-hide="!arraySelectColumn[6].isCheck"><span>{{item.Unit}}</span></td>
+													<td data-ng-hide="!arraySelectColumn[7].isCheck"><span>{{item.PeriodEnd | limitTo:4}}</span></td>
+													<td data-ng-hide="!arraySelectColumn[8].isCheck"><span>{{item.TupleName}}</span></td>
+													<td data-ng-hide="!arraySelectColumn[9].isCheck"><span>{{item.Decimals}}</span></td>
+													<td data-ng-hide="!arraySelectColumn[10].isCheck"><span>{{item.Scale}}</span></td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+							<!-- Tag Tags -->
+							<div class="main-history-side" data-ng-show="showTabTitle==='History'">
+								<ul>
+									<li data-ng-repeat="item in documentDetailData.History">
+										<p class="text-list">
+
+											<span class="before" data-ng-style="{background: historyColor($index,item)}"></span>
+											<a href="javascript:;" class="name">{{item.Name}}</a>
+											<span class="date"> {{item.Operation}} at {{item.Time}} - {{item.DatePost}}</span>
+										</p>
+									</li>
+								</ul>
+							</div>
+							<!-- Tag History -->
+						</div>
+						<!-- Tag -->
+						<div class="queries">
+							<div class="head">
+								<p class="title">Queries <span class="number">({{getQueriesCount(entitySelected, 'total')}})</span></p>
+								<div class="all while-text">
+										<!-- Dropdown here -->
+										<div data-dropdown-select="ddSelectOptionsAllQueries" data-dropdown-model="ddSelectSelectedAllQueries"></div>
+								</div>
+							</div>
+							<div class="clear"></div>
+							<div class="main-queries">
+								<div class="group" data-ng-repeat="queries in entitySelected.QueriesGroup" data-ng-class="{active:queries.isExpand}">
+									<div class="head-group">
+										<a href="javascript:;" class="click-me" data-ng-click="queries.isExpand = !queries.isExpand">{{queries.Title}}</a>
+										<p class="number">{{queries.Queries.length}} ({{getOpenQueryCount(queries.Queries)}})</p>
+									</div>
+									<div class="main-group">
+										<div class="add">
+											<input type="text" placeholder="Enter Query" data-ng-model="queries.queryContent" />
+											<a href="javascript:;" class="btn-add" data-ng-click="addQuery($index, queries)">Add</a>
+										</div>
+										<div class="reply-chat" data-ng-repeat="chatItem in queries.Queries  | filter:filterQueries:chatItem" data-ng-class="{clone:(chatItem.Status!=='Open'),'active':chatItem.isSelected}">
+											<a href="javascript:;" class="title">{{chatItem.Status}}</a>
+											<p class="name-date">
+												<a href="javascript:;" class="name">{{chatItem.Name}}</a>
+												<span class="date"> . {{chatItem.Date}}</span>
+											</p>
+											<p class="text-detail">
+												{{chatItem.Comment}}
+											</p>
+	
+
+											<div class="when-realy">
+												<a href="javascript:;" class="count" data-ng-click="toggleReply($event)">{{chatItem.Reply.length}} {{chatItem.Reply.length>1? "Replies":"Reply"}}</a>
+												<div class="cover-text" data-ng-repeat="reply in chatItem.Reply">
+														<p class="name-date">
+															<a href="javascript:;" class="name">{{reply.Name}} </a>
+															<span class="date"> . {{reply.Date}}</span>
+														</p>
+														<p class="text-detail">
+															{{reply.Comment}}
+														</p>
+														<!-- <a href="javascript:;" class="btn-realy">Reply</a> -->
+												</div>
+											</div>
+											<div class="clear"></div>
+											<div class="add reply">
+												<input type="text" placeholder="Enter Reply" />
+												<a href="javascript:;" class="btn-add" data-ng-click="addReply($parent.$index, $index,$event)">Reply</a>
+											</div>
+
+											<a href="javascript:;" class="btn-reply" data-ng-click="toggleReplyInput($event)">Reply
+
+											</a>
+
+
+
+										</div>
+									</div>
+								</div>
+								<!-- group DropDown --> 
+							</div>
+						</div>
+						<!-- Queries -->
+					</div>
+					<!-- Left Group -->
+					<div class="right" id="printDetail">
+						<div class="cover-all">
+							<div class="list-color">
+								<ul>
+									<li data-ng-repeat="item in uniqueDatesColors">
+										<p class="color"><span class="before" data-ng-style="{background: item.color}"></span>{{item.DateStart | limitTo:10}} 
+										{{item.PeriodType === "PERIOD_INSTANT" ? "" : "~  " + item.DateEnd | limitTo:13}}</p>
+									</li>
+								</ul>
+								<a href="javascript:;" class="btn-compare" data-ng-click="isShowPopupCompare()">Compare with Prior Year</a>
+							</div>
+						</div>
+						<!-- Color List -->
+						<div id="toAnno">
+							<div data-ng-bind-html="iXBRLHtml" class="iXBRLHtml"></div>
+						</div>
+
+					</div>
+					<!-- Right Group     -->
+				</div>
+			</div>
+			<!-- /tab-dashboard-details -->
+			<!-- /main-content -->
+		</div>
+		<!-- /dinnaco-full-content -->
+		<div class="clear"></div>
+		<footer data-footer-template>
+		</footer>
+		<!-- /footer -->
+
+		<div class="popup-compare" data-ng-hide="!isShowPopupCompareDocument">
+			<a href="javascript:;" class="hide-popup icons" data-ng-click="hiddenPopup()"></a>
+			<p class="title">Compare with Prior Years</p>
+			<div class="clear"></div>
+			<div class="atribute">
+				<a href="javascript:;" class="select-type" data-ng-click="isShowAttributePopup=!isShowAttributePopup" data-ng-class="{active:isShowAttributePopup,selected:false}"><span class="normal-text">Select Attribute</span> <span class="when-select">Attribute Selected</span></a>
+				<a href="javascript:;" class="printer icons" data-ng-click="printDiv('compare-div')"></a>
+				<a href="javascript:;" class="export icons" data-ng-click="exportData('compare-div', 'year_compare')"></a>
+				<div class="select-here" data-ng-hide="!isShowAttributePopup">
+					<ul>
+						<li data-ng-repeat="item in attrs"><a href="javascript:;" data-ng-class="{active:item.isCheck}" data-ng-click="item.isCheck=!item.isCheck">{{item.Title}}</a></li>
+					</ul>
+					<div class="btn-bottom">
+						<a href="javascript:;" class="ok-go" data-ng-click="isShowAttributePopup=false;isApplyAttribute=true;filterApply()">Apply</a>
+						<a href="javascript:;" class="cancel-go" data-ng-click="isShowAttributePopup=false; filterCancel();">Cancel</a>
+					</div>
+				</div>
+
+			</div>
+			<div class="clear"></div>
+			<div class="data-table" id="compare-div">
+				<table>
+					<thead>
+						<tr>
+							<td><span>Tag</span></td>
+							<td><span>Previous Year</span></td>
+							<td><span>Current Year</span></td>
+							<td><span>Difference Details</span></td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr data-ng-repeat="item in tagComparisonDetails | filter:filterComparisonDetails:item" data-ng-class="{'hight-light-yellow':(item.Status==='low'), 'hight-light-orange':(item.Status==='normal'),'hight-light-pink':(item.Status==='high')}">
+							<td><p><span class="before" data-ng-style="{background: item.Color}"></span>{{item.Tag}}</p></td>
+							<td><p>{{item.PY}}</p></td>
+							<td><p>{{item.CY}}</p></td>
+							<td><p>{{item.Detail}}</p></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<a href="javascript:;" class="cancel" data-ng-click="hiddenPopup()">Cancel</a>
+		</div>
+		<!-- POPUP Compare final-->
+
+		<div class="disclaimer-popup" data-disclaimer-popup-template data-ng-hide="!isShowPopupDisclaimer">
+		</div>
+		<!-- /disclaimer-popup -->
+	</div>
+	<!-- end .row. -->
+	<div class="overlay" data-ng-class="{show: (isShowPopupCompareDocument || isShowPopupDisclaimer) }" data-ng-click="hiddenPopup();clickHiddenPopupDisclaimer()"></div>
+	<div class="overlay overlay-document  hide  hidden-lg " data-ng-class="{show:isShowLeftContentDocument}" data-ng-click="isShowLeftContentDocument=false"></div>
+</div>

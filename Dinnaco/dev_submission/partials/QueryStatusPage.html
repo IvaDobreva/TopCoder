@@ -1,0 +1,140 @@
+<div class="row">
+	<div class="dinnaco-full-content">
+		<header data-header-template>
+		</header>
+		<!-- /header -->
+		<div class="main-content clone">
+			<div class="page-document">
+				<div class="head-page">
+					<p class="title-text">
+						Query Status
+					</p>
+				</div>
+				<div class="clear"></div>
+				<!-- Head page -->
+				<div class="body-page body-page-clone" data-ng-class="{active:isShowLeftContent}">
+					<a href="javascript:;" class="button-unless" data-ng-click="isShowLeftContent=!isShowLeftContent"><i class="icons"></i></a>
+					<div class="left">
+						<div class="main-side">
+							<div class="querystatuspage main-content-side">
+								<p class="title">
+									Table of Contents
+								</p>
+								<ul class="list-side">
+									<li class="list-one" data-ng-repeat="item in queryStatusData" data-ng-class="{active:item.isExpand}">
+										<a class="text-mother" href="javascript:;" data-ng-click="item.isExpand =!item.isExpand;setHeightForClickExpandLeft()">{{item.Title}} ({{item.DataEntity.length}})</a>
+										<ul class="sub-side">
+											<li data-ng-repeat="entity in item.DataEntity" data-ng-click="setEntitySelected(entity)" data-ng-class="{active:entity.isSelected}"><span>{{entity.Date}} ({{entity.QueriesGroup.length}})</span></li>
+										</ul>
+									</li>
+								</ul>
+							</div>
+							<!-- Tag Content -->
+						</div>
+						<!-- Tag -->
+					</div>
+					<!-- Left Group -->
+					<div class="right">
+						<div class="head-entity">
+							<p class="title">{{entitySelected.EntityName}}</p>
+							<p class="detail">{{entitySelected.Date}} ({{entitySelected.QueriesGroup.length}})</p>
+							<ul class="total-query">
+								<li>
+									<p class="text">Total Queries</p>
+									<p class="number">{{getQueriesCount(entitySelected, 'total')}}</p>
+									<span class="border"></span>
+								</li>
+								<li>
+									<p class="text">Open Queries</p>
+									<p class="number">{{getQueriesCount(entitySelected, 'open')}}</p>
+								</li>
+								<li>
+									<p class="text">Closed Queries</p>
+									<p class="number">{{getQueriesCount(entitySelected, 'closed')}}</p>
+								</li>
+							</ul>
+
+						</div>
+						<div class="clear"></div>
+						<div class="add-new">
+							<textarea placeholder="Enter Query" data-ng-model="queryContent"></textarea>
+							<a href="javascript:;" class="add" data-ng-click="addQuery()">Add Query</a>
+						</div>
+						<div class="input-page">
+							<div class="drop-down none-color">
+								 <div data-dropdown-select="ddSelectOptionsAllQueries" data-dropdown-model="ddSelectSelectedAllQueries"></div>
+							</div>
+							<div class="search">
+								<input class="for-queries" placeholder="Search" data-ng-model="queryFilter"/>
+								<a href="javascript:;" class="search-icon icons"></a>
+							</div>
+						</div>
+						<div class="clear"></div>
+						<div class="detail-query"> 
+							<ul>
+								<li data-ng-repeat="queries in entitySelected.QueriesGroup" data-ng-class="{active:queries.isExpand}">
+									<a href="javascript:;" class="drop-down" data-ng-click="queries.isExpand = !queries.isExpand;setHeightForLeftAside()">{{queries.Title}}</a>
+									<p class="number">{{results.length}} Queries</p>
+									<div class="clear"></div>
+									<div class="chat-cover-all">
+										<!-- Group One -->
+										<div class="group" data-ng-repeat="chatItem in queries.Queries | filter:filterQueries:chatItem as results" data-ng-class="{'clone active':chatItem.Status!=='Open'}">
+											<a href="javascript:;" class="open">{{chatItem.Status}}</a>
+											<div class="chat-detail">
+												<p class="name-date">
+													<a href="javascript:;" class="name">{{chatItem.Name}}</a>
+													<span class="date"> . {{chatItem.Date}}</span>
+												</p>
+												<a href="javascript:;" class="text-detail">
+													{{chatItem.Comment}}
+												</a>
+												<div class="cover-realy">
+													<a href="javascript:;" class="btn-realy" data-ng-click="toggleReplyInput($event)">Reply</a>
+													<div class="reply">
+														<input type="text" placeholder="Enter Reply"/>
+														<a href="javascript:;" class="btn-add" data-ng-click="addReply($parent.$index, $index,$event)">Add</a>
+													</div>
+
+													<div class="clear"></div>
+													<div class="when-realy">
+														<a href="javascript:;" class="count" data-ng-click="toggleReply($event)">{{chatItem.Reply.length}} {{chatItem.Reply.length > 1 ? 'Replies' : 'Reply'}}</a>
+														<div class="cover-text" data-ng-repeat="reply in chatItem.Reply">
+																<p class="name-date">
+																	<a href="javascript:;" class="name">{{reply.Name}} </a>
+																	<span class="date"> . {{reply.Date}}</span>
+																</p>
+																<p class="text-detail">
+																	{{reply.Comment}}
+																</p>
+																<!-- <a href="javascript:;" class="btn-realy">Reply</a> -->
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<!-- Right Group	 -->
+				</div>
+			</div>
+			<!-- /tab-dashboard-details -->
+		</div>
+		<!-- /main-content -->
+		<div class="clear"></div>
+		<footer data-footer-template>
+		</footer>
+		<!-- /footer -->
+		
+		<div class="disclaimer-popup" data-disclaimer-popup-template data-ng-hide="!isShowPopupDisclaimer">
+		</div>
+		<!-- /disclaimer-popup -->
+		
+	</div>
+	<!-- /dinnaco-full-content -->
+</div>
+<!-- end .row. -->
+<div class="overlay" data-ng-class="{show:isShowPopupDisclaimer}" data-ng-click="clickHiddenPopupDisclaimer()"></div>
+<div class="overlay overlay-document hidden-lg" data-ng-class="{show:isShowLeftContent}" data-ng-click="isShowLeftContent=false"></div>

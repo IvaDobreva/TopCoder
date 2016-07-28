@@ -1,0 +1,214 @@
+/*css dropdown custom*/
+.wrap-dd-select {
+	height: 100%;
+	font-size: 17px;
+	line-height: 33px;
+	text-indent: 11px;
+	z-index: 9;
+}
+	.wrap-dd-select > span {
+		color: #404040;
+		opacity: 0.5;
+	}
+	.none-color .wrap-dd-select > span {
+		color: #282828;
+		opacity: 1
+	}
+
+
+		.while-text .wrap-dd-select {
+			line-height: 43px;
+		}
+		.while-text .wrap-dd-select > span {
+			color: #fff;
+			opacity: 1
+		}
+
+		.while-text .wrap-dd-select.active > span {
+			color: #fff;
+			opacity: 1
+		}
+
+	.small-table-dropdown .wrap-dd-select {
+		font-size: 14px;
+		line-height: 33px;
+		text-indent: 0;
+	}
+
+	.wrap-dd-select.active > span {
+		color: #282828;
+		opacity: 1;
+	}
+
+	
+		.sort-change .wrap-dd-select.change > span {
+			color: #282828;
+			opacity: 1;
+		}
+
+		.filter-by .wrap-dd-select.change > span {
+			color: #282828;
+			opacity: 1;
+		}
+		.dropdown-here .wrap-dd-select.change > span {
+			color: #282828;
+			opacity: 1;
+		}
+		
+		.small-table-dropdown .wrap-dd-select > span {
+			color: #282828;
+			opacity: 1;
+			position: relative;
+			right: 14px;
+			bottom: 4px;
+		}
+	.wrap-dd-select::after {
+		content: "";
+		width: 12px;
+		height: 7px;
+		position: absolute;
+		right: 13px;
+		top: 43%;
+		background-image: url("../i/desk/D-Icons.png");
+		background-position: -19px -48px;
+	}
+		.while-text .wrap-dd-select::after {
+			content: "";
+			width: 11px;
+			height: 6px;
+			position: absolute;
+			right: 28px;
+			top: 47%;
+			background-image: url("../i/desk/D-Icons.png");
+			background-position: 0px -49px;
+		}
+
+		.small-table-dropdown .wrap-dd-select::after {
+			content: "";
+			width: 6px;
+			height: 5px;
+			position: absolute;
+			right: 3px;
+			top: 44%;
+			background-image: url("../i/desk/D-Icons.png");
+			background-position: 0px -141px;
+		}
+		.hide-arrow .wrap-dd-select::after {
+			display: none;
+		}
+	.wrap-dd-select .dropdown {
+		margin-top: 2px;
+	}
+		.wrap-dd-select .dropdown li:hover a {
+		    background: rgb(0, 161, 222);
+		    color: #fff;
+		}
+
+/*show per page*/
+.tab-dashboard-details .bottom-content .bottom-pagination .show-per .dropdown-here {
+	position: relative;
+}
+	.tab-dashboard-details .bottom-content .bottom-pagination .show-per .dropdown-here .per-page-input {
+		display: block;
+		width: 100%;
+		height: 100%;
+		padding: 0;
+		font-size: 17px;
+		color: #282828;
+		text-indent: 10px;
+		border: 0 none transparent;
+		background-color: transparent;
+	}
+	.tab-dashboard-details .bottom-content .bottom-pagination .show-per .dropdown-here .box-arrow {
+		display: block;
+		position: absolute;
+		top: 6px;
+		right: 14px;
+	}
+		.tab-dashboard-details .bottom-content .bottom-pagination .show-per .dropdown-here .box-arrow .top-arrow {
+			display: block;
+			width: 12px;
+			height: 7px;
+			background-position: -39px -48px;
+		}
+		.tab-dashboard-details .bottom-content .bottom-pagination .show-per .dropdown-here .box-arrow .bottom-arrow {
+			display: block;
+			width: 12px;
+			height: 7px;
+			background-position: -19px -48px;
+			margin-top: 7px;
+		}
+		.small-table-dropdown .wrap-dd-select .dropdown li a {
+			text-align: center;
+		}
+
+/*iPad in portrait & landscape*/
+@media only screen 
+and (min-width : 768px) 
+and (max-width : 1279px)  {
+
+	.wrap-dd-select {
+		font-size: 15px;
+		line-height: 28px;
+	}
+	.wrap-dd-select::after {
+		content: "";
+		width: 11px;
+		height: 6px;
+		right: 10px;;
+		background-image: url("../i/mobi/M-Icons.png");
+		background-position: -16px -33px;
+		-webkit-background-size: 225px 187px;
+		-moz-background-size: 225px 187px;
+		background-size: 225px 187px;
+	}
+	.tab-dashboard-details .bottom-content .bottom-pagination .show-per .dropdown-here .box-arrow .top-arrow {
+		width: 11px;
+		height: 7px;
+		background-position: -65px -32px;
+	}
+	.tab-dashboard-details .bottom-content .bottom-pagination .show-per .dropdown-here .box-arrow .bottom-arrow {
+		width: 11px;
+		height: 7px;
+		background-position: -85px -32px;
+		margin-top: 5px;
+		margin-left: 1px;
+	}
+	.tab-dashboard-details .bottom-content .bottom-pagination .show-per .dropdown-here .box-arrow {
+		top: 6px;
+		right: 9px;
+	}
+	
+
+	.while-text .wrap-dd-select {
+		line-height: 41px;
+	}
+	.while-text .wrap-dd-select::after {
+	    content: "";
+	    width: 11px;
+	    height: 6px;
+	    position: absolute;
+	    right: 28px;
+	    top: 47%;
+	    background-image: url("../i/mobi/M-Icons.png");
+	    background-position: 0px -60px;
+	    -webkit-background-size: 225px 187px;
+	    -moz-background-size: 225px 187px;
+	    background-size: 225px 187px;
+	}
+
+	.small-table-dropdown .wrap-dd-select::after {
+		content: "";
+		width: 6px;
+		height: 5px;
+		position: absolute;
+		right: 5px;
+		top: 47%;
+		background-image: url("../i/mobi/M-Icons.png");
+		background-position: -123px -61px;
+		-webkit-background-size: 225px 187px;
+		-moz-background-size: 225px 187px;
+		background-size: 225px 187px;
+	}
+
+}		

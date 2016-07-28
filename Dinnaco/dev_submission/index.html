@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en-US" data-ng-app="app" data-ng-controller="masterCtrl">
+<head lang="en">
+	<meta charset="UTF-8">
+	<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, minimal-ui'/>
+	<title>iXBRL Viewer</title>
+	<!-- css style -->
+	<!-- <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,300,700' rel='stylesheet' type='text/css'>  -->
+	<link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap.min.css"/>
+	<link rel="stylesheet" type="text/css" href="lib/font.css"/>
+	
+	<link rel="stylesheet" type="text/css" href="lib/radius-chart-theme.css">
+	<link rel="stylesheet" type="text/css" href="lib/group-chart-theme.css">
+	<link rel="stylesheet" type="text/css" href="lib/angular-dropdowns.min.css">
+	<link rel="stylesheet" type="text/css" href="lib/dropdown-custom.css">
+	<link rel="stylesheet" type="text/css" href="lib/jquery-ui.css">
+	<link rel="stylesheet" type="text/css" href="lib/annotator.min.css">
+	<link rel="stylesheet/less" type="text/css" href="css/style.less">
+	<link rel="stylesheet/less" type="text/css" href="css/breakpoints.less"> 
+
+	<!--jQuery-->
+	<script src="lib/jquery/jquery-2.2.3.min.js"></script>
+	<script src="lib/jquery-ui.min.js"></script>
+	<!--Bootstrap-->
+	<script type="text/javascript" src="lib/bootstrap/js/bootstrap.min.js"></script>
+	<!-- less -->
+	<script type="text/javascript" src="lib/prefixfree.min.js"></script>
+	<script type="text/javascript" src="lib/prefixfree.dynamic-dom.min.js"></script>
+	<script type="text/javascript" src="lib/less.min.js"></script>
+	<!-- AngularJS -->
+	<script type="text/javascript" src="lib/angular/angular.min.js"></script>
+	<script type="text/javascript" src="lib/angular/angular-route.min.js"></script>
+	<script type="text/javascript" src="lib/angular-filter.js"></script>
+	<script type="text/javascript" src="lib/angular.less.js"></script>
+	<!-- Radius chart -->
+	<script type="text/javascript" src="lib/jquery.knob.min.js"></script>
+	<script type="text/javascript" src="lib/jquery.redrawKnob.js"></script>
+	<!-- D3.js -->
+	<script src="lib/d3.v3.min.js"></script>
+	<!-- Dropdown JS -->
+	<script type="text/javascript" src="lib/angular-dropdowns.js"></script>
+	<!-- Drag and drop -->
+	<script src="lib/angular-dragdrop.js"></script>
+	<!-- JS files -->
+	<script type="text/javascript" src="js/XBRLViewer.js"></script>
+	<script type="text/javascript" src="js/directives.js"></script>
+	<!-- annotator -->
+	<script type="text/javascript" src="lib/annotator-full.min.js"></script>
+	<script type="text/javascript" src="lib/annotator.offline.min.js"></script>
+
+	
+
+	<!-- js controller -->
+	<script type="text/javascript" src="js/controllers/masterCtrl.js"></script>
+	<script type="text/javascript" src="js/controllers/dashBoardPageCtrl.js"></script>
+	<script type="text/javascript" src="js/controllers/documentDetailPageCtrl.js"></script>
+	<script type="text/javascript" src="js/controllers/fAQsPageCtrl.js"></script>
+	<script type="text/javascript" src="js/controllers/queryStatusPageCtrl.js"></script>
+
+	<!-- js service -->
+	<script type="text/javascript" src="js/services/dashBoardService.js"></script>
+	<script type="text/javascript" src="js/services/compareTagService.js"></script>
+	<script type="text/javascript" src="js/services/fAQsService.js"></script>
+	<script type="text/javascript" src="js/services/queryStatusService.js"></script>
+	<script type="text/javascript" src="js/services/dropdownService.js"></script>
+	<script type="text/javascript" src="js/services/documentDetailDataService.js"></script>
+	<script type="text/javascript" src="js/services/annotationService.js"></script>
+
+	<script type="text/javascript" src="js/services/clientsService.js"></script>
+	<script type="text/javascript" src="js/services/entitiesService.js"></script>
+	<script type="text/javascript" src="js/services/tagListService.js"></script>
+	<script type="text/javascript" src="js/services/contextRefService.js"></script>
+	<script type="text/javascript" src="js/services/tagComparisonService.js"></script>
+	<script type="text/javascript" src="js/services/fileService.js"></script>
+	<script type="text/javascript" src="js/services/disclaimerService.js"></script>
+</head>
+<body data-ng-cloak>
+	<div class="container-fluid" data-ng-view>
+	</div>
+</body>
+</html>
