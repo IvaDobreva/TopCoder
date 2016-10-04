@@ -1,7 +1,0 @@
-Hello {!User.Name},
-
-The activity {!CE_Activity__c.Name} has been assigned to you. Please log in to view.
-
-Sincerely,
-
-The CrowdExchange Platform Team

@@ -1,7 +1,0 @@
-Hello {!User.Name},
-
-No users have registered for the activity {!CE_Activity__c.Name}.
-
-Sincerely,
-
-The CrowdExchange Platform Team

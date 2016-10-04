@@ -1,7 +1,0 @@
-Hello {!User.Name},
-
-The activity {!CE_Registration__c.CE_Activity__c} has been cancelled.
-
-Sincerely,
-
-The CrowdExchange Platform Team
