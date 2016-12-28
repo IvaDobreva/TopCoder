@@ -1,0 +1,11 @@
+.distribution-graph-directive(ng-show="graphState.show == 'distribution'")
+
+  .graph-title
+    .text Rating Distribution Graph
+    .button-group
+      button.tc-btn.tc-btn-s(ng-click="graphState.show = 'history'") View Rating History
+      button.tc-btn.tc-btn-s.active(ng-click="graphState.show = 'distribution'") View Rating Distribution
+
+  .graph-viewer
+
+    .distribution-graph

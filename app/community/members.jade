@@ -1,0 +1,83 @@
+.community-view
+  .header-community
+    header
+      h1 Community Overview
+
+  .members-container
+    .search-container
+      form(name="searchForm", role="form", ng-submit="ctrl.search()", novalidate)
+        input(ng-model="ctrl.keywords", name="keywords", placeholder="find members", type="text", required)
+        input(type="submit" name="search-btn" value="").search-ico
+
+    .default-show-container(ng-show="ctrl.notSearch")
+      .platform-stats-container
+        .stat
+          p.statVal {{ctrl.platformStats.memberCount | number : 0}}
+          p.statLabel ACTIVE MEMBERS
+        .stat
+          p.statVal {{ctrl.platformStats.activeMembersCount | number : 0}}
+          p.statLabel COMPETING TODAY
+        .stat
+          p.statVal {{ctrl.platformStats.prizePurse | currency:undefined:0}}
+          p.statLabel AVAILABLE PRIZES
+        .stat
+          p.statVal {{ctrl.platformStats.activeContestsCount | number : 0}}
+          p.statLabel ACTIVE CHALLENGES
+      .members-of-month-container
+        h2 Community Advisory Board
+        .members-wrapper
+          .user-tile(ng-repeat="item in ctrl.memberLeaderboard")
+            a.avatar-wrapper(ui-sref="profile.about({userHandle: item.name})")
+              img(ng-src="{{item.avatar}}")
+            a.user-name(ui-sref="profile.about({userHandle: item.name})") {{item.name}}
+            .user-tag(class="{{item.class}}") {{item.contestType}}
+            p.user-desc {{item.description}}
+
+      .reviewboard-container 
+        h2 Review Boards
+        .content-wrapper
+          .col
+            .link: a(ng-href="//www.{{ctrl.domain}}/tc?module=ReviewBoard&pt=7", target="_blank") Architecture
+            .link: a(ng-href="//www.{{ctrl.domain}}/tc?module=ReviewBoard&pt=14", target="_blank") Assembly    
+          .col
+            .link: a(ng-href="//www.{{ctrl.domain}}/tc?module=ReviewBoard&pt=9", target="_blank") Bug Hunt
+            .link: a(ng-href="//www.{{ctrl.domain}}/tc?module=ReviewBoard&pt=39", target="_blank") Code    
+            .link: a(ng-href="//www.{{ctrl.domain}}/tc?module=ReviewBoard&pt=38", target="_blank") First2Finish
+          .col
+            .link: a(ng-href="//www.{{ctrl.domain}}/tc?module=ReviewBoard&pt=13", target="_blank") Test Suites
+            .link: a(ng-href="//www.{{ctrl.domain}}/tc?module=ReviewBoard&pt=19", target="_blank") UI prototype    
+
+
+      .copilots-container
+        h2 Copilots
+        .copilots-wrapper
+          .user-tile(ng-repeat="item in ctrl.copilots")
+            .avatar-wrapper: img(ng-src="{{item.avatar}}")
+            .user-name {{item.name}}
+            .user-country {{item.country}}
+        .btn-wrapper
+          a(ng-href="//community.{{ctrl.domain}}/tc?module=ViewCopilotPool&size=20&view=0&sort=12", target="_blank").blue-btn View all copilots
+
+
+    .search-result-container(ng-hide="ctrl.notSearch")
+      h2 Search Result For:
+        span "{{ctrl.keywords}}"
+        .showing-controll-wrapper
+          ul
+            li
+              input(type="radio" ng-model="ctrl.showing" value="grid" name="showing")#member-showing-grid
+              label(for="member-showing-grid").grid-lbl grid
+            li
+              input(type="radio" ng-model="ctrl.showing" value="list" name="showing")#member-showing-list
+              label(for="member-showing-list").list-lbl list
+      .results-wrapper(ng-class="{'show-grid': ctrl.showing=='grid'}")
+        .user-tile(ng-repeat="item in ctrl.searchResult")
+          .avatar-wrapper: img(ng-src="{{item.avatar}}")
+          .text-content
+            .user-name {{item.name}}
+            .user-country {{item.country}}
+          a.user-more View Profile
+      .btn-wrapper
+        a.gray-btn Load More
+
+
